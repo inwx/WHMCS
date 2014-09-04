@@ -1,0 +1,56 @@
+InterNetworX Registrar Module for WHMCS
+____________________________________________________________________________________
+
+SUPPORTED FEATURES:
+====================================================================================
+* Domain Registration
+* Domain Transfer
+* EPP Code Retrieval
+* View/Change Nameservers
+* View/Update WHOIS Information
+* Lock/Unlock Domains
+* Domain Renewal (not supported for all TLDs)
+* DNS Record Management (Record-Types: A, AAAA, MX, CNAME, SPF (TXT), URL, FRAME)
+* Register/Manage Private Nameservers
+* TestMode, using Test Environment (OTE)
+
+The InterNetworX Registrar Module does not yet support:
+* Email Fowarding
+* ID Protection
+
+INSTALLATION:
+====================================================================================
+1)
+When you are using the old WHMCS-Module with the name "inwx" (the folder 
+/modules/registrars/inwx/ exists), please execute the following SQL-Queries
+to your WHMCS-Database:
+
+	UPDATE tbldomainpricing set autoreg='internetworx' WHERE autoreg='inwx' ;
+	UPDATE tbldomains set registrar='internetworx' WHERE registrar='inwx' ;
+	DELETE FROM tblregistrars WHERE registrar='inwx' ;
+2)
+Copy the provided folder "internetworx" in /modules/registrars/
+(when the folder /modules/registrars/inwx exists, please delete it!)
+
+3)
+Activate and configure the internetworx module in 
+Config > Domain Registrars > Internetworx
+
+4)
+It's recommend to use our module additionaldomainfields.php for needed 
+domain registration extra data. For that you need to add the following 
+command to includes/additionaldomainfields.php:
+
+include dirname(__FILE__).DIRECTORY_SEPARATOR
+	."..".DIRECTORY_SEPARATOR
+	."modules".DIRECTORY_SEPARATOR
+	."registrars".DIRECTORY_SEPARATOR
+	."internetworx".DIRECTORY_SEPARATOR
+	."additionaldomainfields.php";
+
+
+____________________________________________________________________________________
+(c) 2011 InterNetworX Ltd. & Co. KG, Tempelhofer Damm 140, DE-12099 Berlin
+support@inwx.de
+http://www.inwx.com
+
