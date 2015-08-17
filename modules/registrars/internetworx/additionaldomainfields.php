@@ -28,7 +28,7 @@ $additionaldomainfields[".ba"][] = array(
 $additionaldomainfields[".ba"][] = array(
 		"Name" => "LEGAL-REPRESENTATIVE-POSITION",
 		"InwxName" => "LEGAL-REPRESENTATIVE-POSITION",
-		"DisplayName" => "LEGAL-REPRESENTATIVE-POSITION",
+		"DisplayName" => "Legal representative position",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -46,28 +46,28 @@ $additionaldomainfields[".bg"][] = array(
 $additionaldomainfields[".bg"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bg"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bg"][] = array(
 		"Name" => "OWNER-CONTACT-NAME-IS-LEGAL-REPRESENTATIVE",
 		"InwxName" => "OWNER-CONTACT-NAME-IS-LEGAL-REPRESENTATIVE",
-		"DisplayName" => "OWNER-CONTACT-NAME-IS-LEGAL-REPRESENTATIVE",
+		"DisplayName" => "I confirm that the domain owner contact name is a legal representative of the company as mentioned in the business registration certificate.",
 		"Required" => false,
 		"Type" => "tickbox",
 	);
 $additionaldomainfields[".bg"][] = array(
 		"Name" => "BG-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "BG-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "BG-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm to send the necessary documents by postal mail on time within 30 days after request. This is valid from receipt of documents by the recipient. After the registration request, a notification about documents available to download within the domainlist is usually given within one working day.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -96,14 +96,14 @@ $additionaldomainfields[".com.br"][] = array(
 $additionaldomainfields[".com.br"][] = array(
 		"Name" => "BR-CPF",
 		"InwxName" => "BR-CPF",
-		"DisplayName" => "BR-CPF",
+		"DisplayName" => "CPF (brazilian tax number)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.br"][] = array(
 		"Name" => "BR-CNPJ",
 		"InwxName" => "BR-CNPJ",
-		"DisplayName" => "BR-CNPJ",
+		"DisplayName" => "CNPJ (brazilian company number)",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -121,21 +121,21 @@ $additionaldomainfields[".com.hk"][] = array(
 $additionaldomainfields[".com.hk"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.hk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.hk"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -153,7 +153,7 @@ $additionaldomainfields[".co.kr"][] = array(
 $additionaldomainfields[".co.kr"][] = array(
 		"Name" => "KR-CTFY-TYPE",
 		"InwxName" => "KR-CTFY-TYPE",
-		"DisplayName" => "KR-CTFY-TYPE",
+		"DisplayName" => ".KR certify type",
 		"Required" => false,
 		"Options" => "Business Registration Certificate,Social Security Card,Corporation Registration Certificate,Unique Number Certificate,Tax Registration Certificate,Organization Registration Certificate,Brand Name Registration Certificate,Service Name Registration Certificate,School Foundation Certificate,Auxiliary LAB Certificate,Organization Voucher,Establishment Authorization Certificate,Bylaws & Rules,Foreigner registration Certificate,Drive License,Passport,etc",
 		"InwxOptions" => "BUSINESS,SOCIAL,CORP,UNIQUE,TAX,ORG,BRAND,SERVICE,SCHOOL,AUXLAB,ORGVOU,ESTABLISHMENT,BYLAWS,FOREIGNER,DRIVELIC,PASSPORT,ETC",
@@ -161,7 +161,7 @@ $additionaldomainfields[".co.kr"][] = array(
 $additionaldomainfields[".co.kr"][] = array(
 		"Name" => "KR-CTFY-NO",
 		"InwxName" => "KR-CTFY-NO",
-		"DisplayName" => "KR-CTFY-NO",
+		"DisplayName" => ".KR certify number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -201,56 +201,56 @@ $additionaldomainfields[".ee"][] = array(
 $additionaldomainfields[".ee"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ee"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ee"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ee"][] = array(
 		"Name" => "LEGAL-REPRESENTATIVE-POSITION",
 		"InwxName" => "LEGAL-REPRESENTATIVE-POSITION",
-		"DisplayName" => "LEGAL-REPRESENTATIVE-POSITION",
+		"DisplayName" => "Legal representative position",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ee"][] = array(
 		"Name" => "ADMIN-BIRTH-DATE",
 		"InwxName" => "ADMIN-BIRTH-DATE",
-		"DisplayName" => "ADMIN-BIRTH-DATE",
+		"DisplayName" => "Birthdate of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ee"][] = array(
 		"Name" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ee"][] = array(
 		"Name" => "TECH-BIRTH-DATE",
 		"InwxName" => "TECH-BIRTH-DATE",
-		"DisplayName" => "TECH-BIRTH-DATE",
+		"DisplayName" => "Birthdate of the technical contact",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ee"][] = array(
 		"Name" => "TECH-IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "TECH-IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => "TECH-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the technical contact",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -279,35 +279,35 @@ $additionaldomainfields[".fi"][] = array(
 $additionaldomainfields[".fi"][] = array(
 		"Name" => "FI-HENKILOTUNNUS",
 		"InwxName" => "FI-HENKILOTUNNUS",
-		"DisplayName" => "FI-HENKILOTUNNUS",
+		"DisplayName" => "Henkil�tunnus",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fi"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fi"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fi"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fi"][] = array(
 		"Name" => "FI-TRADEMARK-TYPE",
 		"InwxName" => "FI-TRADEMARK-TYPE",
-		"DisplayName" => "FI-TRADEMARK-TYPE",
+		"DisplayName" => ".FI Trademark type",
 		"Required" => false,
 		"Options" => "National Board of Patents and Registration of Finland (PRH),Office for Harmonization in the Internal Market (OHIM/HABM/IHMI/OAMI/OHMI/UAMI),World Intellectual Property Organization (OMPI/MOIP/WIPO)",
 		"InwxOptions" => "FI,EM,WO",
@@ -315,14 +315,14 @@ $additionaldomainfields[".fi"][] = array(
 $additionaldomainfields[".fi"][] = array(
 		"Name" => "TRADEMARK-NAME",
 		"InwxName" => "TRADEMARK-NAME",
-		"DisplayName" => "TRADEMARK-NAME",
+		"DisplayName" => "Trademark Name",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fi"][] = array(
 		"Name" => "TRADEMARK-NUMBER",
 		"InwxName" => "TRADEMARK-NUMBER",
-		"DisplayName" => "TRADEMARK-NUMBER",
+		"DisplayName" => "Trademark Number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -340,28 +340,28 @@ $additionaldomainfields[".fr"][] = array(
 $additionaldomainfields[".fr"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fr"][] = array(
 		"Name" => "BIRTH-PC",
 		"InwxName" => "BIRTH-PC",
-		"DisplayName" => false,
+		"DisplayName" => "Postal code of birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fr"][] = array(
 		"Name" => "BIRTH-CITY",
 		"InwxName" => "BIRTH-CITY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fr"][] = array(
 		"Name" => "BIRTH-COUNTRY",
 		"InwxName" => "BIRTH-COUNTRY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birth country",
 		"Required" => false,
 		"Options" => "CURAÇAO,SINT MAARTEN,BONAIRE  SINT EUSTATIUS AND SABA,AFGHANISTAN,ALAND ISLANDS,ALBANIA,ALGERIA,AMERICAN SAMOA,ANDORRA,ANGOLA,ANGUILLA,ANTARCTICA,ANTIGUA AND BARBUDA,ARGENTINA,ARMENIA,ARUBA,ASCENSION ISLAND,AUSTRALIA,AUSTRIA,AZERBAIJAN,BAHAMAS,BAHRAIN,BANGLADESH,BARBADOS,BELARUS,BELGIUM,BELIZE,BENIN,BERMUDA,BHUTAN,BOLIVIA,BOSNIA AND HERZEGOVINA,BOTSWANA,BOUVET ISLAND,BRAZIL,BRITISH INDIAN OCEAN TERRITORY,BRUNEI DARUSSALAM,BULGARIA,BURKINA FASO,BURUNDI,CAMBODIA,CAMEROON,CANADA,CAPE VERDE,CAYMAN ISLANDS,CENTRAL AFRICAN REPUBLIC,CHAD,CHILE,CHINA,CHRISTMAS ISLAND,COCOS (KEELING) ISLANDS,COLOMBIA,COMOROS,CONGO,CONGO  THE DEMOCRATIC REPUBLIC OF THE,COOK ISLANDS,COSTA RICA,COTE D IVOIRE,CROATIA,CUBA,CYPRUS,CZECH REPUBLIC,DENMARK,DJIBOUTI,DOMINICA,DOMINICAN REPUBLIC,ECUADOR,EGYPT,EL SALVADOR,EQUATORIAL GUINEA,ERITREA,ESTONIA,ETHIOPIA,FALKLAND ISLANDS (MALVINAS),FAROE ISLANDS,FIJI,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GABON,GAMBIA,GEORGIA,GERMANY,GHANA,GIBRALTAR,GREECE,GREENLAND,GRENADA,GUADELOUPE,GUAM,GUATEMALA,GUERNSEY,GUINEA,GUINEA-BISSAU,GUYANA,HAITI,HEARD ISLAND AND MCDONALD ISLANDS,HOLY SEE (VATICAN CITY STATE),HONDURAS,HONG KONG,HUNGARY,ICELAND,INDIA,INDONESIA,IRAN  ISLAMIC REPUBLIC OF,IRAQ,IRELAND,ISLE OF MAN,ISRAEL,ITALY,JAMAICA,JAPAN,JERSEY,JORDAN,KAZAKHSTAN,KENYA,KIRIBATI,KOREA  DEMOCRATIC PEOPLES REPUBLIC OF,KOREA  REPUBLIC OF,KUWAIT,KYRGYZSTAN,LAO PEOPLES DEMOCRATIC REPUBLIC,LATVIA,LEBANON,LESOTHO,LIBERIA,LIBYAN ARAB JAMAHIRIYA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MACAO,MACEDONIA  THE FORMER YUGOSLAV REPUBLIC OF,MADAGASCAR,MALAWI,MALAYSIA,MALDIVES,MALI,MALTA,MARSHALL ISLANDS,MARTINIQUE,MAURITANIA,MAURITIUS,MAYOTTE,MEXICO,MICRONESIA  FEDERATED STATES OF,MOLDOVA  REPUBLIC OF,MONACO,MONGOLIA,MONTENEGRO,MONTSERRAT,MOROCCO,MOZAMBIQUE,MYANMAR,NAMIBIA,NAURU,NEPAL,NETHERLANDS,NEW CALEDONIA,NEW ZEALAND,NICARAGUA,NIGER,NIGERIA,NIUE,NORFOLK ISLAND,NORTHERN MARIANA ISLANDS,NORWAY,OMAN,PAKISTAN,PALAU,PALESTINIAN TERRITORY  OCCUPIED,PANAMA,PAPUA NEW GUINEA,PARAGUAY,PERU,PHILIPPINES,PITCAIRN,POLAND,PORTUGAL,PUERTO RICO,QATAR,REUNION,ROMANIA,RUSSIAN FEDERATION,RWANDA,SAINT BARTHELEMY,SAINT HELENA,SAINT KITTS AND NEVIS,SAINT LUCIA,SAINT MARTIN,SAINT PIERRE AND MIQUELON,SAINT VINCENT AND THE GRENADINES,SAMOA,SAN MARINO,SAO TOME AND PRINCIPE,SAUDI ARABIA,SENEGAL,SERBIA,SEYCHELLES,SIERRA LEONE,SINGAPORE,SLOVAKIA,SLOVENIA,SOLOMON ISLANDS,SOMALIA,SOUTH AFRICA,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS,SPAIN,SRI LANKA,SUDAN,SURINAME,SVALBARD AND JAN MAYEN,SWAZILAND,SWEDEN,SWITZERLAND,SYRIAN ARAB REPUBLIC,TAIWAN  PROVINCE OF CHINA,TAJIKISTAN,TANZANIA  UNITED REPUBLIC OF,THAILAND,TIMOR-LESTE,TOGO,TOKELAU,TONGA,TRINIDAD AND TOBAGO,TUNISIA,TURKEY,TURKMENISTAN,TURKS AND CAICOS ISLANDS,TUVALU,UGANDA,UKRAINE,UNITED ARAB EMIRATES,UNITED KINGDOM,UNITED STATES,UNITED STATES MINOR OUTLYING ISLANDS,URUGUAY,UZBEKISTAN,VANUATU,VENEZUELA  BOLIVARIAN REPUBLIC OF,VIET NAM,VIRGIN ISLANDS  BRITISH,VIRGIN ISLANDS  U.S.,Indeterminately reserved,WALLIS AND FUTUNA,WESTERN SAHARA,YEMEN,ZAMBIA,ZIMBABWE",
 		"InwxOptions" => "CW,SX,BQ,AF,AX,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,AC,AU,AT,AZ,BS,BH,BD,BB,BY,BE,BZ,BJ,BM,BT,BO,BA,BW,BV,BR,IO,BN,BG,BF,BI,KH,CM,CA,CV,KY,CF,TD,CL,CN,CX,CC,CO,KM,CG,CD,CK,CR,CI,HR,CU,CY,CZ,DK,DJ,DM,DO,EC,EG,SV,GQ,ER,EE,ET,FK,FO,FJ,FI,FR,GF,PF,TF,GA,GM,GE,DE,GH,GI,GR,GL,GD,GP,GU,GT,GG,GN,GW,GY,HT,HM,VA,HN,HK,HU,IS,IN,ID,IR,IQ,IE,IM,IL,IT,JM,JP,JE,JO,KZ,KE,KI,KP,KR,KW,KG,LA,LV,LB,LS,LR,LY,LI,LT,LU,MO,MK,MG,MW,MY,MV,ML,MT,MH,MQ,MR,MU,YT,MX,FM,MD,MC,MN,ME,MS,MA,MZ,MM,NA,NR,NP,NL,NC,NZ,NI,NE,NG,NU,NF,MP,NO,OM,PK,PW,PS,PA,PG,PY,PE,PH,PN,PL,PT,PR,QA,RE,RO,RU,RW,BL,SH,KN,LC,MF,PM,VC,WS,SM,ST,SA,SN,RS,SC,SL,SG,SK,SI,SB,SO,ZA,GS,ES,LK,SD,SR,SJ,SZ,SE,CH,SY,TW,TJ,TZ,TH,TL,TG,TK,TO,TT,TN,TR,TM,TC,TV,UG,UA,AE,GB,US,UM,UY,UZ,VU,VE,VN,VG,VI,WO,WF,EH,YE,ZM,ZW",
@@ -369,28 +369,28 @@ $additionaldomainfields[".fr"][] = array(
 $additionaldomainfields[".fr"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fr"][] = array(
 		"Name" => "DUNS-NUMBER",
 		"InwxName" => "DUNS-NUMBER",
-		"DisplayName" => "DUNS-NUMBER",
+		"DisplayName" => "DUNS number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fr"][] = array(
 		"Name" => "EEA-LOCAL-ID",
 		"InwxName" => "EEA-LOCAL-ID",
-		"DisplayName" => "EEA-LOCAL-ID",
+		"DisplayName" => "Local ID within the European Economic Area (EEA)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fr"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -408,14 +408,14 @@ $additionaldomainfields[".ge"][] = array(
 $additionaldomainfields[".ge"][] = array(
 		"Name" => "LEGAL-REPRESENTATIVE-POSITION",
 		"InwxName" => "LEGAL-REPRESENTATIVE-POSITION",
-		"DisplayName" => "LEGAL-REPRESENTATIVE-POSITION",
+		"DisplayName" => "Legal representative position",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ge"][] = array(
 		"Name" => "OWNER-BUSINESS-AREAS",
 		"InwxName" => "OWNER-BUSINESS-AREAS",
-		"DisplayName" => "OWNER-BUSINESS-AREAS",
+		"DisplayName" => "Business area of owner",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -433,14 +433,14 @@ $additionaldomainfields[".hu"][] = array(
 $additionaldomainfields[".hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -458,21 +458,21 @@ $additionaldomainfields[".it"][] = array(
 $additionaldomainfields[".it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -490,14 +490,14 @@ $additionaldomainfields[".no"][] = array(
 $additionaldomainfields[".no"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".no"][] = array(
 		"Name" => "NO-PERSON-IDENTIFIER",
 		"InwxName" => "NO-PERSON-IDENTIFIER",
-		"DisplayName" => "NO-PERSON-IDENTIFIER",
+		"DisplayName" => ".NO Person Identifier (PID)",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -515,28 +515,28 @@ $additionaldomainfields[".sg"][] = array(
 $additionaldomainfields[".sg"][] = array(
 		"Name" => "SG-ADMIN-RCBID",
 		"InwxName" => "SG-ADMIN-RCBID",
-		"DisplayName" => "SG-ADMIN-RCBID",
+		"DisplayName" => "Singapore Company Registration Number of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sg"][] = array(
 		"Name" => "SG-ADMIN-SINGPASSID",
 		"InwxName" => "SG-ADMIN-SINGPASSID",
-		"DisplayName" => "SG-ADMIN-SINGPASSID",
+		"DisplayName" => "Singapore Personal Access ID of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sg"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sg"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -554,28 +554,28 @@ $additionaldomainfields[".com.sg"][] = array(
 $additionaldomainfields[".com.sg"][] = array(
 		"Name" => "SG-ADMIN-RCBID",
 		"InwxName" => "SG-ADMIN-RCBID",
-		"DisplayName" => "SG-ADMIN-RCBID",
+		"DisplayName" => "Singapore Company Registration Number of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.sg"][] = array(
 		"Name" => "SG-ADMIN-SINGPASSID",
 		"InwxName" => "SG-ADMIN-SINGPASSID",
-		"DisplayName" => "SG-ADMIN-SINGPASSID",
+		"DisplayName" => "Singapore Personal Access ID of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.sg"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.sg"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -593,7 +593,7 @@ $additionaldomainfields[".sk"][] = array(
 $additionaldomainfields[".sk"][] = array(
 		"Name" => "SK-LEGAL-FORM",
 		"InwxName" => "SK-LEGAL-FORM",
-		"DisplayName" => false,
+		"DisplayName" => ".SK Legal form",
 		"Required" => false,
 		"Options" => "Company (a.s.) ,Personal,Other,Company (s.r.o.),self employed",
 		"InwxOptions" => "AS,FO,OTHER,SRO,Z",
@@ -601,21 +601,21 @@ $additionaldomainfields[".sk"][] = array(
 $additionaldomainfields[".sk"][] = array(
 		"Name" => "SK-RODNE-CISLO",
 		"InwxName" => "SK-RODNE-CISLO",
-		"DisplayName" => "SK-RODNE-CISLO",
+		"DisplayName" => "Slovak birth number (Rodn� ?�slo, R?)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sk"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -633,14 +633,14 @@ $additionaldomainfields[".co.hu"][] = array(
 $additionaldomainfields[".co.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".co.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -658,21 +658,21 @@ $additionaldomainfields[".ag.it"][] = array(
 $additionaldomainfields[".ag.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ag.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ag.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -690,21 +690,21 @@ $additionaldomainfields[".al.it"][] = array(
 $additionaldomainfields[".al.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".al.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".al.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -722,21 +722,21 @@ $additionaldomainfields[".an.it"][] = array(
 $additionaldomainfields[".an.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".an.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".an.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -754,21 +754,21 @@ $additionaldomainfields[".ao.it"][] = array(
 $additionaldomainfields[".ao.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ao.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ao.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -786,21 +786,21 @@ $additionaldomainfields[".ar.it"][] = array(
 $additionaldomainfields[".ar.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ar.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ar.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -818,21 +818,21 @@ $additionaldomainfields[".ap.it"][] = array(
 $additionaldomainfields[".ap.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ap.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ap.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -850,21 +850,21 @@ $additionaldomainfields[".at.it"][] = array(
 $additionaldomainfields[".at.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".at.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".at.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -882,21 +882,21 @@ $additionaldomainfields[".av.it"][] = array(
 $additionaldomainfields[".av.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".av.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".av.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -914,21 +914,21 @@ $additionaldomainfields[".ba.it"][] = array(
 $additionaldomainfields[".ba.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ba.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ba.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -946,21 +946,21 @@ $additionaldomainfields[".bt.it"][] = array(
 $additionaldomainfields[".bt.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bt.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bt.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -978,21 +978,21 @@ $additionaldomainfields[".bl.it"][] = array(
 $additionaldomainfields[".bl.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bl.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bl.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1010,21 +1010,21 @@ $additionaldomainfields[".bn.it"][] = array(
 $additionaldomainfields[".bn.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bn.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bn.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1042,21 +1042,21 @@ $additionaldomainfields[".bg.it"][] = array(
 $additionaldomainfields[".bg.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bg.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bg.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1074,21 +1074,21 @@ $additionaldomainfields[".bi.it"][] = array(
 $additionaldomainfields[".bi.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bi.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bi.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1106,21 +1106,21 @@ $additionaldomainfields[".bo.it"][] = array(
 $additionaldomainfields[".bo.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bo.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bo.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1138,21 +1138,21 @@ $additionaldomainfields[".bz.it"][] = array(
 $additionaldomainfields[".bz.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bz.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bz.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1170,21 +1170,21 @@ $additionaldomainfields[".bs.it"][] = array(
 $additionaldomainfields[".bs.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bs.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bs.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1202,21 +1202,21 @@ $additionaldomainfields[".br.it"][] = array(
 $additionaldomainfields[".br.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".br.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".br.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1234,21 +1234,21 @@ $additionaldomainfields[".ca.it"][] = array(
 $additionaldomainfields[".ca.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ca.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ca.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1266,21 +1266,21 @@ $additionaldomainfields[".cl.it"][] = array(
 $additionaldomainfields[".cl.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cl.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cl.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1298,21 +1298,21 @@ $additionaldomainfields[".cb.it"][] = array(
 $additionaldomainfields[".cb.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cb.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cb.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1330,21 +1330,21 @@ $additionaldomainfields[".ci.it"][] = array(
 $additionaldomainfields[".ci.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ci.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ci.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1362,21 +1362,21 @@ $additionaldomainfields[".ce.it"][] = array(
 $additionaldomainfields[".ce.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ce.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ce.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1394,21 +1394,21 @@ $additionaldomainfields[".ct.it"][] = array(
 $additionaldomainfields[".ct.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ct.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ct.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1426,21 +1426,21 @@ $additionaldomainfields[".cz.it"][] = array(
 $additionaldomainfields[".cz.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cz.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cz.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1458,21 +1458,21 @@ $additionaldomainfields[".ch.it"][] = array(
 $additionaldomainfields[".ch.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ch.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ch.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1490,21 +1490,21 @@ $additionaldomainfields[".co.it"][] = array(
 $additionaldomainfields[".co.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".co.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".co.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1522,21 +1522,21 @@ $additionaldomainfields[".cs.it"][] = array(
 $additionaldomainfields[".cs.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cs.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cs.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1554,21 +1554,21 @@ $additionaldomainfields[".cr.it"][] = array(
 $additionaldomainfields[".cr.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cr.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cr.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1586,21 +1586,21 @@ $additionaldomainfields[".kr.it"][] = array(
 $additionaldomainfields[".kr.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".kr.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".kr.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1618,21 +1618,21 @@ $additionaldomainfields[".cn.it"][] = array(
 $additionaldomainfields[".cn.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cn.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cn.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1650,21 +1650,21 @@ $additionaldomainfields[".og.it"][] = array(
 $additionaldomainfields[".og.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".og.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".og.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1682,21 +1682,21 @@ $additionaldomainfields[".en.it"][] = array(
 $additionaldomainfields[".en.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".en.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".en.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1714,21 +1714,21 @@ $additionaldomainfields[".fe.it"][] = array(
 $additionaldomainfields[".fe.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fe.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fe.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1746,21 +1746,21 @@ $additionaldomainfields[".fm.it"][] = array(
 $additionaldomainfields[".fm.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fm.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fm.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1778,21 +1778,21 @@ $additionaldomainfields[".fi.it"][] = array(
 $additionaldomainfields[".fi.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fi.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fi.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1810,21 +1810,21 @@ $additionaldomainfields[".fg.it"][] = array(
 $additionaldomainfields[".fg.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fg.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fg.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1853,21 +1853,21 @@ $additionaldomainfields[".fr.it"][] = array(
 $additionaldomainfields[".fr.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fr.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".fr.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1885,21 +1885,21 @@ $additionaldomainfields[".ge.it"][] = array(
 $additionaldomainfields[".ge.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ge.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ge.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1917,21 +1917,21 @@ $additionaldomainfields[".go.it"][] = array(
 $additionaldomainfields[".go.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".go.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".go.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1949,21 +1949,21 @@ $additionaldomainfields[".gr.it"][] = array(
 $additionaldomainfields[".gr.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".gr.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".gr.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -1981,21 +1981,21 @@ $additionaldomainfields[".im.it"][] = array(
 $additionaldomainfields[".im.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".im.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".im.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2013,21 +2013,21 @@ $additionaldomainfields[".is.it"][] = array(
 $additionaldomainfields[".is.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".is.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".is.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2045,21 +2045,21 @@ $additionaldomainfields[".aq.it"][] = array(
 $additionaldomainfields[".aq.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".aq.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".aq.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2077,21 +2077,21 @@ $additionaldomainfields[".sp.it"][] = array(
 $additionaldomainfields[".sp.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sp.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sp.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2109,21 +2109,21 @@ $additionaldomainfields[".lt.it"][] = array(
 $additionaldomainfields[".lt.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lt.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lt.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2141,21 +2141,21 @@ $additionaldomainfields[".le.it"][] = array(
 $additionaldomainfields[".le.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".le.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".le.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2173,21 +2173,21 @@ $additionaldomainfields[".lc.it"][] = array(
 $additionaldomainfields[".lc.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lc.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lc.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2205,21 +2205,21 @@ $additionaldomainfields[".li.it"][] = array(
 $additionaldomainfields[".li.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".li.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".li.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2237,21 +2237,21 @@ $additionaldomainfields[".lo.it"][] = array(
 $additionaldomainfields[".lo.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lo.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lo.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2269,21 +2269,21 @@ $additionaldomainfields[".lu.it"][] = array(
 $additionaldomainfields[".lu.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lu.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lu.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2301,21 +2301,21 @@ $additionaldomainfields[".mc.it"][] = array(
 $additionaldomainfields[".mc.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mc.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mc.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2333,21 +2333,21 @@ $additionaldomainfields[".mn.it"][] = array(
 $additionaldomainfields[".mn.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mn.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mn.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2365,21 +2365,21 @@ $additionaldomainfields[".ms.it"][] = array(
 $additionaldomainfields[".ms.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ms.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ms.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2397,21 +2397,21 @@ $additionaldomainfields[".mt.it"][] = array(
 $additionaldomainfields[".mt.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mt.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mt.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2429,21 +2429,21 @@ $additionaldomainfields[".vs.it"][] = array(
 $additionaldomainfields[".vs.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vs.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vs.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2461,21 +2461,21 @@ $additionaldomainfields[".me.it"][] = array(
 $additionaldomainfields[".me.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".me.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".me.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2493,21 +2493,21 @@ $additionaldomainfields[".mi.it"][] = array(
 $additionaldomainfields[".mi.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mi.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mi.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2525,21 +2525,21 @@ $additionaldomainfields[".mo.it"][] = array(
 $additionaldomainfields[".mo.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mo.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mo.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2557,21 +2557,21 @@ $additionaldomainfields[".mb.it"][] = array(
 $additionaldomainfields[".mb.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mb.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mb.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2589,21 +2589,21 @@ $additionaldomainfields[".na.it"][] = array(
 $additionaldomainfields[".na.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".na.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".na.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2621,21 +2621,21 @@ $additionaldomainfields[".no.it"][] = array(
 $additionaldomainfields[".no.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".no.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".no.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2653,21 +2653,21 @@ $additionaldomainfields[".nu.it"][] = array(
 $additionaldomainfields[".nu.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".nu.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".nu.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2685,21 +2685,21 @@ $additionaldomainfields[".or.it"][] = array(
 $additionaldomainfields[".or.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".or.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".or.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2717,21 +2717,21 @@ $additionaldomainfields[".pd.it"][] = array(
 $additionaldomainfields[".pd.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pd.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pd.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2749,21 +2749,21 @@ $additionaldomainfields[".pa.it"][] = array(
 $additionaldomainfields[".pa.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pa.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pa.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2781,21 +2781,21 @@ $additionaldomainfields[".pr.it"][] = array(
 $additionaldomainfields[".pr.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pr.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pr.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2813,21 +2813,21 @@ $additionaldomainfields[".pv.it"][] = array(
 $additionaldomainfields[".pv.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pv.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pv.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2845,21 +2845,21 @@ $additionaldomainfields[".pg.it"][] = array(
 $additionaldomainfields[".pg.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pg.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pg.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2888,21 +2888,21 @@ $additionaldomainfields[".pu.it"][] = array(
 $additionaldomainfields[".pu.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pu.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pu.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2920,21 +2920,21 @@ $additionaldomainfields[".pc.it"][] = array(
 $additionaldomainfields[".pc.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pc.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pc.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2952,21 +2952,21 @@ $additionaldomainfields[".pi.it"][] = array(
 $additionaldomainfields[".pi.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pi.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pi.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -2984,21 +2984,21 @@ $additionaldomainfields[".pt.it"][] = array(
 $additionaldomainfields[".pt.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pt.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pt.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3016,21 +3016,21 @@ $additionaldomainfields[".pn.it"][] = array(
 $additionaldomainfields[".pn.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pn.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pn.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3048,21 +3048,21 @@ $additionaldomainfields[".pz.it"][] = array(
 $additionaldomainfields[".pz.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pz.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pz.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3080,21 +3080,21 @@ $additionaldomainfields[".po.it"][] = array(
 $additionaldomainfields[".po.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".po.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".po.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3112,21 +3112,21 @@ $additionaldomainfields[".rg.it"][] = array(
 $additionaldomainfields[".rg.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rg.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rg.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3144,21 +3144,21 @@ $additionaldomainfields[".ra.it"][] = array(
 $additionaldomainfields[".ra.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ra.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ra.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3176,21 +3176,21 @@ $additionaldomainfields[".rc.it"][] = array(
 $additionaldomainfields[".rc.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rc.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rc.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3208,21 +3208,21 @@ $additionaldomainfields[".re.it"][] = array(
 $additionaldomainfields[".re.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".re.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".re.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3240,21 +3240,21 @@ $additionaldomainfields[".ri.it"][] = array(
 $additionaldomainfields[".ri.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ri.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ri.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3272,21 +3272,21 @@ $additionaldomainfields[".rn.it"][] = array(
 $additionaldomainfields[".rn.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rn.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rn.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3304,21 +3304,21 @@ $additionaldomainfields[".rm.it"][] = array(
 $additionaldomainfields[".rm.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rm.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rm.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3336,21 +3336,21 @@ $additionaldomainfields[".ro.it"][] = array(
 $additionaldomainfields[".ro.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ro.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ro.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3368,21 +3368,21 @@ $additionaldomainfields[".sa.it"][] = array(
 $additionaldomainfields[".sa.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sa.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sa.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3400,21 +3400,21 @@ $additionaldomainfields[".ss.it"][] = array(
 $additionaldomainfields[".ss.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ss.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ss.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3432,21 +3432,21 @@ $additionaldomainfields[".sv.it"][] = array(
 $additionaldomainfields[".sv.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sv.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sv.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3464,21 +3464,21 @@ $additionaldomainfields[".si.it"][] = array(
 $additionaldomainfields[".si.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".si.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".si.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3496,21 +3496,21 @@ $additionaldomainfields[".sr.it"][] = array(
 $additionaldomainfields[".sr.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sr.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sr.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3528,21 +3528,21 @@ $additionaldomainfields[".so.it"][] = array(
 $additionaldomainfields[".so.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".so.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".so.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3560,21 +3560,21 @@ $additionaldomainfields[".ta.it"][] = array(
 $additionaldomainfields[".ta.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ta.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ta.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3592,21 +3592,21 @@ $additionaldomainfields[".ot.it"][] = array(
 $additionaldomainfields[".ot.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ot.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ot.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3624,21 +3624,21 @@ $additionaldomainfields[".te.it"][] = array(
 $additionaldomainfields[".te.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".te.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".te.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3656,21 +3656,21 @@ $additionaldomainfields[".tr.it"][] = array(
 $additionaldomainfields[".tr.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tr.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tr.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3688,21 +3688,21 @@ $additionaldomainfields[".to.it"][] = array(
 $additionaldomainfields[".to.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".to.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".to.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3720,21 +3720,21 @@ $additionaldomainfields[".tp.it"][] = array(
 $additionaldomainfields[".tp.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tp.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tp.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3752,21 +3752,21 @@ $additionaldomainfields[".tn.it"][] = array(
 $additionaldomainfields[".tn.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tn.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tn.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3784,21 +3784,21 @@ $additionaldomainfields[".tv.it"][] = array(
 $additionaldomainfields[".tv.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tv.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tv.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3816,21 +3816,21 @@ $additionaldomainfields[".ts.it"][] = array(
 $additionaldomainfields[".ts.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ts.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ts.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3848,21 +3848,21 @@ $additionaldomainfields[".ud.it"][] = array(
 $additionaldomainfields[".ud.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ud.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ud.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3880,21 +3880,21 @@ $additionaldomainfields[".va.it"][] = array(
 $additionaldomainfields[".va.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".va.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".va.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3912,21 +3912,21 @@ $additionaldomainfields[".ve.it"][] = array(
 $additionaldomainfields[".ve.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ve.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ve.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3944,21 +3944,21 @@ $additionaldomainfields[".vb.it"][] = array(
 $additionaldomainfields[".vb.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vb.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vb.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -3976,21 +3976,21 @@ $additionaldomainfields[".vc.it"][] = array(
 $additionaldomainfields[".vc.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vc.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vc.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4008,21 +4008,21 @@ $additionaldomainfields[".vr.it"][] = array(
 $additionaldomainfields[".vr.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vr.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vr.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4040,21 +4040,21 @@ $additionaldomainfields[".vv.it"][] = array(
 $additionaldomainfields[".vv.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vv.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vv.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4072,21 +4072,21 @@ $additionaldomainfields[".vi.it"][] = array(
 $additionaldomainfields[".vi.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vi.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vi.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4104,21 +4104,21 @@ $additionaldomainfields[".vt.it"][] = array(
 $additionaldomainfields[".vt.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vt.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".vt.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4136,14 +4136,14 @@ $additionaldomainfields[".ax"][] = array(
 $additionaldomainfields[".ax"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ax"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4172,28 +4172,28 @@ $additionaldomainfields[".com.fr"][] = array(
 $additionaldomainfields[".com.fr"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.fr"][] = array(
 		"Name" => "BIRTH-PC",
 		"InwxName" => "BIRTH-PC",
-		"DisplayName" => false,
+		"DisplayName" => "Postal code of birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.fr"][] = array(
 		"Name" => "BIRTH-CITY",
 		"InwxName" => "BIRTH-CITY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.fr"][] = array(
 		"Name" => "BIRTH-COUNTRY",
 		"InwxName" => "BIRTH-COUNTRY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birth country",
 		"Required" => false,
 		"Options" => "CURAÇAO,SINT MAARTEN,BONAIRE  SINT EUSTATIUS AND SABA,AFGHANISTAN,ALAND ISLANDS,ALBANIA,ALGERIA,AMERICAN SAMOA,ANDORRA,ANGOLA,ANGUILLA,ANTARCTICA,ANTIGUA AND BARBUDA,ARGENTINA,ARMENIA,ARUBA,ASCENSION ISLAND,AUSTRALIA,AUSTRIA,AZERBAIJAN,BAHAMAS,BAHRAIN,BANGLADESH,BARBADOS,BELARUS,BELGIUM,BELIZE,BENIN,BERMUDA,BHUTAN,BOLIVIA,BOSNIA AND HERZEGOVINA,BOTSWANA,BOUVET ISLAND,BRAZIL,BRITISH INDIAN OCEAN TERRITORY,BRUNEI DARUSSALAM,BULGARIA,BURKINA FASO,BURUNDI,CAMBODIA,CAMEROON,CANADA,CAPE VERDE,CAYMAN ISLANDS,CENTRAL AFRICAN REPUBLIC,CHAD,CHILE,CHINA,CHRISTMAS ISLAND,COCOS (KEELING) ISLANDS,COLOMBIA,COMOROS,CONGO,CONGO  THE DEMOCRATIC REPUBLIC OF THE,COOK ISLANDS,COSTA RICA,COTE D IVOIRE,CROATIA,CUBA,CYPRUS,CZECH REPUBLIC,DENMARK,DJIBOUTI,DOMINICA,DOMINICAN REPUBLIC,ECUADOR,EGYPT,EL SALVADOR,EQUATORIAL GUINEA,ERITREA,ESTONIA,ETHIOPIA,FALKLAND ISLANDS (MALVINAS),FAROE ISLANDS,FIJI,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GABON,GAMBIA,GEORGIA,GERMANY,GHANA,GIBRALTAR,GREECE,GREENLAND,GRENADA,GUADELOUPE,GUAM,GUATEMALA,GUERNSEY,GUINEA,GUINEA-BISSAU,GUYANA,HAITI,HEARD ISLAND AND MCDONALD ISLANDS,HOLY SEE (VATICAN CITY STATE),HONDURAS,HONG KONG,HUNGARY,ICELAND,INDIA,INDONESIA,IRAN  ISLAMIC REPUBLIC OF,IRAQ,IRELAND,ISLE OF MAN,ISRAEL,ITALY,JAMAICA,JAPAN,JERSEY,JORDAN,KAZAKHSTAN,KENYA,KIRIBATI,KOREA  DEMOCRATIC PEOPLES REPUBLIC OF,KOREA  REPUBLIC OF,KUWAIT,KYRGYZSTAN,LAO PEOPLES DEMOCRATIC REPUBLIC,LATVIA,LEBANON,LESOTHO,LIBERIA,LIBYAN ARAB JAMAHIRIYA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MACAO,MACEDONIA  THE FORMER YUGOSLAV REPUBLIC OF,MADAGASCAR,MALAWI,MALAYSIA,MALDIVES,MALI,MALTA,MARSHALL ISLANDS,MARTINIQUE,MAURITANIA,MAURITIUS,MAYOTTE,MEXICO,MICRONESIA  FEDERATED STATES OF,MOLDOVA  REPUBLIC OF,MONACO,MONGOLIA,MONTENEGRO,MONTSERRAT,MOROCCO,MOZAMBIQUE,MYANMAR,NAMIBIA,NAURU,NEPAL,NETHERLANDS,NEW CALEDONIA,NEW ZEALAND,NICARAGUA,NIGER,NIGERIA,NIUE,NORFOLK ISLAND,NORTHERN MARIANA ISLANDS,NORWAY,OMAN,PAKISTAN,PALAU,PALESTINIAN TERRITORY  OCCUPIED,PANAMA,PAPUA NEW GUINEA,PARAGUAY,PERU,PHILIPPINES,PITCAIRN,POLAND,PORTUGAL,PUERTO RICO,QATAR,REUNION,ROMANIA,RUSSIAN FEDERATION,RWANDA,SAINT BARTHELEMY,SAINT HELENA,SAINT KITTS AND NEVIS,SAINT LUCIA,SAINT MARTIN,SAINT PIERRE AND MIQUELON,SAINT VINCENT AND THE GRENADINES,SAMOA,SAN MARINO,SAO TOME AND PRINCIPE,SAUDI ARABIA,SENEGAL,SERBIA,SEYCHELLES,SIERRA LEONE,SINGAPORE,SLOVAKIA,SLOVENIA,SOLOMON ISLANDS,SOMALIA,SOUTH AFRICA,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS,SPAIN,SRI LANKA,SUDAN,SURINAME,SVALBARD AND JAN MAYEN,SWAZILAND,SWEDEN,SWITZERLAND,SYRIAN ARAB REPUBLIC,TAIWAN  PROVINCE OF CHINA,TAJIKISTAN,TANZANIA  UNITED REPUBLIC OF,THAILAND,TIMOR-LESTE,TOGO,TOKELAU,TONGA,TRINIDAD AND TOBAGO,TUNISIA,TURKEY,TURKMENISTAN,TURKS AND CAICOS ISLANDS,TUVALU,UGANDA,UKRAINE,UNITED ARAB EMIRATES,UNITED KINGDOM,UNITED STATES,UNITED STATES MINOR OUTLYING ISLANDS,URUGUAY,UZBEKISTAN,VANUATU,VENEZUELA  BOLIVARIAN REPUBLIC OF,VIET NAM,VIRGIN ISLANDS  BRITISH,VIRGIN ISLANDS  U.S.,Indeterminately reserved,WALLIS AND FUTUNA,WESTERN SAHARA,YEMEN,ZAMBIA,ZIMBABWE",
 		"InwxOptions" => "CW,SX,BQ,AF,AX,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,AC,AU,AT,AZ,BS,BH,BD,BB,BY,BE,BZ,BJ,BM,BT,BO,BA,BW,BV,BR,IO,BN,BG,BF,BI,KH,CM,CA,CV,KY,CF,TD,CL,CN,CX,CC,CO,KM,CG,CD,CK,CR,CI,HR,CU,CY,CZ,DK,DJ,DM,DO,EC,EG,SV,GQ,ER,EE,ET,FK,FO,FJ,FI,FR,GF,PF,TF,GA,GM,GE,DE,GH,GI,GR,GL,GD,GP,GU,GT,GG,GN,GW,GY,HT,HM,VA,HN,HK,HU,IS,IN,ID,IR,IQ,IE,IM,IL,IT,JM,JP,JE,JO,KZ,KE,KI,KP,KR,KW,KG,LA,LV,LB,LS,LR,LY,LI,LT,LU,MO,MK,MG,MW,MY,MV,ML,MT,MH,MQ,MR,MU,YT,MX,FM,MD,MC,MN,ME,MS,MA,MZ,MM,NA,NR,NP,NL,NC,NZ,NI,NE,NG,NU,NF,MP,NO,OM,PK,PW,PS,PA,PG,PY,PE,PH,PN,PL,PT,PR,QA,RE,RO,RU,RW,BL,SH,KN,LC,MF,PM,VC,WS,SM,ST,SA,SN,RS,SC,SL,SG,SK,SI,SB,SO,ZA,GS,ES,LK,SD,SR,SJ,SZ,SE,CH,SY,TW,TJ,TZ,TH,TL,TG,TK,TO,TT,TN,TR,TM,TC,TV,UG,UA,AE,GB,US,UM,UY,UZ,VU,VE,VN,VG,VI,WO,WF,EH,YE,ZM,ZW",
@@ -4201,28 +4201,28 @@ $additionaldomainfields[".com.fr"][] = array(
 $additionaldomainfields[".com.fr"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.fr"][] = array(
 		"Name" => "DUNS-NUMBER",
 		"InwxName" => "DUNS-NUMBER",
-		"DisplayName" => "DUNS-NUMBER",
+		"DisplayName" => "DUNS number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.fr"][] = array(
 		"Name" => "EEA-LOCAL-ID",
 		"InwxName" => "EEA-LOCAL-ID",
-		"DisplayName" => "EEA-LOCAL-ID",
+		"DisplayName" => "Local ID within the European Economic Area (EEA)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.fr"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4273,7 +4273,7 @@ $additionaldomainfields[".kr"][] = array(
 $additionaldomainfields[".kr"][] = array(
 		"Name" => "KR-CTFY-TYPE",
 		"InwxName" => "KR-CTFY-TYPE",
-		"DisplayName" => "KR-CTFY-TYPE",
+		"DisplayName" => ".KR certify type",
 		"Required" => false,
 		"Options" => "Business Registration Certificate,Social Security Card,Corporation Registration Certificate,Unique Number Certificate,Tax Registration Certificate,Organization Registration Certificate,Brand Name Registration Certificate,Service Name Registration Certificate,School Foundation Certificate,Auxiliary LAB Certificate,Organization Voucher,Establishment Authorization Certificate,Bylaws & Rules,Foreigner registration Certificate,Drive License,Passport,etc",
 		"InwxOptions" => "BUSINESS,SOCIAL,CORP,UNIQUE,TAX,ORG,BRAND,SERVICE,SCHOOL,AUXLAB,ORGVOU,ESTABLISHMENT,BYLAWS,FOREIGNER,DRIVELIC,PASSPORT,ETC",
@@ -4281,7 +4281,7 @@ $additionaldomainfields[".kr"][] = array(
 $additionaldomainfields[".kr"][] = array(
 		"Name" => "KR-CTFY-NO",
 		"InwxName" => "KR-CTFY-NO",
-		"DisplayName" => "KR-CTFY-NO",
+		"DisplayName" => ".KR certify number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4299,21 +4299,21 @@ $additionaldomainfields[".my"][] = array(
 $additionaldomainfields[".my"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".my"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".my"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4331,14 +4331,14 @@ $additionaldomainfields[".net.br"][] = array(
 $additionaldomainfields[".net.br"][] = array(
 		"Name" => "BR-CPF",
 		"InwxName" => "BR-CPF",
-		"DisplayName" => "BR-CPF",
+		"DisplayName" => "CPF (brazilian tax number)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.br"][] = array(
 		"Name" => "BR-CNPJ",
 		"InwxName" => "BR-CNPJ",
-		"DisplayName" => "BR-CNPJ",
+		"DisplayName" => "CNPJ (brazilian company number)",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4356,28 +4356,28 @@ $additionaldomainfields[".re"][] = array(
 $additionaldomainfields[".re"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".re"][] = array(
 		"Name" => "BIRTH-PC",
 		"InwxName" => "BIRTH-PC",
-		"DisplayName" => false,
+		"DisplayName" => "Postal code of birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".re"][] = array(
 		"Name" => "BIRTH-CITY",
 		"InwxName" => "BIRTH-CITY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".re"][] = array(
 		"Name" => "BIRTH-COUNTRY",
 		"InwxName" => "BIRTH-COUNTRY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birth country",
 		"Required" => false,
 		"Options" => "CURAÇAO,SINT MAARTEN,BONAIRE  SINT EUSTATIUS AND SABA,AFGHANISTAN,ALAND ISLANDS,ALBANIA,ALGERIA,AMERICAN SAMOA,ANDORRA,ANGOLA,ANGUILLA,ANTARCTICA,ANTIGUA AND BARBUDA,ARGENTINA,ARMENIA,ARUBA,ASCENSION ISLAND,AUSTRALIA,AUSTRIA,AZERBAIJAN,BAHAMAS,BAHRAIN,BANGLADESH,BARBADOS,BELARUS,BELGIUM,BELIZE,BENIN,BERMUDA,BHUTAN,BOLIVIA,BOSNIA AND HERZEGOVINA,BOTSWANA,BOUVET ISLAND,BRAZIL,BRITISH INDIAN OCEAN TERRITORY,BRUNEI DARUSSALAM,BULGARIA,BURKINA FASO,BURUNDI,CAMBODIA,CAMEROON,CANADA,CAPE VERDE,CAYMAN ISLANDS,CENTRAL AFRICAN REPUBLIC,CHAD,CHILE,CHINA,CHRISTMAS ISLAND,COCOS (KEELING) ISLANDS,COLOMBIA,COMOROS,CONGO,CONGO  THE DEMOCRATIC REPUBLIC OF THE,COOK ISLANDS,COSTA RICA,COTE D IVOIRE,CROATIA,CUBA,CYPRUS,CZECH REPUBLIC,DENMARK,DJIBOUTI,DOMINICA,DOMINICAN REPUBLIC,ECUADOR,EGYPT,EL SALVADOR,EQUATORIAL GUINEA,ERITREA,ESTONIA,ETHIOPIA,FALKLAND ISLANDS (MALVINAS),FAROE ISLANDS,FIJI,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GABON,GAMBIA,GEORGIA,GERMANY,GHANA,GIBRALTAR,GREECE,GREENLAND,GRENADA,GUADELOUPE,GUAM,GUATEMALA,GUERNSEY,GUINEA,GUINEA-BISSAU,GUYANA,HAITI,HEARD ISLAND AND MCDONALD ISLANDS,HOLY SEE (VATICAN CITY STATE),HONDURAS,HONG KONG,HUNGARY,ICELAND,INDIA,INDONESIA,IRAN  ISLAMIC REPUBLIC OF,IRAQ,IRELAND,ISLE OF MAN,ISRAEL,ITALY,JAMAICA,JAPAN,JERSEY,JORDAN,KAZAKHSTAN,KENYA,KIRIBATI,KOREA  DEMOCRATIC PEOPLES REPUBLIC OF,KOREA  REPUBLIC OF,KUWAIT,KYRGYZSTAN,LAO PEOPLES DEMOCRATIC REPUBLIC,LATVIA,LEBANON,LESOTHO,LIBERIA,LIBYAN ARAB JAMAHIRIYA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MACAO,MACEDONIA  THE FORMER YUGOSLAV REPUBLIC OF,MADAGASCAR,MALAWI,MALAYSIA,MALDIVES,MALI,MALTA,MARSHALL ISLANDS,MARTINIQUE,MAURITANIA,MAURITIUS,MAYOTTE,MEXICO,MICRONESIA  FEDERATED STATES OF,MOLDOVA  REPUBLIC OF,MONACO,MONGOLIA,MONTENEGRO,MONTSERRAT,MOROCCO,MOZAMBIQUE,MYANMAR,NAMIBIA,NAURU,NEPAL,NETHERLANDS,NEW CALEDONIA,NEW ZEALAND,NICARAGUA,NIGER,NIGERIA,NIUE,NORFOLK ISLAND,NORTHERN MARIANA ISLANDS,NORWAY,OMAN,PAKISTAN,PALAU,PALESTINIAN TERRITORY  OCCUPIED,PANAMA,PAPUA NEW GUINEA,PARAGUAY,PERU,PHILIPPINES,PITCAIRN,POLAND,PORTUGAL,PUERTO RICO,QATAR,REUNION,ROMANIA,RUSSIAN FEDERATION,RWANDA,SAINT BARTHELEMY,SAINT HELENA,SAINT KITTS AND NEVIS,SAINT LUCIA,SAINT MARTIN,SAINT PIERRE AND MIQUELON,SAINT VINCENT AND THE GRENADINES,SAMOA,SAN MARINO,SAO TOME AND PRINCIPE,SAUDI ARABIA,SENEGAL,SERBIA,SEYCHELLES,SIERRA LEONE,SINGAPORE,SLOVAKIA,SLOVENIA,SOLOMON ISLANDS,SOMALIA,SOUTH AFRICA,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS,SPAIN,SRI LANKA,SUDAN,SURINAME,SVALBARD AND JAN MAYEN,SWAZILAND,SWEDEN,SWITZERLAND,SYRIAN ARAB REPUBLIC,TAIWAN  PROVINCE OF CHINA,TAJIKISTAN,TANZANIA  UNITED REPUBLIC OF,THAILAND,TIMOR-LESTE,TOGO,TOKELAU,TONGA,TRINIDAD AND TOBAGO,TUNISIA,TURKEY,TURKMENISTAN,TURKS AND CAICOS ISLANDS,TUVALU,UGANDA,UKRAINE,UNITED ARAB EMIRATES,UNITED KINGDOM,UNITED STATES,UNITED STATES MINOR OUTLYING ISLANDS,URUGUAY,UZBEKISTAN,VANUATU,VENEZUELA  BOLIVARIAN REPUBLIC OF,VIET NAM,VIRGIN ISLANDS  BRITISH,VIRGIN ISLANDS  U.S.,Indeterminately reserved,WALLIS AND FUTUNA,WESTERN SAHARA,YEMEN,ZAMBIA,ZIMBABWE",
 		"InwxOptions" => "CW,SX,BQ,AF,AX,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,AC,AU,AT,AZ,BS,BH,BD,BB,BY,BE,BZ,BJ,BM,BT,BO,BA,BW,BV,BR,IO,BN,BG,BF,BI,KH,CM,CA,CV,KY,CF,TD,CL,CN,CX,CC,CO,KM,CG,CD,CK,CR,CI,HR,CU,CY,CZ,DK,DJ,DM,DO,EC,EG,SV,GQ,ER,EE,ET,FK,FO,FJ,FI,FR,GF,PF,TF,GA,GM,GE,DE,GH,GI,GR,GL,GD,GP,GU,GT,GG,GN,GW,GY,HT,HM,VA,HN,HK,HU,IS,IN,ID,IR,IQ,IE,IM,IL,IT,JM,JP,JE,JO,KZ,KE,KI,KP,KR,KW,KG,LA,LV,LB,LS,LR,LY,LI,LT,LU,MO,MK,MG,MW,MY,MV,ML,MT,MH,MQ,MR,MU,YT,MX,FM,MD,MC,MN,ME,MS,MA,MZ,MM,NA,NR,NP,NL,NC,NZ,NI,NE,NG,NU,NF,MP,NO,OM,PK,PW,PS,PA,PG,PY,PE,PH,PN,PL,PT,PR,QA,RE,RO,RU,RW,BL,SH,KN,LC,MF,PM,VC,WS,SM,ST,SA,SN,RS,SC,SL,SG,SK,SI,SB,SO,ZA,GS,ES,LK,SD,SR,SJ,SZ,SE,CH,SY,TW,TJ,TZ,TH,TL,TG,TK,TO,TT,TN,TR,TM,TC,TV,UG,UA,AE,GB,US,UM,UY,UZ,VU,VE,VN,VG,VI,WO,WF,EH,YE,ZM,ZW",
@@ -4385,28 +4385,28 @@ $additionaldomainfields[".re"][] = array(
 $additionaldomainfields[".re"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".re"][] = array(
 		"Name" => "DUNS-NUMBER",
 		"InwxName" => "DUNS-NUMBER",
-		"DisplayName" => "DUNS-NUMBER",
+		"DisplayName" => "DUNS number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".re"][] = array(
 		"Name" => "EEA-LOCAL-ID",
 		"InwxName" => "EEA-LOCAL-ID",
-		"DisplayName" => "EEA-LOCAL-ID",
+		"DisplayName" => "Local ID within the European Economic Area (EEA)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".re"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4424,21 +4424,21 @@ $additionaldomainfields[".com.my"][] = array(
 $additionaldomainfields[".com.my"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.my"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.my"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4456,21 +4456,21 @@ $additionaldomainfields[".net.my"][] = array(
 $additionaldomainfields[".net.my"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.my"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.my"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4488,21 +4488,21 @@ $additionaldomainfields[".org.my"][] = array(
 $additionaldomainfields[".org.my"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.my"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.my"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4520,21 +4520,21 @@ $additionaldomainfields[".name.my"][] = array(
 $additionaldomainfields[".name.my"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".name.my"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".name.my"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4552,14 +4552,14 @@ $additionaldomainfields[".com.ge"][] = array(
 $additionaldomainfields[".com.ge"][] = array(
 		"Name" => "LEGAL-REPRESENTATIVE-POSITION",
 		"InwxName" => "LEGAL-REPRESENTATIVE-POSITION",
-		"DisplayName" => "LEGAL-REPRESENTATIVE-POSITION",
+		"DisplayName" => "Legal representative position",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.ge"][] = array(
 		"Name" => "OWNER-BUSINESS-AREAS",
 		"InwxName" => "OWNER-BUSINESS-AREAS",
-		"DisplayName" => "OWNER-BUSINESS-AREAS",
+		"DisplayName" => "Business area of owner",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4577,14 +4577,14 @@ $additionaldomainfields[".co.id"][] = array(
 $additionaldomainfields[".co.id"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".co.id"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4602,28 +4602,28 @@ $additionaldomainfields[".pm"][] = array(
 $additionaldomainfields[".pm"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pm"][] = array(
 		"Name" => "BIRTH-PC",
 		"InwxName" => "BIRTH-PC",
-		"DisplayName" => false,
+		"DisplayName" => "Postal code of birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pm"][] = array(
 		"Name" => "BIRTH-CITY",
 		"InwxName" => "BIRTH-CITY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pm"][] = array(
 		"Name" => "BIRTH-COUNTRY",
 		"InwxName" => "BIRTH-COUNTRY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birth country",
 		"Required" => false,
 		"Options" => "CURAÇAO,SINT MAARTEN,BONAIRE  SINT EUSTATIUS AND SABA,AFGHANISTAN,ALAND ISLANDS,ALBANIA,ALGERIA,AMERICAN SAMOA,ANDORRA,ANGOLA,ANGUILLA,ANTARCTICA,ANTIGUA AND BARBUDA,ARGENTINA,ARMENIA,ARUBA,ASCENSION ISLAND,AUSTRALIA,AUSTRIA,AZERBAIJAN,BAHAMAS,BAHRAIN,BANGLADESH,BARBADOS,BELARUS,BELGIUM,BELIZE,BENIN,BERMUDA,BHUTAN,BOLIVIA,BOSNIA AND HERZEGOVINA,BOTSWANA,BOUVET ISLAND,BRAZIL,BRITISH INDIAN OCEAN TERRITORY,BRUNEI DARUSSALAM,BULGARIA,BURKINA FASO,BURUNDI,CAMBODIA,CAMEROON,CANADA,CAPE VERDE,CAYMAN ISLANDS,CENTRAL AFRICAN REPUBLIC,CHAD,CHILE,CHINA,CHRISTMAS ISLAND,COCOS (KEELING) ISLANDS,COLOMBIA,COMOROS,CONGO,CONGO  THE DEMOCRATIC REPUBLIC OF THE,COOK ISLANDS,COSTA RICA,COTE D IVOIRE,CROATIA,CUBA,CYPRUS,CZECH REPUBLIC,DENMARK,DJIBOUTI,DOMINICA,DOMINICAN REPUBLIC,ECUADOR,EGYPT,EL SALVADOR,EQUATORIAL GUINEA,ERITREA,ESTONIA,ETHIOPIA,FALKLAND ISLANDS (MALVINAS),FAROE ISLANDS,FIJI,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GABON,GAMBIA,GEORGIA,GERMANY,GHANA,GIBRALTAR,GREECE,GREENLAND,GRENADA,GUADELOUPE,GUAM,GUATEMALA,GUERNSEY,GUINEA,GUINEA-BISSAU,GUYANA,HAITI,HEARD ISLAND AND MCDONALD ISLANDS,HOLY SEE (VATICAN CITY STATE),HONDURAS,HONG KONG,HUNGARY,ICELAND,INDIA,INDONESIA,IRAN  ISLAMIC REPUBLIC OF,IRAQ,IRELAND,ISLE OF MAN,ISRAEL,ITALY,JAMAICA,JAPAN,JERSEY,JORDAN,KAZAKHSTAN,KENYA,KIRIBATI,KOREA  DEMOCRATIC PEOPLES REPUBLIC OF,KOREA  REPUBLIC OF,KUWAIT,KYRGYZSTAN,LAO PEOPLES DEMOCRATIC REPUBLIC,LATVIA,LEBANON,LESOTHO,LIBERIA,LIBYAN ARAB JAMAHIRIYA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MACAO,MACEDONIA  THE FORMER YUGOSLAV REPUBLIC OF,MADAGASCAR,MALAWI,MALAYSIA,MALDIVES,MALI,MALTA,MARSHALL ISLANDS,MARTINIQUE,MAURITANIA,MAURITIUS,MAYOTTE,MEXICO,MICRONESIA  FEDERATED STATES OF,MOLDOVA  REPUBLIC OF,MONACO,MONGOLIA,MONTENEGRO,MONTSERRAT,MOROCCO,MOZAMBIQUE,MYANMAR,NAMIBIA,NAURU,NEPAL,NETHERLANDS,NEW CALEDONIA,NEW ZEALAND,NICARAGUA,NIGER,NIGERIA,NIUE,NORFOLK ISLAND,NORTHERN MARIANA ISLANDS,NORWAY,OMAN,PAKISTAN,PALAU,PALESTINIAN TERRITORY  OCCUPIED,PANAMA,PAPUA NEW GUINEA,PARAGUAY,PERU,PHILIPPINES,PITCAIRN,POLAND,PORTUGAL,PUERTO RICO,QATAR,REUNION,ROMANIA,RUSSIAN FEDERATION,RWANDA,SAINT BARTHELEMY,SAINT HELENA,SAINT KITTS AND NEVIS,SAINT LUCIA,SAINT MARTIN,SAINT PIERRE AND MIQUELON,SAINT VINCENT AND THE GRENADINES,SAMOA,SAN MARINO,SAO TOME AND PRINCIPE,SAUDI ARABIA,SENEGAL,SERBIA,SEYCHELLES,SIERRA LEONE,SINGAPORE,SLOVAKIA,SLOVENIA,SOLOMON ISLANDS,SOMALIA,SOUTH AFRICA,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS,SPAIN,SRI LANKA,SUDAN,SURINAME,SVALBARD AND JAN MAYEN,SWAZILAND,SWEDEN,SWITZERLAND,SYRIAN ARAB REPUBLIC,TAIWAN  PROVINCE OF CHINA,TAJIKISTAN,TANZANIA  UNITED REPUBLIC OF,THAILAND,TIMOR-LESTE,TOGO,TOKELAU,TONGA,TRINIDAD AND TOBAGO,TUNISIA,TURKEY,TURKMENISTAN,TURKS AND CAICOS ISLANDS,TUVALU,UGANDA,UKRAINE,UNITED ARAB EMIRATES,UNITED KINGDOM,UNITED STATES,UNITED STATES MINOR OUTLYING ISLANDS,URUGUAY,UZBEKISTAN,VANUATU,VENEZUELA  BOLIVARIAN REPUBLIC OF,VIET NAM,VIRGIN ISLANDS  BRITISH,VIRGIN ISLANDS  U.S.,Indeterminately reserved,WALLIS AND FUTUNA,WESTERN SAHARA,YEMEN,ZAMBIA,ZIMBABWE",
 		"InwxOptions" => "CW,SX,BQ,AF,AX,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,AC,AU,AT,AZ,BS,BH,BD,BB,BY,BE,BZ,BJ,BM,BT,BO,BA,BW,BV,BR,IO,BN,BG,BF,BI,KH,CM,CA,CV,KY,CF,TD,CL,CN,CX,CC,CO,KM,CG,CD,CK,CR,CI,HR,CU,CY,CZ,DK,DJ,DM,DO,EC,EG,SV,GQ,ER,EE,ET,FK,FO,FJ,FI,FR,GF,PF,TF,GA,GM,GE,DE,GH,GI,GR,GL,GD,GP,GU,GT,GG,GN,GW,GY,HT,HM,VA,HN,HK,HU,IS,IN,ID,IR,IQ,IE,IM,IL,IT,JM,JP,JE,JO,KZ,KE,KI,KP,KR,KW,KG,LA,LV,LB,LS,LR,LY,LI,LT,LU,MO,MK,MG,MW,MY,MV,ML,MT,MH,MQ,MR,MU,YT,MX,FM,MD,MC,MN,ME,MS,MA,MZ,MM,NA,NR,NP,NL,NC,NZ,NI,NE,NG,NU,NF,MP,NO,OM,PK,PW,PS,PA,PG,PY,PE,PH,PN,PL,PT,PR,QA,RE,RO,RU,RW,BL,SH,KN,LC,MF,PM,VC,WS,SM,ST,SA,SN,RS,SC,SL,SG,SK,SI,SB,SO,ZA,GS,ES,LK,SD,SR,SJ,SZ,SE,CH,SY,TW,TJ,TZ,TH,TL,TG,TK,TO,TT,TN,TR,TM,TC,TV,UG,UA,AE,GB,US,UM,UY,UZ,VU,VE,VN,VG,VI,WO,WF,EH,YE,ZM,ZW",
@@ -4631,28 +4631,28 @@ $additionaldomainfields[".pm"][] = array(
 $additionaldomainfields[".pm"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pm"][] = array(
 		"Name" => "DUNS-NUMBER",
 		"InwxName" => "DUNS-NUMBER",
-		"DisplayName" => "DUNS-NUMBER",
+		"DisplayName" => "DUNS number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pm"][] = array(
 		"Name" => "EEA-LOCAL-ID",
 		"InwxName" => "EEA-LOCAL-ID",
-		"DisplayName" => "EEA-LOCAL-ID",
+		"DisplayName" => "Local ID within the European Economic Area (EEA)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pm"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4670,28 +4670,28 @@ $additionaldomainfields[".tf"][] = array(
 $additionaldomainfields[".tf"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tf"][] = array(
 		"Name" => "BIRTH-PC",
 		"InwxName" => "BIRTH-PC",
-		"DisplayName" => false,
+		"DisplayName" => "Postal code of birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tf"][] = array(
 		"Name" => "BIRTH-CITY",
 		"InwxName" => "BIRTH-CITY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tf"][] = array(
 		"Name" => "BIRTH-COUNTRY",
 		"InwxName" => "BIRTH-COUNTRY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birth country",
 		"Required" => false,
 		"Options" => "CURAÇAO,SINT MAARTEN,BONAIRE  SINT EUSTATIUS AND SABA,AFGHANISTAN,ALAND ISLANDS,ALBANIA,ALGERIA,AMERICAN SAMOA,ANDORRA,ANGOLA,ANGUILLA,ANTARCTICA,ANTIGUA AND BARBUDA,ARGENTINA,ARMENIA,ARUBA,ASCENSION ISLAND,AUSTRALIA,AUSTRIA,AZERBAIJAN,BAHAMAS,BAHRAIN,BANGLADESH,BARBADOS,BELARUS,BELGIUM,BELIZE,BENIN,BERMUDA,BHUTAN,BOLIVIA,BOSNIA AND HERZEGOVINA,BOTSWANA,BOUVET ISLAND,BRAZIL,BRITISH INDIAN OCEAN TERRITORY,BRUNEI DARUSSALAM,BULGARIA,BURKINA FASO,BURUNDI,CAMBODIA,CAMEROON,CANADA,CAPE VERDE,CAYMAN ISLANDS,CENTRAL AFRICAN REPUBLIC,CHAD,CHILE,CHINA,CHRISTMAS ISLAND,COCOS (KEELING) ISLANDS,COLOMBIA,COMOROS,CONGO,CONGO  THE DEMOCRATIC REPUBLIC OF THE,COOK ISLANDS,COSTA RICA,COTE D IVOIRE,CROATIA,CUBA,CYPRUS,CZECH REPUBLIC,DENMARK,DJIBOUTI,DOMINICA,DOMINICAN REPUBLIC,ECUADOR,EGYPT,EL SALVADOR,EQUATORIAL GUINEA,ERITREA,ESTONIA,ETHIOPIA,FALKLAND ISLANDS (MALVINAS),FAROE ISLANDS,FIJI,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GABON,GAMBIA,GEORGIA,GERMANY,GHANA,GIBRALTAR,GREECE,GREENLAND,GRENADA,GUADELOUPE,GUAM,GUATEMALA,GUERNSEY,GUINEA,GUINEA-BISSAU,GUYANA,HAITI,HEARD ISLAND AND MCDONALD ISLANDS,HOLY SEE (VATICAN CITY STATE),HONDURAS,HONG KONG,HUNGARY,ICELAND,INDIA,INDONESIA,IRAN  ISLAMIC REPUBLIC OF,IRAQ,IRELAND,ISLE OF MAN,ISRAEL,ITALY,JAMAICA,JAPAN,JERSEY,JORDAN,KAZAKHSTAN,KENYA,KIRIBATI,KOREA  DEMOCRATIC PEOPLES REPUBLIC OF,KOREA  REPUBLIC OF,KUWAIT,KYRGYZSTAN,LAO PEOPLES DEMOCRATIC REPUBLIC,LATVIA,LEBANON,LESOTHO,LIBERIA,LIBYAN ARAB JAMAHIRIYA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MACAO,MACEDONIA  THE FORMER YUGOSLAV REPUBLIC OF,MADAGASCAR,MALAWI,MALAYSIA,MALDIVES,MALI,MALTA,MARSHALL ISLANDS,MARTINIQUE,MAURITANIA,MAURITIUS,MAYOTTE,MEXICO,MICRONESIA  FEDERATED STATES OF,MOLDOVA  REPUBLIC OF,MONACO,MONGOLIA,MONTENEGRO,MONTSERRAT,MOROCCO,MOZAMBIQUE,MYANMAR,NAMIBIA,NAURU,NEPAL,NETHERLANDS,NEW CALEDONIA,NEW ZEALAND,NICARAGUA,NIGER,NIGERIA,NIUE,NORFOLK ISLAND,NORTHERN MARIANA ISLANDS,NORWAY,OMAN,PAKISTAN,PALAU,PALESTINIAN TERRITORY  OCCUPIED,PANAMA,PAPUA NEW GUINEA,PARAGUAY,PERU,PHILIPPINES,PITCAIRN,POLAND,PORTUGAL,PUERTO RICO,QATAR,REUNION,ROMANIA,RUSSIAN FEDERATION,RWANDA,SAINT BARTHELEMY,SAINT HELENA,SAINT KITTS AND NEVIS,SAINT LUCIA,SAINT MARTIN,SAINT PIERRE AND MIQUELON,SAINT VINCENT AND THE GRENADINES,SAMOA,SAN MARINO,SAO TOME AND PRINCIPE,SAUDI ARABIA,SENEGAL,SERBIA,SEYCHELLES,SIERRA LEONE,SINGAPORE,SLOVAKIA,SLOVENIA,SOLOMON ISLANDS,SOMALIA,SOUTH AFRICA,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS,SPAIN,SRI LANKA,SUDAN,SURINAME,SVALBARD AND JAN MAYEN,SWAZILAND,SWEDEN,SWITZERLAND,SYRIAN ARAB REPUBLIC,TAIWAN  PROVINCE OF CHINA,TAJIKISTAN,TANZANIA  UNITED REPUBLIC OF,THAILAND,TIMOR-LESTE,TOGO,TOKELAU,TONGA,TRINIDAD AND TOBAGO,TUNISIA,TURKEY,TURKMENISTAN,TURKS AND CAICOS ISLANDS,TUVALU,UGANDA,UKRAINE,UNITED ARAB EMIRATES,UNITED KINGDOM,UNITED STATES,UNITED STATES MINOR OUTLYING ISLANDS,URUGUAY,UZBEKISTAN,VANUATU,VENEZUELA  BOLIVARIAN REPUBLIC OF,VIET NAM,VIRGIN ISLANDS  BRITISH,VIRGIN ISLANDS  U.S.,Indeterminately reserved,WALLIS AND FUTUNA,WESTERN SAHARA,YEMEN,ZAMBIA,ZIMBABWE",
 		"InwxOptions" => "CW,SX,BQ,AF,AX,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,AC,AU,AT,AZ,BS,BH,BD,BB,BY,BE,BZ,BJ,BM,BT,BO,BA,BW,BV,BR,IO,BN,BG,BF,BI,KH,CM,CA,CV,KY,CF,TD,CL,CN,CX,CC,CO,KM,CG,CD,CK,CR,CI,HR,CU,CY,CZ,DK,DJ,DM,DO,EC,EG,SV,GQ,ER,EE,ET,FK,FO,FJ,FI,FR,GF,PF,TF,GA,GM,GE,DE,GH,GI,GR,GL,GD,GP,GU,GT,GG,GN,GW,GY,HT,HM,VA,HN,HK,HU,IS,IN,ID,IR,IQ,IE,IM,IL,IT,JM,JP,JE,JO,KZ,KE,KI,KP,KR,KW,KG,LA,LV,LB,LS,LR,LY,LI,LT,LU,MO,MK,MG,MW,MY,MV,ML,MT,MH,MQ,MR,MU,YT,MX,FM,MD,MC,MN,ME,MS,MA,MZ,MM,NA,NR,NP,NL,NC,NZ,NI,NE,NG,NU,NF,MP,NO,OM,PK,PW,PS,PA,PG,PY,PE,PH,PN,PL,PT,PR,QA,RE,RO,RU,RW,BL,SH,KN,LC,MF,PM,VC,WS,SM,ST,SA,SN,RS,SC,SL,SG,SK,SI,SB,SO,ZA,GS,ES,LK,SD,SR,SJ,SZ,SE,CH,SY,TW,TJ,TZ,TH,TL,TG,TK,TO,TT,TN,TR,TM,TC,TV,UG,UA,AE,GB,US,UM,UY,UZ,VU,VE,VN,VG,VI,WO,WF,EH,YE,ZM,ZW",
@@ -4699,28 +4699,28 @@ $additionaldomainfields[".tf"][] = array(
 $additionaldomainfields[".tf"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tf"][] = array(
 		"Name" => "DUNS-NUMBER",
 		"InwxName" => "DUNS-NUMBER",
-		"DisplayName" => "DUNS-NUMBER",
+		"DisplayName" => "DUNS number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tf"][] = array(
 		"Name" => "EEA-LOCAL-ID",
 		"InwxName" => "EEA-LOCAL-ID",
-		"DisplayName" => "EEA-LOCAL-ID",
+		"DisplayName" => "Local ID within the European Economic Area (EEA)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tf"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4738,28 +4738,28 @@ $additionaldomainfields[".wf"][] = array(
 $additionaldomainfields[".wf"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".wf"][] = array(
 		"Name" => "BIRTH-PC",
 		"InwxName" => "BIRTH-PC",
-		"DisplayName" => false,
+		"DisplayName" => "Postal code of birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".wf"][] = array(
 		"Name" => "BIRTH-CITY",
 		"InwxName" => "BIRTH-CITY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".wf"][] = array(
 		"Name" => "BIRTH-COUNTRY",
 		"InwxName" => "BIRTH-COUNTRY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birth country",
 		"Required" => false,
 		"Options" => "CURAÇAO,SINT MAARTEN,BONAIRE  SINT EUSTATIUS AND SABA,AFGHANISTAN,ALAND ISLANDS,ALBANIA,ALGERIA,AMERICAN SAMOA,ANDORRA,ANGOLA,ANGUILLA,ANTARCTICA,ANTIGUA AND BARBUDA,ARGENTINA,ARMENIA,ARUBA,ASCENSION ISLAND,AUSTRALIA,AUSTRIA,AZERBAIJAN,BAHAMAS,BAHRAIN,BANGLADESH,BARBADOS,BELARUS,BELGIUM,BELIZE,BENIN,BERMUDA,BHUTAN,BOLIVIA,BOSNIA AND HERZEGOVINA,BOTSWANA,BOUVET ISLAND,BRAZIL,BRITISH INDIAN OCEAN TERRITORY,BRUNEI DARUSSALAM,BULGARIA,BURKINA FASO,BURUNDI,CAMBODIA,CAMEROON,CANADA,CAPE VERDE,CAYMAN ISLANDS,CENTRAL AFRICAN REPUBLIC,CHAD,CHILE,CHINA,CHRISTMAS ISLAND,COCOS (KEELING) ISLANDS,COLOMBIA,COMOROS,CONGO,CONGO  THE DEMOCRATIC REPUBLIC OF THE,COOK ISLANDS,COSTA RICA,COTE D IVOIRE,CROATIA,CUBA,CYPRUS,CZECH REPUBLIC,DENMARK,DJIBOUTI,DOMINICA,DOMINICAN REPUBLIC,ECUADOR,EGYPT,EL SALVADOR,EQUATORIAL GUINEA,ERITREA,ESTONIA,ETHIOPIA,FALKLAND ISLANDS (MALVINAS),FAROE ISLANDS,FIJI,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GABON,GAMBIA,GEORGIA,GERMANY,GHANA,GIBRALTAR,GREECE,GREENLAND,GRENADA,GUADELOUPE,GUAM,GUATEMALA,GUERNSEY,GUINEA,GUINEA-BISSAU,GUYANA,HAITI,HEARD ISLAND AND MCDONALD ISLANDS,HOLY SEE (VATICAN CITY STATE),HONDURAS,HONG KONG,HUNGARY,ICELAND,INDIA,INDONESIA,IRAN  ISLAMIC REPUBLIC OF,IRAQ,IRELAND,ISLE OF MAN,ISRAEL,ITALY,JAMAICA,JAPAN,JERSEY,JORDAN,KAZAKHSTAN,KENYA,KIRIBATI,KOREA  DEMOCRATIC PEOPLES REPUBLIC OF,KOREA  REPUBLIC OF,KUWAIT,KYRGYZSTAN,LAO PEOPLES DEMOCRATIC REPUBLIC,LATVIA,LEBANON,LESOTHO,LIBERIA,LIBYAN ARAB JAMAHIRIYA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MACAO,MACEDONIA  THE FORMER YUGOSLAV REPUBLIC OF,MADAGASCAR,MALAWI,MALAYSIA,MALDIVES,MALI,MALTA,MARSHALL ISLANDS,MARTINIQUE,MAURITANIA,MAURITIUS,MAYOTTE,MEXICO,MICRONESIA  FEDERATED STATES OF,MOLDOVA  REPUBLIC OF,MONACO,MONGOLIA,MONTENEGRO,MONTSERRAT,MOROCCO,MOZAMBIQUE,MYANMAR,NAMIBIA,NAURU,NEPAL,NETHERLANDS,NEW CALEDONIA,NEW ZEALAND,NICARAGUA,NIGER,NIGERIA,NIUE,NORFOLK ISLAND,NORTHERN MARIANA ISLANDS,NORWAY,OMAN,PAKISTAN,PALAU,PALESTINIAN TERRITORY  OCCUPIED,PANAMA,PAPUA NEW GUINEA,PARAGUAY,PERU,PHILIPPINES,PITCAIRN,POLAND,PORTUGAL,PUERTO RICO,QATAR,REUNION,ROMANIA,RUSSIAN FEDERATION,RWANDA,SAINT BARTHELEMY,SAINT HELENA,SAINT KITTS AND NEVIS,SAINT LUCIA,SAINT MARTIN,SAINT PIERRE AND MIQUELON,SAINT VINCENT AND THE GRENADINES,SAMOA,SAN MARINO,SAO TOME AND PRINCIPE,SAUDI ARABIA,SENEGAL,SERBIA,SEYCHELLES,SIERRA LEONE,SINGAPORE,SLOVAKIA,SLOVENIA,SOLOMON ISLANDS,SOMALIA,SOUTH AFRICA,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS,SPAIN,SRI LANKA,SUDAN,SURINAME,SVALBARD AND JAN MAYEN,SWAZILAND,SWEDEN,SWITZERLAND,SYRIAN ARAB REPUBLIC,TAIWAN  PROVINCE OF CHINA,TAJIKISTAN,TANZANIA  UNITED REPUBLIC OF,THAILAND,TIMOR-LESTE,TOGO,TOKELAU,TONGA,TRINIDAD AND TOBAGO,TUNISIA,TURKEY,TURKMENISTAN,TURKS AND CAICOS ISLANDS,TUVALU,UGANDA,UKRAINE,UNITED ARAB EMIRATES,UNITED KINGDOM,UNITED STATES,UNITED STATES MINOR OUTLYING ISLANDS,URUGUAY,UZBEKISTAN,VANUATU,VENEZUELA  BOLIVARIAN REPUBLIC OF,VIET NAM,VIRGIN ISLANDS  BRITISH,VIRGIN ISLANDS  U.S.,Indeterminately reserved,WALLIS AND FUTUNA,WESTERN SAHARA,YEMEN,ZAMBIA,ZIMBABWE",
 		"InwxOptions" => "CW,SX,BQ,AF,AX,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,AC,AU,AT,AZ,BS,BH,BD,BB,BY,BE,BZ,BJ,BM,BT,BO,BA,BW,BV,BR,IO,BN,BG,BF,BI,KH,CM,CA,CV,KY,CF,TD,CL,CN,CX,CC,CO,KM,CG,CD,CK,CR,CI,HR,CU,CY,CZ,DK,DJ,DM,DO,EC,EG,SV,GQ,ER,EE,ET,FK,FO,FJ,FI,FR,GF,PF,TF,GA,GM,GE,DE,GH,GI,GR,GL,GD,GP,GU,GT,GG,GN,GW,GY,HT,HM,VA,HN,HK,HU,IS,IN,ID,IR,IQ,IE,IM,IL,IT,JM,JP,JE,JO,KZ,KE,KI,KP,KR,KW,KG,LA,LV,LB,LS,LR,LY,LI,LT,LU,MO,MK,MG,MW,MY,MV,ML,MT,MH,MQ,MR,MU,YT,MX,FM,MD,MC,MN,ME,MS,MA,MZ,MM,NA,NR,NP,NL,NC,NZ,NI,NE,NG,NU,NF,MP,NO,OM,PK,PW,PS,PA,PG,PY,PE,PH,PN,PL,PT,PR,QA,RE,RO,RU,RW,BL,SH,KN,LC,MF,PM,VC,WS,SM,ST,SA,SN,RS,SC,SL,SG,SK,SI,SB,SO,ZA,GS,ES,LK,SD,SR,SJ,SZ,SE,CH,SY,TW,TJ,TZ,TH,TL,TG,TK,TO,TT,TN,TR,TM,TC,TV,UG,UA,AE,GB,US,UM,UY,UZ,VU,VE,VN,VG,VI,WO,WF,EH,YE,ZM,ZW",
@@ -4767,28 +4767,28 @@ $additionaldomainfields[".wf"][] = array(
 $additionaldomainfields[".wf"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".wf"][] = array(
 		"Name" => "DUNS-NUMBER",
 		"InwxName" => "DUNS-NUMBER",
-		"DisplayName" => "DUNS-NUMBER",
+		"DisplayName" => "DUNS number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".wf"][] = array(
 		"Name" => "EEA-LOCAL-ID",
 		"InwxName" => "EEA-LOCAL-ID",
-		"DisplayName" => "EEA-LOCAL-ID",
+		"DisplayName" => "Local ID within the European Economic Area (EEA)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".wf"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4806,28 +4806,28 @@ $additionaldomainfields[".yt"][] = array(
 $additionaldomainfields[".yt"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".yt"][] = array(
 		"Name" => "BIRTH-PC",
 		"InwxName" => "BIRTH-PC",
-		"DisplayName" => false,
+		"DisplayName" => "Postal code of birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".yt"][] = array(
 		"Name" => "BIRTH-CITY",
 		"InwxName" => "BIRTH-CITY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthplace",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".yt"][] = array(
 		"Name" => "BIRTH-COUNTRY",
 		"InwxName" => "BIRTH-COUNTRY",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birth country",
 		"Required" => false,
 		"Options" => "CURAÇAO,SINT MAARTEN,BONAIRE  SINT EUSTATIUS AND SABA,AFGHANISTAN,ALAND ISLANDS,ALBANIA,ALGERIA,AMERICAN SAMOA,ANDORRA,ANGOLA,ANGUILLA,ANTARCTICA,ANTIGUA AND BARBUDA,ARGENTINA,ARMENIA,ARUBA,ASCENSION ISLAND,AUSTRALIA,AUSTRIA,AZERBAIJAN,BAHAMAS,BAHRAIN,BANGLADESH,BARBADOS,BELARUS,BELGIUM,BELIZE,BENIN,BERMUDA,BHUTAN,BOLIVIA,BOSNIA AND HERZEGOVINA,BOTSWANA,BOUVET ISLAND,BRAZIL,BRITISH INDIAN OCEAN TERRITORY,BRUNEI DARUSSALAM,BULGARIA,BURKINA FASO,BURUNDI,CAMBODIA,CAMEROON,CANADA,CAPE VERDE,CAYMAN ISLANDS,CENTRAL AFRICAN REPUBLIC,CHAD,CHILE,CHINA,CHRISTMAS ISLAND,COCOS (KEELING) ISLANDS,COLOMBIA,COMOROS,CONGO,CONGO  THE DEMOCRATIC REPUBLIC OF THE,COOK ISLANDS,COSTA RICA,COTE D IVOIRE,CROATIA,CUBA,CYPRUS,CZECH REPUBLIC,DENMARK,DJIBOUTI,DOMINICA,DOMINICAN REPUBLIC,ECUADOR,EGYPT,EL SALVADOR,EQUATORIAL GUINEA,ERITREA,ESTONIA,ETHIOPIA,FALKLAND ISLANDS (MALVINAS),FAROE ISLANDS,FIJI,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GABON,GAMBIA,GEORGIA,GERMANY,GHANA,GIBRALTAR,GREECE,GREENLAND,GRENADA,GUADELOUPE,GUAM,GUATEMALA,GUERNSEY,GUINEA,GUINEA-BISSAU,GUYANA,HAITI,HEARD ISLAND AND MCDONALD ISLANDS,HOLY SEE (VATICAN CITY STATE),HONDURAS,HONG KONG,HUNGARY,ICELAND,INDIA,INDONESIA,IRAN  ISLAMIC REPUBLIC OF,IRAQ,IRELAND,ISLE OF MAN,ISRAEL,ITALY,JAMAICA,JAPAN,JERSEY,JORDAN,KAZAKHSTAN,KENYA,KIRIBATI,KOREA  DEMOCRATIC PEOPLES REPUBLIC OF,KOREA  REPUBLIC OF,KUWAIT,KYRGYZSTAN,LAO PEOPLES DEMOCRATIC REPUBLIC,LATVIA,LEBANON,LESOTHO,LIBERIA,LIBYAN ARAB JAMAHIRIYA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MACAO,MACEDONIA  THE FORMER YUGOSLAV REPUBLIC OF,MADAGASCAR,MALAWI,MALAYSIA,MALDIVES,MALI,MALTA,MARSHALL ISLANDS,MARTINIQUE,MAURITANIA,MAURITIUS,MAYOTTE,MEXICO,MICRONESIA  FEDERATED STATES OF,MOLDOVA  REPUBLIC OF,MONACO,MONGOLIA,MONTENEGRO,MONTSERRAT,MOROCCO,MOZAMBIQUE,MYANMAR,NAMIBIA,NAURU,NEPAL,NETHERLANDS,NEW CALEDONIA,NEW ZEALAND,NICARAGUA,NIGER,NIGERIA,NIUE,NORFOLK ISLAND,NORTHERN MARIANA ISLANDS,NORWAY,OMAN,PAKISTAN,PALAU,PALESTINIAN TERRITORY  OCCUPIED,PANAMA,PAPUA NEW GUINEA,PARAGUAY,PERU,PHILIPPINES,PITCAIRN,POLAND,PORTUGAL,PUERTO RICO,QATAR,REUNION,ROMANIA,RUSSIAN FEDERATION,RWANDA,SAINT BARTHELEMY,SAINT HELENA,SAINT KITTS AND NEVIS,SAINT LUCIA,SAINT MARTIN,SAINT PIERRE AND MIQUELON,SAINT VINCENT AND THE GRENADINES,SAMOA,SAN MARINO,SAO TOME AND PRINCIPE,SAUDI ARABIA,SENEGAL,SERBIA,SEYCHELLES,SIERRA LEONE,SINGAPORE,SLOVAKIA,SLOVENIA,SOLOMON ISLANDS,SOMALIA,SOUTH AFRICA,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS,SPAIN,SRI LANKA,SUDAN,SURINAME,SVALBARD AND JAN MAYEN,SWAZILAND,SWEDEN,SWITZERLAND,SYRIAN ARAB REPUBLIC,TAIWAN  PROVINCE OF CHINA,TAJIKISTAN,TANZANIA  UNITED REPUBLIC OF,THAILAND,TIMOR-LESTE,TOGO,TOKELAU,TONGA,TRINIDAD AND TOBAGO,TUNISIA,TURKEY,TURKMENISTAN,TURKS AND CAICOS ISLANDS,TUVALU,UGANDA,UKRAINE,UNITED ARAB EMIRATES,UNITED KINGDOM,UNITED STATES,UNITED STATES MINOR OUTLYING ISLANDS,URUGUAY,UZBEKISTAN,VANUATU,VENEZUELA  BOLIVARIAN REPUBLIC OF,VIET NAM,VIRGIN ISLANDS  BRITISH,VIRGIN ISLANDS  U.S.,Indeterminately reserved,WALLIS AND FUTUNA,WESTERN SAHARA,YEMEN,ZAMBIA,ZIMBABWE",
 		"InwxOptions" => "CW,SX,BQ,AF,AX,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,AC,AU,AT,AZ,BS,BH,BD,BB,BY,BE,BZ,BJ,BM,BT,BO,BA,BW,BV,BR,IO,BN,BG,BF,BI,KH,CM,CA,CV,KY,CF,TD,CL,CN,CX,CC,CO,KM,CG,CD,CK,CR,CI,HR,CU,CY,CZ,DK,DJ,DM,DO,EC,EG,SV,GQ,ER,EE,ET,FK,FO,FJ,FI,FR,GF,PF,TF,GA,GM,GE,DE,GH,GI,GR,GL,GD,GP,GU,GT,GG,GN,GW,GY,HT,HM,VA,HN,HK,HU,IS,IN,ID,IR,IQ,IE,IM,IL,IT,JM,JP,JE,JO,KZ,KE,KI,KP,KR,KW,KG,LA,LV,LB,LS,LR,LY,LI,LT,LU,MO,MK,MG,MW,MY,MV,ML,MT,MH,MQ,MR,MU,YT,MX,FM,MD,MC,MN,ME,MS,MA,MZ,MM,NA,NR,NP,NL,NC,NZ,NI,NE,NG,NU,NF,MP,NO,OM,PK,PW,PS,PA,PG,PY,PE,PH,PN,PL,PT,PR,QA,RE,RO,RU,RW,BL,SH,KN,LC,MF,PM,VC,WS,SM,ST,SA,SN,RS,SC,SL,SG,SK,SI,SB,SO,ZA,GS,ES,LK,SD,SR,SJ,SZ,SE,CH,SY,TW,TJ,TZ,TH,TL,TG,TK,TO,TT,TN,TR,TM,TC,TV,UG,UA,AE,GB,US,UM,UY,UZ,VU,VE,VN,VG,VI,WO,WF,EH,YE,ZM,ZW",
@@ -4835,28 +4835,28 @@ $additionaldomainfields[".yt"][] = array(
 $additionaldomainfields[".yt"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".yt"][] = array(
 		"Name" => "DUNS-NUMBER",
 		"InwxName" => "DUNS-NUMBER",
-		"DisplayName" => "DUNS-NUMBER",
+		"DisplayName" => "DUNS number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".yt"][] = array(
 		"Name" => "EEA-LOCAL-ID",
 		"InwxName" => "EEA-LOCAL-ID",
-		"DisplayName" => "EEA-LOCAL-ID",
+		"DisplayName" => "Local ID within the European Economic Area (EEA)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".yt"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -4918,14 +4918,14 @@ $additionaldomainfields[".agrar.hu"][] = array(
 $additionaldomainfields[".agrar.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".agrar.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -4943,14 +4943,14 @@ $additionaldomainfields[".bolt.hu"][] = array(
 $additionaldomainfields[".bolt.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bolt.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -4968,14 +4968,14 @@ $additionaldomainfields[".casino.hu"][] = array(
 $additionaldomainfields[".casino.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".casino.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -4993,14 +4993,14 @@ $additionaldomainfields[".city.hu"][] = array(
 $additionaldomainfields[".city.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".city.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5018,14 +5018,14 @@ $additionaldomainfields[".erotica.hu"][] = array(
 $additionaldomainfields[".erotica.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".erotica.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5043,14 +5043,14 @@ $additionaldomainfields[".erotika.hu"][] = array(
 $additionaldomainfields[".erotika.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".erotika.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5068,14 +5068,14 @@ $additionaldomainfields[".film.hu"][] = array(
 $additionaldomainfields[".film.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".film.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5093,14 +5093,14 @@ $additionaldomainfields[".forum.hu"][] = array(
 $additionaldomainfields[".forum.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".forum.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5118,14 +5118,14 @@ $additionaldomainfields[".games.hu"][] = array(
 $additionaldomainfields[".games.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".games.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5143,14 +5143,14 @@ $additionaldomainfields[".hotel.hu"][] = array(
 $additionaldomainfields[".hotel.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".hotel.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5168,14 +5168,14 @@ $additionaldomainfields[".info.hu"][] = array(
 $additionaldomainfields[".info.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".info.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5193,14 +5193,14 @@ $additionaldomainfields[".ingatlan.hu"][] = array(
 $additionaldomainfields[".ingatlan.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ingatlan.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5218,14 +5218,14 @@ $additionaldomainfields[".jogasz.hu"][] = array(
 $additionaldomainfields[".jogasz.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".jogasz.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5243,14 +5243,14 @@ $additionaldomainfields[".konyvelo.hu"][] = array(
 $additionaldomainfields[".konyvelo.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".konyvelo.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5268,14 +5268,14 @@ $additionaldomainfields[".lakas.hu"][] = array(
 $additionaldomainfields[".lakas.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lakas.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5293,14 +5293,14 @@ $additionaldomainfields[".media.hu"][] = array(
 $additionaldomainfields[".media.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".media.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5318,14 +5318,14 @@ $additionaldomainfields[".news.hu"][] = array(
 $additionaldomainfields[".news.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".news.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5343,14 +5343,14 @@ $additionaldomainfields[".org.hu"][] = array(
 $additionaldomainfields[".org.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5368,14 +5368,14 @@ $additionaldomainfields[".priv.hu"][] = array(
 $additionaldomainfields[".priv.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".priv.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5393,14 +5393,14 @@ $additionaldomainfields[".reklam.hu"][] = array(
 $additionaldomainfields[".reklam.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".reklam.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5418,14 +5418,14 @@ $additionaldomainfields[".sex.hu"][] = array(
 $additionaldomainfields[".sex.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sex.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5443,14 +5443,14 @@ $additionaldomainfields[".shop.hu"][] = array(
 $additionaldomainfields[".shop.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".shop.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5468,14 +5468,14 @@ $additionaldomainfields[".sport.hu"][] = array(
 $additionaldomainfields[".sport.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sport.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5493,14 +5493,14 @@ $additionaldomainfields[".suli.hu"][] = array(
 $additionaldomainfields[".suli.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".suli.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5518,14 +5518,14 @@ $additionaldomainfields[".szex.hu"][] = array(
 $additionaldomainfields[".szex.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".szex.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5543,14 +5543,14 @@ $additionaldomainfields[".tm.hu"][] = array(
 $additionaldomainfields[".tm.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tm.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5568,14 +5568,14 @@ $additionaldomainfields[".tozsde.hu"][] = array(
 $additionaldomainfields[".tozsde.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tozsde.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5593,14 +5593,14 @@ $additionaldomainfields[".utazas.hu"][] = array(
 $additionaldomainfields[".utazas.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".utazas.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5618,14 +5618,14 @@ $additionaldomainfields[".video.hu"][] = array(
 $additionaldomainfields[".video.hu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".video.hu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -5731,14 +5731,14 @@ $additionaldomainfields[".biz.id"][] = array(
 $additionaldomainfields[".biz.id"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".biz.id"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -5756,14 +5756,14 @@ $additionaldomainfields[".web.id"][] = array(
 $additionaldomainfields[".web.id"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".web.id"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -5781,14 +5781,14 @@ $additionaldomainfields[".my.id"][] = array(
 $additionaldomainfields[".my.id"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".my.id"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -5806,14 +5806,14 @@ $additionaldomainfields[".id"][] = array(
 $additionaldomainfields[".id"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".id"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -5856,21 +5856,21 @@ $additionaldomainfields[".cf.it"] = array();
 $additionaldomainfields[".cf.it"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cf.it"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cf.it"][] = array(
 		"Name" => "IT-CODICE-FISCALE",
 		"InwxName" => "IT-CODICE-FISCALE",
-		"DisplayName" => "IT-CODICE-FISCALE",
+		"DisplayName" => ".IT codice fiscale",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -5880,7 +5880,7 @@ $additionaldomainfields[".us"] = array();
 $additionaldomainfields[".us"][] = array(
 		"Name" => "US-NEXUS-APPPURPOSE",
 		"InwxName" => "US-NEXUS-APPPURPOSE",
-		"DisplayName" => false,
+		"DisplayName" => ".US App Purpose",
 		"Required" => true,
 		"Options" => "Business use for profit,Non-profit business  club  association  religious organization  etc.,Personal use,Education purposes,Government purposes",
 		"InwxOptions" => "P1,P2,P3,P4,P5",
@@ -5888,7 +5888,7 @@ $additionaldomainfields[".us"][] = array(
 $additionaldomainfields[".us"][] = array(
 		"Name" => "US-NEXUS-CATEGORY",
 		"InwxName" => "US-NEXUS-CATEGORY",
-		"DisplayName" => false,
+		"DisplayName" => ".US Nexus category",
 		"Required" => true,
 		"Options" => "A natural person who is a United States citizen,A natural person who is a permanent resident of the United States of America  or any of its possessions or territories,A U.S.-based organization or company [A U.S.-based organization or company formed within one of the fifty (50) U.S. states  the District of Columbia  or any of the United States possessions or territories  or orga nized or otherwise constituted under the laws of a state of the United States of America  the District of Columbia or any of its possessions or territories or a U.S. federal  state  or local government entity or a political subdivision thereof.],A foreign entity or organization [A foreign entity or organization that has a bona fide presence in the United States of America or any of its possessions or territories who regularly engages in lawful activities (sales of goods or services or other business  commercial or non-commercial  including not-for-profit relations in the United States).],Entity has an office or other facility in the United States",
 		"InwxOptions" => "C11,C12,C21,C31,C32",
@@ -5899,7 +5899,7 @@ $additionaldomainfields[".dk"] = array();
 $additionaldomainfields[".dk"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -5909,21 +5909,21 @@ $additionaldomainfields[".ro"] = array();
 $additionaldomainfields[".ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -5933,21 +5933,21 @@ $additionaldomainfields[".arts.ro"] = array();
 $additionaldomainfields[".arts.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".arts.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".arts.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -5957,21 +5957,21 @@ $additionaldomainfields[".com.ro"] = array();
 $additionaldomainfields[".com.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -5981,21 +5981,21 @@ $additionaldomainfields[".firm.ro"] = array();
 $additionaldomainfields[".firm.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".firm.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".firm.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6005,21 +6005,21 @@ $additionaldomainfields[".info.ro"] = array();
 $additionaldomainfields[".info.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".info.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".info.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6029,21 +6029,21 @@ $additionaldomainfields[".nom.ro"] = array();
 $additionaldomainfields[".nom.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".nom.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".nom.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6053,21 +6053,21 @@ $additionaldomainfields[".nt.ro"] = array();
 $additionaldomainfields[".nt.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".nt.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".nt.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6077,21 +6077,21 @@ $additionaldomainfields[".org.ro"] = array();
 $additionaldomainfields[".org.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6101,21 +6101,21 @@ $additionaldomainfields[".pro.ro"] = array();
 $additionaldomainfields[".pro.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pro.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pro.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6125,21 +6125,21 @@ $additionaldomainfields[".rec.ro"] = array();
 $additionaldomainfields[".rec.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rec.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rec.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6149,21 +6149,21 @@ $additionaldomainfields[".store.ro"] = array();
 $additionaldomainfields[".store.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".store.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".store.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6173,21 +6173,21 @@ $additionaldomainfields[".tm.ro"] = array();
 $additionaldomainfields[".tm.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tm.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tm.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6197,21 +6197,21 @@ $additionaldomainfields[".www.ro"] = array();
 $additionaldomainfields[".www.ro"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".www.ro"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".www.ro"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6221,7 +6221,7 @@ $additionaldomainfields[".ae"] = array();
 $additionaldomainfields[".ae"][] = array(
 		"Name" => "AE-REGISTRANT-WARRANTY-STATEMENT",
 		"InwxName" => "AE-REGISTRANT-WARRANTY-STATEMENT",
-		"DisplayName" => false,
+		"DisplayName" => ".AE Important Notice",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -6231,28 +6231,28 @@ $additionaldomainfields[".ru"] = array();
 $additionaldomainfields[".ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUER",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issuer",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issue date",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ru"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6262,28 +6262,28 @@ $additionaldomainfields[".com.ru"] = array();
 $additionaldomainfields[".com.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUER",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issuer",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issue date",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.ru"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6293,28 +6293,28 @@ $additionaldomainfields[".net.ru"] = array();
 $additionaldomainfields[".net.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUER",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issuer",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issue date",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.ru"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6324,28 +6324,28 @@ $additionaldomainfields[".org.ru"] = array();
 $additionaldomainfields[".org.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUER",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issuer",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issue date",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.ru"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6355,28 +6355,28 @@ $additionaldomainfields[".pp.ru"] = array();
 $additionaldomainfields[".pp.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pp.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUER",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issuer",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pp.ru"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issue date",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pp.ru"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6386,28 +6386,28 @@ $additionaldomainfields[".su"] = array();
 $additionaldomainfields[".su"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".su"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUER",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issuer",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".su"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issue date",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".su"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6417,28 +6417,28 @@ $additionaldomainfields[".рф"] = array();
 $additionaldomainfields[".рф"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".рф"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUER",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issuer",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".рф"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issue date",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".рф"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6448,7 +6448,7 @@ $additionaldomainfields[".az"] = array();
 $additionaldomainfields[".az"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6458,7 +6458,7 @@ $additionaldomainfields[".co.az"] = array();
 $additionaldomainfields[".co.az"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6468,7 +6468,7 @@ $additionaldomainfields[".com.az"] = array();
 $additionaldomainfields[".com.az"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6478,28 +6478,28 @@ $additionaldomainfields[".pt"] = array();
 $additionaldomainfields[".pt"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pt"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pt"][] = array(
 		"Name" => "TECH-TAX-NUMBER",
 		"InwxName" => "TECH-TAX-NUMBER",
-		"DisplayName" => "TECH-TAX-NUMBER",
+		"DisplayName" => "Tax number of the technical contact",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pt"][] = array(
 		"Name" => "TECH-VAT-NUMBER",
 		"InwxName" => "TECH-VAT-NUMBER",
-		"DisplayName" => "TECH-VAT-NUMBER",
+		"DisplayName" => "VAT number of the technical contact",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6509,28 +6509,28 @@ $additionaldomainfields[".com.pt"] = array();
 $additionaldomainfields[".com.pt"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.pt"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.pt"][] = array(
 		"Name" => "TECH-TAX-NUMBER",
 		"InwxName" => "TECH-TAX-NUMBER",
-		"DisplayName" => "TECH-TAX-NUMBER",
+		"DisplayName" => "Tax number of the technical contact",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.pt"][] = array(
 		"Name" => "TECH-VAT-NUMBER",
 		"InwxName" => "TECH-VAT-NUMBER",
-		"DisplayName" => "TECH-VAT-NUMBER",
+		"DisplayName" => "VAT number of the technical contact",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6540,7 +6540,7 @@ $additionaldomainfields[".name_Email"] = array();
 $additionaldomainfields[".name_Email"][] = array(
 		"Name" => "NAME-EMAIL-FORWARD",
 		"InwxName" => "NAME-EMAIL-FORWARD",
-		"DisplayName" => false,
+		"DisplayName" => ".NAME Email Forwarding",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -6550,56 +6550,56 @@ $additionaldomainfields[".se"] = array();
 $additionaldomainfields[".se"][] = array(
 		"Name" => "NICSE-IDNUMBER",
 		"InwxName" => "NICSE-IDNUMBER",
-		"DisplayName" => false,
+		"DisplayName" => ".SE ID number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".se"][] = array(
 		"Name" => "NICSE-IDNUMBER",
 		"InwxName" => "NICSE-IDNUMBER",
-		"DisplayName" => false,
+		"DisplayName" => ".SE ID number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".se"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".se"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".se"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".se"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".se"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".se"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6609,21 +6609,21 @@ $additionaldomainfields[".rs"] = array();
 $additionaldomainfields[".rs"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rs"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rs"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6633,7 +6633,7 @@ $additionaldomainfields[".id.au"] = array();
 $additionaldomainfields[".id.au"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -6643,7 +6643,7 @@ $additionaldomainfields[".com.au"] = array();
 $additionaldomainfields[".com.au"][] = array(
 		"Name" => "AU-DOMAIN-IDTYPE",
 		"InwxName" => "AU-DOMAIN-IDTYPE",
-		"DisplayName" => "AU-DOMAIN-IDTYPE",
+		"DisplayName" => ".AU identification type",
 		"Required" => true,
 		"Options" => "Australian Business Number,Australian Company Number,Australian Registered Body Number,Other",
 		"InwxOptions" => "ABN,ACN,ARBN,OTHER",
@@ -6651,14 +6651,14 @@ $additionaldomainfields[".com.au"][] = array(
 $additionaldomainfields[".com.au"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => true,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.au"][] = array(
 		"Name" => "AU-DOMAIN-RELATION",
 		"InwxName" => "AU-DOMAIN-RELATION",
-		"DisplayName" => "AU-DOMAIN-RELATION",
+		"DisplayName" => ".AU domain relation",
 		"Required" => true,
 		"Options" => "2LD Domain name is an exact match  acronym or abbreviation of the registrant’s company or trading name  organization or association name or trademark.,2LD Domain Name is closely and substantially connected to the registrant.",
 		"InwxOptions" => "1,2",
@@ -6666,7 +6666,7 @@ $additionaldomainfields[".com.au"][] = array(
 $additionaldomainfields[".com.au"][] = array(
 		"Name" => "AU-DOMAIN-RELATIONTYPE",
 		"InwxName" => "AU-DOMAIN-RELATIONTYPE",
-		"DisplayName" => "AU-DOMAIN-RELATIONTYPE",
+		"DisplayName" => ".AU owner type",
 		"Required" => true,
 		"Options" => "Company,Registered Business,Sole Trader,Partnership,Trademark Owner,Pending TM Owner,Incorporated Association,Club,Non-profit Organisation,Charity,Trade Union,Industry Body,Commercial Statutory Body,Political Party,Citizen/Resident,Other",
 		"InwxOptions" => "Company,Registered Business,Sole Trader,Partnership,Trademark Owner,Pending TM Owner,Incorporated Association,Club,Non-profit Organisation,Charity,Trade Union,Industry Body,Commercial Statutory Body,Political Party,Citizen/Resident,Other",
@@ -6674,14 +6674,14 @@ $additionaldomainfields[".com.au"][] = array(
 $additionaldomainfields[".com.au"][] = array(
 		"Name" => "TRADEMARK-NAME",
 		"InwxName" => "TRADEMARK-NAME",
-		"DisplayName" => "TRADEMARK-NAME",
+		"DisplayName" => "Trademark Name",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.au"][] = array(
 		"Name" => "TRADEMARK-NUMBER",
 		"InwxName" => "TRADEMARK-NUMBER",
-		"DisplayName" => "TRADEMARK-NUMBER",
+		"DisplayName" => "Trademark Number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6691,7 +6691,7 @@ $additionaldomainfields[".net.au"] = array();
 $additionaldomainfields[".net.au"][] = array(
 		"Name" => "AU-DOMAIN-IDTYPE",
 		"InwxName" => "AU-DOMAIN-IDTYPE",
-		"DisplayName" => "AU-DOMAIN-IDTYPE",
+		"DisplayName" => ".AU identification type",
 		"Required" => true,
 		"Options" => "Australian Business Number,Australian Company Number,Australian Registered Body Number,Other",
 		"InwxOptions" => "ABN,ACN,ARBN,OTHER",
@@ -6699,14 +6699,14 @@ $additionaldomainfields[".net.au"][] = array(
 $additionaldomainfields[".net.au"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => true,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.au"][] = array(
 		"Name" => "AU-DOMAIN-RELATION",
 		"InwxName" => "AU-DOMAIN-RELATION",
-		"DisplayName" => "AU-DOMAIN-RELATION",
+		"DisplayName" => ".AU domain relation",
 		"Required" => true,
 		"Options" => "2LD Domain name is an exact match  acronym or abbreviation of the registrant’s company or trading name  organization or association name or trademark.,2LD Domain Name is closely and substantially connected to the registrant.",
 		"InwxOptions" => "1,2",
@@ -6714,7 +6714,7 @@ $additionaldomainfields[".net.au"][] = array(
 $additionaldomainfields[".net.au"][] = array(
 		"Name" => "AU-DOMAIN-RELATIONTYPE",
 		"InwxName" => "AU-DOMAIN-RELATIONTYPE",
-		"DisplayName" => "AU-DOMAIN-RELATIONTYPE",
+		"DisplayName" => ".AU owner type",
 		"Required" => true,
 		"Options" => "Company,Registered Business,Sole Trader,Partnership,Trademark Owner,Pending TM Owner,Incorporated Association,Club,Non-profit Organisation,Charity,Trade Union,Industry Body,Commercial Statutory Body,Political Party,Citizen/Resident,Other",
 		"InwxOptions" => "Company,Registered Business,Sole Trader,Partnership,Trademark Owner,Pending TM Owner,Incorporated Association,Club,Non-profit Organisation,Charity,Trade Union,Industry Body,Commercial Statutory Body,Political Party,Citizen/Resident,Other",
@@ -6722,14 +6722,14 @@ $additionaldomainfields[".net.au"][] = array(
 $additionaldomainfields[".net.au"][] = array(
 		"Name" => "TRADEMARK-NAME",
 		"InwxName" => "TRADEMARK-NAME",
-		"DisplayName" => "TRADEMARK-NAME",
+		"DisplayName" => "Trademark Name",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.au"][] = array(
 		"Name" => "TRADEMARK-NUMBER",
 		"InwxName" => "TRADEMARK-NUMBER",
-		"DisplayName" => "TRADEMARK-NUMBER",
+		"DisplayName" => "Trademark Number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6739,7 +6739,7 @@ $additionaldomainfields[".org.au"] = array();
 $additionaldomainfields[".org.au"][] = array(
 		"Name" => "AU-DOMAIN-IDTYPE",
 		"InwxName" => "AU-DOMAIN-IDTYPE",
-		"DisplayName" => "AU-DOMAIN-IDTYPE",
+		"DisplayName" => ".AU identification type",
 		"Required" => true,
 		"Options" => "Australian Business Number,Australian Company Number,Australian Registered Body Number,Other",
 		"InwxOptions" => "ABN,ACN,ARBN,OTHER",
@@ -6747,14 +6747,14 @@ $additionaldomainfields[".org.au"][] = array(
 $additionaldomainfields[".org.au"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => true,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.au"][] = array(
 		"Name" => "AU-DOMAIN-RELATION",
 		"InwxName" => "AU-DOMAIN-RELATION",
-		"DisplayName" => "AU-DOMAIN-RELATION",
+		"DisplayName" => ".AU domain relation",
 		"Required" => true,
 		"Options" => "2LD Domain name is an exact match  acronym or abbreviation of the registrant’s company or trading name  organization or association name or trademark.,2LD Domain Name is closely and substantially connected to the registrant.",
 		"InwxOptions" => "1,2",
@@ -6762,7 +6762,7 @@ $additionaldomainfields[".org.au"][] = array(
 $additionaldomainfields[".org.au"][] = array(
 		"Name" => "AU-DOMAIN-RELATIONTYPE",
 		"InwxName" => "AU-DOMAIN-RELATIONTYPE",
-		"DisplayName" => "AU-DOMAIN-RELATIONTYPE",
+		"DisplayName" => ".AU owner type",
 		"Required" => true,
 		"Options" => "Company,Registered Business,Sole Trader,Partnership,Trademark Owner,Pending TM Owner,Incorporated Association,Club,Non-profit Organisation,Charity,Trade Union,Industry Body,Commercial Statutory Body,Political Party,Citizen/Resident,Other",
 		"InwxOptions" => "Company,Registered Business,Sole Trader,Partnership,Trademark Owner,Pending TM Owner,Incorporated Association,Club,Non-profit Organisation,Charity,Trade Union,Industry Body,Commercial Statutory Body,Political Party,Citizen/Resident,Other",
@@ -6770,14 +6770,14 @@ $additionaldomainfields[".org.au"][] = array(
 $additionaldomainfields[".org.au"][] = array(
 		"Name" => "TRADEMARK-NAME",
 		"InwxName" => "TRADEMARK-NAME",
-		"DisplayName" => "TRADEMARK-NAME",
+		"DisplayName" => "Trademark Name",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.au"][] = array(
 		"Name" => "TRADEMARK-NUMBER",
 		"InwxName" => "TRADEMARK-NUMBER",
-		"DisplayName" => "TRADEMARK-NUMBER",
+		"DisplayName" => "Trademark Number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6787,14 +6787,14 @@ $additionaldomainfields[".ie"] = array();
 $additionaldomainfields[".ie"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ie"][] = array(
 		"Name" => "IE-REGISTRATION-BASIS",
 		"InwxName" => "IE-REGISTRATION-BASIS",
-		"DisplayName" => "IE-REGISTRATION-BASIS",
+		"DisplayName" => ".IE registration basis",
 		"Required" => false,
 		"Options" => "Domain name based on Trade Mark,Copies of invoices showing trade to or from Ireland,High-quality brochures showing a significant intention to trade in Ireland",
 		"InwxOptions" => "TRADEMARK,INVOICES,BROCHURES",
@@ -6802,7 +6802,7 @@ $additionaldomainfields[".ie"][] = array(
 $additionaldomainfields[".ie"][] = array(
 		"Name" => "IE-TRADEMARK-TYPE",
 		"InwxName" => "IE-TRADEMARK-TYPE",
-		"DisplayName" => "IE-TRADEMARK-TYPE",
+		"DisplayName" => ".IE Trademark type",
 		"Required" => false,
 		"Options" => "Irish Patents Office,Office for Harmonization in the Internal Market (OHIM/HABM/IHMI/OAMI/OHMI/UAMI),World Intellectual Property Organization (OMPI/MOIP/WIPO)",
 		"InwxOptions" => "IE,EM,WO",
@@ -6810,14 +6810,14 @@ $additionaldomainfields[".ie"][] = array(
 $additionaldomainfields[".ie"][] = array(
 		"Name" => "TRADEMARK-NAME",
 		"InwxName" => "TRADEMARK-NAME",
-		"DisplayName" => "TRADEMARK-NAME",
+		"DisplayName" => "Trademark Name",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ie"][] = array(
 		"Name" => "TRADEMARK-NUMBER",
 		"InwxName" => "TRADEMARK-NUMBER",
-		"DisplayName" => "TRADEMARK-NUMBER",
+		"DisplayName" => "Trademark Number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6827,14 +6827,14 @@ $additionaldomainfields[".lv"] = array();
 $additionaldomainfields[".lv"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lv"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6844,14 +6844,14 @@ $additionaldomainfields[".com.lv"] = array();
 $additionaldomainfields[".com.lv"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.lv"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6861,14 +6861,14 @@ $additionaldomainfields[".edu.lv"] = array();
 $additionaldomainfields[".edu.lv"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".edu.lv"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6878,14 +6878,14 @@ $additionaldomainfields[".net.lv"] = array();
 $additionaldomainfields[".net.lv"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.lv"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6895,14 +6895,14 @@ $additionaldomainfields[".org.lv"] = array();
 $additionaldomainfields[".org.lv"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.lv"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6912,7 +6912,7 @@ $additionaldomainfields[".ltd.uk"] = array();
 $additionaldomainfields[".ltd.uk"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -6922,7 +6922,7 @@ $additionaldomainfields[".travel"] = array();
 $additionaldomainfields[".travel"][] = array(
 		"Name" => "TRAVEL-UIN",
 		"InwxName" => "TRAVEL-UIN",
-		"DisplayName" => "TRAVEL-UIN",
+		"DisplayName" => ".TRAVEL UIN",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -6932,7 +6932,7 @@ $additionaldomainfields[".jobs"] = array();
 $additionaldomainfields[".jobs"][] = array(
 		"Name" => "JOBS-COMPANYURL",
 		"InwxName" => "JOBS-COMPANYURL",
-		"DisplayName" => "JOBS-COMPANYURL",
+		"DisplayName" => ".JOBS Company URL",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -6942,21 +6942,21 @@ $additionaldomainfields[".hk"] = array();
 $additionaldomainfields[".hk"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".hk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".hk"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6966,21 +6966,21 @@ $additionaldomainfields[".net.hk"] = array();
 $additionaldomainfields[".net.hk"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.hk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.hk"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -6990,21 +6990,21 @@ $additionaldomainfields[".org.hk"] = array();
 $additionaldomainfields[".org.hk"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.hk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.hk"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7014,7 +7014,7 @@ $additionaldomainfields[".ca"] = array();
 $additionaldomainfields[".ca"][] = array(
 		"Name" => "CA-LEGALTYPE",
 		"InwxName" => "CA-LEGALTYPE",
-		"DisplayName" => "CA-LEGALTYPE",
+		"DisplayName" => ".CA legal type",
 		"Required" => false,
 		"Options" => "Corporation (Canada or Canadian province or territory),Canadian citizen,Permanent Resident of Canada,Government or government entity in Canada,Canadian Educational Institution,Canadian Unincorporated Association,Canadian Hospital,Partnership Registered in Canada,Trade-mark registered in Canada (by a non-Canadian owner),Canadian Trade Union,Canadian Political Party,Canadian Library  Archive or Museum,Trust established in Canada,Aboriginal Peoples (individuals or groups) indigenous to Canada,Indian Band recognized by the Indian Act of Canada,Legal Representative of a Canadian Citizen or Permanent Resident,Official mark registered in Canada,Her Majesty the Queen",
 		"InwxOptions" => "CCO,CCT,RES,GOV,EDU,ASS,HOP,PRT,TDM,TRD,PLT,LAM,TRS,ABO,INB,LGR,OMK,MAJ",
@@ -7025,14 +7025,17 @@ $additionaldomainfields[".cn"] = array();
 $additionaldomainfields[".cn"][] = array(
 		"Name" => "CN-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "CN-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "CN-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I am aware that authentic, accurate and complete documentation must be submitted for registration. For individual persons a copy of an official document as proof of identity of the domain owner (ID card, passport, driver's licence etc.) is required and for companies a copy of a document as validation of the company registration (business license, business certificate etc.).
+I have read and understood the registration rules and policies of the registry CNNIC. The policies governing the contents of the websites under the domain name must be respected.
+In case the domain is used for a website where the webserver is located in mainland China, a valid ICP number obtained from MIIT must be presented.
+I myself am responsable for the suspension of the domain or any consequences caused by violations of the commitments and I am aware that the registry and the registrar undertake no responsibility in case of the suspension of the domain.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
 $additionaldomainfields[".cn"][] = array(
 		"Name" => "CN-ICP-NUMBER",
 		"InwxName" => "CN-ICP-NUMBER",
-		"DisplayName" => "CN-ICP-NUMBER",
+		"DisplayName" => ".CN ICP number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7042,14 +7045,17 @@ $additionaldomainfields[".com.cn"] = array();
 $additionaldomainfields[".com.cn"][] = array(
 		"Name" => "CN-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "CN-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "CN-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I am aware that authentic, accurate and complete documentation must be submitted for registration. For individual persons a copy of an official document as proof of identity of the domain owner (ID card, passport, driver's licence etc.) is required and for companies a copy of a document as validation of the company registration (business license, business certificate etc.).
+I have read and understood the registration rules and policies of the registry CNNIC. The policies governing the contents of the websites under the domain name must be respected.
+In case the domain is used for a website where the webserver is located in mainland China, a valid ICP number obtained from MIIT must be presented.
+I myself am responsable for the suspension of the domain or any consequences caused by violations of the commitments and I am aware that the registry and the registrar undertake no responsibility in case of the suspension of the domain.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
 $additionaldomainfields[".com.cn"][] = array(
 		"Name" => "CN-ICP-NUMBER",
 		"InwxName" => "CN-ICP-NUMBER",
-		"DisplayName" => "CN-ICP-NUMBER",
+		"DisplayName" => ".CN ICP number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7059,14 +7065,17 @@ $additionaldomainfields[".net.cn"] = array();
 $additionaldomainfields[".net.cn"][] = array(
 		"Name" => "CN-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "CN-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "CN-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I am aware that authentic, accurate and complete documentation must be submitted for registration. For individual persons a copy of an official document as proof of identity of the domain owner (ID card, passport, driver's licence etc.) is required and for companies a copy of a document as validation of the company registration (business license, business certificate etc.).
+I have read and understood the registration rules and policies of the registry CNNIC. The policies governing the contents of the websites under the domain name must be respected.
+In case the domain is used for a website where the webserver is located in mainland China, a valid ICP number obtained from MIIT must be presented.
+I myself am responsable for the suspension of the domain or any consequences caused by violations of the commitments and I am aware that the registry and the registrar undertake no responsibility in case of the suspension of the domain.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
 $additionaldomainfields[".net.cn"][] = array(
 		"Name" => "CN-ICP-NUMBER",
 		"InwxName" => "CN-ICP-NUMBER",
-		"DisplayName" => "CN-ICP-NUMBER",
+		"DisplayName" => ".CN ICP number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7076,14 +7085,17 @@ $additionaldomainfields[".org.cn"] = array();
 $additionaldomainfields[".org.cn"][] = array(
 		"Name" => "CN-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "CN-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "CN-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I am aware that authentic, accurate and complete documentation must be submitted for registration. For individual persons a copy of an official document as proof of identity of the domain owner (ID card, passport, driver's licence etc.) is required and for companies a copy of a document as validation of the company registration (business license, business certificate etc.).
+I have read and understood the registration rules and policies of the registry CNNIC. The policies governing the contents of the websites under the domain name must be respected.
+In case the domain is used for a website where the webserver is located in mainland China, a valid ICP number obtained from MIIT must be presented.
+I myself am responsable for the suspension of the domain or any consequences caused by violations of the commitments and I am aware that the registry and the registrar undertake no responsibility in case of the suspension of the domain.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
 $additionaldomainfields[".org.cn"][] = array(
 		"Name" => "CN-ICP-NUMBER",
 		"InwxName" => "CN-ICP-NUMBER",
-		"DisplayName" => "CN-ICP-NUMBER",
+		"DisplayName" => ".CN ICP number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7093,14 +7105,14 @@ $additionaldomainfields[".aero"] = array();
 $additionaldomainfields[".aero"][] = array(
 		"Name" => "AERO-ENS-AUTH-ID",
 		"InwxName" => "AERO-ENS-AUTH-ID",
-		"DisplayName" => "AERO-ENS-AUTH-ID",
+		"DisplayName" => ".AERO ID",
 		"Required" => true,
 		"Type" => "text",
 	);
 $additionaldomainfields[".aero"][] = array(
 		"Name" => "AERO-ENS-AUTH-KEY",
 		"InwxName" => "AERO-ENS-AUTH-KEY",
-		"DisplayName" => "AERO-ENS-AUTH-KEY",
+		"DisplayName" => ".AERO KEY",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -7110,28 +7122,28 @@ $additionaldomainfields[".pro"] = array();
 $additionaldomainfields[".pro"][] = array(
 		"Name" => "PRO-AV-PROFESSIONTYPE",
 		"InwxName" => "PRO-AV-PROFESSIONTYPE",
-		"DisplayName" => "PRO-AV-PROFESSIONTYPE",
+		"DisplayName" => ".PRO profession",
 		"Required" => true,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pro"][] = array(
 		"Name" => "PRO-AV-LICENSE-NUMBER",
 		"InwxName" => "PRO-AV-LICENSE-NUMBER",
-		"DisplayName" => "PRO-AV-LICENSE-NUMBER",
+		"DisplayName" => ".PRO license number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pro"][] = array(
 		"Name" => "PRO-AV-LICENSE-AUTHORITY",
 		"InwxName" => "PRO-AV-LICENSE-AUTHORITY",
-		"DisplayName" => "PRO-AV-LICENSE-AUTHORITY",
+		"DisplayName" => ".PRO license authority",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".pro"][] = array(
 		"Name" => "PRO-AV-LICENSE-AUTHORITY-WEBSITE",
 		"InwxName" => "PRO-AV-LICENSE-AUTHORITY-WEBSITE",
-		"DisplayName" => "PRO-AV-LICENSE-AUTHORITY-WEBSITE",
+		"DisplayName" => ".PRO license authority website",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7141,7 +7153,7 @@ $additionaldomainfields[".co.jp"] = array();
 $additionaldomainfields[".co.jp"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -7158,7 +7170,7 @@ $additionaldomainfields[".xxx"] = array();
 $additionaldomainfields[".xxx"][] = array(
 		"Name" => "XXX-MEMBERSHIP-ID",
 		"InwxName" => "XXX-MEMBERSHIP-ID",
-		"DisplayName" => "XXX-MEMBERSHIP-ID",
+		"DisplayName" => ".XXX membership token",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7168,7 +7180,7 @@ $additionaldomainfields[".ua"] = array();
 $additionaldomainfields[".ua"][] = array(
 		"Name" => "UA-TRADEMARK-TYPE",
 		"InwxName" => "UA-TRADEMARK-TYPE",
-		"DisplayName" => "UA-TRADEMARK-TYPE",
+		"DisplayName" => ".UA trademark type",
 		"Required" => true,
 		"Options" => "Ukrainian Institute of Industrial Property (UIIP),World Intellectual Property Organization (OMPI/MOIP/WIPO)",
 		"InwxOptions" => "UA,WO",
@@ -7176,14 +7188,14 @@ $additionaldomainfields[".ua"][] = array(
 $additionaldomainfields[".ua"][] = array(
 		"Name" => "TRADEMARK-NAME",
 		"InwxName" => "TRADEMARK-NAME",
-		"DisplayName" => "TRADEMARK-NAME",
+		"DisplayName" => "Trademark Name",
 		"Required" => true,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ua"][] = array(
 		"Name" => "TRADEMARK-NUMBER",
 		"InwxName" => "TRADEMARK-NUMBER",
-		"DisplayName" => "TRADEMARK-NUMBER",
+		"DisplayName" => "Trademark Number",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -7193,21 +7205,21 @@ $additionaldomainfields[".hr"] = array();
 $additionaldomainfields[".hr"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".hr"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".hr"][] = array(
 		"Name" => "HR-OIB",
 		"InwxName" => "HR-OIB",
-		"DisplayName" => "HR-OIB",
+		"DisplayName" => "OIB (croatian ID)",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7217,21 +7229,21 @@ $additionaldomainfields[".com.hr"] = array();
 $additionaldomainfields[".com.hr"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.hr"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.hr"][] = array(
 		"Name" => "HR-OIB",
 		"InwxName" => "HR-OIB",
-		"DisplayName" => "HR-OIB",
+		"DisplayName" => "OIB (croatian ID)",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7241,28 +7253,28 @@ $additionaldomainfields[".by"] = array();
 $additionaldomainfields[".by"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".by"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUER",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issuer",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".by"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUE-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issue date",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".by"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7272,21 +7284,21 @@ $additionaldomainfields[".ir"] = array();
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-ISSUER",
 		"InwxName" => "IDCARD-OR-PASSPORT-ISSUER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card issuer",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-CC",
 		"InwxName" => "IDCARD-OR-PASSPORT-CC",
-		"DisplayName" => "IDCARD-OR-PASSPORT-CC",
+		"DisplayName" => "Country of ID card",
 		"Required" => false,
 		"Options" => "CURAÇAO,SINT MAARTEN,BONAIRE  SINT EUSTATIUS AND SABA,AFGHANISTAN,ALAND ISLANDS,ALBANIA,ALGERIA,AMERICAN SAMOA,ANDORRA,ANGOLA,ANGUILLA,ANTARCTICA,ANTIGUA AND BARBUDA,ARGENTINA,ARMENIA,ARUBA,ASCENSION ISLAND,AUSTRALIA,AUSTRIA,AZERBAIJAN,BAHAMAS,BAHRAIN,BANGLADESH,BARBADOS,BELARUS,BELGIUM,BELIZE,BENIN,BERMUDA,BHUTAN,BOLIVIA,BOSNIA AND HERZEGOVINA,BOTSWANA,BOUVET ISLAND,BRAZIL,BRITISH INDIAN OCEAN TERRITORY,BRUNEI DARUSSALAM,BULGARIA,BURKINA FASO,BURUNDI,CAMBODIA,CAMEROON,CANADA,CAPE VERDE,CAYMAN ISLANDS,CENTRAL AFRICAN REPUBLIC,CHAD,CHILE,CHINA,CHRISTMAS ISLAND,COCOS (KEELING) ISLANDS,COLOMBIA,COMOROS,CONGO,CONGO  THE DEMOCRATIC REPUBLIC OF THE,COOK ISLANDS,COSTA RICA,COTE D IVOIRE,CROATIA,CUBA,CYPRUS,CZECH REPUBLIC,DENMARK,DJIBOUTI,DOMINICA,DOMINICAN REPUBLIC,ECUADOR,EGYPT,EL SALVADOR,EQUATORIAL GUINEA,ERITREA,ESTONIA,ETHIOPIA,FALKLAND ISLANDS (MALVINAS),FAROE ISLANDS,FIJI,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GABON,GAMBIA,GEORGIA,GERMANY,GHANA,GIBRALTAR,GREECE,GREENLAND,GRENADA,GUADELOUPE,GUAM,GUATEMALA,GUERNSEY,GUINEA,GUINEA-BISSAU,GUYANA,HAITI,HEARD ISLAND AND MCDONALD ISLANDS,HOLY SEE (VATICAN CITY STATE),HONDURAS,HONG KONG,HUNGARY,ICELAND,INDIA,INDONESIA,IRAN  ISLAMIC REPUBLIC OF,IRAQ,IRELAND,ISLE OF MAN,ISRAEL,ITALY,JAMAICA,JAPAN,JERSEY,JORDAN,KAZAKHSTAN,KENYA,KIRIBATI,KOREA  DEMOCRATIC PEOPLES REPUBLIC OF,KOREA  REPUBLIC OF,KUWAIT,KYRGYZSTAN,LAO PEOPLES DEMOCRATIC REPUBLIC,LATVIA,LEBANON,LESOTHO,LIBERIA,LIBYAN ARAB JAMAHIRIYA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MACAO,MACEDONIA  THE FORMER YUGOSLAV REPUBLIC OF,MADAGASCAR,MALAWI,MALAYSIA,MALDIVES,MALI,MALTA,MARSHALL ISLANDS,MARTINIQUE,MAURITANIA,MAURITIUS,MAYOTTE,MEXICO,MICRONESIA  FEDERATED STATES OF,MOLDOVA  REPUBLIC OF,MONACO,MONGOLIA,MONTENEGRO,MONTSERRAT,MOROCCO,MOZAMBIQUE,MYANMAR,NAMIBIA,NAURU,NEPAL,NETHERLANDS,NEW CALEDONIA,NEW ZEALAND,NICARAGUA,NIGER,NIGERIA,NIUE,NORFOLK ISLAND,NORTHERN MARIANA ISLANDS,NORWAY,OMAN,PAKISTAN,PALAU,PALESTINIAN TERRITORY  OCCUPIED,PANAMA,PAPUA NEW GUINEA,PARAGUAY,PERU,PHILIPPINES,PITCAIRN,POLAND,PORTUGAL,PUERTO RICO,QATAR,REUNION,ROMANIA,RUSSIAN FEDERATION,RWANDA,SAINT BARTHELEMY,SAINT HELENA,SAINT KITTS AND NEVIS,SAINT LUCIA,SAINT MARTIN,SAINT PIERRE AND MIQUELON,SAINT VINCENT AND THE GRENADINES,SAMOA,SAN MARINO,SAO TOME AND PRINCIPE,SAUDI ARABIA,SENEGAL,SERBIA,SEYCHELLES,SIERRA LEONE,SINGAPORE,SLOVAKIA,SLOVENIA,SOLOMON ISLANDS,SOMALIA,SOUTH AFRICA,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS,SPAIN,SRI LANKA,SUDAN,SURINAME,SVALBARD AND JAN MAYEN,SWAZILAND,SWEDEN,SWITZERLAND,SYRIAN ARAB REPUBLIC,TAIWAN  PROVINCE OF CHINA,TAJIKISTAN,TANZANIA  UNITED REPUBLIC OF,THAILAND,TIMOR-LESTE,TOGO,TOKELAU,TONGA,TRINIDAD AND TOBAGO,TUNISIA,TURKEY,TURKMENISTAN,TURKS AND CAICOS ISLANDS,TUVALU,UGANDA,UKRAINE,UNITED ARAB EMIRATES,UNITED KINGDOM,UNITED STATES,UNITED STATES MINOR OUTLYING ISLANDS,URUGUAY,UZBEKISTAN,VANUATU,VENEZUELA  BOLIVARIAN REPUBLIC OF,VIET NAM,VIRGIN ISLANDS  BRITISH,VIRGIN ISLANDS  U.S.,Indeterminately reserved,WALLIS AND FUTUNA,WESTERN SAHARA,YEMEN,ZAMBIA,ZIMBABWE",
 		"InwxOptions" => "CW,SX,BQ,AF,AX,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,AC,AU,AT,AZ,BS,BH,BD,BB,BY,BE,BZ,BJ,BM,BT,BO,BA,BW,BV,BR,IO,BN,BG,BF,BI,KH,CM,CA,CV,KY,CF,TD,CL,CN,CX,CC,CO,KM,CG,CD,CK,CR,CI,HR,CU,CY,CZ,DK,DJ,DM,DO,EC,EG,SV,GQ,ER,EE,ET,FK,FO,FJ,FI,FR,GF,PF,TF,GA,GM,GE,DE,GH,GI,GR,GL,GD,GP,GU,GT,GG,GN,GW,GY,HT,HM,VA,HN,HK,HU,IS,IN,ID,IR,IQ,IE,IM,IL,IT,JM,JP,JE,JO,KZ,KE,KI,KP,KR,KW,KG,LA,LV,LB,LS,LR,LY,LI,LT,LU,MO,MK,MG,MW,MY,MV,ML,MT,MH,MQ,MR,MU,YT,MX,FM,MD,MC,MN,ME,MS,MA,MZ,MM,NA,NR,NP,NL,NC,NZ,NI,NE,NG,NU,NF,MP,NO,OM,PK,PW,PS,PA,PG,PY,PE,PH,PN,PL,PT,PR,QA,RE,RO,RU,RW,BL,SH,KN,LC,MF,PM,VC,WS,SM,ST,SA,SN,RS,SC,SL,SG,SK,SI,SB,SO,ZA,GS,ES,LK,SD,SR,SJ,SZ,SE,CH,SY,TW,TJ,TZ,TH,TL,TG,TK,TO,TT,TN,TR,TM,TC,TV,UG,UA,AE,GB,US,UM,UY,UZ,VU,VE,VN,VG,VI,WO,WF,EH,YE,ZM,ZW",
@@ -7294,14 +7306,14 @@ $additionaldomainfields[".ir"][] = array(
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "IR-NATIONAL-ID",
 		"InwxName" => "IR-NATIONAL-ID",
-		"DisplayName" => "IR-NATIONAL-ID",
+		"DisplayName" => "Iranian National-ID",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "IR-COMPANY-REGISTRATION-CC",
 		"InwxName" => "IR-COMPANY-REGISTRATION-CC",
-		"DisplayName" => "IR-COMPANY-REGISTRATION-CC",
+		"DisplayName" => "Country of Company registration center",
 		"Required" => false,
 		"Options" => "CURAÇAO,SINT MAARTEN,BONAIRE  SINT EUSTATIUS AND SABA,AFGHANISTAN,ALAND ISLANDS,ALBANIA,ALGERIA,AMERICAN SAMOA,ANDORRA,ANGOLA,ANGUILLA,ANTARCTICA,ANTIGUA AND BARBUDA,ARGENTINA,ARMENIA,ARUBA,ASCENSION ISLAND,AUSTRALIA,AUSTRIA,AZERBAIJAN,BAHAMAS,BAHRAIN,BANGLADESH,BARBADOS,BELARUS,BELGIUM,BELIZE,BENIN,BERMUDA,BHUTAN,BOLIVIA,BOSNIA AND HERZEGOVINA,BOTSWANA,BOUVET ISLAND,BRAZIL,BRITISH INDIAN OCEAN TERRITORY,BRUNEI DARUSSALAM,BULGARIA,BURKINA FASO,BURUNDI,CAMBODIA,CAMEROON,CANADA,CAPE VERDE,CAYMAN ISLANDS,CENTRAL AFRICAN REPUBLIC,CHAD,CHILE,CHINA,CHRISTMAS ISLAND,COCOS (KEELING) ISLANDS,COLOMBIA,COMOROS,CONGO,CONGO  THE DEMOCRATIC REPUBLIC OF THE,COOK ISLANDS,COSTA RICA,COTE D IVOIRE,CROATIA,CUBA,CYPRUS,CZECH REPUBLIC,DENMARK,DJIBOUTI,DOMINICA,DOMINICAN REPUBLIC,ECUADOR,EGYPT,EL SALVADOR,EQUATORIAL GUINEA,ERITREA,ESTONIA,ETHIOPIA,FALKLAND ISLANDS (MALVINAS),FAROE ISLANDS,FIJI,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GABON,GAMBIA,GEORGIA,GERMANY,GHANA,GIBRALTAR,GREECE,GREENLAND,GRENADA,GUADELOUPE,GUAM,GUATEMALA,GUERNSEY,GUINEA,GUINEA-BISSAU,GUYANA,HAITI,HEARD ISLAND AND MCDONALD ISLANDS,HOLY SEE (VATICAN CITY STATE),HONDURAS,HONG KONG,HUNGARY,ICELAND,INDIA,INDONESIA,IRAN  ISLAMIC REPUBLIC OF,IRAQ,IRELAND,ISLE OF MAN,ISRAEL,ITALY,JAMAICA,JAPAN,JERSEY,JORDAN,KAZAKHSTAN,KENYA,KIRIBATI,KOREA  DEMOCRATIC PEOPLES REPUBLIC OF,KOREA  REPUBLIC OF,KUWAIT,KYRGYZSTAN,LAO PEOPLES DEMOCRATIC REPUBLIC,LATVIA,LEBANON,LESOTHO,LIBERIA,LIBYAN ARAB JAMAHIRIYA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MACAO,MACEDONIA  THE FORMER YUGOSLAV REPUBLIC OF,MADAGASCAR,MALAWI,MALAYSIA,MALDIVES,MALI,MALTA,MARSHALL ISLANDS,MARTINIQUE,MAURITANIA,MAURITIUS,MAYOTTE,MEXICO,MICRONESIA  FEDERATED STATES OF,MOLDOVA  REPUBLIC OF,MONACO,MONGOLIA,MONTENEGRO,MONTSERRAT,MOROCCO,MOZAMBIQUE,MYANMAR,NAMIBIA,NAURU,NEPAL,NETHERLANDS,NEW CALEDONIA,NEW ZEALAND,NICARAGUA,NIGER,NIGERIA,NIUE,NORFOLK ISLAND,NORTHERN MARIANA ISLANDS,NORWAY,OMAN,PAKISTAN,PALAU,PALESTINIAN TERRITORY  OCCUPIED,PANAMA,PAPUA NEW GUINEA,PARAGUAY,PERU,PHILIPPINES,PITCAIRN,POLAND,PORTUGAL,PUERTO RICO,QATAR,REUNION,ROMANIA,RUSSIAN FEDERATION,RWANDA,SAINT BARTHELEMY,SAINT HELENA,SAINT KITTS AND NEVIS,SAINT LUCIA,SAINT MARTIN,SAINT PIERRE AND MIQUELON,SAINT VINCENT AND THE GRENADINES,SAMOA,SAN MARINO,SAO TOME AND PRINCIPE,SAUDI ARABIA,SENEGAL,SERBIA,SEYCHELLES,SIERRA LEONE,SINGAPORE,SLOVAKIA,SLOVENIA,SOLOMON ISLANDS,SOMALIA,SOUTH AFRICA,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS,SPAIN,SRI LANKA,SUDAN,SURINAME,SVALBARD AND JAN MAYEN,SWAZILAND,SWEDEN,SWITZERLAND,SYRIAN ARAB REPUBLIC,TAIWAN  PROVINCE OF CHINA,TAJIKISTAN,TANZANIA  UNITED REPUBLIC OF,THAILAND,TIMOR-LESTE,TOGO,TOKELAU,TONGA,TRINIDAD AND TOBAGO,TUNISIA,TURKEY,TURKMENISTAN,TURKS AND CAICOS ISLANDS,TUVALU,UGANDA,UKRAINE,UNITED ARAB EMIRATES,UNITED KINGDOM,UNITED STATES,UNITED STATES MINOR OUTLYING ISLANDS,URUGUAY,UZBEKISTAN,VANUATU,VENEZUELA  BOLIVARIAN REPUBLIC OF,VIET NAM,VIRGIN ISLANDS  BRITISH,VIRGIN ISLANDS  U.S.,Indeterminately reserved,WALLIS AND FUTUNA,WESTERN SAHARA,YEMEN,ZAMBIA,ZIMBABWE",
 		"InwxOptions" => "CW,SX,BQ,AF,AX,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,AC,AU,AT,AZ,BS,BH,BD,BB,BY,BE,BZ,BJ,BM,BT,BO,BA,BW,BV,BR,IO,BN,BG,BF,BI,KH,CM,CA,CV,KY,CF,TD,CL,CN,CX,CC,CO,KM,CG,CD,CK,CR,CI,HR,CU,CY,CZ,DK,DJ,DM,DO,EC,EG,SV,GQ,ER,EE,ET,FK,FO,FJ,FI,FR,GF,PF,TF,GA,GM,GE,DE,GH,GI,GR,GL,GD,GP,GU,GT,GG,GN,GW,GY,HT,HM,VA,HN,HK,HU,IS,IN,ID,IR,IQ,IE,IM,IL,IT,JM,JP,JE,JO,KZ,KE,KI,KP,KR,KW,KG,LA,LV,LB,LS,LR,LY,LI,LT,LU,MO,MK,MG,MW,MY,MV,ML,MT,MH,MQ,MR,MU,YT,MX,FM,MD,MC,MN,ME,MS,MA,MZ,MM,NA,NR,NP,NL,NC,NZ,NI,NE,NG,NU,NF,MP,NO,OM,PK,PW,PS,PA,PG,PY,PE,PH,PN,PL,PT,PR,QA,RE,RO,RU,RW,BL,SH,KN,LC,MF,PM,VC,WS,SM,ST,SA,SN,RS,SC,SL,SG,SK,SI,SB,SO,ZA,GS,ES,LK,SD,SR,SJ,SZ,SE,CH,SY,TW,TJ,TZ,TH,TL,TG,TK,TO,TT,TN,TR,TM,TC,TV,UG,UA,AE,GB,US,UM,UY,UZ,VU,VE,VN,VG,VI,WO,WF,EH,YE,ZM,ZW",
@@ -7309,21 +7321,21 @@ $additionaldomainfields[".ir"][] = array(
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "IR-COMPANY-REGISTRATION-SP",
 		"InwxName" => "IR-COMPANY-REGISTRATION-SP",
-		"DisplayName" => "IR-COMPANY-REGISTRATION-SP",
+		"DisplayName" => "State or province of the Company registration center",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "IR-COMPANY-REGISTRATION-CENTER",
 		"InwxName" => "IR-COMPANY-REGISTRATION-CENTER",
-		"DisplayName" => "IR-COMPANY-REGISTRATION-CENTER",
+		"DisplayName" => "Company registration center",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "IR-COMPANY-REGISTRATION-TYPE",
 		"InwxName" => "IR-COMPANY-REGISTRATION-TYPE",
-		"DisplayName" => "IR-COMPANY-REGISTRATION-TYPE",
+		"DisplayName" => ".IR Company type",
 		"Required" => false,
 		"Options" => "Public Company,Private Company,Limited Company,Cooperative Company,Institute,Press & Publication",
 		"InwxOptions" => "PublicCompany,PrivateCompany,LimitedCompany,CooperativeCompany,Organization,PressAndPublication",
@@ -7331,21 +7343,21 @@ $additionaldomainfields[".ir"][] = array(
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "IR-ORGANIZATION-ID",
 		"InwxName" => "IR-ORGANIZATION-ID",
-		"DisplayName" => "IR-ORGANIZATION-ID",
+		"DisplayName" => "Iranian Organization ID",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ir"][] = array(
 		"Name" => "OWNER-CONTACT-NAME-IS-LEGAL-REPRESENTATIVE",
 		"InwxName" => "OWNER-CONTACT-NAME-IS-LEGAL-REPRESENTATIVE",
-		"DisplayName" => "OWNER-CONTACT-NAME-IS-LEGAL-REPRESENTATIVE",
+		"DisplayName" => "I confirm that the domain owner contact name is a legal representative of the company as mentioned in the business registration certificate.",
 		"Required" => false,
 		"Type" => "tickbox",
 	);
@@ -7355,14 +7367,14 @@ $additionaldomainfields[".sm"] = array();
 $additionaldomainfields[".sm"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".sm"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7372,7 +7384,7 @@ $additionaldomainfields[".mw"] = array();
 $additionaldomainfields[".mw"][] = array(
 		"Name" => "MW-DOMAIN-PURPOSE",
 		"InwxName" => "MW-DOMAIN-PURPOSE",
-		"DisplayName" => "MW-DOMAIN-PURPOSE",
+		"DisplayName" => ".MW domain purpose",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -7382,7 +7394,7 @@ $additionaldomainfields[".af"] = array();
 $additionaldomainfields[".af"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7392,7 +7404,7 @@ $additionaldomainfields[".com.cc"] = array();
 $additionaldomainfields[".com.cc"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7402,7 +7414,7 @@ $additionaldomainfields[".com.sb"] = array();
 $additionaldomainfields[".com.sb"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7412,7 +7424,7 @@ $additionaldomainfields[".cx"] = array();
 $additionaldomainfields[".cx"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7422,7 +7434,7 @@ $additionaldomainfields[".gy"] = array();
 $additionaldomainfields[".gy"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7432,7 +7444,7 @@ $additionaldomainfields[".ki"] = array();
 $additionaldomainfields[".ki"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7442,7 +7454,7 @@ $additionaldomainfields[".mu"] = array();
 $additionaldomainfields[".mu"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7452,7 +7464,7 @@ $additionaldomainfields[".net.cc"] = array();
 $additionaldomainfields[".net.cc"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7462,7 +7474,7 @@ $additionaldomainfields[".net.sb"] = array();
 $additionaldomainfields[".net.sb"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7472,7 +7484,7 @@ $additionaldomainfields[".org.cc"] = array();
 $additionaldomainfields[".org.cc"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7482,7 +7494,7 @@ $additionaldomainfields[".org.sb"] = array();
 $additionaldomainfields[".org.sb"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7492,7 +7504,7 @@ $additionaldomainfields[".tl"] = array();
 $additionaldomainfields[".tl"][] = array(
 		"Name" => "COCCA-REGISTRATION-TAC-APPROVED",
 		"InwxName" => "COCCA-REGISTRATION-TAC-APPROVED",
-		"DisplayName" => "COCCA-REGISTRATION-TAC-APPROVED",
+		"DisplayName" => "I confirm the correctness of the email address of the domain owner and admin-c. The registry sends an activation-link to those addresses which should be confirmed by the recipient. Without a confirmation, the domain will be suspended after 21 days and is deleted afterwards. The costs will not be refunded.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
@@ -7502,14 +7514,14 @@ $additionaldomainfields[".eco.br"] = array();
 $additionaldomainfields[".eco.br"][] = array(
 		"Name" => "BR-CPF",
 		"InwxName" => "BR-CPF",
-		"DisplayName" => "BR-CPF",
+		"DisplayName" => "CPF (brazilian tax number)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".eco.br"][] = array(
 		"Name" => "BR-CNPJ",
 		"InwxName" => "BR-CNPJ",
-		"DisplayName" => "BR-CNPJ",
+		"DisplayName" => "CNPJ (brazilian company number)",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7519,14 +7531,14 @@ $additionaldomainfields[".org.br"] = array();
 $additionaldomainfields[".org.br"][] = array(
 		"Name" => "BR-CPF",
 		"InwxName" => "BR-CPF",
-		"DisplayName" => "BR-CPF",
+		"DisplayName" => "CPF (brazilian tax number)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.br"][] = array(
 		"Name" => "BR-CNPJ",
 		"InwxName" => "BR-CNPJ",
-		"DisplayName" => "BR-CNPJ",
+		"DisplayName" => "CNPJ (brazilian company number)",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7536,7 +7548,7 @@ $additionaldomainfields[".co.th"] = array();
 $additionaldomainfields[".co.th"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -7546,21 +7558,21 @@ $additionaldomainfields[".nu"] = array();
 $additionaldomainfields[".nu"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".nu"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".nu"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7570,14 +7582,14 @@ $additionaldomainfields[".cd"] = array();
 $additionaldomainfields[".cd"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".cd"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7587,14 +7599,14 @@ $additionaldomainfields[".lk"] = array();
 $additionaldomainfields[".lk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".lk"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7604,21 +7616,21 @@ $additionaldomainfields[".com.tr"] = array();
 $additionaldomainfields[".com.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7628,63 +7640,63 @@ $additionaldomainfields[".net.tr"] = array();
 $additionaldomainfields[".net.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7694,21 +7706,21 @@ $additionaldomainfields[".biz.tr"] = array();
 $additionaldomainfields[".biz.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".biz.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".biz.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7718,21 +7730,21 @@ $additionaldomainfields[".info.tr"] = array();
 $additionaldomainfields[".info.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".info.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".info.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7742,21 +7754,21 @@ $additionaldomainfields[".org.tr"] = array();
 $additionaldomainfields[".org.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7766,21 +7778,21 @@ $additionaldomainfields[".tv.tr"] = array();
 $additionaldomainfields[".tv.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tv.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tv.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7790,21 +7802,21 @@ $additionaldomainfields[".tel.tr"] = array();
 $additionaldomainfields[".tel.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tel.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".tel.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7814,21 +7826,21 @@ $additionaldomainfields[".name.tr"] = array();
 $additionaldomainfields[".name.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".name.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".name.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7838,21 +7850,21 @@ $additionaldomainfields[".gen.tr"] = array();
 $additionaldomainfields[".gen.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".gen.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".gen.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7862,21 +7874,21 @@ $additionaldomainfields[".web.tr"] = array();
 $additionaldomainfields[".web.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".web.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".web.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7886,21 +7898,21 @@ $additionaldomainfields[".av.tr"] = array();
 $additionaldomainfields[".av.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".av.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".av.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7910,21 +7922,21 @@ $additionaldomainfields[".dr.tr"] = array();
 $additionaldomainfields[".dr.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".dr.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".dr.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7934,21 +7946,21 @@ $additionaldomainfields[".bbs.tr"] = array();
 $additionaldomainfields[".bbs.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bbs.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".bbs.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7958,21 +7970,21 @@ $additionaldomainfields[".kep.tr"] = array();
 $additionaldomainfields[".kep.tr"][] = array(
 		"Name" => "TR-CITIZEN-ID",
 		"InwxName" => "TR-CITIZEN-ID",
-		"DisplayName" => "TR-CITIZEN-ID",
+		"DisplayName" => "Turkish Identification Number",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".kep.tr"][] = array(
 		"Name" => "TAX-OFFICE",
 		"InwxName" => "TAX-OFFICE",
-		"DisplayName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".kep.tr"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7982,14 +7994,14 @@ $additionaldomainfields[".mk"] = array();
 $additionaldomainfields[".mk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".mk"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -7999,14 +8011,14 @@ $additionaldomainfields[".com.mk"] = array();
 $additionaldomainfields[".com.mk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.mk"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8016,14 +8028,14 @@ $additionaldomainfields[".edu.mk"] = array();
 $additionaldomainfields[".edu.mk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".edu.mk"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8033,14 +8045,14 @@ $additionaldomainfields[".inf.mk"] = array();
 $additionaldomainfields[".inf.mk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".inf.mk"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8050,14 +8062,14 @@ $additionaldomainfields[".net.mk"] = array();
 $additionaldomainfields[".net.mk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".net.mk"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8067,14 +8079,14 @@ $additionaldomainfields[".org.mk"] = array();
 $additionaldomainfields[".org.mk"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.mk"][] = array(
 		"Name" => "VAT-NUMBER",
 		"InwxName" => "VAT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "VAT number",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8084,35 +8096,35 @@ $additionaldomainfields[".moscow"] = array();
 $additionaldomainfields[".moscow"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
-		"DisplayName" => false,
+		"DisplayName" => "Registrant's birthdate",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".moscow"][] = array(
 		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "ID card no.",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".moscow"][] = array(
 		"Name" => "TAX-NUMBER",
 		"InwxName" => "TAX-NUMBER",
-		"DisplayName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
 		"Required" => true,
 		"Type" => "text",
 	);
 $additionaldomainfields[".moscow"][] = array(
 		"Name" => "ADMIN-BIRTH-DATE",
 		"InwxName" => "ADMIN-BIRTH-DATE",
-		"DisplayName" => "ADMIN-BIRTH-DATE",
+		"DisplayName" => "Birthdate of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".moscow"][] = array(
 		"Name" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8122,7 +8134,7 @@ $additionaldomainfields[".quebec"] = array();
 $additionaldomainfields[".quebec"][] = array(
 		"Name" => "QUEBEC-INTENDED-USE",
 		"InwxName" => "QUEBEC-INTENDED-USE",
-		"DisplayName" => "QUEBEC-INTENDED-USE",
+		"DisplayName" => ".QUEBEC Intended use",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -8132,14 +8144,14 @@ $additionaldomainfields[".rio"] = array();
 $additionaldomainfields[".rio"][] = array(
 		"Name" => "BR-CPF",
 		"InwxName" => "BR-CPF",
-		"DisplayName" => "BR-CPF",
+		"DisplayName" => "CPF (brazilian tax number)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".rio"][] = array(
 		"Name" => "BR-CNPJ",
 		"InwxName" => "BR-CNPJ",
-		"DisplayName" => "BR-CNPJ",
+		"DisplayName" => "CNPJ (brazilian company number)",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8149,7 +8161,7 @@ $additionaldomainfields[".cat"] = array();
 $additionaldomainfields[".cat"][] = array(
 		"Name" => "CAT-INTENDED-USE",
 		"InwxName" => "CAT-INTENDED-USE",
-		"DisplayName" => "CAT-INTENDED-USE",
+		"DisplayName" => ".CAT Intended use",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -8159,14 +8171,14 @@ $additionaldomainfields[".ltda"] = array();
 $additionaldomainfields[".ltda"][] = array(
 		"Name" => "LTDA-LICENSE-AUTHORITY",
 		"InwxName" => "LTDA-LICENSE-AUTHORITY",
-		"DisplayName" => "LTDA-LICENSE-AUTHORITY",
+		"DisplayName" => ".LTDA License Authority",
 		"Required" => true,
 		"Type" => "text",
 	);
 $additionaldomainfields[".ltda"][] = array(
 		"Name" => "LTDA-LICENSE-NUMBER",
 		"InwxName" => "LTDA-LICENSE-NUMBER",
-		"DisplayName" => "LTDA-LICENSE-NUMBER",
+		"DisplayName" => ".LTDA License number",
 		"Required" => true,
 		"Type" => "text",
 	);
@@ -8176,7 +8188,7 @@ $additionaldomainfields[".is"] = array();
 $additionaldomainfields[".is"][] = array(
 		"Name" => "IS-KENNITALA",
 		"InwxName" => "IS-KENNITALA",
-		"DisplayName" => "IS-KENNITALA",
+		"DisplayName" => "Icelandic ID number (Kennitala)",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8186,7 +8198,7 @@ $additionaldomainfields[".es"] = array();
 $additionaldomainfields[".es"][] = array(
 		"Name" => "ES-LEGAL-FORM",
 		"InwxName" => "ES-LEGAL-FORM",
-		"DisplayName" => "ES-LEGAL-FORM",
+		"DisplayName" => ".ES legal form of the registrant",
 		"Required" => false,
 		"Options" => "Individual,Others,Economic Interest Group,Association,Sports Association,Professional Association,Savings Bank,Community Property,Community of Owners,Order or Religious Institution,Consulate,Public Law Association,Embassy,Local Authority,Sports Federation,Foundation,Mutual Insurance Company,Regional Government Body,Central Government Body,Political Party,Trade Union,Farm Partnership,Public Limited Company,Sports Association,Civil Society,General Partnership,General and Limited Partnership,Cooperative,Worker-owned Company,Limited Company,Spanish Office,Temporary Alliance of Enterprises,Worker-owned Limited Company,Regional Public Entity,National Public Entity,Local Public Entity,Designation of Origin Supervisory Council,Entity Managing Natural Areas",
 		"InwxOptions" => "1,877,39,47,59,68,124,150,152,164,181,197,203,229,269,286,365,434,436,439,476,510,524,525,554,560,562,566,608,612,713,717,744,745,746,747,878,879",
@@ -8194,7 +8206,7 @@ $additionaldomainfields[".es"][] = array(
 $additionaldomainfields[".es"][] = array(
 		"Name" => "ES-ID-TYPE",
 		"InwxName" => "ES-ID-TYPE",
-		"DisplayName" => "ES-ID-TYPE",
+		"DisplayName" => ".ES Identification type of the registrant",
 		"Required" => false,
 		"Options" => "Spanish personal/tax identity number (NIF),Spanish foreign resident number (NIE),Other",
 		"InwxOptions" => "1,3,0",
@@ -8202,14 +8214,14 @@ $additionaldomainfields[".es"][] = array(
 $additionaldomainfields[".es"][] = array(
 		"Name" => "ES-NIF-NIE",
 		"InwxName" => "ES-NIF-NIE",
-		"DisplayName" => "ES-NIF-NIE",
+		"DisplayName" => "Spanish Tax Number (NIF/NIE)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".es"][] = array(
 		"Name" => "ES-ADMIN-ID-TYPE",
 		"InwxName" => "ES-ADMIN-ID-TYPE",
-		"DisplayName" => "ES-ADMIN-ID-TYPE",
+		"DisplayName" => ".ES Identification type of the administrative contact",
 		"Required" => false,
 		"Options" => "Spanish personal/tax identity number (NIF),Spanish foreign resident number (NIE),Other",
 		"InwxOptions" => "1,3,0",
@@ -8217,14 +8229,14 @@ $additionaldomainfields[".es"][] = array(
 $additionaldomainfields[".es"][] = array(
 		"Name" => "ES-ADMIN-NIF-NIE",
 		"InwxName" => "ES-ADMIN-NIF-NIE",
-		"DisplayName" => "ES-ADMIN-NIF-NIE",
+		"DisplayName" => "Spanish Tax Number of the administrative contact (NIF/NIE)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".es"][] = array(
 		"Name" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8234,7 +8246,7 @@ $additionaldomainfields[".com.es"] = array();
 $additionaldomainfields[".com.es"][] = array(
 		"Name" => "ES-LEGAL-FORM",
 		"InwxName" => "ES-LEGAL-FORM",
-		"DisplayName" => "ES-LEGAL-FORM",
+		"DisplayName" => ".ES legal form of the registrant",
 		"Required" => false,
 		"Options" => "Individual,Others,Economic Interest Group,Association,Sports Association,Professional Association,Savings Bank,Community Property,Community of Owners,Order or Religious Institution,Consulate,Public Law Association,Embassy,Local Authority,Sports Federation,Foundation,Mutual Insurance Company,Regional Government Body,Central Government Body,Political Party,Trade Union,Farm Partnership,Public Limited Company,Sports Association,Civil Society,General Partnership,General and Limited Partnership,Cooperative,Worker-owned Company,Limited Company,Spanish Office,Temporary Alliance of Enterprises,Worker-owned Limited Company,Regional Public Entity,National Public Entity,Local Public Entity,Designation of Origin Supervisory Council,Entity Managing Natural Areas",
 		"InwxOptions" => "1,877,39,47,59,68,124,150,152,164,181,197,203,229,269,286,365,434,436,439,476,510,524,525,554,560,562,566,608,612,713,717,744,745,746,747,878,879",
@@ -8242,7 +8254,7 @@ $additionaldomainfields[".com.es"][] = array(
 $additionaldomainfields[".com.es"][] = array(
 		"Name" => "ES-ID-TYPE",
 		"InwxName" => "ES-ID-TYPE",
-		"DisplayName" => "ES-ID-TYPE",
+		"DisplayName" => ".ES Identification type of the registrant",
 		"Required" => false,
 		"Options" => "Spanish personal/tax identity number (NIF),Spanish foreign resident number (NIE),Other",
 		"InwxOptions" => "1,3,0",
@@ -8250,14 +8262,14 @@ $additionaldomainfields[".com.es"][] = array(
 $additionaldomainfields[".com.es"][] = array(
 		"Name" => "ES-NIF-NIE",
 		"InwxName" => "ES-NIF-NIE",
-		"DisplayName" => "ES-NIF-NIE",
+		"DisplayName" => "Spanish Tax Number (NIF/NIE)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.es"][] = array(
 		"Name" => "ES-ADMIN-ID-TYPE",
 		"InwxName" => "ES-ADMIN-ID-TYPE",
-		"DisplayName" => "ES-ADMIN-ID-TYPE",
+		"DisplayName" => ".ES Identification type of the administrative contact",
 		"Required" => false,
 		"Options" => "Spanish personal/tax identity number (NIF),Spanish foreign resident number (NIE),Other",
 		"InwxOptions" => "1,3,0",
@@ -8265,14 +8277,14 @@ $additionaldomainfields[".com.es"][] = array(
 $additionaldomainfields[".com.es"][] = array(
 		"Name" => "ES-ADMIN-NIF-NIE",
 		"InwxName" => "ES-ADMIN-NIF-NIE",
-		"DisplayName" => "ES-ADMIN-NIF-NIE",
+		"DisplayName" => "Spanish Tax Number of the administrative contact (NIF/NIE)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".com.es"][] = array(
 		"Name" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8282,7 +8294,7 @@ $additionaldomainfields[".nom.es"] = array();
 $additionaldomainfields[".nom.es"][] = array(
 		"Name" => "ES-LEGAL-FORM",
 		"InwxName" => "ES-LEGAL-FORM",
-		"DisplayName" => "ES-LEGAL-FORM",
+		"DisplayName" => ".ES legal form of the registrant",
 		"Required" => false,
 		"Options" => "Individual,Others,Economic Interest Group,Association,Sports Association,Professional Association,Savings Bank,Community Property,Community of Owners,Order or Religious Institution,Consulate,Public Law Association,Embassy,Local Authority,Sports Federation,Foundation,Mutual Insurance Company,Regional Government Body,Central Government Body,Political Party,Trade Union,Farm Partnership,Public Limited Company,Sports Association,Civil Society,General Partnership,General and Limited Partnership,Cooperative,Worker-owned Company,Limited Company,Spanish Office,Temporary Alliance of Enterprises,Worker-owned Limited Company,Regional Public Entity,National Public Entity,Local Public Entity,Designation of Origin Supervisory Council,Entity Managing Natural Areas",
 		"InwxOptions" => "1,877,39,47,59,68,124,150,152,164,181,197,203,229,269,286,365,434,436,439,476,510,524,525,554,560,562,566,608,612,713,717,744,745,746,747,878,879",
@@ -8290,7 +8302,7 @@ $additionaldomainfields[".nom.es"][] = array(
 $additionaldomainfields[".nom.es"][] = array(
 		"Name" => "ES-ID-TYPE",
 		"InwxName" => "ES-ID-TYPE",
-		"DisplayName" => "ES-ID-TYPE",
+		"DisplayName" => ".ES Identification type of the registrant",
 		"Required" => false,
 		"Options" => "Spanish personal/tax identity number (NIF),Spanish foreign resident number (NIE),Other",
 		"InwxOptions" => "1,3,0",
@@ -8298,14 +8310,14 @@ $additionaldomainfields[".nom.es"][] = array(
 $additionaldomainfields[".nom.es"][] = array(
 		"Name" => "ES-NIF-NIE",
 		"InwxName" => "ES-NIF-NIE",
-		"DisplayName" => "ES-NIF-NIE",
+		"DisplayName" => "Spanish Tax Number (NIF/NIE)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".nom.es"][] = array(
 		"Name" => "ES-ADMIN-ID-TYPE",
 		"InwxName" => "ES-ADMIN-ID-TYPE",
-		"DisplayName" => "ES-ADMIN-ID-TYPE",
+		"DisplayName" => ".ES Identification type of the administrative contact",
 		"Required" => false,
 		"Options" => "Spanish personal/tax identity number (NIF),Spanish foreign resident number (NIE),Other",
 		"InwxOptions" => "1,3,0",
@@ -8313,14 +8325,14 @@ $additionaldomainfields[".nom.es"][] = array(
 $additionaldomainfields[".nom.es"][] = array(
 		"Name" => "ES-ADMIN-NIF-NIE",
 		"InwxName" => "ES-ADMIN-NIF-NIE",
-		"DisplayName" => "ES-ADMIN-NIF-NIE",
+		"DisplayName" => "Spanish Tax Number of the administrative contact (NIF/NIE)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".nom.es"][] = array(
 		"Name" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8330,7 +8342,7 @@ $additionaldomainfields[".org.es"] = array();
 $additionaldomainfields[".org.es"][] = array(
 		"Name" => "ES-LEGAL-FORM",
 		"InwxName" => "ES-LEGAL-FORM",
-		"DisplayName" => "ES-LEGAL-FORM",
+		"DisplayName" => ".ES legal form of the registrant",
 		"Required" => false,
 		"Options" => "Individual,Others,Economic Interest Group,Association,Sports Association,Professional Association,Savings Bank,Community Property,Community of Owners,Order or Religious Institution,Consulate,Public Law Association,Embassy,Local Authority,Sports Federation,Foundation,Mutual Insurance Company,Regional Government Body,Central Government Body,Political Party,Trade Union,Farm Partnership,Public Limited Company,Sports Association,Civil Society,General Partnership,General and Limited Partnership,Cooperative,Worker-owned Company,Limited Company,Spanish Office,Temporary Alliance of Enterprises,Worker-owned Limited Company,Regional Public Entity,National Public Entity,Local Public Entity,Designation of Origin Supervisory Council,Entity Managing Natural Areas",
 		"InwxOptions" => "1,877,39,47,59,68,124,150,152,164,181,197,203,229,269,286,365,434,436,439,476,510,524,525,554,560,562,566,608,612,713,717,744,745,746,747,878,879",
@@ -8338,7 +8350,7 @@ $additionaldomainfields[".org.es"][] = array(
 $additionaldomainfields[".org.es"][] = array(
 		"Name" => "ES-ID-TYPE",
 		"InwxName" => "ES-ID-TYPE",
-		"DisplayName" => "ES-ID-TYPE",
+		"DisplayName" => ".ES Identification type of the registrant",
 		"Required" => false,
 		"Options" => "Spanish personal/tax identity number (NIF),Spanish foreign resident number (NIE),Other",
 		"InwxOptions" => "1,3,0",
@@ -8346,14 +8358,14 @@ $additionaldomainfields[".org.es"][] = array(
 $additionaldomainfields[".org.es"][] = array(
 		"Name" => "ES-NIF-NIE",
 		"InwxName" => "ES-NIF-NIE",
-		"DisplayName" => "ES-NIF-NIE",
+		"DisplayName" => "Spanish Tax Number (NIF/NIE)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.es"][] = array(
 		"Name" => "ES-ADMIN-ID-TYPE",
 		"InwxName" => "ES-ADMIN-ID-TYPE",
-		"DisplayName" => "ES-ADMIN-ID-TYPE",
+		"DisplayName" => ".ES Identification type of the administrative contact",
 		"Required" => false,
 		"Options" => "Spanish personal/tax identity number (NIF),Spanish foreign resident number (NIE),Other",
 		"InwxOptions" => "1,3,0",
@@ -8361,14 +8373,14 @@ $additionaldomainfields[".org.es"][] = array(
 $additionaldomainfields[".org.es"][] = array(
 		"Name" => "ES-ADMIN-NIF-NIE",
 		"InwxName" => "ES-ADMIN-NIF-NIE",
-		"DisplayName" => "ES-ADMIN-NIF-NIE",
+		"DisplayName" => "Spanish Tax Number of the administrative contact (NIF/NIE)",
 		"Required" => false,
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.es"][] = array(
 		"Name" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
 		"InwxName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the administrative contact",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -8378,7 +8390,7 @@ $additionaldomainfields[".amsterdam"] = array();
 $additionaldomainfields[".amsterdam"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => false,
+		"DisplayName" => "Company reg. number",
 		"Required" => false,
 		"Type" => "text",
 	);
