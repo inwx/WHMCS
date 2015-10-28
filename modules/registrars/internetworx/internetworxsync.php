@@ -3,7 +3,7 @@ ini_set("display_errors", 1);
 
 $registrar = "internetworx";
 
-include_once dirname(__FILE__)."/../../../dbconnect.php";
+include_once dirname(__FILE__)."/../../../init.php";
 include_once dirname(__FILE__)."/../../../includes/functions.php";
 include_once dirname(__FILE__)."/../../../includes/registrarfunctions.php";
 include_once "$registrar.php";
