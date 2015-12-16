@@ -42,7 +42,7 @@ It's recommend to use our module additionaldomainfields.php for needed
 domain registration extra data. For that you need to add the following 
 command to includes/additionaldomainfields.php:
 
-include dirname(__FILE__).DIRECTORY_SEPARATOR
+	include dirname(__FILE__).DIRECTORY_SEPARATOR
 	."..".DIRECTORY_SEPARATOR
 	."modules".DIRECTORY_SEPARATOR
 	."registrars".DIRECTORY_SEPARATOR
