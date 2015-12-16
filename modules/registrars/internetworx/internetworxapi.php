@@ -1,11 +1,5 @@
 <?php
-/*
- * By InterNetworX Ltd & Co KG
- * 
- * v1.1 - 20.02.2012
- * 	- send cc upper-case 
- * 
- */
+
 class domrobot {
 	private $_ver = "1.1";
 	private $address = null;

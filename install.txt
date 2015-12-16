@@ -1,4 +1,5 @@
 InterNetworX Registrar Module for WHMCS
+Version 2.0.1 (2015-12-16)
 ____________________________________________________________________________________
 
 SUPPORTED FEATURES:
@@ -13,6 +14,7 @@ SUPPORTED FEATURES:
 * DNS Record Management (Record-Types: A, AAAA, MX, CNAME, SPF (TXT), URL, FRAME)
 * Register/Manage Private Nameservers
 * TestMode, using Test Environment (OTE)
+* Automatical Domain synchronisation
 
 The InterNetworX Registrar Module does not yet support:
 * Email Fowarding
@@ -50,7 +52,6 @@ include dirname(__FILE__).DIRECTORY_SEPARATOR
 
 
 ____________________________________________________________________________________
-(c) 2011 InterNetworX Ltd. & Co. KG, Tempelhofer Damm 140, DE-12099 Berlin
+(c) 2015 InterNetworX Ltd. & Co. KG, Prinzessinnenstrasse 30, DE-10969 Berlin
 support@inwx.de
 http://www.inwx.com
-
