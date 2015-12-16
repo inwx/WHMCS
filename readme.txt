@@ -1,9 +1,9 @@
+<br>
 InterNetworX Registrar Module for WHMCS
 Version 2.0.1 (2015-12-16)
 ____________________________________________________________________________________
 
-SUPPORTED FEATURES:
-====================================================================================
+#SUPPORTED FEATURES:
 * Domain Registration
 * Domain Transfer
 * EPP Code Retrieval
@@ -17,11 +17,11 @@ SUPPORTED FEATURES:
 * Automatical Domain synchronisation
 
 The InterNetworX Registrar Module does not yet support:
+
 * Email Fowarding
 * ID Protection
 
-INSTALLATION:
-====================================================================================
+#INSTALLATION:
 1)
 When you are using the old WHMCS-Module with the name "inwx" (the folder 
 /modules/registrars/inwx/ exists), please execute the following SQL-Queries
