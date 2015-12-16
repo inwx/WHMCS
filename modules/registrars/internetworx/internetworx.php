@@ -1,6 +1,34 @@
 <?php
 include_once 'internetworxapi.php';
 
+function internetworx_Sync($params) {
+	$values = array();
+	# call domrobot
+	$domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+	$response = $domrobot->call('domain', 'info', array('domain' => $params['domain']));
+	if($response['code'] == 1000 && isset($response['resData']['domain'])){		
+		$exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']->timestamp) : null);
+		$reDate = (isset($response['resData']['reDate']) ? date('Y-m-d', $response['resData']['reDate']->timestamp) : null);
+		
+		# set expiration date if available
+		if(!is_null($exDate)){
+			$values['expirydate'] = $exDate;
+		}
+		
+		# change domain-status if domain is active
+		if($response['resData']['status'] == "OK"){
+			$values['active'] = true;
+		}
+		
+		# change expire-status if domain is expired
+		if(!is_null($exDate) && time() >= strtotime($exDate)){
+			$values['expired'] = true;
+			unset($values['active']);
+		}
+	}
+	return $values;
+}
+
 function internetworx_getConfigArray() {
 	$configarray = array(
 	 "Username" => array( "Type" => "text", "Size" => "20", "Description" => "Enter your InterNetworX username here", ),
