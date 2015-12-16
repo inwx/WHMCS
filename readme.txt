@@ -50,6 +50,12 @@ include dirname(__FILE__).DIRECTORY_SEPARATOR
 	."internetworx".DIRECTORY_SEPARATOR
 	."additionaldomainfields.php";
 
+5)
+Since version 2.0.1 the file "internetworxsync.php" was deleted because of
+the new domain-sync integration in WHMCS.
+
+If you have a cronjob for that file, delete them and activate the domain-sync
+in your WHMCS settings.
 
 ____________________________________________________________________________________
 (c) 2015 InterNetworX Ltd. & Co. KG, Prinzessinnenstrasse 30, DE-10969 Berlin
