@@ -1,4 +1,3 @@
-<br>
 InterNetworX Registrar Module for WHMCS
 Version 2.0.1 (2015-12-16)
 ____________________________________________________________________________________
@@ -58,6 +57,6 @@ If you have a cronjob for that file, delete them and activate the domain-sync
 in your WHMCS settings.
 
 ____________________________________________________________________________________
-(c) 2015 InterNetworX Ltd. & Co. KG, Prinzessinnenstrasse 30, DE-10969 Berlin
-support@inwx.de
+(c) 2015 InterNetworX Ltd. & Co. KG, Prinzessinnenstrasse 30, DE-10969 Berlin<br>
+support@inwx.de<br>
 http://www.inwx.com
