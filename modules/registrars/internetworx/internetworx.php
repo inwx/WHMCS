@@ -273,7 +273,8 @@ function internetworx_SaveContactDetails($params) {
 			$pContact["fax"] = $params["contactdetails"][$typeName]["Fax Number"];
 			$pContact["email"] = $params["contactdetails"][$typeName]["Email"];
 			$pContact["remarks"] = $params["contactdetails"][$typeName]["Notes"];
-
+			$pContact["extData"] = array('PARSE-VOICE' => true, 'PARSE-FAX' => true);
+			
 			if ($countContactIds[$contactIds[$type]]>1) {
 				// create contact
 				$pContact['type'] = 'PERSON';
@@ -359,6 +360,7 @@ function internetworx_RegisterDomain($params) {
 	if (isset($params["notes"]) && !empty($params["notes"])) {
 		$pRegistrant['remarks'] = $params["notes"];
 	}
+	$pRegistrant['extData'] = array('PARSE-VOICE' => true, 'PARSE-FAX' => true);
 	
 	// do registrant create command 
 	$response = $domrobot->call('contact','create',$pRegistrant);
@@ -390,6 +392,7 @@ function internetworx_RegisterDomain($params) {
 	if (isset($params["adminnotes"]) && !empty($params["adminnotes"])) {
 		$pAdmin['remarks'] = $params["adminnotes"];
 	}
+	$pAdmin['extData'] = array('PARSE-VOICE' => true, 'PARSE-FAX' => true);
 	
 	// do admin create command
 	$response = $domrobot->call('contact','create',$pAdmin);
@@ -485,6 +488,7 @@ function internetworx_TransferDomain($params) {
 	if (isset($params["notes"]) && !empty($params["notes"])) {
 		$pRegistrant['remarks'] = $params["notes"];
 	}
+	$pRegistrant['extData'] = array('PARSE-VOICE' => true, 'PARSE-FAX' => true);
 	
 	// do registrant create command 
 	$response = $domrobot->call('contact','create',$pRegistrant);
@@ -516,6 +520,7 @@ function internetworx_TransferDomain($params) {
 	if (isset($params["adminnotes"]) && !empty($params["adminnotes"])) {
 		$pAdmin['remarks'] = $params["adminnotes"];
 	}
+	$pAdmin['extData'] = array('PARSE-VOICE' => true, 'PARSE-FAX' => true);
 	
 	// do admin create command
 	$response = $domrobot->call('contact','create',$pAdmin);
