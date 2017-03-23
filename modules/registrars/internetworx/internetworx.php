@@ -44,7 +44,7 @@ function internetworx_GetRegistrarLock($params) {
 	$lockstatus="locked";
 	$domrobot = new domrobot($params["Username"],$params["Password"],$params["TestMode"]);
 
-	$pDomain['domain'] = $params["sld"].'.'.$params["tld"];
+	$pDomain['domain'] = $params['domainname'];
 	$pDomain['wide'] = 1;
 
 	$response = $domrobot->call('domain','info',$pDomain);
@@ -67,7 +67,7 @@ function internetworx_SaveRegistrarLock($params) {
 	$values = array("error"=>"");
 	$domrobot = new domrobot($params["Username"],$params["Password"],$params["TestMode"]);
 
-	$pDomain['domain'] = $params["sld"].'.'.$params["tld"];
+	$pDomain['domain'] = $params['domainname'];
 	$pDomain['transferLock'] = ($params["lockenabled"]=="locked")?1:0;
 	
 	$response = $domrobot->call('domain','update',$pDomain);
@@ -79,7 +79,7 @@ function internetworx_GetEPPCode($params) {
 	$values = array("error"=>"");
 	$domrobot = new domrobot($params["Username"],$params["Password"],$params["TestMode"]);
 	
-	$pDomain['domain'] = $params["sld"].'.'.$params["tld"];
+	$pDomain['domain'] = $params['domainname'];
 	$pDomain['wide'] = 1;
 
 	$response = $domrobot->call('domain','info',$pDomain);
@@ -100,7 +100,7 @@ function internetworx_GetNameservers($params) {
 	$values = array("error"=>"");
 	$domrobot = new domrobot($params["Username"],$params["Password"],$params["TestMode"]);
 
-	$pDomain['domain'] = $params["sld"].'.'.$params["tld"];
+	$pDomain['domain'] = $params['domainname'];
 	$pDomain['wide'] = 1;
 
 	$response = $domrobot->call('domain','info',$pDomain);
@@ -119,7 +119,7 @@ function internetworx_SaveNameservers($params) {
 	$values = array("error"=>"");
 	$domrobot = new domrobot($params["Username"],$params["Password"],$params["TestMode"]);
 
-	$pDomain['domain'] = $params["sld"].'.'.$params["tld"];
+	$pDomain['domain'] = $params['domainname'];
 	$pDomain['ns'] = array();
 	for($i=1;$i<=4;$i++) {
 		if (isset($params["ns".$i]) && !empty($params["ns".$i])) {
@@ -138,7 +138,7 @@ function internetworx_GetDNS($params) {
 	$hostrecords = array();
 	$domrobot = new domrobot($params["Username"],$params["Password"],$params["TestMode"]);
 
-	$pInfo['domain'] = $params["sld"].'.'.$params["tld"];
+	$pInfo['domain'] = $params['domainname'];
 	$response = $domrobot->call('nameserver','info',$pInfo);
 	
 	if ($response['code']==1000 && isset($response['resData']['record']) && count($response['resData']['record'])>0) {
@@ -162,7 +162,7 @@ function internetworx_SaveDNS($params) {
 	$values = array("error"=>"");
 	$domrobot = new domrobot($params["Username"],$params["Password"],$params["TestMode"]);
 
-	$pInfo['domain'] = $params["sld"].'.'.$params["tld"];
+	$pInfo['domain'] = $params['domainname'];
 	$response = $domrobot->call('nameserver','info',$pInfo);
 	$_records = array();
 	if ($response['code']==1000 && isset($response['resData']['record']) && count($response['resData']['record'])>0) {
@@ -200,7 +200,7 @@ function internetworx_SaveDNS($params) {
 
 		if (empty($pRecord['id']) || $pRecord['id']<1) {
 			unset($pRecord['id']);
-			$pRecord['domain'] = $params["sld"].'.'.$params["tld"];
+			$pRecord['domain'] = $params['domainname'];
 			$response = $domrobot->call('nameserver','createrecord',$pRecord);
 		} else {
 			$response = $domrobot->call('nameserver','updaterecord',$pRecord);
@@ -215,7 +215,7 @@ function internetworx_GetContactDetails($params) {
 	$values = array();
 	$domrobot = new domrobot($params["Username"],$params["Password"],$params["TestMode"]);
 
-	$pDomain['domain'] = $params["sld"].'.'.$params["tld"];
+	$pDomain['domain'] = $params['domainname'];
 	$pDomain['wide'] = 2;
 
 	$response = $domrobot->call('domain','info',$pDomain);
@@ -252,7 +252,7 @@ function internetworx_SaveContactDetails($params) {
 	$values = array();
 	$domrobot = new domrobot($params["Username"],$params["Password"],$params["TestMode"]);
 
-	$pDomain['domain'] = $params["sld"].'.'.$params["tld"];
+	$pDomain['domain'] = $params['domainname'];
 	$response = $domrobot->call('domain','info',$pDomain);
 	if ($response['code']==1000) {
 		$contactIds = array('registrant'=>$response['resData']['registrant'],'admin'=>$response['resData']['admin'],'tech'=>$response['resData']['tech'],'billing'=>$response['resData']['billing']);
@@ -404,7 +404,7 @@ function internetworx_RegisterDomain($params) {
 	}
 
 	// 	Register Domain
-	$pDomain['domain'] = $params["sld"].'.'.$params["tld"];
+	$pDomain['domain'] = $params['domainname'];
 	$pDomain['renewalMode'] = ($params["tld"]=='at' || substr($params["tld"],-3)=='.at')?"AUTODELETE":"AUTOEXPIRE";
 	if (isset($params["TechHandle"]) && !empty($params["TechHandle"])) {
 		$pDomain['tech'] = $params["TechHandle"];
@@ -532,7 +532,7 @@ function internetworx_TransferDomain($params) {
 	}
 
 	// 	Transfer Domain
-	$pDomain['domain'] = $params["sld"].'.'.$params["tld"];
+	$pDomain['domain'] = $params['domainname'];
 	if (isset($params["TechHandle"]) && !empty($params["TechHandle"])) {
 		$pDomain['tech'] = $params["TechHandle"];
 	} else {
@@ -565,7 +565,7 @@ function internetworx_RenewDomain($params) {
 	$values = array("error"=>"");
 	$domrobot = new domrobot($params["Username"],$params["Password"],$params["TestMode"]);
 	
-	$pDomain['domain'] = $params["sld"].'.'.$params["tld"];
+	$pDomain['domain'] = $params['domainname'];
 
 	$response = $domrobot->call('domain','info',$pDomain);
 	

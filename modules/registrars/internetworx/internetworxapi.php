@@ -33,7 +33,8 @@ class domrobot {
 	}
 
 	public function call($object, $method, $params=array()) {
-		$request = xmlrpc_encode_request(strtolower($object.".".$method), $params, array("encoding"=>"UTF-8","escaping"=>"markup","verbosity"=>"no_white_space"));
+		$action = strtolower("$object.$method");
+		$request = xmlrpc_encode_request($action, $params, array("encoding"=>"UTF-8","escaping"=>"markup","verbosity"=>"no_white_space"));
 
 		$header[] = "Content-Type: text/xml";   
 		$header[] = "Connection: keep-alive";
@@ -56,7 +57,12 @@ class domrobot {
 		$_SiteResponse = curl_exec($ch);
 		curl_close($ch); 
 
-		return $response = xmlrpc_decode($_SiteResponse,'UTF-8');
+		$response = xmlrpc_decode($_SiteResponse,'UTF-8');
+
+		// https://developers.whmcs.com/provisioning-modules/module-logging/
+		logModuleCall('internetworx', $action, $request, $_SiteResponse, $response, array('pass'));
+
+		return $response;
 	}
 
 	private function read_header($ch,$string) {
