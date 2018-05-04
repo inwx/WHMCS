@@ -1,5 +1,5 @@
 InterNetworX Registrar Module for WHMCS<br>
-Version 2.0.2 (2016-02-08)
+Version 2.1 (2018-04-04)
 ____________________________________________________________________________________
 
 #SUPPORTED FEATURES:
