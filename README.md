@@ -10,7 +10,7 @@ ________________________________________________________________________________
 * View/Update WHOIS Information
 * Lock/Unlock Domains
 * Domain Renewal (not supported for all TLDs)
-* DNS Record Management (Record-Types: A, AAAA, MX, CNAME, SPF (TXT), URL, FRAME)
+* DNS Record Management (Record-Types: A, AAAA, MX, CNAME, SPF (TXT), URL, FRAME, SRV)
 * Register/Manage Private Nameservers
 * TestMode, using Test Environment (OTE)
 * Automatical Domain synchronisation
@@ -55,6 +55,21 @@ the new domain-sync integration in WHMCS.
 
 If you have a cronjob for that file, delete them and activate the domain-sync
 in your WHMCS settings.
+
+6)
+To activate support for records that are not natively provided by WHMCS the
+template file "inwx_clientareadomaindns.tpl" needs to be copied to the active
+template directory and renamed to "clientareadomaindns.tpl". In this manner you
+can either copy it directly to your currently used template or create a new
+template. If you just copy it, we also strongly advise you to create a backup
+of your old "clientareadomaindns.tpl" file. The second option requires you to
+copy your currently used template. If you still use the default template, it
+can be found in "/templates/six". Copy this folder and assign it your prefered
+name like "/templates/inwx" and replace the file "clientareadomaindns.tpl" with
+the "inwx_clientareadomaindns.tpl". In order for this to take effect you will
+need to login to your admin area, navigate to "Setup > General Settings" and
+select your newly created template. Clients should now be able to select SRV
+records in their DNS Management.
 
 ____________________________________________________________________________________
 (c) 2015 InterNetworX Ltd. & Co. KG, Prinzessinnenstrasse 30, DE-10969 Berlin<br>

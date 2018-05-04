@@ -142,7 +142,7 @@ function internetworx_GetDNS($params) {
 	$response = $domrobot->call('nameserver','info',$pInfo);
 	
 	if ($response['code']==1000 && isset($response['resData']['record']) && count($response['resData']['record'])>0) {
-		$_allowedRecTypes = array('A','AAAA','CNAME','MX','SPF','TXT','URL');
+		$_allowedRecTypes = array('A','AAAA','CNAME','MX','SPF','TXT','URL', 'SRV');
 		foreach($response['resData']['record'] as $_record) {
 			if (in_array($_record['type'],$_allowedRecTypes)) {
 				if ($_record['type']=='URL') {
@@ -166,7 +166,7 @@ function internetworx_SaveDNS($params) {
 	$response = $domrobot->call('nameserver','info',$pInfo);
 	$_records = array();
 	if ($response['code']==1000 && isset($response['resData']['record']) && count($response['resData']['record'])>0) {
-		$_allowedRecTypes = array('A','AAAA','CNAME','MX','SPF','TXT','URL');
+		$_allowedRecTypes = array('A','AAAA','CNAME','MX','SPF','TXT','URL', 'SRV');
 		foreach($response['resData']['record'] as $_record) {
 			if (in_array($_record['type'],$_allowedRecTypes)) {
 				$_records[] = array( "id" => $_record['id']);
