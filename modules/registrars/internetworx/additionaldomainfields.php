@@ -3975,5 +3975,15 @@ $additionaldomainfields[".page"][] = array(
 		"Type" => "tickbox",
 	);
 
+// .DEV
+$additionaldomainfields[".dev"] = array();
+$additionaldomainfields[".dev"][] = array(
+		"Name" => "ACKNOWLEDGE-SECURE-ONLY-DEV",
+		"InwxName" => "ACKNOWLEDGE-SECURE-ONLY-DEV",
+		"DisplayName" => "I am aware that my new .DEV domain is more secure since it is HSTS preloaded and I need to run my website or my server with an SSL certificate in order to use the domain. I have been notified by INWX how to order an SSL certificate to use my .DEV domain.",
+		"Required" => true,
+		"Type" => "tickbox",
+	);
+
 
 ?>
