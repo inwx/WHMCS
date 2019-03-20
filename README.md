@@ -27,9 +27,16 @@ The InterNetworX Registrar Module does not yet support:
 to your WHMCS-Database:
 
 ```sql
-UPDATE tbldomainpricing set autoreg='internetworx' WHERE autoreg='inwx';
-UPDATE tbldomains set registrar='internetworx' WHERE registrar='inwx';
-DELETE FROM tblregistrars WHERE registrar='inwx';
+UPDATE tbldomainpricing 
+SET    autoreg = 'internetworx' 
+WHERE  autoreg = 'inwx'; 
+
+UPDATE tbldomains 
+SET    registrar = 'internetworx' 
+WHERE  registrar = 'inwx'; 
+
+DELETE FROM tblregistrars 
+WHERE  registrar = 'inwx'; 
 ```
 	
 2. Copy the provided folder "internetworx" in */modules/registrars/*
