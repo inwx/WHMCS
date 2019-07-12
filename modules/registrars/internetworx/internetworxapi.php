@@ -5,7 +5,7 @@ class domrobot {
 	private $address = null;
 	private $lng = 'en';
 	private $_inwxhash = null;
-	
+
 	function __construct($username,$password,$ote='off') {
 		if ($ote=='on') {
 			$this->address = "https://api.ote.domrobot.com/xmlrpc/";
@@ -22,8 +22,8 @@ class domrobot {
 
 	private function login($username,$password) {
 		$params['user'] = $username;
-		$params['pass'] = $password; 
-		$params['lang'] = $this->lng; 
+		$params['pass'] = $password;
+		$params['lang'] = $this->lng;
 		$ret = $this->call('account','login',$params);
 		if ($ret['code']==1000) {
 			return true;
@@ -36,26 +36,26 @@ class domrobot {
 		$action = strtolower("$object.$method");
 		$request = xmlrpc_encode_request($action, $params, array("encoding"=>"UTF-8","escaping"=>"markup","verbosity"=>"no_white_space"));
 
-		$header[] = "Content-Type: text/xml";   
+		$header[] = "Content-Type: text/xml";
 		$header[] = "Connection: keep-alive";
 		$header[] = "Keep-Alive: 300";
 		$header[] = "X-FORWARDED-FOR: ".@$_SERVER['HTTP_X_FORWARDED_FOR'];
 		$ch = curl_init();
 		curl_setopt($ch,CURLOPT_URL,$this->address);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch,CURLOPT_TIMEOUT,30);
         curl_setopt($ch,CURLOPT_MAXREDIRS,2);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 		curl_setopt($ch,CURLOPT_FOLLOWLOCATION,true);
 		curl_setopt($ch,CURLOPT_HEADERFUNCTION,array($this, 'read_header'));
 		curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
-		curl_setopt($ch,CURLOPT_COOKIE,$this->_inwxhash);		
+		curl_setopt($ch,CURLOPT_COOKIE,$this->_inwxhash);
 		curl_setopt($ch,CURLOPT_POST,1);
         curl_setopt($ch,CURLOPT_POSTFIELDS,$request);
 		curl_setopt($ch,CURLOPT_USERAGENT,"WHMCS/{$this->_ver} (PHP ".phpversion().")");
-		
+
 		$_SiteResponse = curl_exec($ch);
-		curl_close($ch); 
+		curl_close($ch);
 
 		$response = xmlrpc_decode($_SiteResponse,'UTF-8');
 
@@ -70,7 +70,7 @@ class domrobot {
 			$cookiestr = trim(substr($string, 11, -1));
 			$cookie = explode(';', $cookiestr);
 			$cookie = explode('=', $cookie[0]);
-			$cookiename = trim(array_shift($cookie)); 
+			$cookiename = trim(array_shift($cookie));
       		$cookiearr[$cookiename] = trim(implode('=', $cookie));
 
       		foreach ($cookiearr as $key=>$value) {
@@ -80,12 +80,12 @@ class domrobot {
 		}
 		return strlen($string);
 	}
-	
+
 	public function getErrorMsg($response) {
 		$msg = "";
 		if (!is_array($response) || !isset($response['code'])) {
 			$msg = "Fatal API Error occurred!";
-		} elseif ($response['code']==1000) {
+		} elseif ($response['code']==1000 || $response['code']==1001) {
 			$msg = "";
 		} elseif (isset($response['resData']['reason'])) {
 			$msg = $response['resData']['reason'];
