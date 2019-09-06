@@ -1,6 +1,11 @@
-InterNetworX Registrar Module for WHMCS
-Version 2.1 (2018-04-04)
-____________________________________________________________________________________
+<p align="center">
+  <a href="https://www.inwx.com/en/" target="_blank">
+    <img src="https://images.inwx.com/logos/inwx.png">
+  </a>
+</p>
+
+INWX WHMCS Registrar Module Version 2.1 (2018-04-04)
+=========
 
 # SUPPORTED FEATURES
 
