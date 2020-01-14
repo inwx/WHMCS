@@ -9,17 +9,12 @@ class domrobot
 
     public function __construct($username, $password, $ote = 'off')
     {
-        if ($ote == 'on') {
+        if ($ote === 'on') {
             $this->address = 'https://api.ote.domrobot.com/xmlrpc/';
         } else {
             $this->address = 'https://api.domrobot.com/xmlrpc/';
         }
-        $retLogin = $this->login($username, $password);
-        if (!$retLogin) {
-            return false;
-        } else {
-            return true;
-        }
+        $this->login($username, $password);
     }
 
     private function login($username, $password)
@@ -28,11 +23,11 @@ class domrobot
         $params['pass'] = $password;
         $params['lang'] = $this->lng;
         $ret = $this->call('account', 'login', $params);
-        if ($ret['code'] == 1000) {
+        if ($ret['code'] === 1000) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public function call($object, $method, $params = [])
@@ -46,7 +41,6 @@ class domrobot
         $header[] = 'X-FORWARDED-FOR: ' . @$_SERVER['HTTP_X_FORWARDED_FOR'];
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->address);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         curl_setopt($ch, CURLOPT_MAXREDIRS, 2);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -91,7 +85,7 @@ class domrobot
         $msg = '';
         if (!is_array($response) || !isset($response['code'])) {
             $msg = 'Fatal API Error occurred!';
-        } elseif ($response['code'] == 1000 || $response['code'] == 1001) {
+        } elseif ($response['code'] === 1000 || $response['code'] === 1001) {
             $msg = '';
         } elseif (isset($response['resData']['reason'])) {
             $msg = $response['resData']['reason'];

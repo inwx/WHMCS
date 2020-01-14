@@ -9,7 +9,7 @@ function internetworx_Sync($params)
     // call domrobot
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
     $response = $domrobot->call('domain', 'info', ['domain' => $params['domainObj']->getDomain()]);
-    if ($response['code'] == 1000 && isset($response['resData']['domain'])) {
+    if ($response['code'] === 1000 && isset($response['resData']['domain'])) {
         $exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']->timestamp) : null);
         $reDate = (isset($response['resData']['reDate']) ? date('Y-m-d', $response['resData']['reDate']->timestamp) : null);
 
@@ -19,7 +19,7 @@ function internetworx_Sync($params)
         }
 
         // change domain-status if domain is active
-        if ($response['resData']['status'] == 'OK') {
+        if ($response['resData']['status'] === 'OK') {
             $values['active'] = true;
         }
 
@@ -34,14 +34,13 @@ function internetworx_Sync($params)
 
 function internetworx_getConfigArray()
 {
-    $configarray = [
+    return [
         'Username' => ['Type' => 'text', 'Size' => '20', 'Description' => 'Enter your InterNetworX username here'],
         'Password' => ['Type' => 'password', 'Size' => '20', 'Description' => 'Enter your InterNetworX password here'],
         'TestMode' => ['Type' => 'yesno', 'Description' => 'Connect to OTE (Test Environment). Your credentials may differ.'],
         'TechHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for tech contact.<br/>.DE domains require a fax number for the tech contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the InterNetworX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
         'BillingHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for billing contact.<br/>.DE domains require a fax number for the billing contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the InterNetworX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
     ];
-    return $configarray;
 }
 
 function internetworx_GetRegistrarLock($params)
@@ -57,18 +56,18 @@ function internetworx_GetRegistrarLock($params)
 
     $response = $domrobot->call('domain', 'info', $pDomain);
 
-    if ($response['code'] == 1000 && isset($response['resData']['transferLock'])) {
-        if ($response['resData']['transferLock'] == 1) {
+    if ($response['code'] === 1000 && isset($response['resData']['transferLock'])) {
+        if ($response['resData']['transferLock'] === 1) {
             $lockstatus = 'locked';
-        } elseif ($response['resData']['transferLock'] == 0) {
+        } elseif ($response['resData']['transferLock'] === 0) {
             $lockstatus = 'unlocked';
         } else {
             $lockstatus = '';
         }
         return $lockstatus;
-    } else {
-        return ['error' => $domrobot->getErrorMsg($response)];
     }
+
+    return ['error' => $domrobot->getErrorMsg($response)];
 }
 
 function internetworx_SaveRegistrarLock($params)
@@ -78,7 +77,7 @@ function internetworx_SaveRegistrarLock($params)
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
     $pDomain['domain'] = $params['domainObj']->getDomain();
-    $pDomain['transferLock'] = ($params['lockenabled'] == 'locked') ? 1 : 0;
+    $pDomain['transferLock'] = ($params['lockenabled'] === 'locked') ? 1 : 0;
 
     $response = $domrobot->call('domain', 'update', $pDomain);
     $values['error'] = $domrobot->getErrorMsg($response);
@@ -99,7 +98,7 @@ function internetworx_GetEPPCode($params)
 
     $response = $domrobot->call('domain', 'info', $pDomain);
 
-    if ($response['code'] == 1000) {
+    if ($response['code'] === 1000) {
         if (isset($response['resData']['authCode'])) {
             $values['eppcode'] = htmlspecialchars($response['resData']['authCode']);
         } else {
@@ -124,7 +123,7 @@ function internetworx_GetNameservers($params)
     $pDomain['wide'] = 1;
 
     $response = $domrobot->call('domain', 'info', $pDomain);
-    if ($response['code'] == 1000 && isset($response['resData']['ns'])) {
+    if ($response['code'] === 1000 && isset($response['resData']['ns'])) {
         for ($i = 1; $i <= 4; ++$i) {
             $values['ns' . $i] = (isset($response['resData']['ns'][($i - 1)])) ? htmlspecialchars($response['resData']['ns'][($i - 1)]) : '';
         }
@@ -169,12 +168,12 @@ function internetworx_GetDNS($params)
     $pInfo['domain'] = $params['sld'] . '.' . $params['tld'];
     $response = $domrobot->call('nameserver', 'info', $pInfo);
 
-    if ($response['code'] == 1000 && isset($response['resData']['record']) && count($response['resData']['record']) > 0) {
+    if ($response['code'] === 1000 && isset($response['resData']['record']) && count($response['resData']['record']) > 0) {
         $_allowedRecTypes = ['A', 'AAAA', 'CNAME', 'MX', 'SPF', 'TXT', 'URL', 'SRV'];
         foreach ($response['resData']['record'] as $_record) {
-            if (in_array($_record['type'], $_allowedRecTypes)) {
-                if ($_record['type'] == 'URL') {
-                    $_record['type'] = (isset($_record['urlRedirectType']) && $_record['urlRedirectType'] == 'FRAME') ? 'FRAME' : 'URL';
+            if (in_array($_record['type'], $_allowedRecTypes, true)) {
+                if ($_record['type'] === 'URL') {
+                    $_record['type'] = (isset($_record['urlRedirectType']) && $_record['urlRedirectType'] === 'FRAME') ? 'FRAME' : 'URL';
                 }
                 $hostrecords[] = ['hostname' => $_record['name'], 'type' => $_record['type'], 'address' => $_record['content'], 'priority' => $_record['prio']];
             }
@@ -197,14 +196,14 @@ function internetworx_SaveDNS($params)
     $pInfo['domain'] = $params['sld'] . '.' . $params['tld'];
     $response = $domrobot->call('nameserver', 'info', $pInfo);
     $_records = [];
-    if ($response['code'] == 1000 && isset($response['resData']['record']) && count($response['resData']['record']) > 0) {
+    if ($response['code'] === 1000 && isset($response['resData']['record']) && count($response['resData']['record']) > 0) {
         $_allowedRecTypes = ['A', 'AAAA', 'CNAME', 'MX', 'SPF', 'TXT', 'URL', 'SRV'];
         foreach ($response['resData']['record'] as $_record) {
-            if (in_array($_record['type'], $_allowedRecTypes)) {
+            if (in_array($_record['type'], $_allowedRecTypes, true)) {
                 $_records[] = ['id' => $_record['id']];
             }
         }
-    } elseif ($response['code'] != 1000) {
+    } elseif ($response['code'] !== 1000) {
         $values['error'] = $domrobot->getErrorMsg($response);
         return $values;
     }
@@ -219,12 +218,12 @@ function internetworx_SaveDNS($params)
         $pRecord['name'] = $val['hostname'];
         $pRecord['type'] = $val['type'];
         $pRecord['content'] = $val['address'];
-        if ($val['priority'] != 'N/A' && is_numeric($val['priority'])) {
+        if ($val['priority'] !== 'N/A' && is_numeric($val['priority'])) {
             $pRecord['prio'] = $val['priority'];
         }
-        if ($pRecord['type'] == 'URL') {
+        if ($pRecord['type'] === 'URL') {
             $pRecord['urlRedirectType'] = 'HEADER301';
-        } elseif ($pRecord['type'] == 'FRAME') {
+        } elseif ($pRecord['type'] === 'FRAME') {
             $pRecord['type'] = 'URL';
             $pRecord['urlRedirectType'] = 'FRAME';
             $pRecord['urlRedirectTitle'] = '';
@@ -257,7 +256,7 @@ function internetworx_GetContactDetails($params)
 
     $response = $domrobot->call('domain', 'info', $pDomain);
     $contactTypes = ['registrant' => 'Registrant', 'admin' => 'Admin', 'tech' => 'Technical', 'billing' => 'Billing'];
-    if ($response['code'] == 1000) {
+    if ($response['code'] === 1000) {
         // Data should be returned in an array as follows
         foreach ($contactTypes as $type => $typeName) {
             // $values[$typeName]["Id"] = $response['resData']['contact'][$type]['id'];
@@ -280,8 +279,8 @@ function internetworx_GetContactDetails($params)
             $values[$typeName]['Email'] = $response['resData']['contact'][$type]['email'];
             $values[$typeName]['Notes'] = $response['resData']['contact'][$type]['remarks'];
         }
-    } else {
     }
+    
     return $values;
 }
 
@@ -293,7 +292,7 @@ function internetworx_SaveContactDetails($params)
 
     $pDomain['domain'] = $params['domainObj']->getDomain();
     $response = $domrobot->call('domain', 'info', $pDomain);
-    if ($response['code'] == 1000) {
+    if ($response['code'] === 1000) {
         $contactIds = ['registrant' => $response['resData']['registrant'], 'admin' => $response['resData']['admin'], 'tech' => $response['resData']['tech'], 'billing' => $response['resData']['billing']];
         $countContactIds = array_count_values([$response['resData']['registrant'], $response['resData']['admin'], $response['resData']['tech'], $response['resData']['billing']]);
         $contactTypes = ['registrant' => 'Registrant', 'admin' => 'Admin', 'tech' => 'Technical', 'billing' => 'Billing'];
@@ -414,7 +413,7 @@ function internetworx_RegisterDomain($params)
 
     // do registrant create command
     $response = $domrobot->call('contact', 'create', $pRegistrant);
-    if (($response['code'] == 1000 || $response['code'] == 1001)) {
+    if (($response['code'] === 1000 || $response['code'] === 1001)) {
         $pDomain['registrant'] = $response['resData']['id'];
     } else {
         $values['error'] = $domrobot->getErrorMsg($response);
@@ -446,7 +445,7 @@ function internetworx_RegisterDomain($params)
 
     // do admin create command
     $response = $domrobot->call('contact', 'create', $pAdmin);
-    if (($response['code'] == 1000 || $response['code'] == 1001)) {
+    if (($response['code'] === 1000 || $response['code'] === 1001)) {
         $pDomain['admin'] = $response['resData']['id'];
     } else {
         $values['error'] = $domrobot->getErrorMsg($response);
@@ -455,7 +454,7 @@ function internetworx_RegisterDomain($params)
 
     // 	Register Domain
     $pDomain['domain'] = $params['domainObj']->getDomain();
-    $pDomain['renewalMode'] = ($params['tld'] == 'at' || substr($params['tld'], -3) == '.at') ? 'AUTODELETE' : 'AUTOEXPIRE';
+    $pDomain['renewalMode'] = ($params['tld'] === 'at' || substr($params['tld'], -3) === '.at') ? 'AUTODELETE' : 'AUTOEXPIRE';
     if (isset($params['TechHandle']) && !empty($params['TechHandle'])) {
         $pDomain['tech'] = $params['TechHandle'];
     } else {
@@ -477,20 +476,20 @@ function internetworx_RegisterDomain($params)
     include 'additionaldomainfields.php';
     if (is_array($additionaldomainfields) && isset($additionaldomainfields['.' . $params['tld']])) {
         foreach ($additionaldomainfields['.' . $params['tld']] as $addField) {
-            if (isset($addField['InwxName']) && isset($params['additionalfields'][$addField['InwxName']])) {
+            if (isset($addField['InwxName'], $params['additionalfields'][$addField['InwxName']])) {
                 switch ($addField['Type']) {
                     case 'text':
                         $pDomain['extData'][$addField['InwxName']] = $params['additionalfields'][$addField['InwxName']];
                         break;
                     case 'tickbox':
-                        if ($params['additionalfields'][$addField['InwxName']] == 'on') {
+                        if ($params['additionalfields'][$addField['InwxName']] === 'on') {
                             $pDomain['extData'][$addField['InwxName']] = 1;
                         }
                         break;
                     case 'dropdown':
                         $_whmcsOptions = explode(',', $addField['Options']);
                         $_inwxOptions = explode(',', $addField['InwxOptions']);
-                        $_key = array_search($params['additionalfields'][$addField['InwxName']], $_whmcsOptions);
+                        $_key = array_search($params['additionalfields'][$addField['InwxName']], $_whmcsOptions, true);
                         $pDomain['extData'][$addField['InwxName']] = $_inwxOptions[$_key];
                         break;
                 }
@@ -499,11 +498,11 @@ function internetworx_RegisterDomain($params)
     }
 
     // create nameserver
-    if (count($pDomain['ns']) > 0 && $params['dnsmanagement'] == 1) {
+    if ($params['dnsmanagement'] === 1 && count($pDomain['ns']) > 0) {
         $pNs['domain'] = $pDomain['domain'];
         $pNs['type'] = 'MASTER';
         $pNs['ns'] = $pDomain['ns'];
-        $response = $domrobot->call('nameserver', 'create', $pNs);
+        $domrobot->call('nameserver', 'create', $pNs);
     }
 
     // do domain create command
@@ -544,7 +543,7 @@ function internetworx_TransferDomain($params)
 
     // do registrant create command
     $response = $domrobot->call('contact', 'create', $pRegistrant);
-    if (($response['code'] == 1000 || $response['code'] == 1001)) {
+    if (($response['code'] === 1000 || $response['code'] === 1001)) {
         $pDomain['registrant'] = $response['resData']['id'];
     } else {
         $values['error'] = $domrobot->getErrorMsg($response);
@@ -576,7 +575,7 @@ function internetworx_TransferDomain($params)
 
     // do admin create command
     $response = $domrobot->call('contact', 'create', $pAdmin);
-    if (($response['code'] == 1000 || $response['code'] == 1001)) {
+    if (($response['code'] === 1000 || $response['code'] === 1001)) {
         $pDomain['admin'] = $response['resData']['id'];
     } else {
         $values['error'] = $domrobot->getErrorMsg($response);
@@ -625,7 +624,7 @@ function internetworx_RenewDomain($params)
 
     $response = $domrobot->call('domain', 'info', $pDomain);
 
-    if (($response['code'] == 1000 || $response['code'] == 1001) && isset($response['resData']['exDate'])) {
+    if (($response['code'] === 1000 || $response['code'] === 1001) && isset($response['resData']['exDate'])) {
         $pDomain['expiration'] = date('Y-m-d', $response['resData']['exDate']->timestamp);
     } else {
         $values['error'] = $domrobot->getErrorMsg($response);
@@ -638,34 +637,3 @@ function internetworx_RenewDomain($params)
 
     return $values;
 }
-
-/*
- * the following functions are not yet supported!
- *
-function internetworx_GetEmailForwarding($params) {
-    $username = $params["Username"];
-    $password = $params["Password"];
-    $testmode = $params["TestMode"];
-    $tld = $params["tld"];
-    $sld = $params["sld"];
-    # Put your code to get email forwarding here - the result should be an array of prefixes and forward to emails (max 10)
-    foreach ($result AS $value) {
-        $values[$counter]["prefix"] = $value["prefix"];
-        $values[$counter]["forwardto"] = $value["forwardto"];
-    }
-    return $values;
-}
-
-function internetworx_SaveEmailForwarding($params) {
-    $username = $params["Username"];
-    $password = $params["Password"];
-    $testmode = $params["TestMode"];
-    $tld = $params["tld"];
-    $sld = $params["sld"];
-    foreach ($params["prefix"] AS $key=>$value) {
-        $forwardarray[$key]["prefix"] =  $params["prefix"][$key];
-        $forwardarray[$key]["forwardto"] =  $params["forwardto"][$key];
-    }
-    # Put your code to save email forwarders here
-}
-*/
