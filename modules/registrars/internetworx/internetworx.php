@@ -613,13 +613,10 @@ function internetworx_TransferDomain($params)
 
 function internetworx_RenewDomain($params)
 {
-    if (isset($params['original'])) {
-        $params = $params['original'];
-    }
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
-    $pDomain['domain'] = $params['sld'] . '.' . $params['tld'];
+    $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
 
     $response = $domrobot->call('domain', 'info', $pDomain);
 
