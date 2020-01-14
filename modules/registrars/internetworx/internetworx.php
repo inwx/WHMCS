@@ -514,7 +514,6 @@ function internetworx_RegisterDomain($params)
 
 function internetworx_TransferDomain($params)
 {
-    $params = injectDomainObjectIfNecessary($params);
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
@@ -583,7 +582,7 @@ function internetworx_TransferDomain($params)
     }
 
     // 	Transfer Domain
-    $pDomain['domain'] = $params['domainObj']->getDomain();
+    $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     if (isset($params['TechHandle']) && !empty($params['TechHandle'])) {
         $pDomain['tech'] = $params['TechHandle'];
     } else {
