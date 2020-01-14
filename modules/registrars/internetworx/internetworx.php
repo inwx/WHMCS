@@ -290,7 +290,7 @@ function internetworx_SaveContactDetails($params)
     $values = [];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
-    $pDomain['domain'] = $params['domainObj']->getDomain();
+    $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $response = $domrobot->call('domain', 'info', $pDomain);
     if ($response['code'] === 1000) {
         $contactIds = ['registrant' => $response['resData']['registrant'], 'admin' => $response['resData']['admin'], 'tech' => $response['resData']['tech'], 'billing' => $response['resData']['billing']];
