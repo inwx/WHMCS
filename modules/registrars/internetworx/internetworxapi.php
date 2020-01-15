@@ -2,7 +2,7 @@
 
 class domrobot
 {
-    private $_ver = '1.1';
+    private $_ver = '7.9';
     private $address = null;
     private $lng = 'en';
     private $_inwxhash = null;
