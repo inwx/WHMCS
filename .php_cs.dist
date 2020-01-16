@@ -1,0 +1,16 @@
+<?php
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@PSR2' => true,
+        '@Symfony' => true,
+        'align_multiline_comment' => ['comment_type' => 'phpdocs_like'],
+        'array_indentation' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'blank_line_before_statement' => false,
+        'concat_space' => ['spacing' => 'one'],
+        'no_useless_return' => true,
+        'ordered_imports' => ['sortAlgorithm' => 'alpha'],
+        'php_unit_method_casing' => true,
+        'yoda_style' => ['equal' => false, 'identical' => false],
+    ]);
