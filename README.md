@@ -12,6 +12,7 @@ INWX WHMCS Registrar Module
 * Domain Registration
 * Domain Transfer
 * EPP Code Retrieval
+* ID Protection
 * View/Change Nameservers
 * View/Update WHOIS Information
 * Lock/Unlock Domains
@@ -24,7 +25,6 @@ INWX WHMCS Registrar Module
 The InterNetworX Registrar Module does not yet support:
 
 * Email Forwarding
-* ID Protection
 
 #### Supported / tested WHMCS versions
 * 7.9
