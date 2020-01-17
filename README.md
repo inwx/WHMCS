@@ -16,7 +16,7 @@ INWX WHMCS Registrar Module
 * View/Change Nameservers
 * View/Update WHOIS Information
 * Lock/Unlock Domains
-* Domain Renewal (not supported for all TLDs)
+* Domain Renewal
 * DNS Record Management (Record-Types: A, AAAA, MX, MXE (Mail Easy), CNAME, SPF (TXT), URL, FRAME, SRV)
 * Register/Manage Private Nameservers
 * TestMode, using Test Environment (OTE)
