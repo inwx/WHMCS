@@ -171,7 +171,6 @@ function internetworx_SaveDNS($params)
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
     $pInfo['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
-    file_put_contents('/tmp/savedns', var_export($pInfo, true) . PHP_EOL, FILE_APPEND);
     $response = $domrobot->call('nameserver', 'info', $pInfo);
     $_records = [];
     if ($response['code'] === 1000 && isset($response['resData']['record']) && count($response['resData']['record']) > 0) {
@@ -344,6 +343,7 @@ function internetworx_DeleteNameserver($params)
     $pHost['hostname'] = $params['nameserver'];
 
     $response = $domrobot->call('host', 'delete', $pHost);
+    $values['error'] = $domrobot->getErrorMsg($response);
     $values['error'] = $domrobot->getErrorMsg($response);
 
     return $values;
