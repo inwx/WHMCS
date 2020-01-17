@@ -349,6 +349,22 @@ function internetworx_DeleteNameserver($params)
     return $values;
 }
 
+function internetworx_IDProtectToggle($params)
+{
+    $values = [];
+    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+
+    $pDomain = [
+        'domain' => $params['original']['sld'] . '.' . $params['original']['tld'],
+        'extData' => ['WHOIS-PROTECTION' => $params['protectenable']],
+    ];
+
+    $response = $domrobot->call('domain', 'update', $pDomain);
+    $values['error'] = $domrobot->getErrorMsg($response);
+
+    return $values;
+}
+
 function internetworx_RegisterDomain($params)
 {
     $params = injectDomainObjectIfNecessary($params);
@@ -462,6 +478,10 @@ function internetworx_RegisterDomain($params)
                 }
             }
         }
+    }
+
+    if ($params['idprotection']) {
+        $pDomain['extData']['WHOIS-PROTECTION'] = true;
     }
 
     // create nameserver
