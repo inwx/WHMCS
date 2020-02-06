@@ -344,7 +344,6 @@ function internetworx_DeleteNameserver($params)
 
     $response = $domrobot->call('host', 'delete', $pHost);
     $values['error'] = $domrobot->getErrorMsg($response);
-    $values['error'] = $domrobot->getErrorMsg($response);
 
     return $values;
 }
