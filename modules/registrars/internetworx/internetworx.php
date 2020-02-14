@@ -10,7 +10,6 @@ function internetworx_Sync($params)
     $response = $domrobot->call('domain', 'info', ['domain' => $params['original']['sld'] . '.' . $params['original']['tld']]);
     if ($response['code'] === 1000 && isset($response['resData']['domain'])) {
         $exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']->timestamp) : null);
-        $reDate = (isset($response['resData']['reDate']) ? date('Y-m-d', $response['resData']['reDate']->timestamp) : null);
 
         // set expiration date if available
         if (!is_null($exDate)) {
