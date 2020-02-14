@@ -4,6 +4,7 @@ include_once 'internetworxapi.php';
 
 function internetworx_Sync($params)
 {
+    $params = injectOriginalDomain($params);
     $values = [];
     // call domrobot
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
@@ -43,6 +44,7 @@ function internetworx_getConfigArray()
 
 function internetworx_GetRegistrarLock($params)
 {
+    $params = injectOriginalDomain($params);
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
@@ -66,6 +68,7 @@ function internetworx_GetRegistrarLock($params)
 
 function internetworx_SaveRegistrarLock($params)
 {
+    $params = injectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
@@ -79,6 +82,7 @@ function internetworx_SaveRegistrarLock($params)
 
 function internetworx_GetEPPCode($params)
 {
+    $params = injectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
@@ -101,6 +105,7 @@ function internetworx_GetEPPCode($params)
 
 function internetworx_GetNameservers($params)
 {
+    $params = injectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
@@ -121,6 +126,7 @@ function internetworx_GetNameservers($params)
 
 function internetworx_SaveNameservers($params)
 {
+    $params = injectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
@@ -140,6 +146,7 @@ function internetworx_SaveNameservers($params)
 
 function internetworx_GetDNS($params)
 {
+    $params = injectOriginalDomain($params);
     $values = ['error' => ''];
     $hostrecords = [];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
@@ -166,6 +173,7 @@ function internetworx_GetDNS($params)
 
 function internetworx_SaveDNS($params)
 {
+    $params = injectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
@@ -220,6 +228,7 @@ function internetworx_SaveDNS($params)
 
 function internetworx_GetContactDetails($params)
 {
+    $params = injectOriginalDomain($params);
     $values = [];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
@@ -258,6 +267,7 @@ function internetworx_GetContactDetails($params)
 
 function internetworx_SaveContactDetails($params)
 {
+    $params = injectOriginalDomain($params);
     $values = [];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
@@ -499,6 +509,7 @@ function internetworx_RegisterDomain($params)
 
 function internetworx_TransferDomain($params)
 {
+    $params = injectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
@@ -598,6 +609,7 @@ function internetworx_TransferDomain($params)
 
 function internetworx_RenewDomain($params)
 {
+    $params = injectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
@@ -617,4 +629,21 @@ function internetworx_RenewDomain($params)
     $values['error'] = $domrobot->getErrorMsg($response);
 
     return $values;
+}
+
+function injectOriginalDomain($params)
+{
+    if (!isset($params['original'])) {
+        $params['original'] = [];
+    }
+
+    if (!isset($params['original']['tld']) || empty(trim($params['original']['sld']))) {
+        $params['original']['sld'] = $params['sld'];
+    }
+
+    if (!isset($params['original']['tld']) || empty(trim($params['original']['tld']))) {
+        $params['original']['tld'] = $params['tld'];
+    }
+
+    return $params;
 }
