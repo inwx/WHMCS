@@ -637,7 +637,7 @@ function injectOriginalDomain($params)
         $params['original'] = [];
     }
 
-    if (!isset($params['original']['tld']) || empty(trim($params['original']['sld']))) {
+    if (!isset($params['original']['sld']) || empty(trim($params['original']['sld']))) {
         $params['original']['sld'] = $params['sld'];
     }
 
