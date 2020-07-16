@@ -1,5 +1,8 @@
 <?php
 
+use WHMCS\Domain\TopLevel\ImportItem;
+use WHMCS\Results\ResultsList;
+
 include_once 'internetworxapi.php';
 
 function internetworx_Sync($params)
@@ -605,6 +608,46 @@ function internetworx_TransferDomain($params)
     $values['error'] = $domrobot->getErrorMsg($response);
 
     return $values;
+}
+
+function internetworx_GetTldPricing($params)
+{
+    $csvUrl = 'https://www.inwx.de/en/domain/pricelist/vat/1/file/csv';
+    if ($rawCsv = file_get_contents($csvUrl, ';')) {
+        $rawCsv = file_get_contents($csvUrl);
+
+        // remove header line and parse data to array
+        $csvData = preg_replace('/^.+\n/', '', $rawCsv);
+        $rawLines = explode("\n", $csvData);
+
+        $datasets = [];
+        foreach ($rawLines as $line) {
+            $datasets[] = str_getcsv($line, ';');
+        }
+    } else {
+        return ['error' => 'Could not fetch csv.'];
+    }
+
+    $domains = new ResultsList();
+
+    foreach ($datasets as $dataset) {
+        $tld = $dataset[0];
+        if ($tld === null) {
+            continue;
+        }
+
+        $domain = (new ImportItem())
+            ->setExtension($tld)
+            ->setMinYears(1)
+            ->setRegisterPrice(floatval($dataset[1]))
+            ->setRenewPrice(floatval($dataset[5]))
+            ->setTransferPrice(floatval($dataset[3]))
+            ->setCurrency('EUR');
+
+        $domains[] = $domain;
+    }
+
+    return $domains;
 }
 
 function internetworx_RenewDomain($params)
