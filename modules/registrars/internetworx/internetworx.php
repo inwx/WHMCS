@@ -700,6 +700,53 @@ function internetworx_RenewDomain($params)
     return $values;
 }
 
+function internetworx_CheckAvailability($params)
+{
+    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+
+    $payload = ['domain' => $params['sld'] . $params['tlds'][0]];
+    $response = $domrobot->call('domain', 'check', $payload);
+
+    if ($response['code'] !== 1000) {
+        return ['error' => $domrobot->getErrorMsg($response)];
+    }
+
+    $domains = $response['resData']['domain']; // whoever had the idea to name an array with a singular name...literal god
+
+    $searchResults = new ResultsList();
+
+    foreach ($domains as $domain) {
+        // 0 = sld, 1 = tld
+        $domainParts = explode('.', $domain['domain'], 2);
+
+        $searchResult = new SearchResult($domainParts[0], $domainParts[1]);
+
+        if ($domain['avail'] === 1) {
+            $searchResult->setStatus(SearchResult::STATUS_NOT_REGISTERED);
+        } elseif ($domain['avail'] === 0) {
+            $searchResult->setStatus(SearchResult::STATUS_REGISTERED);
+        } else {
+            $searchResult->setStatus(SearchResult::UNKNOWN);
+        }
+
+        if (array_key_exists('premium', $domain) && is_array($domain['premium'])) {
+            $searchResult->setPremiumDomain(true);
+            $searchResult->setPremiumCostPricing(
+                [
+                    'register' => $domain['premium']['prices']['create']['price'],
+                    'renew' => $domain['premium']['prices']['renew']['price'],
+                    'transfer' => $domain['premium']['prices']['transfer']['price'],
+                    'CurrencyCode' => $domain['premium']['currency'],
+                ]
+            );
+        }
+
+        $searchResults->append($searchResult);
+    }
+
+    return $searchResults;
+}
+
 function injectOriginalDomain($params)
 {
     if (!isset($params['original'])) {
