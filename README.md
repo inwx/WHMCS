@@ -21,14 +21,16 @@ INWX WHMCS Registrar Module
 * Register/Manage Private Nameservers
 * TestMode, using Test Environment (OTE)
 * Automatic Domain synchronisation
+* Availability Checks
+* TLD & Pricing Sync
 
 The InterNetworX Registrar Module does not yet support:
 
 * Email Forwarding
 
 #### Supported / tested WHMCS versions
+* 7.10
 * 7.9
-
 
 ## Installation
 1. Copy the folder `internetworx` into `/modules/registrars/`
