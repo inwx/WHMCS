@@ -1,7 +1,8 @@
 <?php
 
 use WHMCS\Domain\TopLevel\ImportItem;
-use WHMCS\Results\ResultsList;
+use WHMCS\Domains\DomainLookup\ResultsList;
+use WHMCS\Domains\DomainLookup\SearchResult;
 
 include_once 'internetworxapi.php';
 
@@ -633,6 +634,19 @@ function internetworx_GetTldPricing($params)
         return ['error' => 'Could not fetch csv.'];
     }
 
+    $tldRules = [];
+
+    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domainRulesResponse = $domrobot->call('domain', 'getRules');
+
+    if ($domainRulesResponse['code'] !== 1000) {
+        return ['error' => $domrobot->getErrorMsg($domainRulesResponse)];
+    }
+
+    foreach ($domainRulesResponse['resData']['rules'] as $tldRule) {
+        $tldRules[$tldRule['tld']] = $tldRule;
+    }
+
     $domains = new ResultsList();
 
     foreach ($datasets as $dataset) {
@@ -640,13 +654,20 @@ function internetworx_GetTldPricing($params)
         if ($tld === null) {
             continue;
         }
+        $tldRule = $tldRules[$tld];
+
+        $maxYears = explode(',', $tldRule['registrationPeriod']);
+        $maxYears = end($maxYears);
+        $maxYears = str_replace('Y', '', $maxYears);
 
         $domain = (new ImportItem())
             ->setExtension($tld)
             ->setMinYears(intval($dataset[2]))
+            ->setMaxYears($maxYears)
             ->setRegisterPrice(floatval($dataset[1]))
             ->setRenewPrice(floatval($dataset[5]))
             ->setTransferPrice(floatval($dataset[3]))
+            ->setEppRequired($tldRule['authCode'] == 'YES')
             ->setCurrency('EUR');
 
         $domains[] = $domain;
