@@ -612,7 +612,12 @@ function internetworx_TransferDomain($params)
 
 function internetworx_GetTldPricing($params)
 {
-    $csvUrl = 'https://www.inwx.de/en/domain/pricelist/vat/1/file/csv';
+    if ($params['TestMode']) {
+        $csvUrl = 'https://ote.inwx.de/en/domain/pricelist/vat/1/file/csv';
+    } else {
+        $csvUrl = 'https://www.inwx.de/en/domain/pricelist/vat/1/file/csv';
+    }
+
     if ($rawCsv = file_get_contents($csvUrl, ';')) {
         $rawCsv = file_get_contents($csvUrl);
 
