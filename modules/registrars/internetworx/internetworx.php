@@ -638,7 +638,7 @@ function internetworx_GetTldPricing($params)
 
         $domain = (new ImportItem())
             ->setExtension($tld)
-            ->setMinYears(1)
+            ->setMinYears(intval($dataset[2]))
             ->setRegisterPrice(floatval($dataset[1]))
             ->setRenewPrice(floatval($dataset[5]))
             ->setTransferPrice(floatval($dataset[3]))
