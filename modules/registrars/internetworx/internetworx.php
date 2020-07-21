@@ -1,5 +1,9 @@
 <?php
 
+use WHMCS\Domain\TopLevel\ImportItem;
+use WHMCS\Domains\DomainLookup\ResultsList;
+use WHMCS\Domains\DomainLookup\SearchResult;
+
 include_once 'internetworxapi.php';
 
 function internetworx_Sync($params)
@@ -607,6 +611,71 @@ function internetworx_TransferDomain($params)
     return $values;
 }
 
+function internetworx_GetTldPricing($params)
+{
+    if ($params['TestMode']) {
+        $csvUrl = 'https://ote.inwx.de/en/domain/pricelist/vat/1/file/csv';
+    } else {
+        $csvUrl = 'https://www.inwx.de/en/domain/pricelist/vat/1/file/csv';
+    }
+
+    if ($rawCsv = file_get_contents($csvUrl, ';')) {
+        $rawCsv = file_get_contents($csvUrl);
+
+        // remove header line and parse data to array
+        $csvData = preg_replace('/^.+\n/', '', $rawCsv);
+        $rawLines = explode("\n", $csvData);
+
+        $datasets = [];
+        foreach ($rawLines as $line) {
+            $datasets[] = str_getcsv($line, ';');
+        }
+    } else {
+        return ['error' => 'Could not fetch csv.'];
+    }
+
+    $tldRules = [];
+
+    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domainRulesResponse = $domrobot->call('domain', 'getRules');
+
+    if ($domainRulesResponse['code'] !== 1000) {
+        return ['error' => $domrobot->getErrorMsg($domainRulesResponse)];
+    }
+
+    foreach ($domainRulesResponse['resData']['rules'] as $tldRule) {
+        $tldRules[$tldRule['tld']] = $tldRule;
+    }
+
+    $domains = new ResultsList();
+
+    foreach ($datasets as $dataset) {
+        $tld = $dataset[0];
+        if ($tld === null) {
+            continue;
+        }
+        $tldRule = $tldRules[$tld];
+
+        $maxYears = explode(',', $tldRule['registrationPeriod']);
+        $maxYears = end($maxYears);
+        $maxYears = str_replace('Y', '', $maxYears);
+
+        $domain = (new ImportItem())
+            ->setExtension($tld)
+            ->setMinYears(intval($dataset[2]))
+            ->setMaxYears($maxYears)
+            ->setRegisterPrice(floatval($dataset[1]))
+            ->setRenewPrice(floatval($dataset[5]))
+            ->setTransferPrice(floatval($dataset[3]))
+            ->setEppRequired($tldRule['authCode'] == 'YES')
+            ->setCurrency('EUR');
+
+        $domains[] = $domain;
+    }
+
+    return $domains;
+}
+
 function internetworx_RenewDomain($params)
 {
     $params = injectOriginalDomain($params);
@@ -629,6 +698,53 @@ function internetworx_RenewDomain($params)
     $values['error'] = $domrobot->getErrorMsg($response);
 
     return $values;
+}
+
+function internetworx_CheckAvailability($params)
+{
+    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+
+    $payload = ['domain' => $params['sld'] . $params['tlds'][0]];
+    $response = $domrobot->call('domain', 'check', $payload);
+
+    if ($response['code'] !== 1000) {
+        return ['error' => $domrobot->getErrorMsg($response)];
+    }
+
+    $domains = $response['resData']['domain']; // whoever had the idea to name an array with a singular name...literal god
+
+    $searchResults = new ResultsList();
+
+    foreach ($domains as $domain) {
+        // 0 = sld, 1 = tld
+        $domainParts = explode('.', $domain['domain'], 2);
+
+        $searchResult = new SearchResult($domainParts[0], $domainParts[1]);
+
+        if ($domain['avail'] === 1) {
+            $searchResult->setStatus(SearchResult::STATUS_NOT_REGISTERED);
+        } elseif ($domain['avail'] === 0) {
+            $searchResult->setStatus(SearchResult::STATUS_REGISTERED);
+        } else {
+            $searchResult->setStatus(SearchResult::UNKNOWN);
+        }
+
+        if (array_key_exists('premium', $domain) && is_array($domain['premium'])) {
+            $searchResult->setPremiumDomain(true);
+            $searchResult->setPremiumCostPricing(
+                [
+                    'register' => $domain['premium']['prices']['create']['price'],
+                    'renew' => $domain['premium']['prices']['renew']['price'],
+                    'transfer' => $domain['premium']['prices']['transfer']['price'],
+                    'CurrencyCode' => $domain['premium']['currency'],
+                ]
+            );
+        }
+
+        $searchResults->append($searchResult);
+    }
+
+    return $searchResults;
 }
 
 function injectOriginalDomain($params)
