@@ -13,15 +13,15 @@ INWX WHMCS Registrar Module
 * Domain Transfer
 * EPP Code Retrieval
 * ID Protection
-* View/Change Nameservers
-* View/Update WHOIS Information
-* Lock/Unlock Domains
+* View / Change Nameservers
+* View / Update WHOIS Information
+* Lock / Unlock Domains
 * Domain Renewal
 * DNS Record Management (Record-Types: A, AAAA, MX, MXE (Mail Easy), CNAME, SPF (TXT), URL, FRAME, SRV)
-* Register/Manage Private Nameservers
-* TestMode, using Test Environment (OTE)
-* Automatic Domain synchronisation
-* Availability Checks
+* Register / Manage Private Nameservers
+* TestMode, using our Test Environment (OTE)
+* Automatic Domain Synchronisation
+* Availability Checks (+ Support for Premium Domains)
 * TLD & Pricing Sync
 
 The InterNetworX Registrar Module does not yet support:
@@ -29,16 +29,20 @@ The InterNetworX Registrar Module does not yet support:
 * Email Forwarding
 
 #### Supported / tested WHMCS versions
+* 8.0.X
 * 7.10
 * 7.9
 
 ## Installation
 1. Copy the folder `internetworx` into `/modules/registrars/`
 
-2. Activate and configure the internetworx module in 
-**Setup > Products/Services > Domain Registrars**
+2. Activate and configure the internetworx module:
 
-3. It's recommend to use our module's `additionaldomainfields.php` for needed 
+    2.1. Prior to WHMCS 8.0: **Setup > Products/Services > Domain Registrars**
+    
+    2.2. Since WHMCS 8.0: **Configuration Icon > System Settings > Domain Registrars**
+
+3. It's recommend to use our module's `additionaldomainfields.php` for required 
 domain registration extra data. For that you need to add the following 
 command to `includes/additionaldomainfields.php`:
 
