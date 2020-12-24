@@ -24,10 +24,6 @@ INWX WHMCS Registrar Module
 * Availability Checks (+ Support for Premium Domains)
 * TLD & Pricing Sync
 
-The InterNetworX Registrar Module does not yet support:
-
-* Email Forwarding
-
 #### Supported / tested WHMCS versions
 * 8.0.X
 * 7.10
