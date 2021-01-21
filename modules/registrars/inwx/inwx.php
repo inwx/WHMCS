@@ -4,9 +4,9 @@ use WHMCS\Domain\TopLevel\ImportItem;
 use WHMCS\Domains\DomainLookup\ResultsList;
 use WHMCS\Domains\DomainLookup\SearchResult;
 
-include_once 'internetworxapi.php';
+include_once 'inwxapi.php';
 
-function internetworx_Sync($params)
+function inwx_Sync($params)
 {
     $params = injectOriginalDomain($params);
     $values = [];
@@ -35,18 +35,18 @@ function internetworx_Sync($params)
     return $values;
 }
 
-function internetworx_getConfigArray()
+function inwx_getConfigArray()
 {
     return [
-        'Username' => ['Type' => 'text', 'Size' => '20', 'Description' => 'Enter your InterNetworX username here'],
-        'Password' => ['Type' => 'password', 'Size' => '20', 'Description' => 'Enter your InterNetworX password here'],
+        'Username' => ['Type' => 'text', 'Size' => '20', 'Description' => 'Enter your INWX username here'],
+        'Password' => ['Type' => 'password', 'Size' => '20', 'Description' => 'Enter your INWX password here'],
         'TestMode' => ['Type' => 'yesno', 'Description' => 'Connect to OTE (Test Environment). Your credentials may differ.'],
-        'TechHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for tech contact.<br/>.DE domains require a fax number for the tech contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the InterNetworX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
-        'BillingHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for billing contact.<br/>.DE domains require a fax number for the billing contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the InterNetworX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
+        'TechHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for tech contact.<br/>.DE domains require a fax number for the tech contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
+        'BillingHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for billing contact.<br/>.DE domains require a fax number for the billing contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
     ];
 }
 
-function internetworx_GetRegistrarLock($params)
+function inwx_GetRegistrarLock($params)
 {
     $params = injectOriginalDomain($params);
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
@@ -70,7 +70,7 @@ function internetworx_GetRegistrarLock($params)
     return ['error' => $domrobot->getErrorMsg($response)];
 }
 
-function internetworx_SaveRegistrarLock($params)
+function inwx_SaveRegistrarLock($params)
 {
     $params = injectOriginalDomain($params);
     $values = ['error' => ''];
@@ -84,7 +84,7 @@ function internetworx_SaveRegistrarLock($params)
     return $values;
 }
 
-function internetworx_GetEPPCode($params)
+function inwx_GetEPPCode($params)
 {
     $params = injectOriginalDomain($params);
     $values = ['error' => ''];
@@ -107,7 +107,7 @@ function internetworx_GetEPPCode($params)
     return $values;
 }
 
-function internetworx_GetNameservers($params)
+function inwx_GetNameservers($params)
 {
     $params = injectOriginalDomain($params);
     $values = ['error' => ''];
@@ -128,7 +128,7 @@ function internetworx_GetNameservers($params)
     return $values;
 }
 
-function internetworx_SaveNameservers($params)
+function inwx_SaveNameservers($params)
 {
     $params = injectOriginalDomain($params);
     $values = ['error' => ''];
@@ -148,7 +148,7 @@ function internetworx_SaveNameservers($params)
     return $values;
 }
 
-function internetworx_GetDNS($params)
+function inwx_GetDNS($params)
 {
     $params = injectOriginalDomain($params);
     $values = ['error' => ''];
@@ -175,7 +175,7 @@ function internetworx_GetDNS($params)
     return $hostrecords;
 }
 
-function internetworx_SaveDNS($params)
+function inwx_SaveDNS($params)
 {
     $params = injectOriginalDomain($params);
     $values = ['error' => ''];
@@ -230,7 +230,7 @@ function internetworx_SaveDNS($params)
     return $values;
 }
 
-function internetworx_GetContactDetails($params)
+function inwx_GetContactDetails($params)
 {
     $params = injectOriginalDomain($params);
     $values = [];
@@ -269,7 +269,7 @@ function internetworx_GetContactDetails($params)
     return $values;
 }
 
-function internetworx_SaveContactDetails($params)
+function inwx_SaveContactDetails($params)
 {
     $params = injectOriginalDomain($params);
     $values = [];
@@ -320,7 +320,7 @@ function internetworx_SaveContactDetails($params)
     return $values;
 }
 
-function internetworx_RegisterNameserver($params)
+function inwx_RegisterNameserver($params)
 {
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
@@ -334,7 +334,7 @@ function internetworx_RegisterNameserver($params)
     return $values;
 }
 
-function internetworx_ModifyNameserver($params)
+function inwx_ModifyNameserver($params)
 {
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
@@ -348,7 +348,7 @@ function internetworx_ModifyNameserver($params)
     return $values;
 }
 
-function internetworx_DeleteNameserver($params)
+function inwx_DeleteNameserver($params)
 {
     $values = ['error' => ''];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
@@ -361,7 +361,7 @@ function internetworx_DeleteNameserver($params)
     return $values;
 }
 
-function internetworx_IDProtectToggle($params)
+function inwx_IDProtectToggle($params)
 {
     $values = [];
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
@@ -377,7 +377,7 @@ function internetworx_IDProtectToggle($params)
     return $values;
 }
 
-function internetworx_RegisterDomain($params)
+function inwx_RegisterDomain($params)
 {
     $params = injectDomainObjectIfNecessary($params);
     $values = ['error' => ''];
@@ -511,7 +511,7 @@ function internetworx_RegisterDomain($params)
     return $values;
 }
 
-function internetworx_TransferDomain($params)
+function inwx_TransferDomain($params)
 {
     $params = injectOriginalDomain($params);
     $values = ['error' => ''];
@@ -611,7 +611,7 @@ function internetworx_TransferDomain($params)
     return $values;
 }
 
-function internetworx_GetTldPricing($params)
+function inwx_GetTldPricing($params)
 {
     if ($params['TestMode']) {
         $csvUrl = 'https://ote.inwx.de/en/domain/pricelist/vat/1/file/csv';
@@ -676,7 +676,7 @@ function internetworx_GetTldPricing($params)
     return $domains;
 }
 
-function internetworx_RenewDomain($params)
+function inwx_RenewDomain($params)
 {
     $params = injectOriginalDomain($params);
     $values = ['error' => ''];
@@ -700,7 +700,7 @@ function internetworx_RenewDomain($params)
     return $values;
 }
 
-function internetworx_CheckAvailability($params)
+function inwx_CheckAvailability($params)
 {
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
