@@ -30,9 +30,9 @@ INWX WHMCS Registrar Module
 * 7.9
 
 ## Installation
-1. Copy the folder `internetworx` into `/modules/registrars/`
+1. Copy the folder `inwx` into `/modules/registrars/`
 
-2. Activate and configure the internetworx module:
+2. Activate and configure the inwx module:
 
     2.1. Prior to WHMCS 8.0: **Setup > Products/Services > Domain Registrars**
     
@@ -43,7 +43,7 @@ domain registration extra data. For that you need to add the following
 command to `includes/additionaldomainfields.php`:
 
 ```php
-include __DIR__ . "/../modules/registrars/internetworx/additionaldomainfields.php";
+include __DIR__ . "/../modules/registrars/inwx/additionaldomainfields.php";
 ```
 
 ### Optional:
