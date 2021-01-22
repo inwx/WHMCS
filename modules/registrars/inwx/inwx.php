@@ -6,6 +6,19 @@ use WHMCS\Domains\DomainLookup\SearchResult;
 
 include_once 'inwxapi.php';
 
+function inwx_RequestDelete($params) {
+    $params = injectOriginalDomain($params);
+
+    // call domrobot
+    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $response = $domrobot->call('domain', 'delete', ['domain' => $params['original']['sld'] . '.' . $params['original']['tld']]);
+    if ($response['code'] !== 1000) {
+        return ['error' => $domrobot->getErrorMsg($response)];
+    }
+
+    return true;
+}
+
 function inwx_Sync($params)
 {
     $params = injectOriginalDomain($params);
