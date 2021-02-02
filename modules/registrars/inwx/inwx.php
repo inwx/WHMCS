@@ -1,5 +1,7 @@
 <?php
 
+use WHMCS\Carbon;
+use WHMCS\Domain\Registrar\Domain;
 use WHMCS\Domain\TopLevel\ImportItem;
 use WHMCS\Domains\DomainLookup\ResultsList;
 use WHMCS\Domains\DomainLookup\SearchResult;
@@ -758,6 +760,48 @@ function inwx_CheckAvailability($params)
     }
 
     return $searchResults;
+}
+
+function inwx_ResendIRTPVerificationEmail($params)
+{
+    $params = injectOriginalDomain($params);
+    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+
+    $domain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
+
+    $domainInfoResponse = $domrobot->call('domain', 'info', $domain);
+
+    if ($domainInfoResponse['code'] !== 1000 || !isset($domainInfoResponse['resData']['registrant'])) {
+        return ['error' => $domrobot->getErrorMsg($domainInfoResponse)];
+    }
+
+    $payload = ['id' => $domainInfoResponse['resData']['registrant']];
+    $response = $domrobot->call('contact', 'sendcontactverification', $payload);
+
+    if ($response['code'] !== 1000) {
+        return ['error' => $domrobot->getErrorMsg($response)];
+    }
+
+    return ['success' => true];
+}
+
+function inwx_ReleaseDomain($params)
+{
+    $params = injectOriginalDomain($params);
+    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+
+    $payload['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
+    if (!empty($params["transfertag"])) {
+        $payload["target"] = $params["transfertag"];
+    }
+
+    $response = $domrobot->call('domain', 'push', $payload);
+
+    if ($response['code'] !== 1000) {
+        return ['error' => $domrobot->getErrorMsg($response)];
+    }
+
+    return ['success' => true];
 }
 
 function injectOriginalDomain($params)
