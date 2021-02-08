@@ -5,17 +5,18 @@ use WHMCS\Domain\Registrar\Domain;
 use WHMCS\Domain\TopLevel\ImportItem;
 use WHMCS\Domains\DomainLookup\ResultsList;
 use WHMCS\Domains\DomainLookup\SearchResult;
+use INWX\Domrobot;
 
-include_once 'inwxapi.php';
+include_once 'api/Domrobot.php';
 
 function inwx_RequestDelete($params) {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
 
     // call domrobot
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
-    $response = $domrobot->call('domain', 'delete', ['domain' => $params['original']['sld'] . '.' . $params['original']['tld']]);
+    $domrobot = inwx_CreateDomrobot($params);
+    $response = $domrobot->call('domain', 'delete', inwx_InjectCredentials($params, ['domain' => $params['original']['sld'] . '.' . $params['original']['tld']]));
     if ($response['code'] !== 1000) {
-        return ['error' => $domrobot->getErrorMsg($response)];
+        return ['error' => inwx_GetApiResponseErrorMessage($response)];
     }
 
     return true;
@@ -23,11 +24,11 @@ function inwx_RequestDelete($params) {
 
 function inwx_Sync($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = [];
     // call domrobot
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
-    $response = $domrobot->call('domain', 'info', ['domain' => $params['original']['sld'] . '.' . $params['original']['tld']]);
+    $domrobot = inwx_CreateDomrobot($params);
+    $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, ['domain' => $params['original']['sld'] . '.' . $params['original']['tld']]));
     if ($response['code'] === 1000 && isset($response['resData']['domain'])) {
         $exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']->timestamp) : null);
 
@@ -63,13 +64,13 @@ function inwx_getConfigArray()
 
 function inwx_GetRegistrarLock($params)
 {
-    $params = injectOriginalDomain($params);
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $params = inwx_InjectOriginalDomain($params);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $pDomain['wide'] = 1;
 
-    $response = $domrobot->call('domain', 'info', $pDomain);
+    $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
 
     if ($response['code'] === 1000 && isset($response['resData']['transferLock'])) {
         if ($response['resData']['transferLock'] === 1) {
@@ -82,33 +83,33 @@ function inwx_GetRegistrarLock($params)
         return $lockstatus;
     }
 
-    return ['error' => $domrobot->getErrorMsg($response)];
+    return ['error' => inwx_GetApiResponseErrorMessage($response)];
 }
 
 function inwx_SaveRegistrarLock($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $pDomain['transferLock'] = ($params['lockenabled'] === 'locked') ? 1 : 0;
 
-    $response = $domrobot->call('domain', 'update', $pDomain);
-    $values['error'] = $domrobot->getErrorMsg($response);
+    $response = $domrobot->call('domain', 'update', inwx_InjectCredentials($params, $pDomain));
+    $values['error'] = inwx_GetApiResponseErrorMessage($response);
     return $values;
 }
 
 function inwx_GetEPPCode($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $pDomain['wide'] = 1;
 
-    $response = $domrobot->call('domain', 'info', $pDomain);
+    $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
 
     if ($response['code'] === 1000) {
         if (isset($response['resData']['authCode'])) {
@@ -117,27 +118,27 @@ function inwx_GetEPPCode($params)
             $values['eppcode'] = '';
         }
     } else {
-        $values['error'] = $domrobot->getErrorMsg($response);
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
     }
     return $values;
 }
 
 function inwx_GetNameservers($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $pDomain['wide'] = 1;
 
-    $response = $domrobot->call('domain', 'info', $pDomain);
+    $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
     if ($response['code'] === 1000 && isset($response['resData']['ns'])) {
         for ($i = 1; $i <= 4; ++$i) {
             $values['ns' . $i] = (isset($response['resData']['ns'][($i - 1)])) ? htmlspecialchars($response['resData']['ns'][($i - 1)]) : '';
         }
     } else {
-        $values['error'] = $domrobot->getErrorMsg($response);
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
     }
 
     return $values;
@@ -145,9 +146,9 @@ function inwx_GetNameservers($params)
 
 function inwx_SaveNameservers($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $pDomain['ns'] = [];
@@ -157,21 +158,21 @@ function inwx_SaveNameservers($params)
         }
     }
 
-    $response = $domrobot->call('domain', 'update', $pDomain);
-    $values['error'] = $domrobot->getErrorMsg($response);
+    $response = $domrobot->call('domain', 'update', inwx_InjectCredentials($params, $pDomain));
+    $values['error'] = inwx_GetApiResponseErrorMessage($response);
 
     return $values;
 }
 
 function inwx_GetDNS($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
     $hostrecords = [];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pInfo['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
-    $response = $domrobot->call('nameserver', 'info', $pInfo);
+    $response = $domrobot->call('nameserver', 'info', inwx_InjectCredentials($params, $pInfo));
 
     if ($response['code'] === 1000 && isset($response['resData']['record']) && count($response['resData']['record']) > 0) {
         $_allowedRecTypes = ['A', 'AAAA', 'CNAME', 'MX', 'SPF', 'TXT', 'URL', 'SRV'];
@@ -184,7 +185,7 @@ function inwx_GetDNS($params)
             }
         }
     } else {
-        $values['error'] = $domrobot->getErrorMsg($response);
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
     }
 
     return $hostrecords;
@@ -192,9 +193,10 @@ function inwx_GetDNS($params)
 
 function inwx_SaveDNS($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
+    $domrobot->login($params['Username'], $params['Password']);
 
     $pInfo['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $response = $domrobot->call('nameserver', 'info', $pInfo);
@@ -207,7 +209,7 @@ function inwx_SaveDNS($params)
             }
         }
     } elseif ($response['code'] !== 1000) {
-        $values['error'] = $domrobot->getErrorMsg($response);
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
         return $values;
     }
 
@@ -239,7 +241,7 @@ function inwx_SaveDNS($params)
         } else {
             $response = $domrobot->call('nameserver', 'updaterecord', $pRecord);
         }
-        $values['error'] = (empty($values['error'])) ? $domrobot->getErrorMsg($response) : $values['error'];
+        $values['error'] = (empty($values['error'])) ? inwx_GetApiResponseErrorMessage($response) : $values['error'];
     }
 
     return $values;
@@ -247,14 +249,14 @@ function inwx_SaveDNS($params)
 
 function inwx_GetContactDetails($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = [];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $pDomain['wide'] = 2;
 
-    $response = $domrobot->call('domain', 'info', $pDomain);
+    $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
     $contactTypes = ['registrant' => 'Registrant', 'admin' => 'Admin', 'tech' => 'Technical', 'billing' => 'Billing'];
     if ($response['code'] === 1000) {
         // Data should be returned in an array as follows
@@ -286,9 +288,10 @@ function inwx_GetContactDetails($params)
 
 function inwx_SaveContactDetails($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = [];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
+    $domrobot->login($params['Username'], $params['Password']);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $response = $domrobot->call('domain', 'info', $pDomain);
@@ -318,19 +321,19 @@ function inwx_SaveContactDetails($params)
                 $pContact['type'] = 'PERSON';
                 $response = $domrobot->call('contact', 'create', $pContact);
                 $pDomain[$type] = $response['resData']['id'];
-                $values['error'] = $domrobot->getErrorMsg($response);
+                $values['error'] = inwx_GetApiResponseErrorMessage($response);
             } else {
                 $pContact['id'] = $contactIds[$type];
                 $response = $domrobot->call('contact', 'update', $pContact);
-                $values['error'] = $domrobot->getErrorMsg($response);
+                $values['error'] = inwx_GetApiResponseErrorMessage($response);
             }
         }
         if (count($pDomain) > 1) {
             $response = $domrobot->call('domain', 'update', $pDomain);
-            $values['error'] = $domrobot->getErrorMsg($response);
+            $values['error'] = inwx_GetApiResponseErrorMessage($response);
         }
     } else {
-        $values['error'] = $domrobot->getErrorMsg($response);
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
     }
     return $values;
 }
@@ -338,13 +341,13 @@ function inwx_SaveContactDetails($params)
 function inwx_RegisterNameserver($params)
 {
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pHost['hostname'] = $params['nameserver'];
     $pHost['ip'] = $params['ipaddress'];
 
-    $response = $domrobot->call('host', 'create', $pHost);
-    $values['error'] = $domrobot->getErrorMsg($response);
+    $response = $domrobot->call('host', 'create', inwx_InjectCredentials($params, $pHost));
+    $values['error'] = inwx_GetApiResponseErrorMessage($response);
 
     return $values;
 }
@@ -352,13 +355,13 @@ function inwx_RegisterNameserver($params)
 function inwx_ModifyNameserver($params)
 {
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pHost['hostname'] = $params['nameserver'];
     $pHost['ip'] = $params['newipaddress'];
 
-    $response = $domrobot->call('host', 'update', $pHost);
-    $values['error'] = $domrobot->getErrorMsg($response);
+    $response = $domrobot->call('host', 'update', inwx_InjectCredentials($params, $pHost));
+    $values['error'] = inwx_GetApiResponseErrorMessage($response);
 
     return $values;
 }
@@ -366,12 +369,12 @@ function inwx_ModifyNameserver($params)
 function inwx_DeleteNameserver($params)
 {
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pHost['hostname'] = $params['nameserver'];
 
-    $response = $domrobot->call('host', 'delete', $pHost);
-    $values['error'] = $domrobot->getErrorMsg($response);
+    $response = $domrobot->call('host', 'delete', inwx_InjectCredentials($params, $pHost));
+    $values['error'] = inwx_GetApiResponseErrorMessage($response);
 
     return $values;
 }
@@ -379,15 +382,15 @@ function inwx_DeleteNameserver($params)
 function inwx_IDProtectToggle($params)
 {
     $values = [];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $pDomain = [
         'domain' => $params['original']['sld'] . '.' . $params['original']['tld'],
         'extData' => ['WHOIS-PROTECTION' => $params['protectenable']],
     ];
 
-    $response = $domrobot->call('domain', 'update', $pDomain);
-    $values['error'] = $domrobot->getErrorMsg($response);
+    $response = $domrobot->call('domain', 'update', inwx_InjectCredentials($params, $pDomain));
+    $values['error'] = inwx_GetApiResponseErrorMessage($response);
 
     return $values;
 }
@@ -396,7 +399,8 @@ function inwx_RegisterDomain($params)
 {
     $params = injectDomainObjectIfNecessary($params);
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
+    $domrobot->login($params['Username'], $params['Password']);
 
     // Registrant creation
     $pRegistrant['type'] = 'PERSON';
@@ -426,7 +430,7 @@ function inwx_RegisterDomain($params)
     if (($response['code'] === 1000 || $response['code'] === 1001)) {
         $pDomain['registrant'] = $response['resData']['id'];
     } else {
-        $values['error'] = $domrobot->getErrorMsg($response);
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
         return $values;
     }
 
@@ -458,7 +462,7 @@ function inwx_RegisterDomain($params)
     if (($response['code'] === 1000 || $response['code'] === 1001)) {
         $pDomain['admin'] = $response['resData']['id'];
     } else {
-        $values['error'] = $domrobot->getErrorMsg($response);
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
         return $values;
     }
 
@@ -521,16 +525,17 @@ function inwx_RegisterDomain($params)
 
     // do domain create command
     $response = $domrobot->call('domain', 'create', $pDomain);
-    $values['error'] = $domrobot->getErrorMsg($response);
+    $values['error'] = inwx_GetApiResponseErrorMessage($response);
 
     return $values;
 }
 
 function inwx_TransferDomain($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
+    $domrobot->login($params['Username'], $params['Password']);
 
     // Registrant creation
     $pRegistrant['type'] = 'PERSON';
@@ -560,7 +565,7 @@ function inwx_TransferDomain($params)
     if (($response['code'] === 1000 || $response['code'] === 1001)) {
         $pDomain['registrant'] = $response['resData']['id'];
     } else {
-        $values['error'] = $domrobot->getErrorMsg($response);
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
         return $values;
     }
 
@@ -592,7 +597,7 @@ function inwx_TransferDomain($params)
     if (($response['code'] === 1000 || $response['code'] === 1001)) {
         $pDomain['admin'] = $response['resData']['id'];
     } else {
-        $values['error'] = $domrobot->getErrorMsg($response);
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
         return $values;
     }
 
@@ -621,7 +626,7 @@ function inwx_TransferDomain($params)
     // TODO: ext data
 
     $response = $domrobot->call('domain', 'transfer', $pDomain);
-    $values['error'] = $domrobot->getErrorMsg($response);
+    $values['error'] = inwx_GetApiResponseErrorMessage($response);
 
     return $values;
 }
@@ -651,11 +656,11 @@ function inwx_GetTldPricing($params)
 
     $tldRules = [];
 
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
-    $domainRulesResponse = $domrobot->call('domain', 'getRules');
+    $domrobot = inwx_CreateDomrobot($params);
+    $domainRulesResponse = $domrobot->call('domain', 'getRules', inwx_InjectCredentials($params));
 
     if ($domainRulesResponse['code'] !== 1000) {
-        return ['error' => $domrobot->getErrorMsg($domainRulesResponse)];
+        return ['error' => inwx_GetApiResponseErrorMessage($domainRulesResponse)];
     }
 
     foreach ($domainRulesResponse['resData']['rules'] as $tldRule) {
@@ -693,9 +698,10 @@ function inwx_GetTldPricing($params)
 
 function inwx_RenewDomain($params)
 {
-    $params = injectOriginalDomain($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
+    $domrobot->login($params['Username'], $params['Password']);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
 
@@ -704,26 +710,26 @@ function inwx_RenewDomain($params)
     if (($response['code'] === 1000 || $response['code'] === 1001) && isset($response['resData']['exDate'])) {
         $pDomain['expiration'] = date('Y-m-d', $response['resData']['exDate']->timestamp);
     } else {
-        $values['error'] = $domrobot->getErrorMsg($response);
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
         return $values;
     }
 
     $pDomain['period'] = $params['regperiod'] . 'Y';
     $response = $domrobot->call('domain', 'renew', $pDomain);
-    $values['error'] = $domrobot->getErrorMsg($response);
+    $values['error'] = inwx_GetApiResponseErrorMessage($response);
 
     return $values;
 }
 
 function inwx_CheckAvailability($params)
 {
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $payload = ['domain' => $params['sld'] . $params['tlds'][0]];
-    $response = $domrobot->call('domain', 'check', $payload);
+    $response = $domrobot->call('domain', 'check', inwx_InjectCredentials($params, $payload));
 
     if ($response['code'] !== 1000) {
-        return ['error' => $domrobot->getErrorMsg($response)];
+        return ['error' => inwx_GetApiResponseErrorMessage($response)];
     }
 
     $domains = $response['resData']['domain']; // whoever had the idea to name an array with a singular name...literal god
@@ -764,22 +770,23 @@ function inwx_CheckAvailability($params)
 
 function inwx_ResendIRTPVerificationEmail($params)
 {
-    $params = injectOriginalDomain($params);
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $params = inwx_InjectOriginalDomain($params);
+    $domrobot = inwx_CreateDomrobot($params);
+    $domrobot->login($params['Username'], $params['Password']);
 
     $domain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
 
     $domainInfoResponse = $domrobot->call('domain', 'info', $domain);
 
     if ($domainInfoResponse['code'] !== 1000 || !isset($domainInfoResponse['resData']['registrant'])) {
-        return ['error' => $domrobot->getErrorMsg($domainInfoResponse)];
+        return ['error' => inwx_GetApiResponseErrorMessage($domainInfoResponse)];
     }
 
     $payload = ['id' => $domainInfoResponse['resData']['registrant']];
     $response = $domrobot->call('contact', 'sendcontactverification', $payload);
 
     if ($response['code'] !== 1000) {
-        return ['error' => $domrobot->getErrorMsg($response)];
+        return ['error' => inwx_GetApiResponseErrorMessage($response)];
     }
 
     return ['success' => true];
@@ -787,18 +794,18 @@ function inwx_ResendIRTPVerificationEmail($params)
 
 function inwx_ReleaseDomain($params)
 {
-    $params = injectOriginalDomain($params);
-    $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
+    $params = inwx_InjectOriginalDomain($params);
+    $domrobot = inwx_CreateDomrobot($params);
 
     $payload['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     if (!empty($params["transfertag"])) {
         $payload["target"] = $params["transfertag"];
     }
 
-    $response = $domrobot->call('domain', 'push', $payload);
+    $response = $domrobot->call('domain', 'push', inwx_InjectCredentials($params, $payload));
 
     if ($response['code'] !== 1000) {
-        return ['error' => $domrobot->getErrorMsg($response)];
+        return ['error' => inwx_GetApiResponseErrorMessage($response)];
     }
 
     return ['success' => true];
@@ -819,4 +826,35 @@ function injectOriginalDomain($params)
     }
 
     return $params;
+}
+
+function inwx_GetApiResponseErrorMessage(array $response): string {
+    $msg = '';
+    if (!is_array($response) || !isset($response['code'])) {
+        $msg = 'Fatal API Error occurred!';
+    } elseif ($response['code'] === 1000 || $response['code'] === 1001) {
+        $msg = '';
+    } elseif (isset($response['resData']['reason'])) {
+        $msg = $response['resData']['reason'];
+    } elseif (isset($response['reason'])) {
+        $msg = $response['reason'];
+    } elseif (isset($response['msg'])) {
+        $msg = $response['msg'] . ' (EPP: ' . $response['code'] . ')';
+    }
+    return $msg;
+}
+
+function inwx_InjectCredentials(array $params, array $originalParameters = []) {
+    return array_merge(['user' => $params['Username'], 'pass' => $params['Password']], $originalParameters);
+}
+
+function inwx_CreateDomrobot($params) {
+    $domrobot = (new Domrobot(null))->useJson();
+    if($params['TestMode']) {
+        $domrobot->useOte();
+    } else {
+        $domrobot->useLive();
+    }
+
+    return $domrobot;
 }
