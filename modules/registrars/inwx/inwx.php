@@ -9,7 +9,7 @@ use INWX\Domrobot;
 
 include_once 'api/Domrobot.php';
 
-function inwx_RequestDelete($params) {
+function inwx_RequestDelete(array $params) {
     $params = inwx_InjectOriginalDomain($params);
 
     // call domrobot
@@ -22,7 +22,7 @@ function inwx_RequestDelete($params) {
     return true;
 }
 
-function inwx_Sync($params)
+function inwx_Sync(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = [];
@@ -51,7 +51,7 @@ function inwx_Sync($params)
     return $values;
 }
 
-function inwx_getConfigArray()
+function inwx_getConfigArray(): array
 {
     return [
         'Username' => ['Type' => 'text', 'Size' => '20', 'Description' => 'Enter your INWX username here'],
@@ -62,7 +62,7 @@ function inwx_getConfigArray()
     ];
 }
 
-function inwx_GetRegistrarLock($params)
+function inwx_GetRegistrarLock(array $params)
 {
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
@@ -86,7 +86,7 @@ function inwx_GetRegistrarLock($params)
     return ['error' => inwx_GetApiResponseErrorMessage($response)];
 }
 
-function inwx_SaveRegistrarLock($params)
+function inwx_SaveRegistrarLock(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
@@ -100,7 +100,7 @@ function inwx_SaveRegistrarLock($params)
     return $values;
 }
 
-function inwx_GetEPPCode($params)
+function inwx_GetEPPCode(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
@@ -123,7 +123,7 @@ function inwx_GetEPPCode($params)
     return $values;
 }
 
-function inwx_GetNameservers($params)
+function inwx_GetNameservers(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
@@ -144,7 +144,7 @@ function inwx_GetNameservers($params)
     return $values;
 }
 
-function inwx_SaveNameservers($params)
+function inwx_SaveNameservers(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
@@ -164,7 +164,7 @@ function inwx_SaveNameservers($params)
     return $values;
 }
 
-function inwx_GetDNS($params)
+function inwx_GetDNS(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
@@ -191,7 +191,7 @@ function inwx_GetDNS($params)
     return $hostrecords;
 }
 
-function inwx_SaveDNS($params)
+function inwx_SaveDNS(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
@@ -247,7 +247,7 @@ function inwx_SaveDNS($params)
     return $values;
 }
 
-function inwx_GetContactDetails($params)
+function inwx_GetContactDetails(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = [];
@@ -286,7 +286,7 @@ function inwx_GetContactDetails($params)
     return $values;
 }
 
-function inwx_SaveContactDetails($params)
+function inwx_SaveContactDetails(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = [];
@@ -338,7 +338,7 @@ function inwx_SaveContactDetails($params)
     return $values;
 }
 
-function inwx_RegisterNameserver($params)
+function inwx_RegisterNameserver(array $params): array
 {
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
@@ -352,7 +352,7 @@ function inwx_RegisterNameserver($params)
     return $values;
 }
 
-function inwx_ModifyNameserver($params)
+function inwx_ModifyNameserver(array $params): array
 {
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
@@ -366,7 +366,7 @@ function inwx_ModifyNameserver($params)
     return $values;
 }
 
-function inwx_DeleteNameserver($params)
+function inwx_DeleteNameserver(array $params): array
 {
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
@@ -379,7 +379,7 @@ function inwx_DeleteNameserver($params)
     return $values;
 }
 
-function inwx_IDProtectToggle($params)
+function inwx_IDProtectToggle(array $params): array
 {
     $values = [];
     $domrobot = inwx_CreateDomrobot($params);
@@ -395,7 +395,7 @@ function inwx_IDProtectToggle($params)
     return $values;
 }
 
-function inwx_RegisterDomain($params)
+function inwx_RegisterDomain(array $params): array
 {
     $params = injectDomainObjectIfNecessary($params);
     $values = ['error' => ''];
@@ -530,7 +530,7 @@ function inwx_RegisterDomain($params)
     return $values;
 }
 
-function inwx_TransferDomain($params)
+function inwx_TransferDomain(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
@@ -631,7 +631,7 @@ function inwx_TransferDomain($params)
     return $values;
 }
 
-function inwx_GetTldPricing($params)
+function inwx_GetTldPricing(array $params)
 {
     if ($params['TestMode']) {
         $csvUrl = 'https://ote.inwx.de/en/domain/pricelist/vat/1/file/csv';
@@ -696,7 +696,7 @@ function inwx_GetTldPricing($params)
     return $domains;
 }
 
-function inwx_RenewDomain($params)
+function inwx_RenewDomain(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
@@ -721,7 +721,7 @@ function inwx_RenewDomain($params)
     return $values;
 }
 
-function inwx_CheckAvailability($params)
+function inwx_CheckAvailability(array $params)
 {
     $domrobot = inwx_CreateDomrobot($params);
 
@@ -768,7 +768,7 @@ function inwx_CheckAvailability($params)
     return $searchResults;
 }
 
-function inwx_ResendIRTPVerificationEmail($params)
+function inwx_ResendIRTPVerificationEmail(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
@@ -792,7 +792,7 @@ function inwx_ResendIRTPVerificationEmail($params)
     return ['success' => true];
 }
 
-function inwx_ReleaseDomain($params)
+function inwx_ReleaseDomain(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
@@ -811,7 +811,7 @@ function inwx_ReleaseDomain($params)
     return ['success' => true];
 }
 
-function injectOriginalDomain($params)
+function inwx_InjectOriginalDomain(array $params): array
 {
     if (!isset($params['original'])) {
         $params['original'] = [];
@@ -844,11 +844,11 @@ function inwx_GetApiResponseErrorMessage(array $response): string {
     return $msg;
 }
 
-function inwx_InjectCredentials(array $params, array $originalParameters = []) {
+function inwx_InjectCredentials(array $params, array $originalParameters = []): array {
     return array_merge(['user' => $params['Username'], 'pass' => $params['Password']], $originalParameters);
 }
 
-function inwx_CreateDomrobot($params) {
+function inwx_CreateDomrobot(array $params): Domrobot {
     $domrobot = (new Domrobot(null))->useJson();
     if($params['TestMode']) {
         $domrobot->useOte();
