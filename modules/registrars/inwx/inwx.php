@@ -59,6 +59,7 @@ function inwx_getConfigArray(): array
         'TestMode' => ['Type' => 'yesno', 'Description' => 'Connect to OTE (Test Environment). Your credentials may differ.'],
         'TechHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for tech contact.<br/>.DE domains require a fax number for the tech contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
         'BillingHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for billing contact.<br/>.DE domains require a fax number for the billing contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
+        'UseShortRecordForm' => ['Type' => 'yesno', 'Description' => 'Whether the domain.tld of records should be omitted (Example: "test.example.com" becomes "test"; "example.com" becomes "@").'],
     ];
 }
 
@@ -181,7 +182,15 @@ function inwx_GetDNS(array $params): array
                 if ($_record['type'] === 'URL') {
                     $_record['type'] = (isset($_record['urlRedirectType']) && $_record['urlRedirectType'] === 'FRAME') ? 'FRAME' : 'URL';
                 }
-                $hostrecords[] = ['hostname' => $_record['name'], 'type' => $_record['type'], 'address' => $_record['content'], 'priority' => $_record['prio']];
+                $hostname = $_record['name'];
+                if($params['UseShortRecordForm']) {
+                    if($hostname === $pInfo['domain']) {
+                        $hostname = '@';
+                    } else {
+                        $hostname = preg_replace('/.' . $pInfo['domain'] . '$/', '', $hostname);
+                    }
+                }
+                $hostrecords[] = ['hostname' => $hostname, 'type' => $_record['type'], 'address' => $_record['content'], 'priority' => $_record['prio']];
             }
         }
     } else {
@@ -220,7 +229,15 @@ function inwx_SaveDNS(array $params): array
         }
         $pRecord = [];
         $pRecord['id'] = (isset($_records[$key]['id'])) ? $_records[$key]['id'] : null;
-        $pRecord['name'] = $val['hostname'];
+        if($params['UseShortRecordForm']) {
+            if($val['hostname'] === '@') {
+                $pRecord['name'] = $pInfo['domain'];
+            } else {
+                $pRecord['name'] = $val['hostname'] . '.' . $pInfo['domain'];
+            }
+        } else {
+            $pRecord['name'] = $val['hostname'];
+        }
         $pRecord['type'] = $val['type'];
         $pRecord['content'] = $val['address'];
         if ($val['priority'] !== 'N/A' && is_numeric($val['priority'])) {
