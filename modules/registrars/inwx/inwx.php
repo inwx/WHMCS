@@ -60,6 +60,7 @@ function inwx_getConfigArray(): array
         'TechHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for tech contact.<br/>.DE domains require a fax number for the tech contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
         'BillingHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for billing contact.<br/>.DE domains require a fax number for the billing contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
         'UseShortRecordForm' => ['Type' => 'yesno', 'Description' => 'Whether the domain.tld of records should be omitted (Example: "test.example.com" becomes "test"; "example.com" becomes "@").'],
+        'CookieFilePath' => ['Type' => 'text', 'Default' => '/tmp/inwx_whmcs_cookiefile', 'Description' => 'Place where the cookie file for API requests should reside. This file can be lost at any time with no problems, it is only necessary for sessions between API calls and will be regenerated if it was deleted.'],
     ];
 }
 
@@ -866,7 +867,7 @@ function inwx_InjectCredentials(array $params, array $originalParameters = []): 
 }
 
 function inwx_CreateDomrobot(array $params): Domrobot {
-    $domrobot = (new Domrobot(null))->useJson();
+    $domrobot = (new Domrobot($params['CookieFilePath']))->useJson();
     if($params['TestMode']) {
         $domrobot->useOte();
     } else {
