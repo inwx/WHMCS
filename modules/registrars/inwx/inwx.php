@@ -175,7 +175,7 @@ function inwx_GetDNS(array $params): array
     $response = $domrobot->call('nameserver', 'info', inwx_InjectCredentials($params, $pInfo));
 
     if ($response['code'] === 1000 && isset($response['resData']['record']) && count($response['resData']['record']) > 0) {
-        $_allowedRecTypes = ['A', 'AAAA', 'CNAME', 'MX', 'SPF', 'TXT', 'URL', 'SRV'];
+        $_allowedRecTypes = ['A', 'AAAA', 'AFSDB', 'ALIAS', 'CAA', 'CERT', 'CNAME', 'HINFO', 'KEY', 'LOC', 'MX', 'NAPTR', 'PTR', 'RP', 'SOA', 'SRV', 'SSHFP', 'TLSA', 'TXT', 'URL', 'FRAME',];
         foreach ($response['resData']['record'] as $_record) {
             if (in_array($_record['type'], $_allowedRecTypes, true)) {
                 if ($_record['type'] === 'URL') {
@@ -202,7 +202,7 @@ function inwx_SaveDNS(array $params): array
     $response = $domrobot->call('nameserver', 'info', $pInfo);
     $_records = [];
     if ($response['code'] === 1000 && isset($response['resData']['record']) && count($response['resData']['record']) > 0) {
-        $_allowedRecTypes = ['A', 'AAAA', 'CNAME', 'MX', 'SPF', 'TXT', 'URL', 'SRV'];
+        $_allowedRecTypes = ['A', 'AAAA', 'AFSDB', 'ALIAS', 'CAA', 'CERT', 'CNAME', 'HINFO', 'KEY', 'LOC', 'MX', 'NAPTR', 'PTR', 'RP', 'SOA', 'SRV', 'SSHFP', 'TLSA', 'TXT', 'URL', 'FRAME',];
         foreach ($response['resData']['record'] as $_record) {
             if (in_array($_record['type'], $_allowedRecTypes, true)) {
                 $_records[] = ['id' => $_record['id']];
