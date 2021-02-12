@@ -5,9 +5,8 @@ use WHMCS\Domain\Registrar\Domain;
 use WHMCS\Domain\TopLevel\ImportItem;
 use WHMCS\Domains\DomainLookup\ResultsList;
 use WHMCS\Domains\DomainLookup\SearchResult;
-use INWX\Domrobot;
 
-include_once 'api/Domrobot.php';
+include_once 'helpers.php';
 
 function inwx_RequestDelete(array $params) {
     $params = inwx_InjectOriginalDomain($params);
@@ -59,6 +58,8 @@ function inwx_getConfigArray(): array
         'TestMode' => ['Type' => 'yesno', 'Description' => 'Connect to OTE (Test Environment). Your credentials may differ.'],
         'TechHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for tech contact.<br/>.DE domains require a fax number for the tech contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
         'BillingHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for billing contact.<br/>.DE domains require a fax number for the billing contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
+        'EnableCustomRecordTypes' => ['Type' => 'yesno', 'Description' => 'Enable DNS record types not natively supported by WHMCS but offered by INWX.'],
+        'CustomRecordTypes' => ['Type' => 'text', 'Default' => 'AFSDB,ALIAS,CAA,CERT,HINFO,KEY,LOC,NAPTR,PTR,RP,SOA,SRV,SSHFP,TLSA', 'Description' => 'The custom record types to enable. This must be a comma separated list. Allowed record types: AFSDB, ALIAS, CAA, CERT, HINFO, KEY, LOC, NAPTR, PTR, RP, SOA, SRV, SSHFP, TLSA'],
         'UseShortRecordForm' => ['Type' => 'yesno', 'Description' => 'Whether the domain.tld of records should be omitted (Example: "test.example.com" becomes "test"; "example.com" becomes "@").'],
         'CookieFilePath' => ['Type' => 'text', 'Default' => '/tmp/inwx_whmcs_cookiefile', 'Description' => 'Place where the cookie file for API requests should reside. This file can be lost at any time with no problems, it is only necessary for sessions between API calls and will be regenerated if it was deleted.'],
     ];
@@ -177,7 +178,7 @@ function inwx_GetDNS(array $params): array
     $response = $domrobot->call('nameserver', 'info', inwx_InjectCredentials($params, $pInfo));
 
     if ($response['code'] === 1000 && isset($response['resData']['record']) && count($response['resData']['record']) > 0) {
-        $_allowedRecTypes = ['A', 'AAAA', 'AFSDB', 'ALIAS', 'CAA', 'CERT', 'CNAME', 'HINFO', 'KEY', 'LOC', 'MX', 'NAPTR', 'PTR', 'RP', 'SOA', 'SRV', 'SSHFP', 'TLSA', 'TXT', 'URL', 'FRAME',];
+        $_allowedRecTypes = inwx_GetEnabledRecordTypes($params);
         foreach ($response['resData']['record'] as $_record) {
             if (in_array($_record['type'], $_allowedRecTypes, true)) {
                 if ($_record['type'] === 'URL') {
@@ -212,7 +213,7 @@ function inwx_SaveDNS(array $params): array
     $response = $domrobot->call('nameserver', 'info', $pInfo);
     $_records = [];
     if ($response['code'] === 1000 && isset($response['resData']['record']) && count($response['resData']['record']) > 0) {
-        $_allowedRecTypes = ['A', 'AAAA', 'AFSDB', 'ALIAS', 'CAA', 'CERT', 'CNAME', 'HINFO', 'KEY', 'LOC', 'MX', 'NAPTR', 'PTR', 'RP', 'SOA', 'SRV', 'SSHFP', 'TLSA', 'TXT', 'URL', 'FRAME',];
+        $_allowedRecTypes = inwx_GetEnabledRecordTypes($params);
         foreach ($response['resData']['record'] as $_record) {
             if (in_array($_record['type'], $_allowedRecTypes, true)) {
                 $_records[] = ['id' => $_record['id']];
@@ -827,52 +828,4 @@ function inwx_ReleaseDomain(array $params): array
     }
 
     return ['success' => true];
-}
-
-function inwx_InjectOriginalDomain(array $params): array
-{
-    if (!isset($params['original'])) {
-        $params['original'] = [];
-    }
-
-    if (!isset($params['original']['sld']) || empty(trim($params['original']['sld']))) {
-        $params['original']['sld'] = $params['sld'];
-    }
-
-    if (!isset($params['original']['tld']) || empty(trim($params['original']['tld']))) {
-        $params['original']['tld'] = $params['tld'];
-    }
-
-    return $params;
-}
-
-function inwx_GetApiResponseErrorMessage(array $response): string {
-    $msg = '';
-    if (!is_array($response) || !isset($response['code'])) {
-        $msg = 'Fatal API Error occurred!';
-    } elseif ($response['code'] === 1000 || $response['code'] === 1001) {
-        $msg = '';
-    } elseif (isset($response['resData']['reason'])) {
-        $msg = $response['resData']['reason'];
-    } elseif (isset($response['reason'])) {
-        $msg = $response['reason'];
-    } elseif (isset($response['msg'])) {
-        $msg = $response['msg'] . ' (EPP: ' . $response['code'] . ')';
-    }
-    return $msg;
-}
-
-function inwx_InjectCredentials(array $params, array $originalParameters = []): array {
-    return array_merge(['user' => $params['Username'], 'pass' => $params['Password']], $originalParameters);
-}
-
-function inwx_CreateDomrobot(array $params): Domrobot {
-    $domrobot = (new Domrobot($params['CookieFilePath']))->useJson();
-    if($params['TestMode']) {
-        $domrobot->useOte();
-    } else {
-        $domrobot->useLive();
-    }
-
-    return $domrobot;
 }
