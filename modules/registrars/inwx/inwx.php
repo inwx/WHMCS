@@ -52,15 +52,46 @@ function inwx_Sync(array $params): array
 function inwx_getConfigArray(): array
 {
     return [
-        'Username' => ['Type' => 'text', 'Size' => '20', 'Description' => 'Enter your INWX username here'],
-        'Password' => ['Type' => 'password', 'Size' => '20', 'Description' => 'Enter your INWX password here'],
-        'TestMode' => ['Type' => 'yesno', 'Description' => 'Connect to OTE (Test Environment). Your credentials may differ.'],
-        'TechHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for tech contact.<br/>.DE domains require a fax number for the tech contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
-        'BillingHandle' => ['Type' => 'text', 'Description' => 'Enter your default contact handle id for billing contact.<br/>.DE domains require a fax number for the billing contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here.<br/>(You can use our default Tech/Billing contact handle: 1).'],
-        'EnableCustomRecordTypes' => ['Type' => 'yesno', 'Description' => 'Enable DNS record types not natively supported by WHMCS but offered by INWX.'],
-        'CustomRecordTypes' => ['Type' => 'text', 'Default' => 'AFSDB,ALIAS,CAA,CERT,HINFO,KEY,LOC,NAPTR,PTR,RP,SOA,SRV,SSHFP,TLSA', 'Description' => 'The custom record types to enable. This must be a comma separated list. Allowed record types: AFSDB, ALIAS, CAA, CERT, HINFO, KEY, LOC, NAPTR, PTR, RP, SOA, SRV, SSHFP, TLSA'],
-        'UseShortRecordForm' => ['Type' => 'yesno', 'Description' => 'Whether the domain.tld of records should be omitted (Example: "test.example.com" becomes "test"; "example.com" becomes "@").'],
-        'CookieFilePath' => ['Type' => 'text', 'Default' => '/tmp/inwx_whmcs_cookiefile', 'Description' => 'Place where the cookie file for API requests should reside. This file can be lost at any time with no problems, it is only necessary for sessions between API calls and will be regenerated if it was deleted.'],
+        'Username' => [
+            'Type' => 'text',
+            'Size' => '20',
+            'Description' => 'Enter your INWX username here',
+        ],
+        'Password' => [
+            'Type' => 'password',
+            'Size' => '20',
+            'Description' => 'Enter your INWX password here',
+        ],
+        'TestMode' => [
+            'Type' => 'yesno',
+            'Description' => 'Connect to OTE (Test Environment). Your credentials may differ.',
+        ],
+        'TechHandle' => [
+            'Type' => 'text',
+            'Description' => 'Enter your default contact handle id for tech contact. .DE domains require a fax number for the tech contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here. (You can use our default Tech/Billing contact handle: 1).',
+        ],
+        'BillingHandle' => [
+            'Type' => 'text',
+            'Description' => 'Enter your default contact handle id for billing contact. .DE domains require a fax number for the billing contact. Since WHMCS does not provide a field for this, you can manually create a contact with a fax number in the INWX webinterface, and specify the handle here. (You can use our default Tech/Billing contact handle: 1).',
+        ],
+        'EnableCustomRecordTypes' => [
+            'Type' => 'yesno',
+            'Description' => 'Enable DNS record types not natively supported by WHMCS but offered by INWX.',
+        ],
+        'CustomRecordTypes' => [
+            'Type' => 'text',
+            'Default' => 'AFSDB,ALIAS,CAA,CERT,HINFO,KEY,LOC,NAPTR,PTR,RP,SOA,SRV,SSHFP,TLSA',
+            'Description' => 'The custom record types to enable. This must be a comma separated list. Allowed record types: AFSDB, ALIAS, CAA, CERT, HINFO, KEY, LOC, NAPTR, PTR, RP, SOA, SRV, SSHFP, TLSA',
+        ],
+        'UseShortRecordForm' => [
+            'Type' => 'yesno',
+            'Description' => 'Whether the domain.tld of records should be omitted (Example: "test.example.com" becomes "test"; "example.com" becomes "@").',
+        ],
+        'CookieFilePath' => [
+            'Type' => 'text',
+            'Default' => '/tmp/inwx_whmcs_cookiefile',
+            'Description' => 'Place where the cookie file for API requests should reside. This file can be lost at any time with no problems, it is only necessary for sessions between API calls and will be regenerated if it was deleted.',
+        ],
     ];
 }
 
