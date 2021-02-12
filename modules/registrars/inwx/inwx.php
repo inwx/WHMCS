@@ -11,7 +11,6 @@ include_once 'helpers.php';
 function inwx_RequestDelete(array $params) {
     $params = inwx_InjectOriginalDomain($params);
 
-    // call domrobot
     $domrobot = inwx_CreateDomrobot($params);
     $response = $domrobot->call('domain', 'delete', inwx_InjectCredentials($params, ['domain' => $params['original']['sld'] . '.' . $params['original']['tld']]));
     if ($response['code'] !== 1000) {
@@ -25,7 +24,7 @@ function inwx_Sync(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = [];
-    // call domrobot
+    
     $domrobot = inwx_CreateDomrobot($params);
     $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, ['domain' => $params['original']['sld'] . '.' . $params['original']['tld']]));
     if ($response['code'] === 1000 && isset($response['resData']['domain'])) {
