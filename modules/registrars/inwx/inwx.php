@@ -1,6 +1,5 @@
 <?php
 
-use WHMCS\Carbon;
 use WHMCS\Domain\Registrar\Domain;
 use WHMCS\Domain\TopLevel\ImportItem;
 use WHMCS\Domains\DomainLookup\ResultsList;
@@ -8,7 +7,8 @@ use WHMCS\Domains\DomainLookup\SearchResult;
 
 include_once 'helpers.php';
 
-function inwx_RequestDelete(array $params) {
+function inwx_RequestDelete(array $params)
+{
     $params = inwx_InjectOriginalDomain($params);
 
     $domrobot = inwx_CreateDomrobot($params);
@@ -24,7 +24,7 @@ function inwx_Sync(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $values = [];
-    
+
     $domrobot = inwx_CreateDomrobot($params);
     $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, ['domain' => $params['original']['sld'] . '.' . $params['original']['tld']]));
     if ($response['code'] === 1000 && isset($response['resData']['domain'])) {
@@ -184,8 +184,8 @@ function inwx_GetDNS(array $params): array
                     $_record['type'] = (isset($_record['urlRedirectType']) && $_record['urlRedirectType'] === 'FRAME') ? 'FRAME' : 'URL';
                 }
                 $hostname = $_record['name'];
-                if($params['UseShortRecordForm']) {
-                    if($hostname === $pInfo['domain']) {
+                if ($params['UseShortRecordForm']) {
+                    if ($hostname === $pInfo['domain']) {
                         $hostname = '@';
                     } else {
                         $hostname = preg_replace('/.' . $pInfo['domain'] . '$/', '', $hostname);
@@ -230,8 +230,8 @@ function inwx_SaveDNS(array $params): array
         }
         $pRecord = [];
         $pRecord['id'] = (isset($_records[$key]['id'])) ? $_records[$key]['id'] : null;
-        if($params['UseShortRecordForm']) {
-            if($val['hostname'] === '@') {
+        if ($params['UseShortRecordForm']) {
+            if ($val['hostname'] === '@') {
                 $pRecord['name'] = $pInfo['domain'];
             } else {
                 $pRecord['name'] = $val['hostname'] . '.' . $pInfo['domain'];
@@ -817,8 +817,8 @@ function inwx_ReleaseDomain(array $params): array
     $domrobot = inwx_CreateDomrobot($params);
 
     $payload['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
-    if (!empty($params["transfertag"])) {
-        $payload["target"] = $params["transfertag"];
+    if (!empty($params['transfertag'])) {
+        $payload['target'] = $params['transfertag'];
     }
 
     $response = $domrobot->call('domain', 'push', inwx_InjectCredentials($params, $payload));

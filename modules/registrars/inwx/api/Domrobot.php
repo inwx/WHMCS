@@ -45,8 +45,6 @@ class Domrobot implements LoggerAwareInterface
     /**
      * Configures the Domrobot to use the live endpoint. All actions will be executed live and can cause costs if you buy something.
      * It is recommended to try your code with our OTE system before to check if everything works as expected.
-     *
-     * @return self
      */
     public function useLive(): self
     {
@@ -58,8 +56,6 @@ class Domrobot implements LoggerAwareInterface
     /**
      * Configures the Domrobot to use the OTE endpoint. All actions will be executed in our test environment which has extra credentials.
      * Here you can test for free as much as you like.
-     *
-     * @return self
      */
     public function useOte(): self
     {
@@ -73,7 +69,7 @@ class Domrobot implements LoggerAwareInterface
      */
     public function isLive(): bool
     {
-        return self::LIVE_URL === $this->url;
+        return $this->url === self::LIVE_URL;
     }
 
     /**
@@ -81,14 +77,12 @@ class Domrobot implements LoggerAwareInterface
      */
     public function isOte(): bool
     {
-        return self::OTE_URL === $this->url;
+        return $this->url === self::OTE_URL;
     }
 
     /**
      * Configures the Domrobot to use the JSON-RPC API. This needs the ext-json PHP extension installed to work.
      * This should be installed by default in PHP.
-     *
-     * @return self
      */
     public function useJson(): self
     {
@@ -100,8 +94,6 @@ class Domrobot implements LoggerAwareInterface
     /**
      * Configures the Domrobot to use the XML-RPC API. This needs the ext-xmlrpc PHP extension installed to work.
      * This may not be installed by default in PHP.
-     *
-     * @return self
      */
     public function useXml(): self
     {
@@ -115,7 +107,7 @@ class Domrobot implements LoggerAwareInterface
      */
     public function isXml(): bool
     {
-        return self::XMLRPC === $this->api;
+        return $this->api === self::XMLRPC;
     }
 
     /**
@@ -128,8 +120,6 @@ class Domrobot implements LoggerAwareInterface
 
     /**
      * @param string $language Either 'en', 'de' or 'es'
-     *
-     * @return self
      */
     public function setLanguage(string $language): self
     {
@@ -148,8 +138,6 @@ class Domrobot implements LoggerAwareInterface
 
     /**
      * @param bool $debug Activate/deactivate debug mode
-     *
-     * @return self
      */
     public function setDebug(bool $debug = false): self
     {
@@ -158,45 +146,29 @@ class Domrobot implements LoggerAwareInterface
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getCookieFile(): string
     {
         return $this->cookieFile;
     }
 
     /**
-     * @param string $file
-     *
-     * @return self
-     *
      * @throws RuntimeException If the cookieFile is not writable or does not exist
      */
     public function setCookieFile(string $file): self
     {
         if ((file_exists($file) && !is_writable($file)) || (!file_exists($file) && !is_writable(dirname($file)))) {
-            throw new RuntimeException("Cannot write cookiefile: '" . $file . "'. Please check file/folder permissions.",
-                2400);
+            throw new RuntimeException("Cannot write cookiefile: '" . $file . "'. Please check file/folder permissions.", 2400);
         }
         $this->cookieFile = $file;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getCustomer(): string
     {
         return $this->customer;
     }
 
-    /**
-     * @param string $customer
-     *
-     * @return self
-     */
     public function setCustomer(string $customer): self
     {
         $this->customer = $customer;
@@ -204,17 +176,12 @@ class Domrobot implements LoggerAwareInterface
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getClTrId(): string
     {
         return $this->clTrid;
     }
 
     /**
-     * @param string $clTrId
-     *
      * @return Domrobot
      */
     public function setClTrId(string $clTrId): self
@@ -226,12 +193,6 @@ class Domrobot implements LoggerAwareInterface
 
     /**
      * Execute a login command with the API. This is needed before you can do anything else.
-     *
-     * @param string      $username
-     * @param string      $password
-     * @param string|null $sharedSecret
-     *
-     * @return array
      */
     public function login(string $username, string $password, ?string $sharedSecret = null): array
     {
@@ -253,16 +214,10 @@ class Domrobot implements LoggerAwareInterface
 
     /**
      * Execute a API Request and decode the Response to an array for easy usage.
-     *
-     * @param string $object
-     * @param string $method
-     * @param array  $params
-     *
-     * @return array
      */
     public function call(string $object, string $method, array $params = []): array
     {
-        if ('' !== $this->customer) {
+        if ($this->customer !== '') {
             $params['subuser'] = $this->customer;
         }
         if (!empty($this->clTrid)) {
@@ -313,15 +268,11 @@ class Domrobot implements LoggerAwareInterface
      */
     public function isJson(): bool
     {
-        return self::JSONRPC === $this->api;
+        return $this->api === self::JSONRPC;
     }
 
     /**
      * Returns a secret code needed for 2 factor auth.
-     *
-     * @param string $secret
-     *
-     * @return string
      */
     private function getSecretCode(string $secret): string
     {
@@ -353,8 +304,6 @@ class Domrobot implements LoggerAwareInterface
 
     /**
      * Execute a logout command with the API.
-     *
-     * @return array
      */
     public function logout(): array
     {
@@ -367,7 +316,7 @@ class Domrobot implements LoggerAwareInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function setLogger(LoggerInterface $logger)
     {

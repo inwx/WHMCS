@@ -5,7 +5,8 @@ use INWX\Domrobot;
 
 include_once 'api/Domrobot.php';
 
-function inwx_getModuleConfig(): array {
+function inwx_getModuleConfig(): array
+{
     $encryptedConfigValues = DB::table('tblregistrars')
         ->where('registrar', '=', 'inwx')
         ->get(['setting', 'value'])->toArray();
@@ -20,23 +21,23 @@ function inwx_getModuleConfig(): array {
 
 function inwx_decryptString(string $string): string
 {
-    $applicationConfig = DI::make("config");
-    $cc_encryption_hash = $applicationConfig["cc_encryption_hash"];
+    $applicationConfig = DI::make('config');
+    $cc_encryption_hash = $applicationConfig['cc_encryption_hash'];
     $key = md5(md5($cc_encryption_hash)) . md5($cc_encryption_hash);
     $hashKey = inwx_hash($key);
     $hashLength = strlen($hashKey);
     $string = base64_decode($string);
     $temporaryIv = substr($string, 0, $hashLength);
     $string = substr($string, $hashLength);
-    $iv = "";
-    $output = "";
-    for ($index = 0; $index < $hashLength; $index++) {
-        $ivValue = isset($temporaryIv[$index]) ? $temporaryIv[$index] : "";
-        $hashValue = isset($hashKey[$index]) ? $hashKey[$index] : "";
+    $iv = '';
+    $output = '';
+    for ($index = 0; $index < $hashLength; ++$index) {
+        $ivValue = isset($temporaryIv[$index]) ? $temporaryIv[$index] : '';
+        $hashValue = isset($hashKey[$index]) ? $hashKey[$index] : '';
         $iv .= chr(ord($ivValue) ^ ord($hashValue));
     }
     $key = $iv;
-    for ($index = 0; $index < strlen($string); $index++) {
+    for ($index = 0; $index < strlen($string); ++$index) {
         if ($index !== 0 && $index % $hashLength === 0) {
             $key = _hash($key . substr($output, $index - $hashLength, $hashLength));
         }
@@ -48,12 +49,12 @@ function inwx_decryptString(string $string): string
 
 function inwx_hash($string)
 {
-    if (function_exists("sha1")) {
+    if (function_exists('sha1')) {
         $hash = sha1($string);
     } else {
         $hash = md5($string);
     }
-    $output = "";
+    $output = '';
     $index = 0;
     while ($index < strlen($hash)) {
         $output .= chr(hexdec($hash[$index] . $hash[$index + 1]));
@@ -80,7 +81,8 @@ function inwx_InjectOriginalDomain(array $params): array
     return $params;
 }
 
-function inwx_GetApiResponseErrorMessage(array $response): string {
+function inwx_GetApiResponseErrorMessage(array $response): string
+{
     $msg = '';
     if (!is_array($response) || !isset($response['code'])) {
         $msg = 'Fatal API Error occurred!';
@@ -96,16 +98,18 @@ function inwx_GetApiResponseErrorMessage(array $response): string {
     return $msg;
 }
 
-function inwx_InjectCredentials(array $params, array $originalParameters = []): array {
-    if(count($originalParameters) === 0) {
+function inwx_InjectCredentials(array $params, array $originalParameters = []): array
+{
+    if (count($originalParameters) === 0) {
         return $params;
     }
     return array_merge(['user' => $params['Username'], 'pass' => $params['Password']], $originalParameters);
 }
 
-function inwx_CreateDomrobot(array $params): Domrobot {
+function inwx_CreateDomrobot(array $params): Domrobot
+{
     $domrobot = (new Domrobot($params['CookieFilePath']))->useJson();
-    if($params['TestMode']) {
+    if ($params['TestMode']) {
         $domrobot->useOte();
     } else {
         $domrobot->useLive();
@@ -114,16 +118,17 @@ function inwx_CreateDomrobot(array $params): Domrobot {
     return $domrobot;
 }
 
-function inwx_GetEnabledRecordTypes(array $params): array {
+function inwx_GetEnabledRecordTypes(array $params): array
+{
     $supportedCustomRecordTypes = ['AFSDB', 'ALIAS', 'CAA', 'CERT', 'HINFO', 'KEY', 'LOC', 'NAPTR', 'PTR', 'RP', 'SOA', 'SRV', 'SSHFP', 'TLSA'];
     $recordTypes = ['A', 'AAAA', 'MX', 'CNAME', 'TXT', 'URL']; // Add default types
 
-    if($params['EnableCustomRecordTypes'] === true || $params['EnableCustomRecordTypes'] === 'on') {
+    if ($params['EnableCustomRecordTypes'] === true || $params['EnableCustomRecordTypes'] === 'on') {
         $enabledCustomRecordTypes = inwx_ParseCustomRecordTypes($params);
 
         // Check for only supported custom record types
         foreach ($enabledCustomRecordTypes as $enabledCustomRecordType) {
-            if(!in_array($enabledCustomRecordType, $supportedCustomRecordTypes, true)) {
+            if (!in_array($enabledCustomRecordType, $supportedCustomRecordTypes, true)) {
                 throw new Exception('Unsupported record type: ' . $enabledCustomRecordType);
             }
         }
@@ -135,6 +140,7 @@ function inwx_GetEnabledRecordTypes(array $params): array {
     return $recordTypes;
 }
 
-function inwx_ParseCustomRecordTypes(array $params): array {
+function inwx_ParseCustomRecordTypes(array $params): array
+{
     return explode(',', preg_replace('/\s/', '', preg_replace('/,|;/', ',', trim($params['CustomRecordTypes']))));
 }

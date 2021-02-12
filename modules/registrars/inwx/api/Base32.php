@@ -6,10 +6,6 @@ class Base32
 {
     /**
      * Utility to decode base32 for 2 factor auth.
-     *
-     * @param string $secret
-     *
-     * @return string
      */
     public function decode(string $secret): string
     {
@@ -46,7 +42,7 @@ class Base32
             $eightBits = str_split($x, 8);
             $eightBitsCount = count($eightBits);
             for ($z = 0; $z < $eightBitsCount; ++$z) {
-                $binaryString .= (($y = chr(base_convert($eightBits[$z], 2, 10))) || 48 == ord($y)) ? $y : '';
+                $binaryString .= (($y = chr(base_convert($eightBits[$z], 2, 10))) || ord($y) == 48) ? $y : '';
             }
         }
 
@@ -55,8 +51,6 @@ class Base32
 
     /**
      * Helper method to lookup base32 decoding.
-     *
-     * @return array
      */
     private function getLookupTable(): array
     {
