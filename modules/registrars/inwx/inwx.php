@@ -535,7 +535,7 @@ function inwx_RegisterDomain(array $params): array
     }
 
     // create nameserver
-    if ($params['dnsmanagement'] === 1 && count($pDomain['ns']) > 0) {
+    if ($params['dnsmanagement'] && count($pDomain['ns']) > 0) {
         $pNs['domain'] = $pDomain['domain'];
         $pNs['type'] = 'MASTER';
         $pNs['ns'] = $pDomain['ns'];
