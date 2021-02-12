@@ -741,9 +741,10 @@ function inwx_RenewDomain(array $params): array
 
 function inwx_CheckAvailability(array $params)
 {
+    $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
 
-    $payload = ['domain' => $params['sld'] . $params['tlds'][0]];
+    $payload = ['domain' => $params['original']['sld'] . $params['original']['tlds'][0]];
     $response = $domrobot->call('domain', 'check', inwx_InjectCredentials($params, $payload));
 
     if ($response['code'] !== 1000) {
@@ -765,7 +766,7 @@ function inwx_CheckAvailability(array $params)
         } elseif ($domain['avail'] === 0) {
             $searchResult->setStatus(SearchResult::STATUS_REGISTERED);
         } else {
-            $searchResult->setStatus(SearchResult::UNKNOWN);
+            $searchResult->setStatus(SearchResult::STATUS_UNKNOWN);
         }
 
         if (array_key_exists('premium', $domain) && is_array($domain['premium'])) {
