@@ -30,7 +30,7 @@ function inwx_Sync(array $params): array
     $domrobot = inwx_CreateDomrobot($params);
     $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, ['domain' => $params['original']['sld'] . '.' . $params['original']['tld']]));
     if ($response['code'] === 1000 && isset($response['resData']['domain'])) {
-        $exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']->timestamp) : null);
+        $exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']['timestamp']) : null);
 
         // set expiration date if available
         if (!is_null($exDate)) {
@@ -726,7 +726,7 @@ function inwx_RenewDomain(array $params): array
     $response = $domrobot->call('domain', 'info', $pDomain);
 
     if (($response['code'] === 1000 || $response['code'] === 1001) && isset($response['resData']['exDate'])) {
-        $pDomain['expiration'] = date('Y-m-d', $response['resData']['exDate']->timestamp);
+        $pDomain['expiration'] = date('Y-m-d', $response['resData']['exDate']['timestamp']);
     } else {
         $values['error'] = inwx_GetApiResponseErrorMessage($response);
         return $values;
