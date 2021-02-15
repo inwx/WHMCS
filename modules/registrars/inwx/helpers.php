@@ -24,7 +24,7 @@ function inwx_decryptString(string $string): string
     $applicationConfig = DI::make('config');
     $cc_encryption_hash = $applicationConfig['cc_encryption_hash'];
     $key = md5(md5($cc_encryption_hash)) . md5($cc_encryption_hash);
-    $hashKey = inwx_hash($key);
+    $hashKey = inwx_decryptString_hash($key);
     $hashLength = strlen($hashKey);
     $string = base64_decode($string);
     $temporaryIv = substr($string, 0, $hashLength);
@@ -39,7 +39,7 @@ function inwx_decryptString(string $string): string
     $key = $iv;
     for ($index = 0; $index < strlen($string); ++$index) {
         if ($index !== 0 && $index % $hashLength === 0) {
-            $key = _hash($key . substr($output, $index - $hashLength, $hashLength));
+            $key = inwx_decryptString_hash($key . substr($output, $index - $hashLength, $hashLength));
         }
         $output .= chr(ord($key[$index % $hashLength]) ^ ord($string[$index]));
     }
@@ -47,7 +47,7 @@ function inwx_decryptString(string $string): string
     return $output;
 }
 
-function inwx_hash($string)
+function inwx_decryptString_hash($string)
 {
     if (function_exists('sha1')) {
         $hash = sha1($string);
