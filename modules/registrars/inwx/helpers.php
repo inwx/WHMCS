@@ -142,5 +142,5 @@ function inwx_GetEnabledRecordTypes(array $params): array
 
 function inwx_ParseCustomRecordTypes(array $params): array
 {
-    return explode(',', preg_replace('/\s/', '', preg_replace('/,|;/', ',', trim($params['CustomRecordTypes']))));
+    return explode(',', preg_replace('/\s/', '', preg_replace('/[,;]/', ',', trim($params['CustomRecordTypes']))));
 }
