@@ -159,7 +159,7 @@ function inwx_GetEPPCode(array $params): array
 function inwx_GetNameservers(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
-    $values = ['error' => ''];
+    $values = [];
     $domrobot = inwx_CreateDomrobot($params);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
