@@ -100,9 +100,6 @@ function inwx_GetApiResponseErrorMessage(array $response): string
 
 function inwx_InjectCredentials(array $params, array $originalParameters = []): array
 {
-    if (count($originalParameters) === 0) {
-        return $params;
-    }
     return array_merge(['user' => $params['Username'], 'pass' => $params['Password']], $originalParameters);
 }
 
