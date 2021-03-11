@@ -672,7 +672,29 @@ function inwx_TransferDomain(array $params): array
         $pDomain['authCode'] = $params['transfersecret'];
     }
 
-    // TODO: ext data
+    include 'additionaldomainfields.php';
+    if (is_array($additionaldomainfields) && isset($additionaldomainfields['.' . $params['tld']])) {
+        foreach ($additionaldomainfields['.' . $params['tld']] as $addField) {
+            if (isset($addField['InwxName'], $params['additionalfields'][$addField['InwxName']])) {
+                switch ($addField['Type']) {
+                    case 'text':
+                        $pDomain['extData'][$addField['InwxName']] = $params['additionalfields'][$addField['InwxName']];
+                        break;
+                    case 'tickbox':
+                        if ($params['additionalfields'][$addField['InwxName']] === 'on') {
+                            $pDomain['extData'][$addField['InwxName']] = 1;
+                        }
+                        break;
+                    case 'dropdown':
+                        $_whmcsOptions = explode(',', $addField['Options']);
+                        $_inwxOptions = explode(',', $addField['InwxOptions']);
+                        $_key = array_search($params['additionalfields'][$addField['InwxName']], $_whmcsOptions, true);
+                        $pDomain['extData'][$addField['InwxName']] = $_inwxOptions[$_key];
+                        break;
+                }
+            }
+        }
+    }
 
     $response = $domrobot->call('domain', 'transfer', $pDomain);
     $values['error'] = inwx_GetApiResponseErrorMessage($response);
