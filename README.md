@@ -37,9 +37,9 @@ INWX WHMCS Registrar Module
 * 8.1.X
 
 #### Supported / tested WHMCS versions on older branches
-* 8.0.X 
-* 7.10 
-* 7.9 
+* [8.0.X](https://github.com/inwx/WHMCS/tree/whmcs-8.0) 
+* [7.10](https://github.com/inwx/WHMCS/tree/whmcs-7.10) 
+* [7.9](https://github.com/inwx/WHMCS/tree/whmcs-7.9) 
 
 ## Installation
 1. Copy the folder `inwx` into `/modules/registrars/`
