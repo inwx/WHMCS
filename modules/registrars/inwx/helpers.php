@@ -145,5 +145,5 @@ function inwx_ParseCustomRecordTypes(array $params): array
 function inwx_IncludeAdditionalDomainFields()
 {
     global $additionaldomainfields;
-    include implode(DIRECTORY_SEPARATOR, array(ROOTDIR, "resources", "domains", "additionalfields.php"));
+    include implode(DIRECTORY_SEPARATOR, [ROOTDIR, 'resources', 'domains', 'additionalfields.php']);
 }
