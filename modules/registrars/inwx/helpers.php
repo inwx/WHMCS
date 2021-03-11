@@ -141,3 +141,9 @@ function inwx_ParseCustomRecordTypes(array $params): array
 {
     return explode(',', preg_replace('/\s/', '', preg_replace('/[,;]/', ',', trim($params['CustomRecordTypes']))));
 }
+
+function inwx_IncludeAdditionalDomainFields()
+{
+    global $additionaldomainfields;
+    include implode(DIRECTORY_SEPARATOR, array(ROOTDIR, "resources", "domains", "additionalfields.php"));
+}

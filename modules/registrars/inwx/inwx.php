@@ -536,7 +536,8 @@ function inwx_RegisterDomain(array $params): array
     $pDomain['period'] = $params['regperiod'] . 'Y';
 
     // ext data
-    include 'additionaldomainfields.php';
+    global $additionaldomainfields;
+    inwx_IncludeAdditionalDomainFields();
     if (is_array($additionaldomainfields) && isset($additionaldomainfields['.' . $params['tld']])) {
         foreach ($additionaldomainfields['.' . $params['tld']] as $addField) {
             if (isset($addField['InwxName'], $params['additionalfields'][$addField['InwxName']])) {
@@ -672,7 +673,9 @@ function inwx_TransferDomain(array $params): array
         $pDomain['authCode'] = $params['transfersecret'];
     }
 
-    include 'additionaldomainfields.php';
+    // ext data
+    global $additionaldomainfields;
+    inwx_IncludeAdditionalDomainFields();
     if (is_array($additionaldomainfields) && isset($additionaldomainfields['.' . $params['tld']])) {
         foreach ($additionaldomainfields['.' . $params['tld']] as $addField) {
             if (isset($addField['InwxName'], $params['additionalfields'][$addField['InwxName']])) {
