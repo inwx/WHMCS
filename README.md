@@ -58,7 +58,7 @@ It is recommended to use our module's additionaldomainfields for required domain
 
 If you only have inwx as a registrar you can simply copy `modules/registrars/inwx/additionaldomainfields.php` to `resources/domains/additionalfields.php`.
 
-If you have or want to support multiple registrars you have to add the following to `resources/domains/additionalfields.php`:
+If you have to or want to support multiple registrars you have to add the following statement to `resources/domains/additionalfields.php`:
 ```php
 include __DIR__ . "/../../modules/registrars/inwx/additionaldomainfields.php";
 ```
