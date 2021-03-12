@@ -44,11 +44,7 @@ INWX WHMCS Registrar Module
 ## Installation
 1. Copy the folder `inwx` into `/modules/registrars/`
 
-2. Activate and configure the inwx module:
-
-    2.1. Prior to WHMCS 8.0: **Setup > Products/Services > Domain Registrars**
-    
-    2.2. Since WHMCS 8.0: **Configuration Icon > System Settings > Domain Registrars**
+2. Activate and configure the inwx module at **Configuration Icon > System Settings > Domain Registrars**
 
 ### Optional:
 
