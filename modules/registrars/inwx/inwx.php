@@ -80,8 +80,8 @@ function inwx_getConfigArray(): array
         ],
         'CustomRecordTypes' => [
             'Type' => 'text',
-            'Default' => 'AFSDB,ALIAS,CAA,CERT,HINFO,KEY,LOC,NAPTR,PTR,RP,SMIMEA,SOA,SRV,SSHFP,TLSA',
-            'Description' => 'The custom record types to enable. This must be a comma separated list. Allowed record types: AFSDB, ALIAS, CAA, CERT, HINFO, KEY, LOC, NAPTR, PTR, RP, SMIMEA, SOA, SRV, SSHFP, TLSA',
+            'Default' => 'AFSDB,ALIAS,CAA,CERT,HINFO,KEY,LOC,NAPTR,OPENPGPKEY,PTR,RP,SMIMEA,SOA,SRV,SSHFP,TLSA,URI',
+            'Description' => 'The custom record types to enable. This must be a comma separated list. Allowed record types: AFSDB, ALIAS, CAA, CERT, HINFO, KEY, LOC, NAPTR, OPENPGPKEY, PTR, RP, SMIMEA, SOA, SRV, SSHFP, TLSA, URI',
         ],
         'UseShortRecordForm' => [
             'Type' => 'yesno',
