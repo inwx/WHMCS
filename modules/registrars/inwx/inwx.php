@@ -446,7 +446,7 @@ function inwx_IDProtectToggle(array $params): array
 
 function inwx_RegisterDomain(array $params): array
 {
-    $params = injectDomainObjectIfNecessary($params);
+    $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
     $domrobot->login($params['Username'], $params['Password']);
