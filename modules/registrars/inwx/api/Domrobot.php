@@ -229,8 +229,11 @@ class Domrobot implements LoggerAwareInterface
         if ($this->isJson()) {
             $request = json_encode(['method' => $methodParam, 'params' => $params]);
         } else {
-            $request = xmlrpc_encode_request($methodParam, $params,
-                ['encoding' => 'UTF-8', 'escaping' => 'markup', 'verbosity' => 'no_white_space']);
+            $request = xmlrpc_encode_request(
+                $methodParam,
+                $params,
+                ['encoding' => 'UTF-8', 'escaping' => 'markup', 'verbosity' => 'no_white_space']
+            );
         }
 
         $header[] = 'Content-Type: ' . ($this->isJson() ? 'application/json' : 'text/xml');
