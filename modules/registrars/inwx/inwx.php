@@ -256,11 +256,21 @@ function inwx_SaveDNS(array $params): array
 
     // Loop through the submitted records
     foreach ($params['dnsrecords'] as $key => $val) {
-        if (empty($val['address'])) {
-            continue;
-        }
         $pRecord = [];
         $pRecord['id'] = (isset($_records[$key]['id'])) ? $_records[$key]['id'] : null;
+
+        if (empty($val['address'])) {
+            if (!empty($pRecord['id']) && $pRecord['id'] >= 1) {
+                // Delete record when address is empty and record has an id at inwx
+                $response = $domrobot->call('nameserver', 'deleteRecord', ['id' => $pRecord['id']]);
+                if ($response['code'] !== 1000) {
+                    $values['error'] = inwx_GetApiResponseErrorMessage($response);
+                    return $values;
+                }
+            }
+            continue;
+        }
+
         if ($params['UseShortRecordForm']) {
             if ($val['hostname'] === '@') {
                 $pRecord['name'] = $pInfo['domain'];
