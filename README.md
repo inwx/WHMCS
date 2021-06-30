@@ -28,18 +28,16 @@ INWX WHMCS Registrar Module
 
 ## Extra Features
 
-* Toggleable support for all record types supported by INWX (AFSDB, ALIAS ,CAA, CERT, HINFO, KEY, LOC, NAPTR, PTR, RP, SMIMEA, SOA, SRV, SSHFP, TLSA)
+* Toggleable support for all record types supported by INWX (AFSDB, ALIAS, CAA, CERT, HINFO, KEY, LOC, NAPTR, OPENPGPKEY, PTR, RP, SMIMEA, SOA, SRV, SSHFP, TLSA, URI)
 * Toggleable short record display in DNS Record Management (omits domain name from hostnames of records for subdomains and replaces hostname of records which are not a subdomain with @)
 * Changeable location for Domrobot Cookiefile
 
-
 #### Supported WHMCS versions on current branch
+* 8.2.X
 * 8.1.X
-
-#### Supported / tested WHMCS versions on older branches
-* [8.0.X](https://github.com/inwx/WHMCS/tree/whmcs-8.0) 
-* [7.10](https://github.com/inwx/WHMCS/tree/whmcs-7.10) 
-* [7.9](https://github.com/inwx/WHMCS/tree/whmcs-7.9) 
+* 8.0.X
+* 7.10
+* 7.9
 
 ## Installation
 1. Copy the folder `inwx` into `/modules/registrars/`
