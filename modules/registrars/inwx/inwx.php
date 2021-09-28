@@ -810,7 +810,13 @@ function inwx_CheckAvailability(array $params)
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
 
-    $payload = ['domain' => $params['original']['sld'] . $params['original']['tlds'][0]];
+    $payload = [
+        'sld' => $params['original']['sld'],
+        'tld' => array_map(static function ($tld) {
+            // Remove dot at end of tld
+            return substr($tld, 1);
+        }, $params['original']['tldsToInclude'])
+    ];
     $response = $domrobot->call('domain', 'check', inwx_InjectCredentials($params, $payload));
 
     if ($response['code'] !== 1000) {
