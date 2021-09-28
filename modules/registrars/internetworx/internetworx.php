@@ -704,7 +704,13 @@ function internetworx_CheckAvailability($params)
 {
     $domrobot = new domrobot($params['Username'], $params['Password'], $params['TestMode']);
 
-    $payload = ['domain' => $params['sld'] . $params['tlds'][0]];
+    $payload = [
+        'sld' => $params['original']['sld'],
+        'tld' => array_map(static function ($tld) {
+            // Remove dot at end of tld
+            return substr($tld, 1);
+        }, $params['original']['tldsToInclude'])
+    ];
     $response = $domrobot->call('domain', 'check', $payload);
 
     if ($response['code'] !== 1000) {
