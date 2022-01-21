@@ -179,6 +179,34 @@ $additionaldomainfields[".ee"][] = array(
 		"Required" => false,
 		"Type" => "text",
 	);
+$additionaldomainfields[".ee"][] = array(
+		"Name" => "ADMIN-BIRTH-DATE",
+		"InwxName" => "ADMIN-BIRTH-DATE",
+		"DisplayName" => "Birthdate of the administrative contact",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".ee"][] = array(
+		"Name" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
+		"InwxName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the administrative contact",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".ee"][] = array(
+		"Name" => "TECH-BIRTH-DATE",
+		"InwxName" => "TECH-BIRTH-DATE",
+		"DisplayName" => "Birthdate of the technical contact",
+		"Required" => true,
+		"Type" => "text",
+	);
+$additionaldomainfields[".ee"][] = array(
+		"Name" => "TECH-IDCARD-OR-PASSPORT-NUMBER",
+		"InwxName" => "TECH-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the technical contact",
+		"Required" => false,
+		"Type" => "text",
+	);
 
 // .EU
 $additionaldomainfields[".eu"] = array();
@@ -195,8 +223,8 @@ $additionaldomainfields[".eu"][] = array(
 		"InwxName" => "EU-COUNTRY-OF-CITIZENSHIP",
 		"DisplayName" => "EU-COUNTRY-OF-CITIZENSHIP",
 		"Required" => false,
-		"Options" => "AUSTRIA,BELGIUM,BULGARIA,CROATIA,CYPRUS,CZECH REPUBLIC,DENMARK,ESTONIA,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GERMANY,GIBRALTAR,GREECE,HUNGARY,ICELAND,IRELAND,ITALY,LATVIA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MALTA,NETHERLANDS,NORWAY,POLAND,PORTUGAL,ROMANIA,SLOVAKIA,SLOVENIA,SPAIN,SWEDEN,UNITED KINGDOM",
-		"InwxOptions" => "AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,GF,PF,TF,DE,GI,GR,HU,IS,IE,IT,LV,LI,LT,LU,MT,NL,NO,PL,PT,RO,SK,SI,ES,SE,GB",
+		"Options" => "AUSTRIA,BELGIUM,BULGARIA,CROATIA,CYPRUS,CZECH REPUBLIC,DENMARK,ESTONIA,FINLAND,FRANCE,FRENCH GUIANA,FRENCH POLYNESIA,FRENCH SOUTHERN TERRITORIES,GERMANY,GREECE,HUNGARY,ICELAND,IRELAND,ITALY,LATVIA,LIECHTENSTEIN,LITHUANIA,LUXEMBOURG,MALTA,NETHERLANDS,NORWAY,POLAND,PORTUGAL,ROMANIA,SLOVAKIA,SLOVENIA,SPAIN,SWEDEN",
+		"InwxOptions" => "AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,GF,PF,TF,DE,GR,HU,IS,IE,IT,LV,LI,LT,LU,MT,NL,NO,PL,PT,RO,SK,SI,ES,SE",
 	);
 
 // .FR
@@ -5733,6 +5761,34 @@ $additionaldomainfields[".com.ee"][] = array(
 		"Name" => "BIRTH-DATE",
 		"InwxName" => "BIRTH-DATE",
 		"DisplayName" => "Registrant's birthdate",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".com.ee"][] = array(
+		"Name" => "ADMIN-BIRTH-DATE",
+		"InwxName" => "ADMIN-BIRTH-DATE",
+		"DisplayName" => "Birthdate of the administrative contact",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".com.ee"][] = array(
+		"Name" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
+		"InwxName" => "ADMIN-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the administrative contact",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".com.ee"][] = array(
+		"Name" => "TECH-BIRTH-DATE",
+		"InwxName" => "TECH-BIRTH-DATE",
+		"DisplayName" => "Birthdate of the technical contact",
+		"Required" => true,
+		"Type" => "text",
+	);
+$additionaldomainfields[".com.ee"][] = array(
+		"Name" => "TECH-IDCARD-OR-PASSPORT-NUMBER",
+		"InwxName" => "TECH-IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "Id card number of the technical contact",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -23054,6 +23110,16 @@ $additionaldomainfields[".new"][] = array(
 create online content with at most one click. No other use cases are allowed. By registering a .NEW domain, you agree to follow
 the .NEW Registration Policy, including ensuring that your domain will be live and compliant within 100 days of the registration date.
 Registrations that do not comply with the Registration Policy may be locked or deleted without refund. Please visit https://www.registry.google/policies/registration/new/#!/ for the full policy.",
+		"Required" => true,
+		"Type" => "tickbox",
+	);
+
+// .DAY
+$additionaldomainfields[".day"] = array();
+$additionaldomainfields[".day"][] = array(
+		"Name" => "ACKNOWLEDGE-SECURE-ONLY-DAY",
+		"InwxName" => "ACKNOWLEDGE-SECURE-ONLY-DAY",
+		"DisplayName" => "I am aware that my new .DAY domain is more secure since it is HSTS preloaded and I need to run my website with an SSL certificate in order to use the domain. I have been notified by INWX how to order an SSL certificate to use my .DAY domain.",
 		"Required" => true,
 		"Type" => "tickbox",
 	);
