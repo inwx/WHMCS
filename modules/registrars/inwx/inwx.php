@@ -663,6 +663,7 @@ function inwx_TransferDomain(array $params): array
 
     // 	Transfer Domain
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
+    $pDomain['renewalMode'] = ($params['tld'] === 'at' || substr($params['tld'], -3) === '.at') ? 'AUTODELETE' : 'AUTOEXPIRE';
     if (isset($params['TechHandle']) && !empty($params['TechHandle'])) {
         $pDomain['tech'] = $params['TechHandle'];
     } else {
