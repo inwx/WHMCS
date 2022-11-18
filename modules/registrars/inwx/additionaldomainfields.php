@@ -85,6 +85,13 @@ $additionaldomainfields[".bg"][] = array(
 		"Required" => true,
 		"Type" => "tickbox",
 	);
+$additionaldomainfields[".bg"][] = array(
+		"Name" => "BG-APPLICATION-NUMBER",
+		"InwxName" => "BG-APPLICATION-NUMBER",
+		"DisplayName" => ".BG application number",
+		"Required" => false,
+		"Type" => "text",
+	);
 
 // .COM.BR
 $additionaldomainfields[".com.br"] = array();
