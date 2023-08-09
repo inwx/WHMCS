@@ -36,6 +36,7 @@ INWX WHMCS Registrar Module
 * 8.2.X
 * 8.1.X
 * 8.0.X
+* 8.7.X
 * 7.10
 * 7.9
 
