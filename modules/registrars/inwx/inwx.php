@@ -106,9 +106,9 @@ function inwx_GetRegistrarLock(array $params)
     $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
 
     if ($response['code'] === 1000 && isset($response['resData']['transferLock'])) {
-        if ($response['resData']['transferLock'] === 1) {
+        if ($response['resData']['transferLock'] === true) {
             $lockstatus = 'locked';
-        } elseif ($response['resData']['transferLock'] === 0) {
+        } elseif ($response['resData']['transferLock'] === false) {
             $lockstatus = 'unlocked';
         } else {
             $lockstatus = '';
