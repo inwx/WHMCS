@@ -718,30 +718,18 @@ function inwx_TransferDomain(array $params): array
 
 function inwx_GetTldPricing(array $params)
 {
-    if ($params['TestMode']) {
-        $csvUrl = 'https://ote.inwx.de/en/domain/pricelist/vat/1/file/csv';
+    $domrobot = inwx_CreateDomrobot($params);
+
+    $response = $domrobot->call('domain', 'getPrices', array_merge(inwx_InjectCredentials($params), ["vat" => false]));
+    if (($response['code'] === 1000 || $response['code'] === 1001)) {
+        $prices = $response['resData']['price'];
     } else {
-        $csvUrl = 'https://www.inwx.de/en/domain/pricelist/vat/1/file/csv';
-    }
-
-    if ($rawCsv = file_get_contents($csvUrl, ';')) {
-        $rawCsv = file_get_contents($csvUrl);
-
-        // remove header line and parse data to array
-        $csvData = preg_replace('/^.+\n/', '', $rawCsv);
-        $rawLines = explode("\n", $csvData);
-
-        $datasets = [];
-        foreach ($rawLines as $line) {
-            $datasets[] = str_getcsv($line, ';');
-        }
-    } else {
-        return ['error' => 'Could not fetch csv.'];
+        $values['error'] = inwx_GetApiResponseErrorMessage($response);
+        return $values;
     }
 
     $tldRules = [];
 
-    $domrobot = inwx_CreateDomrobot($params);
     $domainRulesResponse = $domrobot->call('domain', 'getRules', inwx_InjectCredentials($params));
 
     if ($domainRulesResponse['code'] !== 1000) {
@@ -754,8 +742,8 @@ function inwx_GetTldPricing(array $params)
 
     $domains = new ResultsList();
 
-    foreach ($datasets as $dataset) {
-        $tld = $dataset[0];
+    foreach ($prices as $price) {
+        $tld = $price['tld'];
         if ($tld === null) {
             continue;
         }
@@ -767,13 +755,13 @@ function inwx_GetTldPricing(array $params)
 
         $domain = (new ImportItem())
             ->setExtension($tld)
-            ->setMinYears(intval($dataset[2]))
+            ->setMinYears($price['createPeriod'])
             ->setMaxYears($maxYears)
-            ->setRegisterPrice(floatval($dataset[1]))
-            ->setRenewPrice(floatval($dataset[5]))
-            ->setTransferPrice(floatval($dataset[3]))
+            ->setRegisterPrice($price['promo']['createPrice'] ?? $price['createPrice'])
+            ->setRenewPrice($price['promo']['renewalPrice'] ?? $price['renewalPrice'])
+            ->setTransferPrice($price['promo']['renewalPrice'] ?? $price['transferPrice'])
             ->setEppRequired($tldRule['authCode'] == 'YES')
-            ->setCurrency('EUR');
+            ->setCurrency($price['currency']);
 
         $domains[] = $domain;
     }
