@@ -1,0 +1,33 @@
+{
+  "schema": "1.0",
+  "type": "whmcs-registrars",
+  "name": "inwx",
+  "license": "MIT",
+  "category": "domains",
+  "description": {
+    "name": "INWX",
+    "tagline": "The domain registrar with the most TLDs offered worldwide. (2000+)",
+    "long": "# Want to get started? Create an account in our [Live System](https://www.inwx.com/en) or in the [OTE/Testing System](https://ote.inwx.com/en)",
+    "features": [
+      "Full support for complete Domain Lifecycle: Registration, Transfer, Renew, Delete, ...",
+      "ID Protection",
+      "IDNs",
+      "TLD & Pricing Sync - offer more than 2000 TLDs instantly",
+      "Testmode with our dedicated testing environment (OTE)",
+      "Anycast DNS for free"
+    ]
+  },
+  "logo": {
+    "filename": "logo.gif"
+  },
+  "support": {
+    "homepage": "https:\/\/inwx.com\/", 
+    "email": "support@inwx.de"
+  },
+  "authors": [
+    {
+      "name": "INWX Dev Team",
+      "homepage": "https:\/\/inwx.com\/"
+    }
+  ]
+}
