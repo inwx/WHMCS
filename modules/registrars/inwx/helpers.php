@@ -117,8 +117,8 @@ function inwx_CreateDomrobot(array $params): Domrobot
 
 function inwx_GetEnabledRecordTypes(array $params): array
 {
-    $supportedCustomRecordTypes = ['AFSDB', 'ALIAS', 'CAA', 'CERT', 'HINFO', 'KEY', 'LOC', 'NAPTR', 'OPENPGPKEY', 'PTR', 'RP', 'SMIMEA', 'SOA', 'SRV', 'SSHFP', 'TLSA', 'URI'];
-    $recordTypes = ['A', 'AAAA', 'MX', 'CNAME', 'TXT', 'URL']; // Add default types
+    $supportedCustomRecordTypes = ['AFSDB', 'ALIAS', 'CAA', 'CERT', 'HINFO', 'HTTPS', 'IPSECKEY', 'LOC', 'NAPTR', 'OPENPGPKEY', 'PTR', 'RP', 'SMIMEA', 'SOA', 'SRV', 'SSHFP', 'SCVB', 'TLSA', 'URI'];
+    $recordTypes = ['A', 'AAAA', 'MX', 'CNAME', 'NS', 'TXT', 'URL']; // Add default types
 
     if ($params['EnableCustomRecordTypes'] === true || $params['EnableCustomRecordTypes'] === 'on') {
         $enabledCustomRecordTypes = inwx_ParseCustomRecordTypes($params);
