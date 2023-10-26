@@ -378,12 +378,12 @@ function inwx_SaveContactDetails(array $params): array
             if ($countContactIds[$contactIds[$type]] > 1) {
                 // create contact
                 $pContact['type'] = 'PERSON';
-                $response = $domrobot->call('contact', 'create', $pContact);
+                $response = $domrobot->call('contact', 'create', array_filter($pContact));
                 $pDomain[$type] = $response['resData']['id'];
                 $values['error'] = inwx_GetApiResponseErrorMessage($response);
             } else {
                 $pContact['id'] = $contactIds[$type];
-                $response = $domrobot->call('contact', 'update', $pContact);
+                $response = $domrobot->call('contact', 'update', array_filter($pContact));
                 $values['error'] = inwx_GetApiResponseErrorMessage($response);
             }
         }
