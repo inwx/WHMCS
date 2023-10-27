@@ -759,7 +759,7 @@ function inwx_GetTldPricing(array $params)
             ->setMaxYears($maxYears)
             ->setRegisterPrice($price['promo']['createPrice'] ?? $price['createPrice'])
             ->setRenewPrice($price['promo']['renewalPrice'] ?? $price['renewalPrice'])
-            ->setTransferPrice($price['promo']['renewalPrice'] ?? $price['transferPrice'])
+            ->setTransferPrice($price['promo']['transferPrice'] ?? $price['transferPrice'])
             ->setEppRequired($tldRule['authCode'] == 'YES')
             ->setCurrency($price['currency']);
 
