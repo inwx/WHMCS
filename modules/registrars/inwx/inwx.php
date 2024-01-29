@@ -67,13 +67,11 @@ function inwx_TransferSync(array $params): array
             $values['expirydate'] = $exDate;
         }
 
-        if ($response['resData']['status'] === "TRANSFER SUCCESSFUL") {
-            return array_merge($values, ['completed' => true]);
-        } else if ($response['resData']['status'] === "TRANSFER FAILED") {
-            return array_merge($values, ['failed' => true]);
-        } else {
-            return array_merge($values, ['completed' => false]);
-        }
+        return array_merge($values, ['completed' => $response['resData']['status'] === "OK"]);
+    }
+
+    if ($response['code'] === 2303 && isset($response['resData']['status']) && $response['resData']['status'] === "TRANSFER FAILED"){
+        return array_merge($values, ['failed' => true]);
     }
 
     return ['error' => inwx_GetApiResponseErrorMessage($response)];
