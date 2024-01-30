@@ -10,6 +10,7 @@ INWX WHMCS Registrar Module
 ## Supported WHMCS Features
 
 * Automatic Domain Synchronisation
+* Transfer Sync
 * Availability Checks (+ Support for Premium Domains)
 * DNS Record Management (Record-Types: A, AAAA, MX, MXE (Mail Easy), CNAME, SPF (TXT), URL, FRAME, SRV)
 * Domain Deletion
