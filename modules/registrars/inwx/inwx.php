@@ -146,7 +146,7 @@ function inwx_GetEPPCode(array $params): array
 
     if ($response['code'] === 1000) {
         if (isset($response['resData']['authCode'])) {
-            $values['eppcode'] = htmlspecialchars($response['resData']['authCode']);
+            $values['eppcode'] = $response['resData']['authCode'];
         } else {
             $values['eppcode'] = '';
         }
@@ -168,7 +168,7 @@ function inwx_GetNameservers(array $params): array
     $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
     if ($response['code'] === 1000 && isset($response['resData']['ns'])) {
         for ($i = 1; $i <= 4; ++$i) {
-            $values['ns' . $i] = (isset($response['resData']['ns'][($i - 1)])) ? htmlspecialchars($response['resData']['ns'][($i - 1)]) : '';
+            $values['ns' . $i] = (isset($response['resData']['ns'][($i - 1)])) ? $response['resData']['ns'][($i - 1)] : '';
         }
     } else {
         $values['error'] = inwx_GetApiResponseErrorMessage($response);
