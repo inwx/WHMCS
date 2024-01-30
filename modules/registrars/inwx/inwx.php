@@ -70,7 +70,7 @@ function inwx_TransferSync(array $params): array
         return array_merge($values, ['completed' => $response['resData']['status'] === "OK"]);
     }
 
-    if ($response['code'] === 2303 && isset($response['resData']['status']) && $response['resData']['status'] === "TRANSFER FAILED"){
+    if ($response['code'] === 2303) {
         return array_merge($values, ['failed' => true]);
     }
 
