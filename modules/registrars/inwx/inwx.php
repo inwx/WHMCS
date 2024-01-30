@@ -49,6 +49,34 @@ function inwx_Sync(array $params): array
     return $values;
 }
 
+function inwx_TransferSync(array $params): array
+{
+    $params = inwx_InjectOriginalDomain($params);
+    $values = ['failed' => false];
+
+    $domrobot = inwx_CreateDomrobot($params);
+    $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, [
+        'domain' => $params['original']['sld'] . '.' . $params['original']['tld']
+    ]));
+
+    if ($response['code'] === 1000 && isset($response['resData']['status'])) {
+        $exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']['timestamp']) : null);
+
+        // set expiration date if available
+        if (!is_null($exDate)) {
+            $values['expirydate'] = $exDate;
+        }
+
+        return array_merge($values, ['completed' => $response['resData']['status'] === "OK"]);
+    }
+
+    if ($response['code'] === 2303) {
+        return array_merge($values, ['failed' => true]);
+    }
+
+    return ['error' => inwx_GetApiResponseErrorMessage($response)];
+}
+
 function inwx_getConfigArray(): array
 {
     return [
