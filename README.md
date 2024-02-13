@@ -33,13 +33,6 @@ INWX WHMCS Registrar Module
 * Toggleable short record display in DNS Record Management (omits domain name from hostnames of records for subdomains and replaces hostname of records which are not a subdomain with @)
 * Changeable location for Domrobot Cookiefile
 
-#### Supported WHMCS versions on current branch
-* 8.2.X
-* 8.1.X
-* 8.0.X
-* 7.10
-* 7.9
-
 ## Installation
 1. Copy the folder `inwx` into `/modules/registrars/`
 
@@ -57,7 +50,6 @@ If you have to or want to support multiple registrars you have to add the follow
 ```php
 include __DIR__ . "/../../modules/registrars/inwx/additionaldomainfields.php";
 ```
-
 
 #### Support more record types
 
