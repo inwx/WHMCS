@@ -943,7 +943,7 @@ function inwx_SyncDomain($params) {
 
     $synclog = '[$domain] INWX Sync Domain:';
 
-    if ($response['code'] !== 1000) {
+    if ($response['code'] === 2303) {
         //UPDATE BBDD
         $sql = 'UPDATE tbldomains SET status = \'Cancelled\'';
         $sql .= ' WHERE id=\''.$params['domainid'].'\'';
@@ -967,22 +967,6 @@ function inwx_SyncDomain($params) {
             $synclog .= ' status=pending_transfer';
             $newstatus = 'Pending Transfer';
             $sql .= ' AND `status` = \'Pending Transfer\'';
-        } else {
-            if($status === 'EXPIRED') {
-                $synclog .= ' status=expired';
-                $newstatus = 'Expired';
-                $sql .= ', `status` = \'Expired\'';
-            }
-            elseif(endsWith($status, 'CANCELED')) {
-                $synclog .= ' status=cancelled';
-                $newstatus = 'Cancelled';
-                $sql .= ', `status` = \'Cancelled\'';
-            }
-            elseif(startsWith($status, 'TRANSFER') && endsWith($status, 'SUCCESSFUL')) {
-                $synclog .= ' status=transferredaway';
-                $newstatus = 'Transferred Away';
-                $sql .= ', `status` = \'Transferred Away\'';
-            }
         }
 
         // set expiration date if available
