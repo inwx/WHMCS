@@ -381,13 +381,6 @@ $additionaldomainfields[".sg"][] = array(
 		"Required" => false,
 	);
 $additionaldomainfields[".sg"][] = array(
-		"Name" => "SG-ADMIN-RCBID",
-		"InwxName" => "SG-ADMIN-RCBID",
-		"DisplayName" => "Singapore Company Registration Number of the administrative contact",
-		"Required" => false,
-		"Type" => "text",
-	);
-$additionaldomainfields[".sg"][] = array(
 		"Name" => "SG-ADMIN-SINGPASSID",
 		"InwxName" => "SG-ADMIN-SINGPASSID",
 		"DisplayName" => "Singapore Personal Access ID of the administrative contact",
@@ -418,13 +411,6 @@ $additionaldomainfields[".com.sg"][] = array(
 		"Type" => "tickbox",
 		"Default" => false,
 		"Required" => false,
-	);
-$additionaldomainfields[".com.sg"][] = array(
-		"Name" => "SG-ADMIN-RCBID",
-		"InwxName" => "SG-ADMIN-RCBID",
-		"DisplayName" => "Singapore Company Registration Number of the administrative contact",
-		"Required" => false,
-		"Type" => "text",
 	);
 $additionaldomainfields[".com.sg"][] = array(
 		"Name" => "SG-ADMIN-SINGPASSID",
@@ -16262,47 +16248,9 @@ $additionaldomainfields[".www.ro"][] = array(
 		"Type" => "text",
 	);
 
-// .NET.SG
-$additionaldomainfields[".net.sg"] = array();
-$additionaldomainfields[".net.sg"][] = array(
-		"Name" => "SG-ADMIN-RCBID",
-		"InwxName" => "SG-ADMIN-RCBID",
-		"DisplayName" => "Singapore Company Registration Number of the administrative contact",
-		"Required" => false,
-		"Type" => "text",
-	);
-$additionaldomainfields[".net.sg"][] = array(
-		"Name" => "SG-ADMIN-SINGPASSID",
-		"InwxName" => "SG-ADMIN-SINGPASSID",
-		"DisplayName" => "Singapore Personal Access ID of the administrative contact",
-		"Required" => false,
-		"Type" => "text",
-	);
-$additionaldomainfields[".net.sg"][] = array(
-		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
-		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => "ID card no.",
-		"Required" => false,
-		"Type" => "text",
-	);
-$additionaldomainfields[".net.sg"][] = array(
-		"Name" => "COMPANY-NUMBER",
-		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => "Company reg. number",
-		"Required" => false,
-		"Type" => "text",
-	);
-
 // .ORG.SG
 $additionaldomainfields[".org.sg"] = array();
 $additionaldomainfields[".org.sg"][] = array(
-		"Name" => "SG-ADMIN-RCBID",
-		"InwxName" => "SG-ADMIN-RCBID",
-		"DisplayName" => "Singapore Company Registration Number of the administrative contact",
-		"Required" => false,
-		"Type" => "text",
-	);
-$additionaldomainfields[".org.sg"][] = array(
 		"Name" => "SG-ADMIN-SINGPASSID",
 		"InwxName" => "SG-ADMIN-SINGPASSID",
 		"DisplayName" => "Singapore Personal Access ID of the administrative contact",
@@ -16317,37 +16265,6 @@ $additionaldomainfields[".org.sg"][] = array(
 		"Type" => "text",
 	);
 $additionaldomainfields[".org.sg"][] = array(
-		"Name" => "COMPANY-NUMBER",
-		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => "Company reg. number",
-		"Required" => false,
-		"Type" => "text",
-	);
-
-// .PER.SG
-$additionaldomainfields[".per.sg"] = array();
-$additionaldomainfields[".per.sg"][] = array(
-		"Name" => "SG-ADMIN-RCBID",
-		"InwxName" => "SG-ADMIN-RCBID",
-		"DisplayName" => "Singapore Company Registration Number of the administrative contact",
-		"Required" => false,
-		"Type" => "text",
-	);
-$additionaldomainfields[".per.sg"][] = array(
-		"Name" => "SG-ADMIN-SINGPASSID",
-		"InwxName" => "SG-ADMIN-SINGPASSID",
-		"DisplayName" => "Singapore Personal Access ID of the administrative contact",
-		"Required" => false,
-		"Type" => "text",
-	);
-$additionaldomainfields[".per.sg"][] = array(
-		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
-		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
-		"DisplayName" => "ID card no.",
-		"Required" => false,
-		"Type" => "text",
-	);
-$additionaldomainfields[".per.sg"][] = array(
 		"Name" => "COMPANY-NUMBER",
 		"InwxName" => "COMPANY-NUMBER",
 		"DisplayName" => "Company reg. number",
@@ -22079,6 +21996,23 @@ $additionaldomainfields[".by"][] = array(
 		"Type" => "text",
 	);
 
+// .COM.BY
+$additionaldomainfields[".com.by"] = array();
+$additionaldomainfields[".com.by"][] = array(
+		"Name" => "IDCARD-OR-PASSPORT-NUMBER",
+		"InwxName" => "IDCARD-OR-PASSPORT-NUMBER",
+		"DisplayName" => "ID card no.",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".com.by"][] = array(
+		"Name" => "VAT-NUMBER",
+		"InwxName" => "VAT-NUMBER",
+		"DisplayName" => "VAT number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
 // .IR
 $additionaldomainfields[".ir"] = array();
 $additionaldomainfields[".ir"][] = array(
@@ -22859,9 +22793,16 @@ $additionaldomainfields[".swiss"][] = array(
 		"Type" => "text",
 	);
 $additionaldomainfields[".swiss"][] = array(
-		"Name" => "COMPANY-NUMBER",
-		"InwxName" => "COMPANY-NUMBER",
-		"DisplayName" => "Company reg. number",
+		"Name" => "SWISS-UID",
+		"InwxName" => "SWISS-UID",
+		"DisplayName" => "SWISS-UID",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".swiss"][] = array(
+		"Name" => "SWISS-UPI",
+		"InwxName" => "SWISS-UPI",
+		"DisplayName" => "SWISS-UPI",
 		"Required" => false,
 		"Type" => "text",
 	);
@@ -23344,6 +23285,210 @@ $additionaldomainfields[".org.il"][] = array(
 		"Type" => "text",
 	);
 
+// .TR
+$additionaldomainfields[".tr"] = array();
+$additionaldomainfields[".tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .COM.TR
+$additionaldomainfields[".com.tr"] = array();
+$additionaldomainfields[".com.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".com.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .NET.TR
+$additionaldomainfields[".net.tr"] = array();
+$additionaldomainfields[".net.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".net.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .ORG.TR
+$additionaldomainfields[".org.tr"] = array();
+$additionaldomainfields[".org.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".org.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .INFO.TR
+$additionaldomainfields[".info.tr"] = array();
+$additionaldomainfields[".info.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".info.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .BIZ.TR
+$additionaldomainfields[".biz.tr"] = array();
+$additionaldomainfields[".biz.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".biz.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .WEB.TR
+$additionaldomainfields[".web.tr"] = array();
+$additionaldomainfields[".web.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".web.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .NAME.TR
+$additionaldomainfields[".name.tr"] = array();
+$additionaldomainfields[".name.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".name.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .TV.TR
+$additionaldomainfields[".tv.tr"] = array();
+$additionaldomainfields[".tv.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".tv.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .GEN.TR
+$additionaldomainfields[".gen.tr"] = array();
+$additionaldomainfields[".gen.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".gen.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .BBS.TR
+$additionaldomainfields[".bbs.tr"] = array();
+$additionaldomainfields[".bbs.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".bbs.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
+// .TEL.TR
+$additionaldomainfields[".tel.tr"] = array();
+$additionaldomainfields[".tel.tr"][] = array(
+		"Name" => "TAX-OFFICE",
+		"InwxName" => "TAX-OFFICE",
+		"DisplayName" => "Tax Office",
+		"Required" => false,
+		"Type" => "text",
+	);
+$additionaldomainfields[".tel.tr"][] = array(
+		"Name" => "TAX-NUMBER",
+		"InwxName" => "TAX-NUMBER",
+		"DisplayName" => "Tax number",
+		"Required" => false,
+		"Type" => "text",
+	);
+
 // .APP
 $additionaldomainfields[".app"] = array();
 $additionaldomainfields[".app"][] = array(
@@ -23535,6 +23680,26 @@ $additionaldomainfields[".com.jm"][] = array(
 		"Type" => "text",
 	);
 
+// .ORG.JM
+$additionaldomainfields[".org.jm"] = array();
+$additionaldomainfields[".org.jm"][] = array(
+		"Name" => "INTENDED-USE",
+		"InwxName" => "INTENDED-USE",
+		"DisplayName" => "Intended use",
+		"Required" => true,
+		"Type" => "text",
+	);
+
+// .GM
+$additionaldomainfields[".gm"] = array();
+$additionaldomainfields[".gm"][] = array(
+		"Name" => "INTENDED-USE",
+		"InwxName" => "INTENDED-USE",
+		"DisplayName" => "Intended use",
+		"Required" => true,
+		"Type" => "text",
+	);
+
 // .RADIO
 $additionaldomainfields[".radio"] = array();
 $additionaldomainfields[".radio"][] = array(
@@ -23672,6 +23837,36 @@ $additionaldomainfields[".ong"][] = array(
 		"Type" => "tickbox",
 	);
 
+// .MUSIC
+$additionaldomainfields[".music"] = array();
+$additionaldomainfields[".music"][] = array(
+		"Name" => "MUSIC-ACCEPT-REQUIREMENTS",
+		"InwxName" => "MUSIC-ACCEPT-REQUIREMENTS",
+		"DisplayName" => "I am aware that I can only use my .music domain after my registration at https://www.id.music/ and verification by the registry. The domain will only be activated for use after successful verification. If the verification fails, the registration fee will not be refunded.",
+		"Required" => true,
+		"Type" => "tickbox",
+	);
+
+// .DM
+$additionaldomainfields[".dm"] = array();
+$additionaldomainfields[".dm"][] = array(
+		"Name" => "DM-ACCEPT-REQUIREMENTS",
+		"InwxName" => "DM-ACCEPT-REQUIREMENTS",
+		"DisplayName" => "DM-ACCEPT-REQUIREMENTS",
+		"Required" => true,
+		"Type" => "tickbox",
+	);
+
+// .CO.DM
+$additionaldomainfields[".co.dm"] = array();
+$additionaldomainfields[".co.dm"][] = array(
+		"Name" => "DM-ACCEPT-REQUIREMENTS",
+		"InwxName" => "DM-ACCEPT-REQUIREMENTS",
+		"DisplayName" => "DM-ACCEPT-REQUIREMENTS",
+		"Required" => true,
+		"Type" => "tickbox",
+	);
+
 // .ZUERICH
 $additionaldomainfields[".zuerich"] = array();
 $additionaldomainfields[".zuerich"][] = array(
@@ -23680,26 +23875,6 @@ $additionaldomainfields[".zuerich"][] = array(
 		"DisplayName" => "ZUERICH-UID",
 		"Required" => true,
 		"Type" => "text",
-	);
-
-// .BOT
-$additionaldomainfields[".bot"] = array();
-$additionaldomainfields[".bot"][] = array(
-		"Name" => "AMAZON-ACCEPT-REQUIREMENTS",
-		"InwxName" => "AMAZON-ACCEPT-REQUIREMENTS",
-		"DisplayName" => "Amazon Registry, the company that currently manages this domain extension, requires the domain holder to click on a link that is sent by e-mail in order to connect to the Amazon account of the domain holder. Until this happens, the domain name will not resolve on the Internet and therefore will not be accessible.",
-		"Required" => true,
-		"Type" => "tickbox",
-	);
-
-// .MOI
-$additionaldomainfields[".moi"] = array();
-$additionaldomainfields[".moi"][] = array(
-		"Name" => "AMAZON-ACCEPT-REQUIREMENTS",
-		"InwxName" => "AMAZON-ACCEPT-REQUIREMENTS",
-		"DisplayName" => "Amazon Registry, the company that currently manages this domain extension, requires the domain holder to click on a link that is sent by e-mail in order to connect to the Amazon account of the domain holder. Until this happens, the domain name will not resolve on the Internet and therefore will not be accessible.",
-		"Required" => true,
-		"Type" => "tickbox",
 	);
 
 
