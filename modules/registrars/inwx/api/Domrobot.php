@@ -259,11 +259,17 @@ class Domrobot implements LoggerAwareInterface
             $this->logger->debug("Response:\n" . $response . "\n");
         }
 
-        if ($this->isJson()) {
-            return json_decode($response, true);
-        }
+        $processedResponse = $this->isJson() ? json_decode($response, true) : xmlrpc_decode($response, 'UTF-8');
 
-        return xmlrpc_decode($response, 'UTF-8');
+        $dbt=debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS,2);
+        $caller = $dbt[1]['function'] ?? null;
+
+        logModuleCall('inwx', $caller, $params, $response, $processedResponse, [
+            $params['user'],
+            $params['pass']
+        ]);
+
+        return $processedResponse;
     }
 
     /**
