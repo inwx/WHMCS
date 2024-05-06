@@ -261,8 +261,7 @@ class Domrobot implements LoggerAwareInterface
 
         $processedResponse = $this->isJson() ? json_decode($response, true) : xmlrpc_decode($response, 'UTF-8');
 
-        $dbt=debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS,2);
-        $caller = $dbt[1]['function'] ?? null;
+        $caller = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS,2)[1]['function'] ?? __FUNCTION__;
 
         logModuleCall('inwx', $caller, $params, $response, $processedResponse, [
             $params['user'],
