@@ -918,3 +918,77 @@ function inwx_ReleaseDomain(array $params): array
 
     return ['success' => true];
 }
+
+/**
+ * @throws Exception
+ */
+function inwx_GetDomainInformation(array $params): Domain
+{
+    $params = inwx_InjectOriginalDomain($params);
+    $domrobot = inwx_CreateDomrobot($params);
+
+    $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
+    $pDomain['wide'] = 1;
+
+    $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
+
+    $domain = new Domain;
+
+    if ($response['code'] !== 1000) {
+        throw new Exception(inwx_GetApiResponseErrorMessage($response));
+    }
+
+    if (isset($response['resData']['ns'])) {
+        $domain->setNameservers($response['resData']['ns']);
+    }
+
+    if (isset($response['resData']['status'])) {
+        switch ($response['resData']['status']) {
+            case 'OK':
+                $domain->setRegistrationStatus(Domain::STATUS_ACTIVE);
+                break;
+            case 'DELETE SCHEDULED':
+            case 'DELETE INITIATED':
+                $domain->setRegistrationStatus(Domain::STATUS_PENDING_DELETE);
+                break;
+            case 'DELETE':
+            case 'DELETE SUCCESSFUL':
+                $domain->setRegistrationStatus(Domain::STATUS_DELETED);
+                break;
+            case 'EXPIRE SUCCESSFUL':
+            case 'EXPIRED':
+                $domain->setRegistrationStatus(Domain::STATUS_EXPIRED);
+                break;
+            default:
+                $domain->setRegistrationStatus(Domain::STATUS_INACTIVE);
+        }
+    }
+
+    if (isset($response['resData']['transferLock'])) {
+        $domain->setTransferLock($response['resData']['transferLock'])
+            ->setTransferLockExpiryDate(null)
+        ;
+    }
+
+    if (isset($response['resData']['exDate'])) {
+        $domain->setExpiryDate(Carbon::createFromFormat('Y-m-d', $response['resData']['exDate']['scalar']));
+    }
+
+    if (isset($response['resData']['registrantVerificationStatus']) && isset($response['resData']['verificationStatus'])) {
+        $domain->setIsIrtpEnabled(true);
+    }
+
+    return $domain
+        ->setDomain($response['resData']['domain'])
+        ->setIrtpVerificationTriggerFields(
+            [
+                'Registrant' => [
+                    'First Name',
+                    'Last Name',
+                    'Organization Name',
+                    'Email',
+                ],
+            ]
+        )
+        ;
+}
