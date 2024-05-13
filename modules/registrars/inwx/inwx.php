@@ -918,3 +918,85 @@ function inwx_ReleaseDomain(array $params): array
 
     return ['success' => true];
 }
+
+function startsWith( $haystack, $needle ) {
+    $length = strlen( $needle );
+    return substr( $haystack, 0, $length ) === $needle;
+}
+
+function endsWith( $haystack, $needle ) {
+    $length = strlen( $needle );
+    if( !$length ) {
+        return true;
+    }
+    return substr( $haystack, -$length ) === $needle;
+}
+
+function inwx_SyncDomain($params) {
+    $params = inwx_InjectOriginalDomain($params);
+    $domrobot = inwx_CreateDomrobot($params);
+
+    $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
+    $pDomain['wide'] = 1;
+
+    $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
+
+    $synclog = '[$domain] INWX Sync Domain:';
+
+    if ($response['code'] === 2303) {
+        //UPDATE BBDD
+        $sql = 'UPDATE tbldomains SET status = \'Cancelled\'';
+        $sql .= ' WHERE id=\''.$params['domainid'].'\'';
+        $res = mysql_query($sql);
+        return ['error' => inwx_GetApiResponseErrorMessage($response)];
+    }
+
+    if ($response['code'] === 1000 && isset($response['resData']['domain'])) {
+        $exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']['timestamp']) : null);
+        $crDate = (isset($response['resData']['crDate']) ? date('Y-m-d', $response['resData']['crDate']['timestamp']) : null);
+        $reDate = (isset($response['resData']['reDate']) ? date('Y-m-d', $response['resData']['reDate']['timestamp']) : null);
+        $status = (isset($response['resData']['status']) ?: null);
+        $sql = 'UPDATE tbldomains SET';
+
+        if ($status  === 'OK') {
+            $synclog .= ' status=active';
+            $newstatus = 'Active';
+            $sql .= ', `status` = \'Active\'';
+        } else if (startsWith($status, 'TRANSFER') && !endsWith($status, 'SUCCESSFUL')) {
+            $synclog .= ' status=pending_transfer';
+            $newstatus = 'Pending Transfer';
+            $sql .= ' AND `status` = \'Pending Transfer\'';
+        }
+
+        // set expiration date if available
+        if (!is_null($exDate)) {
+            $synclog .= ' expirydate=$exDate';
+            $sql .= 'expirydate = \'' . $exDate . '\'';
+        }
+
+        if (!is_null($crDate)) {
+            $synclog .= ' registrationdate=$crDate';
+            $sql .= 'registrationdate = \'' . $crDate . '\'';
+        }
+
+        if (!is_null($reDate)) {
+            $synclog .= ' nextduedate=$reDate';
+            $sql .= 'nextduedate = \'' . $reDate . '\'';
+        }
+
+        //UPDATE BBDD
+        $sql .= ' WHERE id=\''.$params['domainid'].'\'';
+        $res = mysql_query($sql);
+
+        return ['message' => 'success'];
+    }
+
+    return ['error' => ''];
+}
+
+function inwx_AdminCustomButtonArray() {
+    $buttonarray = array(
+        "Sync Domain" => "SyncDomain"
+    );
+    return $buttonarray;
+}
