@@ -979,6 +979,7 @@ function inwx_GetDomainInformation(array $params): Domain
     }
 
     return $domain
+        ->setPendingSuspension(true)
         ->setDomain($response['resData']['domain'])
         ->setIrtpVerificationTriggerFields(
             [
