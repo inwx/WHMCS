@@ -948,7 +948,6 @@ function inwx_SyncDomain($params) {
         $sql = 'UPDATE tbldomains SET status = \'Cancelled\'';
         $sql .= ' WHERE id=\''.$params['domainid'].'\'';
         $res = mysql_query($sql);
-        $GLOBALS['domainstatus']    = 'Cancelled';
         return ['error' => inwx_GetApiResponseErrorMessage($response)];
     }
 
@@ -973,47 +972,21 @@ function inwx_SyncDomain($params) {
         if (!is_null($exDate)) {
             $synclog .= ' expirydate=$exDate';
             $sql .= 'expirydate = \'' . $exDate . '\'';
-
-            //SESSION
-            $dateformat = $GLOBALS['CONFIG']['DateFormat'];
-            $dateformat = str_replace(array('DD', 'MM', 'YYYY'), array('d', 'm', 'Y'), $dateformat);
-            $newdate = explode('-', $exDate);
-            $newdate = mktime(0, 0, 0, $newdate[1], $newdate[2], $newdate[0]);
-            $newdate = date($dateformat, $newdate);
-            $GLOBALS['expirydate']      = $newdate;
         }
 
         if (!is_null($crDate)) {
             $synclog .= ' registrationdate=$crDate';
             $sql .= 'registrationdate = \'' . $crDate . '\'';
-
-            //SESSION
-            $dateformat = $GLOBALS['CONFIG']['DateFormat'];
-            $dateformat = str_replace(array('DD', 'MM', 'YYYY'), array('d', 'm', 'Y'), $dateformat);
-            $newdate = explode('-', $crDate);
-            $newdate = mktime(0, 0, 0, $newdate[1], $newdate[2], $newdate[0]);
-            $newdate = date($dateformat, $newdate);
-            $GLOBALS['registrationdate']      = $newdate;
         }
 
         if (!is_null($reDate)) {
             $synclog .= ' nextduedate=$reDate';
             $sql .= 'nextduedate = \'' . $reDate . '\'';
-
-            //SESSION
-            $dateformat = $GLOBALS['CONFIG']['DateFormat'];
-            $dateformat = str_replace(array('DD', 'MM', 'YYYY'), array('d', 'm', 'Y'), $dateformat);
-            $newdate = explode('-', $reDate);
-            $newdate = mktime(0, 0, 0, $newdate[1], $newdate[2], $newdate[0]);
-            $newdate = date($dateformat, $newdate);
-            $GLOBALS['nextduedate']      = $newdate;
         }
 
         //UPDATE BBDD
         $sql .= ' WHERE id=\''.$params['domainid'].'\'';
         $res = mysql_query($sql);
-        //SESSION
-        $GLOBALS['domainstatus']    = $newstatus;
 
         return ['message' => 'success'];
     }
