@@ -26,6 +26,8 @@ INWX WHMCS Registrar Module
 * TLD & Pricing Sync
 * View / Change Nameservers
 * View / Update WHOIS Information
+* Contact Verification
+* Module Logging
 
 ## Extra Features
 
