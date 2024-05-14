@@ -29,7 +29,7 @@ INWX WHMCS Registrar Module
 
 ## Extra Features
 
-* Toggleable support for all record types supported by INWX (AFSDB, ALIAS, CAA, CERT, HINFO, KEY, LOC, NAPTR, OPENPGPKEY, PTR, RP, SMIMEA, SOA, SRV, SSHFP, TLSA, URI)
+* Toggleable support for all record types supported by INWX (AFSDB, ALIAS, CAA, CERT, HINFO, HTTPS, IPSECKEY, LOC, NAPTR, OPENPGPKEY, PTR, RP, SMIMEA, SOA, SRV, SSHFP, SVCB, TLSA, URI)
 * Toggleable short record display in DNS Record Management (omits domain name from hostnames of records for subdomains and replaces hostname of records which are not a subdomain with @)
 * Changeable location for Domrobot Cookiefile
 
