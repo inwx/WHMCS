@@ -1,0 +1,48 @@
+{
+  "name": "WHMCS",
+  "description": "INWX WHMCS Registrar Module",
+  "version": "0.0.0-semantic-release",
+  "private": true,
+  "scripts": {
+    "semantic-release": "dotenv -- semantic-release",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": {},
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@hexonet/semantic-release-whmcs": "^5.0.20",
+    "@semantic-release/github": "^10.0.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "dotenv-cli": "^7.4.2",
+    "husky": "^9.0.11",
+    "semantic-release": "^23.1.1"
+  },
+  "release": {
+    "tagFormat": "${version}",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "modules",
+              "name": "release.zip"
+            }
+          ]
+        }
+      ],
+      "@hexonet/semantic-release-whmcs"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
