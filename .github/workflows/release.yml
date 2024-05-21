@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    tags:
-      - "*.*.*"
+    branches:
+      - master # or main
 
 jobs:
   build:
@@ -11,22 +11,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Archive Release
-        uses: thedoctor0/zip-release@0.7.5
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
         with:
-          type: 'zip'
-          filename: 'release.zip'
-          exclusions: |
-            *.git*
+          version: 9
+      - name: Setup Node LTS
+        uses: actions/setup-node@v4
+        cache: 'pnpm'
+        with:
+          node-version: "lts/*"
+      - name: Install dependencies
+        run: pnpm install
+      - name: Release
+        env:
+          WHMCSMP_LOGIN: ${{ variables.WHMCSMP_LOGIN }}
+          WHMCSMP_PASSWORD: ${{ secrets.WHMCSMP_PASSWORD }}
+          WHMCSMP_PRODUCTID: ${{ variables.WHMCSMP_PRODUCTID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm semantic-release
       - name: Generate checksum
         uses: jmgilman/actions-generate-checksum@v1
         with:
           patterns: |
-            release.zip
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          generate_release_notes: true
-          files: |
-            checksum.txt
             release.zip
