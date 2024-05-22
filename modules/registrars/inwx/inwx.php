@@ -1021,7 +1021,11 @@ function inwx_GetDomainInformation(array $params): Domain
     }
 
     if (isset($response['resData']['ns'])) {
-        $domain->setNameservers($response['resData']['ns']);
+        $nameservers = [];
+        for ($i = 0; $i <= count($response['resData']['ns']); $i++) {
+            $nameservers['ns' . ($i + 1)] = $response['resData']['ns'][$i];
+        }
+        $domain->setNameservers($nameservers);
     }
 
     if (isset($response['resData']['status'])) {
