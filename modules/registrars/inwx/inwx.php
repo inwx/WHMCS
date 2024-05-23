@@ -493,7 +493,7 @@ function inwx_RegisterDomain(array $params): array
     // Registrant creation
     $pRegistrant['type'] = 'PERSON';
     $pRegistrant['name'] = $params['firstname'] . ' ' . $params['lastname'];
-    if (isset($params['companyname']) && empty($params['companyname'])) {
+    if (isset($params['companyname']) && !empty($params['companyname'])) {
         $pRegistrant['org'] = $params['companyname'];
     }
     $pRegistrant['street'] = $params['address1'];
@@ -525,7 +525,7 @@ function inwx_RegisterDomain(array $params): array
     // Admin creation
     $pAdmin['type'] = 'PERSON';
     $pAdmin['name'] = $params['adminfirstname'] . ' ' . $params['adminlastname'];
-    if (isset($params['admincompanyname']) && empty($params['admincompanyname'])) {
+    if (isset($params['admincompanyname']) && !empty($params['admincompanyname'])) {
         $pAdmin['org'] = $params['admincompanyname'];
     }
     $pAdmin['street'] = $params['adminaddress1'];
@@ -629,7 +629,7 @@ function inwx_TransferDomain(array $params): array
     // Registrant creation
     $pRegistrant['type'] = 'PERSON';
     $pRegistrant['name'] = $params['firstname'] . ' ' . $params['lastname'];
-    if (isset($params['companyname']) && empty($params['companyname'])) {
+    if (isset($params['companyname']) && !empty($params['companyname'])) {
         $pRegistrant['org'] = $params['companyname'];
     }
     $pRegistrant['street'] = $params['address1'];
@@ -661,7 +661,7 @@ function inwx_TransferDomain(array $params): array
     // Admin creation
     $pAdmin['type'] = 'PERSON';
     $pAdmin['name'] = $params['adminfirstname'] . ' ' . $params['adminlastname'];
-    if (isset($params['admincompanyname']) && empty($params['admincompanyname'])) {
+    if (isset($params['admincompanyname']) && !empty($params['admincompanyname'])) {
         $pAdmin['org'] = $params['admincompanyname'];
     }
     $pAdmin['street'] = $params['adminaddress1'];
