@@ -1058,7 +1058,7 @@ function inwx_GetDomainInformation(array $params): Domain
     }
 
     if (isset($response['resData']['exDate'])) {
-        $domain->setExpiryDate(Carbon::createFromFormat('Y-m-d', $response['resData']['exDate']['scalar']));
+        $domain->setExpiryDate(Carbon::parse($response['resData']['exDate']['scalar']));
     }
 
     if (isset($response['resData']['registrantVerificationStatus']) && isset($response['resData']['verificationStatus'])) {
