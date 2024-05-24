@@ -4,6 +4,7 @@ use WHMCS\Domain\Registrar\Domain;
 use WHMCS\Domain\TopLevel\ImportItem;
 use WHMCS\Domains\DomainLookup\ResultsList;
 use WHMCS\Domains\DomainLookup\SearchResult;
+use WHMCS\Carbon;
 
 include_once 'helpers.php';
 
@@ -492,7 +493,7 @@ function inwx_RegisterDomain(array $params): array
     // Registrant creation
     $pRegistrant['type'] = 'PERSON';
     $pRegistrant['name'] = $params['firstname'] . ' ' . $params['lastname'];
-    if (isset($params['companyname']) && empty($params['companyname'])) {
+    if (isset($params['companyname']) && !empty($params['companyname'])) {
         $pRegistrant['org'] = $params['companyname'];
     }
     $pRegistrant['street'] = $params['address1'];
@@ -524,7 +525,7 @@ function inwx_RegisterDomain(array $params): array
     // Admin creation
     $pAdmin['type'] = 'PERSON';
     $pAdmin['name'] = $params['adminfirstname'] . ' ' . $params['adminlastname'];
-    if (isset($params['admincompanyname']) && empty($params['admincompanyname'])) {
+    if (isset($params['admincompanyname']) && !empty($params['admincompanyname'])) {
         $pAdmin['org'] = $params['admincompanyname'];
     }
     $pAdmin['street'] = $params['adminaddress1'];
@@ -628,7 +629,7 @@ function inwx_TransferDomain(array $params): array
     // Registrant creation
     $pRegistrant['type'] = 'PERSON';
     $pRegistrant['name'] = $params['firstname'] . ' ' . $params['lastname'];
-    if (isset($params['companyname']) && empty($params['companyname'])) {
+    if (isset($params['companyname']) && !empty($params['companyname'])) {
         $pRegistrant['org'] = $params['companyname'];
     }
     $pRegistrant['street'] = $params['address1'];
@@ -660,7 +661,7 @@ function inwx_TransferDomain(array $params): array
     // Admin creation
     $pAdmin['type'] = 'PERSON';
     $pAdmin['name'] = $params['adminfirstname'] . ' ' . $params['adminlastname'];
-    if (isset($params['admincompanyname']) && empty($params['admincompanyname'])) {
+    if (isset($params['admincompanyname']) && !empty($params['admincompanyname'])) {
         $pAdmin['org'] = $params['admincompanyname'];
     }
     $pAdmin['street'] = $params['adminaddress1'];
@@ -1021,7 +1022,11 @@ function inwx_GetDomainInformation(array $params): Domain
     }
 
     if (isset($response['resData']['ns'])) {
-        $domain->setNameservers($response['resData']['ns']);
+        $nameservers = [];
+        for ($i = 0; $i < count($response['resData']['ns']); $i++) {
+            $nameservers['ns' . ($i + 1)] = $response['resData']['ns'][$i];
+        }
+        $domain->setNameservers($nameservers);
     }
 
     if (isset($response['resData']['status'])) {
@@ -1053,7 +1058,7 @@ function inwx_GetDomainInformation(array $params): Domain
     }
 
     if (isset($response['resData']['exDate'])) {
-        $domain->setExpiryDate(Carbon::createFromFormat('Y-m-d', $response['resData']['exDate']['scalar']));
+        $domain->setExpiryDate(Carbon::parse($response['resData']['exDate']['scalar']));
     }
 
     if (isset($response['resData']['registrantVerificationStatus']) && isset($response['resData']['verificationStatus'])) {
