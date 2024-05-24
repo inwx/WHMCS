@@ -22,6 +22,15 @@ jobs:
           node-version: "lts/*"
       - name: Install dependencies
         run: pnpm install
+      - name: Create release.zip
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r release.zip modules LICENSE README.md
+      - name: Generate checksum
+        uses: jmgilman/actions-generate-checksum@v1
+        with:
+          patterns: |
+            release.zip
       - name: Release
         env:
           WHMCSMP_LOGIN: ${{ vars.WHMCSMP_LOGIN }}
@@ -29,8 +38,3 @@ jobs:
           WHMCSMP_PRODUCTID: ${{ vars.WHMCSMP_PRODUCTID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm semantic-release
-      - name: Generate checksum
-        uses: jmgilman/actions-generate-checksum@v1
-        with:
-          patterns: |
-            release.zip
