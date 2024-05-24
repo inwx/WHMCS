@@ -32,8 +32,10 @@
         {
           "assets": [
             {
-              "path": "modules",
-              "name": "release.zip"
+              "path": "release.zip"
+            },
+            {
+              "path": "checksum.txt"
             }
           ]
         }
