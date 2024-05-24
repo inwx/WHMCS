@@ -5,6 +5,7 @@ use WHMCS\Domain\TopLevel\ImportItem;
 use WHMCS\Domains\DomainLookup\ResultsList;
 use WHMCS\Domains\DomainLookup\SearchResult;
 use WHMCS\Carbon;
+use WHMCS\Database\Capsule;
 
 include_once 'helpers.php';
 
@@ -942,14 +943,18 @@ function inwx_SyncDomain($params) {
 
     $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
 
-    $synclog = '[$domain] INWX Sync Domain:';
-
     if ($response['code'] === 2303) {
-        //UPDATE BBDD
-        $sql = 'UPDATE tbldomains SET status = \'Cancelled\'';
-        $sql .= ' WHERE id=\''.$params['domainid'].'\'';
-        $res = mysql_query($sql);
-        return ['error' => inwx_GetApiResponseErrorMessage($response)];
+        try {
+            Capsule::table('tbldomains')
+                ->where('id', $params['domainid'])
+                ->update([
+                    'status' => 'Cancelled'
+                ]);
+
+            return ['error' => inwx_GetApiResponseErrorMessage($response)];
+        } catch (Exception $e) {
+            return ['error' => "Couldn't update domain. {$e->getMessage()}"];
+        }
     }
 
     if ($response['code'] === 1000 && isset($response['resData']['domain'])) {
@@ -957,39 +962,37 @@ function inwx_SyncDomain($params) {
         $crDate = (isset($response['resData']['crDate']) ? date('Y-m-d', $response['resData']['crDate']['timestamp']) : null);
         $reDate = (isset($response['resData']['reDate']) ? date('Y-m-d', $response['resData']['reDate']['timestamp']) : null);
         $status = (isset($response['resData']['status']) ?: null);
-        $sql = 'UPDATE tbldomains SET';
 
-        if ($status  === 'OK') {
-            $synclog .= ' status=active';
-            $newstatus = 'Active';
-            $sql .= ', `status` = \'Active\'';
+        $updateDetails = [];
+
+        if ($status === 'OK') {
+            $updateDetails['status'] = 'Active';
         } else if (startsWith($status, 'TRANSFER') && !endsWith($status, 'SUCCESSFUL')) {
-            $synclog .= ' status=pending_transfer';
-            $newstatus = 'Pending Transfer';
-            $sql .= ' AND `status` = \'Pending Transfer\'';
+            $updateDetails['status'] = 'Pending Transfer';
         }
 
         // set expiration date if available
         if (!is_null($exDate)) {
-            $synclog .= ' expirydate=$exDate';
-            $sql .= 'expirydate = \'' . $exDate . '\'';
+            $updateDetails['expirydate'] = $exDate;
         }
 
         if (!is_null($crDate)) {
-            $synclog .= ' registrationdate=$crDate';
-            $sql .= 'registrationdate = \'' . $crDate . '\'';
+            $updateDetails['registrationdate'] = $crDate;
         }
 
         if (!is_null($reDate)) {
-            $synclog .= ' nextduedate=$reDate';
-            $sql .= 'nextduedate = \'' . $reDate . '\'';
+            $updateDetails['nextduedate'] = $reDate;
         }
 
-        //UPDATE BBDD
-        $sql .= ' WHERE id=\''.$params['domainid'].'\'';
-        $res = mysql_query($sql);
+        try {
+            $updatedDomain = Capsule::table('tbldomains')
+                ->where('id', $params['domainid'])
+                ->update($updateDetails);
 
-        return ['message' => 'success'];
+            return ['message' => "Updated ${updatedDomain} domain(s)."];
+        } catch (Exception $e) {
+            return ['error' => "Couldn't update domain. {$e->getMessage()}"];
+        }
     }
 
     return ['error' => ''];

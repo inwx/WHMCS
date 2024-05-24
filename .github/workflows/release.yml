@@ -17,16 +17,16 @@ jobs:
           version: 9
       - name: Setup Node LTS
         uses: actions/setup-node@v4
-        cache: 'pnpm'
         with:
+          cache: 'pnpm'
           node-version: "lts/*"
       - name: Install dependencies
         run: pnpm install
       - name: Release
         env:
-          WHMCSMP_LOGIN: ${{ variables.WHMCSMP_LOGIN }}
+          WHMCSMP_LOGIN: ${{ vars.WHMCSMP_LOGIN }}
           WHMCSMP_PASSWORD: ${{ secrets.WHMCSMP_PASSWORD }}
-          WHMCSMP_PRODUCTID: ${{ variables.WHMCSMP_PRODUCTID }}
+          WHMCSMP_PRODUCTID: ${{ vars.WHMCSMP_PRODUCTID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm semantic-release
       - name: Generate checksum
