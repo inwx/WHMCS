@@ -12,15 +12,15 @@
   "license": "MIT",
   "type": "module",
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@hexonet/semantic-release-whmcs": "^5.0.20",
-    "@semantic-release/github": "^10.0.4",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@hexonet/semantic-release-whmcs": "^5.0.39",
+    "@semantic-release/github": "^11.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv-cli": "^7.4.2",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.4",
-    "semantic-release": "^23.1.1"
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "semantic-release": "^24.2.0"
   },
   "release": {
     "tagFormat": "${version}",
@@ -53,6 +53,7 @@
     "pnpm": "9.1.2"
   },
   "lint-staged": {
-    ".github/workflows/**/*.yml": "./vendor/bin/actionlint"
+    ".github/workflows/**/*.yml": "./vendor/bin/actionlint",
+    "**/*.php": "./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php"
   }
 }
