@@ -6,8 +6,14 @@ on:
       - master # or main
 
 jobs:
+  get-next-version:
+    uses: semantic-release-action/next-release-version/.github/workflows/next-release-version.yml@v4
+
   build:
     runs-on: ubuntu-latest
+    if: needs.get-next-version.outputs.new-release-published == 'true'
+    needs:
+      - get-next-version
     steps:
       # Setup container
       - name: Checkout
@@ -22,10 +28,14 @@ jobs:
           cache: 'pnpm'
           node-version: "lts/*"
       - uses: php-actions/composer@v6
+      - id: commit
+        uses: prompt/actions-commit-hash@v3
 
       # Run release
       - run: pnpm install
       - run: pnpm lint-staged
+      - name: Replace hardcoded version number
+        run: find . -type f -name '*.php' | xargs sed -i 's/0.0.0-semantic-relase/${{ needs.get-next-version.outputs.new-release-version }}+${{ steps.commit.outputs.short }}/g'
       - name: Create release.zip
         uses: montudor/action-zip@v1
         with:
