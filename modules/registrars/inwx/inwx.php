@@ -790,6 +790,8 @@ function inwx_GetTldPricing(array $params)
             ->setRegisterPrice($price['promo']['createPrice'] ?? $price['createPrice'])
             ->setRenewPrice($price['promo']['renewalPrice'] ?? $price['renewalPrice'])
             ->setTransferPrice($price['promo']['renewalPrice'] ?? $price['transferPrice'])
+            ->setRedemptionFeeDays($tldRule['restorePeriod2'] ?? null)
+            ->setRedemptionFeePrice($price['promo']['restorePrice'] ?? $price['restorePrice'])
             ->setEppRequired($tldRule['authCode'] == 'YES')
             ->setCurrency($price['currency']);
 
