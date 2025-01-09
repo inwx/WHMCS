@@ -254,7 +254,7 @@ class Domrobot implements LoggerAwareInterface
         curl_setopt($ch, CURLOPT_COOKIEJAR, $this->cookieFile);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'DomRobot/' . self::VERSION . ' (PHP ' . PHP_VERSION . '; WHMCS ' . $this->whmcsVersion . '; +https://github.com/inwx/WHMCS)');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'DomRobot/' . self::VERSION . ' (PHP ' . PHP_VERSION . '; WHMCS ' . $this->whmcsVersion);
 
         $response = curl_exec($ch);
         curl_close($ch);
