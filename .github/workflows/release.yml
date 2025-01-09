@@ -9,6 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Setup container
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install pnpm
@@ -20,8 +21,11 @@ jobs:
         with:
           cache: 'pnpm'
           node-version: "lts/*"
-      - name: Install dependencies
-        run: pnpm install
+      - uses: php-actions/composer@v6
+
+      # Run release
+      - run: pnpm install
+      - run: pnpm lint-staged
       - name: Create release.zip
         uses: montudor/action-zip@v1
         with:
