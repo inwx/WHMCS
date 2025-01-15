@@ -12,14 +12,14 @@
   "license": "MIT",
   "type": "module",
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@hexonet/semantic-release-whmcs": "^5.0.20",
-    "@semantic-release/github": "^10.0.4",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@hexonet/semantic-release-whmcs": "^5.0.49",
+    "@semantic-release/github": "^10.3.5",
     "cz-conventional-changelog": "^3.3.0",
-    "dotenv-cli": "^7.4.2",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.4",
+    "dotenv-cli": "^7.4.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
     "semantic-release": "^23.1.1"
   },
   "release": {

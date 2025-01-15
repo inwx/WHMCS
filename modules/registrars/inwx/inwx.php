@@ -967,6 +967,8 @@ function inwx_SyncDomain($params) {
 
         if ($status === 'OK') {
             $updateDetails['status'] = 'Active';
+        } else if (startsWith($status, 'TRANSFER') && endsWith($status, 'SUCCESSFUL')) {
+            $updateDetails['status'] = 'Transferred Away';
         } else if (startsWith($status, 'TRANSFER') && !endsWith($status, 'SUCCESSFUL')) {
             $updateDetails['status'] = 'Pending Transfer';
         }
