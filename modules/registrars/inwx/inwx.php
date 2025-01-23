@@ -9,6 +9,21 @@ use WHMCS\Database\Capsule;
 
 include_once 'helpers.php';
 
+class Obfuscated implements Stringable
+{
+    protected string $value;
+
+    public function __construct(string $value)
+    {
+        $this->value = $value;
+    }
+
+    public function __toString(): string
+    {
+        return $this->value;
+    }
+}
+
 function inwx_RequestDelete(array $params)
 {
     $params = inwx_InjectOriginalDomain($params);
@@ -267,7 +282,11 @@ function inwx_SaveDNS(array $params): array
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     $pInfo['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $response = $domrobot->call('nameserver', 'info', $pInfo);
@@ -380,7 +399,11 @@ function inwx_SaveContactDetails(array $params): array
     $params = inwx_InjectOriginalDomain($params);
     $values = [];
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $response = $domrobot->call('domain', 'info', $pDomain);
@@ -489,7 +512,11 @@ function inwx_RegisterDomain(array $params): array
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     // Registrant creation
     $pRegistrant['type'] = 'PERSON';
@@ -625,7 +652,11 @@ function inwx_TransferDomain(array $params): array
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     // Registrant creation
     $pRegistrant['type'] = 'PERSON';
@@ -804,7 +835,11 @@ function inwx_RenewDomain(array $params): array
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
 
@@ -882,7 +917,11 @@ function inwx_ResendIRTPVerificationEmail(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     $domain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
 
