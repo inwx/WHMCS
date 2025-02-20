@@ -1,13 +1,28 @@
 <?php
 
+use WHMCS\Carbon;
+use WHMCS\Database\Capsule;
 use WHMCS\Domain\Registrar\Domain;
 use WHMCS\Domain\TopLevel\ImportItem;
 use WHMCS\Domains\DomainLookup\ResultsList;
 use WHMCS\Domains\DomainLookup\SearchResult;
-use WHMCS\Carbon;
-use WHMCS\Database\Capsule;
 
 include_once 'helpers.php';
+
+class Obfuscated implements Stringable
+{
+    protected string $value;
+
+    public function __construct(string $value)
+    {
+        $this->value = $value;
+    }
+
+    public function __toString(): string
+    {
+        return $this->value;
+    }
+}
 
 function inwx_RequestDelete(array $params)
 {
@@ -58,7 +73,7 @@ function inwx_TransferSync(array $params): array
 
     $domrobot = inwx_CreateDomrobot($params);
     $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, [
-        'domain' => $params['original']['sld'] . '.' . $params['original']['tld']
+        'domain' => $params['original']['sld'] . '.' . $params['original']['tld'],
     ]));
 
     if ($response['code'] === 1000 && isset($response['resData']['status'])) {
@@ -69,7 +84,7 @@ function inwx_TransferSync(array $params): array
             $values['expirydate'] = $exDate;
         }
 
-        return array_merge($values, ['completed' => $response['resData']['status'] === "OK"]);
+        return array_merge($values, ['completed' => $response['resData']['status'] === 'OK']);
     }
 
     if ($response['code'] === 2303) {
@@ -198,7 +213,7 @@ function inwx_GetNameservers(array $params): array
     $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
     if ($response['code'] === 1000 && isset($response['resData']['ns'])) {
         for ($i = 1; $i <= 4; ++$i) {
-            $values['ns' . $i] = (isset($response['resData']['ns'][($i - 1)])) ? $response['resData']['ns'][($i - 1)] : '';
+            $values['ns' . $i] = (isset($response['resData']['ns'][$i - 1])) ? $response['resData']['ns'][$i - 1] : '';
         }
     } else {
         $values['error'] = inwx_GetApiResponseErrorMessage($response);
@@ -267,7 +282,11 @@ function inwx_SaveDNS(array $params): array
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     $pInfo['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $response = $domrobot->call('nameserver', 'info', $pInfo);
@@ -380,7 +399,11 @@ function inwx_SaveContactDetails(array $params): array
     $params = inwx_InjectOriginalDomain($params);
     $values = [];
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
     $response = $domrobot->call('domain', 'info', $pDomain);
@@ -489,7 +512,11 @@ function inwx_RegisterDomain(array $params): array
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     // Registrant creation
     $pRegistrant['type'] = 'PERSON';
@@ -516,7 +543,7 @@ function inwx_RegisterDomain(array $params): array
 
     // do registrant create command
     $response = $domrobot->call('contact', 'create', $pRegistrant);
-    if (($response['code'] === 1000 || $response['code'] === 1001)) {
+    if ($response['code'] === 1000 || $response['code'] === 1001) {
         $pDomain['registrant'] = $response['resData']['id'];
     } else {
         $values['error'] = inwx_GetApiResponseErrorMessage($response);
@@ -548,7 +575,7 @@ function inwx_RegisterDomain(array $params): array
 
     // do admin create command
     $response = $domrobot->call('contact', 'create', $pAdmin);
-    if (($response['code'] === 1000 || $response['code'] === 1001)) {
+    if ($response['code'] === 1000 || $response['code'] === 1001) {
         $pDomain['admin'] = $response['resData']['id'];
     } else {
         $values['error'] = inwx_GetApiResponseErrorMessage($response);
@@ -625,7 +652,11 @@ function inwx_TransferDomain(array $params): array
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     // Registrant creation
     $pRegistrant['type'] = 'PERSON';
@@ -652,7 +683,7 @@ function inwx_TransferDomain(array $params): array
 
     // do registrant create command
     $response = $domrobot->call('contact', 'create', $pRegistrant);
-    if (($response['code'] === 1000 || $response['code'] === 1001)) {
+    if ($response['code'] === 1000 || $response['code'] === 1001) {
         $pDomain['registrant'] = $response['resData']['id'];
     } else {
         $values['error'] = inwx_GetApiResponseErrorMessage($response);
@@ -684,7 +715,7 @@ function inwx_TransferDomain(array $params): array
 
     // do admin create command
     $response = $domrobot->call('contact', 'create', $pAdmin);
-    if (($response['code'] === 1000 || $response['code'] === 1001)) {
+    if ($response['code'] === 1000 || $response['code'] === 1001) {
         $pDomain['admin'] = $response['resData']['id'];
     } else {
         $values['error'] = inwx_GetApiResponseErrorMessage($response);
@@ -750,8 +781,8 @@ function inwx_GetTldPricing(array $params)
 {
     $domrobot = inwx_CreateDomrobot($params);
 
-    $response = $domrobot->call('domain', 'getPrices', array_merge(inwx_InjectCredentials($params), ["vat" => false]));
-    if (($response['code'] === 1000 || $response['code'] === 1001)) {
+    $response = $domrobot->call('domain', 'getPrices', array_merge(inwx_InjectCredentials($params), ['vat' => false]));
+    if ($response['code'] === 1000 || $response['code'] === 1001) {
         $prices = $response['resData']['price'];
     } else {
         $values['error'] = inwx_GetApiResponseErrorMessage($response);
@@ -804,7 +835,11 @@ function inwx_RenewDomain(array $params): array
     $params = inwx_InjectOriginalDomain($params);
     $values = ['error' => ''];
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
 
@@ -834,7 +869,7 @@ function inwx_CheckAvailability(array $params)
         'tld' => array_map(static function ($tld) {
             // Remove dot at end of tld
             return substr($tld, 1);
-        }, $params['original']['tldsToInclude'])
+        }, $params['original']['tldsToInclude']),
     ];
     $response = $domrobot->call('domain', 'check', inwx_InjectCredentials($params, $payload));
 
@@ -882,7 +917,11 @@ function inwx_ResendIRTPVerificationEmail(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
-    $domrobot->login($params['Username'], $params['Password']);
+
+    $user = new Obfuscated($params['Username']);
+    $pass = new Obfuscated($params['Password']);
+
+    $domrobot->login($user, $pass);
 
     $domain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
 
@@ -921,20 +960,23 @@ function inwx_ReleaseDomain(array $params): array
     return ['success' => true];
 }
 
-function startsWith( $haystack, $needle ) {
-    $length = strlen( $needle );
-    return substr( $haystack, 0, $length ) === $needle;
+function startsWith($haystack, $needle)
+{
+    $length = strlen($needle);
+    return substr($haystack, 0, $length) === $needle;
 }
 
-function endsWith( $haystack, $needle ) {
-    $length = strlen( $needle );
-    if( !$length ) {
+function endsWith($haystack, $needle)
+{
+    $length = strlen($needle);
+    if (!$length) {
         return true;
     }
-    return substr( $haystack, -$length ) === $needle;
+    return substr($haystack, -$length) === $needle;
 }
 
-function inwx_SyncDomain($params) {
+function inwx_SyncDomain($params)
+{
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
 
@@ -948,7 +990,7 @@ function inwx_SyncDomain($params) {
             Capsule::table('tbldomains')
                 ->where('id', $params['domainid'])
                 ->update([
-                    'status' => 'Cancelled'
+                    'status' => 'Cancelled',
                 ]);
 
             return ['error' => inwx_GetApiResponseErrorMessage($response)];
@@ -967,7 +1009,9 @@ function inwx_SyncDomain($params) {
 
         if ($status === 'OK') {
             $updateDetails['status'] = 'Active';
-        } else if (startsWith($status, 'TRANSFER') && !endsWith($status, 'SUCCESSFUL')) {
+        } elseif (startsWith($status, 'TRANSFER') && endsWith($status, 'SUCCESSFUL')) {
+            $updateDetails['status'] = 'Transferred Away';
+        } elseif (startsWith($status, 'TRANSFER') && !endsWith($status, 'SUCCESSFUL')) {
             $updateDetails['status'] = 'Pending Transfer';
         }
 
@@ -989,7 +1033,7 @@ function inwx_SyncDomain($params) {
                 ->where('id', $params['domainid'])
                 ->update($updateDetails);
 
-            return ['message' => "Updated ${updatedDomain} domain(s)."];
+            return ['message' => "Updated {$updatedDomain} domain(s)."];
         } catch (Exception $e) {
             return ['error' => "Couldn't update domain. {$e->getMessage()}"];
         }
@@ -998,10 +1042,11 @@ function inwx_SyncDomain($params) {
     return ['error' => ''];
 }
 
-function inwx_AdminCustomButtonArray() {
-    $buttonarray = array(
-        "Sync Domain" => "SyncDomain"
-    );
+function inwx_AdminCustomButtonArray()
+{
+    $buttonarray = [
+        'Sync Domain' => 'SyncDomain',
+    ];
     return $buttonarray;
 }
 
@@ -1018,7 +1063,7 @@ function inwx_GetDomainInformation(array $params): Domain
 
     $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
 
-    $domain = new Domain;
+    $domain = new Domain();
 
     if ($response['code'] !== 1000) {
         throw new Exception(inwx_GetApiResponseErrorMessage($response));
@@ -1026,7 +1071,7 @@ function inwx_GetDomainInformation(array $params): Domain
 
     if (isset($response['resData']['ns'])) {
         $nameservers = [];
-        for ($i = 0; $i < count($response['resData']['ns']); $i++) {
+        for ($i = 0; $i < count($response['resData']['ns']); ++$i) {
             $nameservers['ns' . ($i + 1)] = $response['resData']['ns'][$i];
         }
         $domain->setNameservers($nameservers);
@@ -1081,5 +1126,5 @@ function inwx_GetDomainInformation(array $params): Domain
                 ],
             ]
         )
-        ;
+    ;
 }
