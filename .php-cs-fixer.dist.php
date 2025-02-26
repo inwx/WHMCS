@@ -1,6 +1,9 @@
 <?php
 
-return PhpCsFixer\Config::create()
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__);
+
+return (new PhpCsFixer\Config())
     ->setRules([
         '@PSR2' => true,
         '@Symfony' => true,
@@ -10,7 +13,8 @@ return PhpCsFixer\Config::create()
         'blank_line_before_statement' => false,
         'concat_space' => ['spacing' => 'one'],
         'no_useless_return' => true,
-        'ordered_imports' => ['sortAlgorithm' => 'alpha'],
+        'ordered_imports' => ['sort_algorithm' => 'alpha'],
         'php_unit_method_casing' => true,
         'yoda_style' => ['equal' => false, 'identical' => false],
-    ]);
+    ])
+    ->setFinder($finder);

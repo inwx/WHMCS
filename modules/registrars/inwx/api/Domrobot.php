@@ -6,16 +6,16 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
-use RuntimeException;
 
 class Domrobot implements LoggerAwareInterface
 {
-    private const VERSION = 'WHMCS 8.X.Y';
+    private const VERSION = '0.0.0-semantic-release';
     private const LIVE_URL = 'https://api.domrobot.com/';
     private const OTE_URL = 'https://api.ote.domrobot.com/';
     private const XMLRPC = 'xmlrpc';
     private const JSONRPC = 'jsonrpc';
 
+    private $whmcsVersion;
     private $debug = false;
     private $language = 'en';
     private $customer = '';
@@ -37,8 +37,15 @@ class Domrobot implements LoggerAwareInterface
      */
     public function __construct(?string $cookieFile = null)
     {
+        $whmcsDetails = localAPI('WhmcsDetails', [], null);
+        $this->whmcsVersion = $whmcsDetails['whmcs']['version'] ?? '8.X.Y';
         $this->logger = new Logger('domrobot_default_logger');
         $this->logger->pushHandler(new StreamHandler('php://stdout', Logger::DEBUG));
+        $this->logger->pushProcessor(function ($record) {
+            $record->extra['WhmcsDetails'] = $whmcsDetails['whmcs'] ?? [];
+
+            return $record;
+        });
         $this->cookieFile = $cookieFile ?? tempnam(sys_get_temp_dir(), 'INWX');
     }
 
@@ -152,12 +159,12 @@ class Domrobot implements LoggerAwareInterface
     }
 
     /**
-     * @throws RuntimeException If the cookieFile is not writable or does not exist
+     * @throws \RuntimeException If the cookieFile is not writable or does not exist
      */
     public function setCookieFile(string $file): self
     {
         if ((file_exists($file) && !is_writable($file)) || (!file_exists($file) && !is_writable(dirname($file)))) {
-            throw new RuntimeException("Cannot write cookiefile: '" . $file . "'. Please check file/folder permissions.", 2400);
+            throw new \RuntimeException("Cannot write cookiefile: '" . $file . "'. Please check file/folder permissions.", 2400);
         }
         $this->cookieFile = $file;
 
@@ -181,9 +188,6 @@ class Domrobot implements LoggerAwareInterface
         return $this->clTrid;
     }
 
-    /**
-     * @return Domrobot
-     */
     public function setClTrId(string $clTrId): self
     {
         $this->clTrid = $clTrId;
@@ -250,7 +254,7 @@ class Domrobot implements LoggerAwareInterface
         curl_setopt($ch, CURLOPT_COOKIEJAR, $this->cookieFile);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'DomRobot/' . self::VERSION . ' (PHP ' . PHP_VERSION . ')');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'DomRobot/' . self::VERSION . ' (PHP ' . PHP_VERSION . '; WHMCS ' . $this->whmcsVersion . '; +https://github.com/inwx/WHMCS)');
 
         $response = curl_exec($ch);
         curl_close($ch);
@@ -263,7 +267,7 @@ class Domrobot implements LoggerAwareInterface
 
         logModuleCall('inwx', $methodParam, $params, $response, $processedResponse, [
             $params['user'],
-            $params['pass']
+            $params['pass'],
         ]);
 
         return $processedResponse;
@@ -321,10 +325,7 @@ class Domrobot implements LoggerAwareInterface
         return $ret;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function setLogger(LoggerInterface $logger)
+    public function setLogger(LoggerInterface $logger): void
     {
         $this->logger = $logger;
     }

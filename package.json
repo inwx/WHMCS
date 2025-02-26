@@ -53,6 +53,7 @@
     "pnpm": "9.1.2"
   },
   "lint-staged": {
-    ".github/workflows/**/*.yml": "./vendor/bin/actionlint"
+    ".github/workflows/**/*.yml": "./vendor/bin/actionlint",
+    "**/*.php": "./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php"
   }
 }
