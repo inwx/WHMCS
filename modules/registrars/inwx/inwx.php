@@ -841,9 +841,22 @@ function inwx_RenewDomain(array $params): array
 
     $domrobot->login($user, $pass);
 
-    $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
+    $domain = $params['original']['sld'] . '.' . $params['original']['tld'];
 
-    $response = $domrobot->call('domain', 'info', $pDomain);
+    $response = $domrobot->call('domain', 'restore', [
+        "domain" => $domain,
+        "testing" => true
+    ]);
+
+    if ($response['code'] === 1000 || $response['code'] === 1001) {
+        $response = $domrobot->call('domain', 'restore', ["domain" => $domain]);
+        if ($response['code'] !== 1000 && $response['code'] !== 1001) {
+            $values['error'] = inwx_GetApiResponseErrorMessage($response);
+            return $values;
+        }
+    }
+
+    $response = $domrobot->call('domain', 'info', ["domain" => $domain]);
 
     if (($response['code'] === 1000 || $response['code'] === 1001) && isset($response['resData']['exDate'])) {
         $pDomain['expiration'] = date('Y-m-d', $response['resData']['exDate']['timestamp']);
