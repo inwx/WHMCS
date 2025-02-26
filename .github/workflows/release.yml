@@ -35,7 +35,7 @@ jobs:
       - run: pnpm install
       - run: pnpm lint-staged
       - name: Replace hardcoded version number
-        run: git ls-files | grep '.php' | xargs sed -i 's/0.0.0-semantic-relase/${{ needs.get-next-version.outputs.new-release-version }}+${{ steps.commit.outputs.short }}/g'
+        run: git ls-files '*.php' | xargs sed -i 's/0.0.0-semantic-release/${{ needs.get-next-version.outputs.new-release-version }}+${{ steps.commit.outputs.short }}/g'
       - name: Create release.zip
         uses: montudor/action-zip@v1
         with:
