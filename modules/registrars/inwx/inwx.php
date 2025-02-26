@@ -843,17 +843,32 @@ function inwx_RenewDomain(array $params): array
 
     $domain = $params['original']['sld'] . '.' . $params['original']['tld'];
 
-    $response = $domrobot->call('domain', 'restore', [
-        "domain" => $domain,
-        "testing" => true
-    ]);
+    $response = $domrobot->call('domain', 'renew', ["domain" => $domain]);
 
-    if ($response['code'] === 1000 || $response['code'] === 1001) {
-        $response = $domrobot->call('domain', 'restore', ["domain" => $domain]);
+    if ($response['code'] !== 1000 && $response['code'] !== 1001) {
+        $response = $domrobot->call('domain', 'restore', [
+            "domain" => $domain,
+            "testing" => true
+        ]);
         if ($response['code'] !== 1000 && $response['code'] !== 1001) {
             $values['error'] = inwx_GetApiResponseErrorMessage($response);
             return $values;
         }
+        $restorePrice = $response['resData']['restorePrice'];
+        if ($restorePrice === 0) {
+            $response = $domrobot->call('domain', 'restore', ["domain" => $domain]);
+            if ($response['code'] !== 1000 && $response['code'] !== 1001) {
+                $values['error'] = inwx_GetApiResponseErrorMessage($response);
+                return $values;
+            }
+            $response = $domrobot->call('domain', 'renew', ["domain" => $domain]);
+            if ($response['code'] !== 1000 && $response['code'] !== 1001) {
+                $values['error'] = inwx_GetApiResponseErrorMessage($response);
+                return $values;
+            }
+        }
+        $values['error'] = "Price for restore expected: 0, got: {$restorePrice}. Can not auto-renew.";
+        return $values;
     }
 
     $response = $domrobot->call('domain', 'info', ["domain" => $domain]);
@@ -973,20 +988,23 @@ function inwx_ReleaseDomain(array $params): array
     return ['success' => true];
 }
 
-function startsWith( $haystack, $needle ) {
-    $length = strlen( $needle );
-    return substr( $haystack, 0, $length ) === $needle;
+function startsWith($haystack, $needle)
+{
+    $length = strlen($needle);
+    return substr($haystack, 0, $length) === $needle;
 }
 
-function endsWith( $haystack, $needle ) {
-    $length = strlen( $needle );
-    if( !$length ) {
+function endsWith($haystack, $needle)
+{
+    $length = strlen($needle);
+    if (!$length) {
         return true;
     }
-    return substr( $haystack, -$length ) === $needle;
+    return substr($haystack, -$length) === $needle;
 }
 
-function inwx_SyncDomain($params) {
+function inwx_SyncDomain($params)
+{
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
 
@@ -1019,9 +1037,9 @@ function inwx_SyncDomain($params) {
 
         if ($status === 'OK') {
             $updateDetails['status'] = 'Active';
-        } else if (startsWith($status, 'TRANSFER') && endsWith($status, 'SUCCESSFUL')) {
+        } elseif (startsWith($status, 'TRANSFER') && endsWith($status, 'SUCCESSFUL')) {
             $updateDetails['status'] = 'Transferred Away';
-        } else if (startsWith($status, 'TRANSFER') && !endsWith($status, 'SUCCESSFUL')) {
+        } elseif (startsWith($status, 'TRANSFER') && !endsWith($status, 'SUCCESSFUL')) {
             $updateDetails['status'] = 'Pending Transfer';
         }
 
@@ -1052,7 +1070,8 @@ function inwx_SyncDomain($params) {
     return ['error' => ''];
 }
 
-function inwx_AdminCustomButtonArray() {
+function inwx_AdminCustomButtonArray()
+{
     $buttonarray = array(
         "Sync Domain" => "SyncDomain"
     );
@@ -1072,7 +1091,7 @@ function inwx_GetDomainInformation(array $params): Domain
 
     $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
 
-    $domain = new Domain;
+    $domain = new Domain();
 
     if ($response['code'] !== 1000) {
         throw new Exception(inwx_GetApiResponseErrorMessage($response));
@@ -1135,5 +1154,5 @@ function inwx_GetDomainInformation(array $params): Domain
                 ],
             ]
         )
-        ;
+    ;
 }
