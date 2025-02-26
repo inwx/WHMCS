@@ -6,7 +6,6 @@
     "require": {
         "ext-json": "*",
         "ext-curl": "*",
-        "ext-xmlrpc": "*",
         "monolog/monolog": "^3.8",
         "illuminate/database": "^11.31"
     }
