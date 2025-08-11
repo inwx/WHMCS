@@ -53,6 +53,15 @@ If you have to or want to support multiple registrars you have to add the follow
 include __DIR__ . "/../../modules/registrars/inwx/additionaldomainfields.php";
 ```
 
+##### Translations for Extradata
+
+You can additionally use our provided translations for all extra data fields. We offer english (default), german, spanish translations.
+
+The easiest way is to add the following line for each language file you want to use to `lang/overrides/english.php` or the other php files in that directory:
+```php
+include __DIR__ . "/../../modules/registrars/inwx/lang/overrides/english.php";
+```
+
 #### Support more record types
 
 To activate support for records that are not natively provided by WHMCS the
