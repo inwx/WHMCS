@@ -376,7 +376,7 @@ function inwx_GetContactDetails(array $params): array
             for ($i = 0; $i < count($nameArr) - 1; ++$i) {
                 $values[$typeName]['First Name'] .= $nameArr[$i] . ' ';
             }
-            trim($values[$typeName]['First Name']);
+            $values[$typeName]['First Name'] = trim($values[$typeName]['First Name']);
             $values[$typeName]['Last Name'] = $nameArr[count($nameArr) - 1];
             $values[$typeName]['Company'] = $response['resData']['contact'][$type]['org'];
             $values[$typeName]['Street'] = $response['resData']['contact'][$type]['street'];
