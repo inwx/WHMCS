@@ -268,6 +268,8 @@ class Domrobot implements LoggerAwareInterface
         logModuleCall('inwx', $methodParam, $params, $response, $processedResponse, [
             $params['user'],
             $params['pass'],
+            $params['tan'],
+            $params['authCode'],
         ]);
 
         return $processedResponse;

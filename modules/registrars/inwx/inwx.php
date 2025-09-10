@@ -411,37 +411,97 @@ function inwx_SaveContactDetails(array $params): array
         $contactIds = ['registrant' => $response['resData']['registrant'], 'admin' => $response['resData']['admin'], 'tech' => $response['resData']['tech'], 'billing' => $response['resData']['billing']];
         $countContactIds = array_count_values([$response['resData']['registrant'], $response['resData']['admin'], $response['resData']['tech'], $response['resData']['billing']]);
         $contactTypes = ['registrant' => 'Registrant', 'admin' => 'Admin', 'tech' => 'Technical', 'billing' => 'Billing'];
+
+        $getField = static function (array $contact, array $candidates, $default = '') {
+            foreach ($candidates as $label) {
+                if (array_key_exists($label, $contact) && $contact[$label] !== '') {
+                    return $contact[$label];
+                }
+            }
+            return $default;
+        };
+        $getStreet = static function (array $contact): string {
+            $street = '';
+            if (array_key_exists('Street', $contact) && $contact['Street'] !== '') {
+                $street = $contact['Street'];
+            } else {
+                $parts = [];
+                foreach (['Address 1', 'Address Line 1', 'Address', 'Address1'] as $k) {
+                    if (!empty($contact[$k])) {
+                        $parts[] = $contact[$k];
+                        break; // primäre Zeile gefunden
+                    }
+                }
+                foreach (['Address 2', 'Address Line 2', 'Address2'] as $k) {
+                    if (!empty($contact[$k])) {
+                        $parts[] = $contact[$k];
+                        break;
+                    }
+                }
+                foreach (['Address 3', 'Address Line 3', 'Address3'] as $k) {
+                    if (!empty($contact[$k])) {
+                        $parts[] = $contact[$k];
+                        break;
+                    }
+                }
+                if (!empty($parts)) {
+                    $street = implode(', ', $parts);
+                }
+            }
+            return $street;
+        };
+        $getCountryCode = static function (array $contact) use ($getField): string {
+            $raw = $getField($contact, ['Country Code', 'Country code', 'CountryCode', 'Country'], '');
+            $raw = strtoupper(trim((string) $raw));
+            if (preg_match('/^[A-Z]{2}$/', $raw)) {
+                return $raw;
+            }
+            return '';
+        };
+
         // Data is returned as specified in the GetContactDetails() function
         foreach ($contactTypes as $type => $typeName) {
+            $src = $params['contactdetails'][$typeName] ?? [];
+
+            $firstName = $getField($src, ['First Name', 'Firstname', 'Given Name', 'GivenName', 'Forename'], '');
+            $lastName = $getField($src, ['Last Name', 'Lastname', 'Surname', 'Family Name', 'FamilyName'], '');
+
             $pContact = [];
-            $pContact['name'] = $params['contactdetails'][$typeName]['First Name'];
-            $pContact['name'] .= ' ' . $params['contactdetails'][$typeName]['Last Name'];
-            $pContact['org'] = $params['contactdetails'][$typeName]['Company'];
-            $pContact['street'] = $params['contactdetails'][$typeName]['Street'];
-            $pContact['city'] = $params['contactdetails'][$typeName]['City'];
-            $pContact['pc'] = $params['contactdetails'][$typeName]['Post Code'];
-            $pContact['sp'] = $params['contactdetails'][$typeName]['State'];
-            $pContact['cc'] = strtoupper($params['contactdetails'][$typeName]['Country Code']);
-            $pContact['voice'] = $params['contactdetails'][$typeName]['Phone Number'];
-            $pContact['fax'] = $params['contactdetails'][$typeName]['Fax Number'];
-            $pContact['email'] = $params['contactdetails'][$typeName]['Email'];
-            $pContact['remarks'] = $params['contactdetails'][$typeName]['Notes'];
+            $pContact['name'] = trim($firstName . ' ' . $lastName);
+            $pContact['org'] = $getField($src, ['Company', 'Organisation', 'Organization', 'Company Name', 'CompanyName'], '');
+            $pContact['street'] = $getStreet($src);
+            $pContact['city'] = $getField($src, ['City', 'Town', 'Locality'], '');
+
+            $pContact['pc'] = $getField($src, ['Post Code', 'Postcode', 'Zip Code', 'ZIP Code', 'ZIP', 'Postal Code', 'PostalCode'], '');
+            // State/Region/Province
+            $pContact['sp'] = $getField($src, ['State', 'State/Region', 'Region', 'Province', 'State/Province', 'County'], '');
+
+            $countryCode = $getCountryCode($src);
+            if ($countryCode !== '') {
+                $pContact['cc'] = $countryCode;
+            }
+            // Telefon/Fax
+            $pContact['voice'] = $getField($src, ['Phone Number', 'Phone', 'Telephone', 'Tel'], '');
+            $pContact['fax'] = $getField($src, ['Fax Number', 'Fax'], '');
+            // E-Mail/Notizen
+            $pContact['email'] = $getField($src, ['Email', 'E-mail', 'Email Address'], '');
+            $pContact['remarks'] = $getField($src, ['Notes', 'Remarks'], '');
             $pContact['extData'] = ['PARSE-VOICE' => true, 'PARSE-FAX' => true];
 
             if ($countContactIds[$contactIds[$type]] > 1) {
                 // create contact
                 $pContact['type'] = 'PERSON';
-                $response = $domrobot->call('contact', 'create', array_filter($pContact));
+                $response = $domrobot->call('contact', 'create', array_filter($pContact, static fn ($v) => $v !== null));
                 $pDomain[$type] = $response['resData']['id'];
                 $values['error'] = inwx_GetApiResponseErrorMessage($response);
             } else {
                 $pContact['id'] = $contactIds[$type];
-                $response = $domrobot->call('contact', 'update', array_filter($pContact));
+                $response = $domrobot->call('contact', 'update', array_filter($pContact, static fn ($v) => $v !== null));
                 $values['error'] = inwx_GetApiResponseErrorMessage($response);
             }
         }
         if (count($pDomain) > 1) {
-            $response = $domrobot->call('domain', 'update', $pDomain);
+            $response = $domrobot->call('domain', 'update', array_filter($pDomain));
             $values['error'] = inwx_GetApiResponseErrorMessage($response);
         }
     } else {
@@ -1042,9 +1102,35 @@ function inwx_SyncDomain($params)
     return ['error' => ''];
 }
 
+function inwx_SendContactVerification(array $params): array
+{
+    $params = inwx_InjectOriginalDomain($params);
+    $domrobot = inwx_CreateDomrobot($params);
+
+    $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
+    $pDomain['wide'] = 1;
+
+    $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
+
+    if ($response['code'] === 1000 && isset($response['resData']['registrant'])) {
+        $registrant = $response['resData']['registrant'];
+
+        $response = $domrobot->call('contact', 'sendcontactverification', ['id' => $registrant]);
+
+        if ($response['code'] !== 1000) {
+            return ['error' => inwx_GetApiResponseErrorMessage($response)];
+        }
+    } else {
+        return ['error' => inwx_GetApiResponseErrorMessage($response)];
+    }
+
+    return ['error' => ''];
+}
+
 function inwx_AdminCustomButtonArray()
 {
     $buttonarray = [
+        'Send Contact Verification' => 'SendContactVerification',
         'Sync Domain' => 'SyncDomain',
     ];
     return $buttonarray;
