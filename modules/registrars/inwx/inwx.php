@@ -491,17 +491,17 @@ function inwx_SaveContactDetails(array $params): array
             if ($countContactIds[$contactIds[$type]] > 1) {
                 // create contact
                 $pContact['type'] = 'PERSON';
-                $response = $domrobot->call('contact', 'create', array_filter($pContact));
+                $response = $domrobot->call('contact', 'create', array_filter($pContact, static fn ($v) => $v !== null));
                 $pDomain[$type] = $response['resData']['id'];
                 $values['error'] = inwx_GetApiResponseErrorMessage($response);
             } else {
                 $pContact['id'] = $contactIds[$type];
-                $response = $domrobot->call('contact', 'update', array_filter($pContact));
+                $response = $domrobot->call('contact', 'update', array_filter($pContact, static fn ($v) => $v !== null));
                 $values['error'] = inwx_GetApiResponseErrorMessage($response);
             }
         }
         if (count($pDomain) > 1) {
-            $response = $domrobot->call('domain', 'update', $pDomain);
+            $response = $domrobot->call('domain', 'update', array_filter($pDomain));
             $values['error'] = inwx_GetApiResponseErrorMessage($response);
         }
     } else {
