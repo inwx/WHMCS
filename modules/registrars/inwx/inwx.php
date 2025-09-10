@@ -1042,9 +1042,35 @@ function inwx_SyncDomain($params)
     return ['error' => ''];
 }
 
+function inwx_SendContactVerification(array $params): array
+{
+    $params = inwx_InjectOriginalDomain($params);
+    $domrobot = inwx_CreateDomrobot($params);
+
+    $pDomain['domain'] = $params['original']['sld'] . '.' . $params['original']['tld'];
+    $pDomain['wide'] = 1;
+
+    $response = $domrobot->call('domain', 'info', inwx_InjectCredentials($params, $pDomain));
+
+    if ($response['code'] === 1000 && isset($response['resData']['domain'])) {
+        $registrant = $response['resData']['registrant'];
+
+        $response = $domrobot->call('contact', 'sendcontactverification', ['id' => $registrant]);
+
+        if ($response['code'] !== 1000) {
+            return ['error' => inwx_GetApiResponseErrorMessage($response)];
+        }
+    } else {
+        return ['error' => inwx_GetApiResponseErrorMessage($response)];
+    }
+
+    return ['error' => ''];
+}
+
 function inwx_AdminCustomButtonArray()
 {
     $buttonarray = [
+        'Send Contact Verification' => 'SendContactVerification',
         'Sync Domain' => 'SyncDomain',
     ];
     return $buttonarray;
