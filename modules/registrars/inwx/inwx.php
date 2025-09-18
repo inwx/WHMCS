@@ -482,15 +482,33 @@ function inwx_SaveContactDetails(array $params): array
             }
             // Telefon/Fax
             $pContact['voice'] = $getField($src, ['Phone Number', 'Phone', 'Telephone', 'Tel'], '');
-            $pContact['fax'] = $getField($src, ['Fax Number', 'Fax'], '');
+            $fax = $getField($src, ['Fax Number', 'Fax'], '');
+            if ($fax !== '') {
+                $pContact['fax'] = $fax;
+            }
             // E-Mail/Notizen
             $pContact['email'] = $getField($src, ['Email', 'E-mail', 'Email Address'], '');
             $pContact['remarks'] = $getField($src, ['Notes', 'Remarks'], '');
             $pContact['extData'] = ['PARSE-VOICE' => true, 'PARSE-FAX' => true];
 
-            if ($countContactIds[$contactIds[$type]] > 1) {
+            // Determine desired type from provided data
+            $desiredType = ($pContact['org'] !== '') ? 'ORG' : 'PERSON';
+
+            // Fetch current contact type from registry
+            $currentType = null;
+            if (!empty($contactIds[$type])) {
+                $infoResp = $domrobot->call('contact', 'info', ['id' => $contactIds[$type]]);
+                if ($infoResp['code'] === 1000 && isset($infoResp['resData']['type'])) {
+                    $currentType = strtoupper((string) $infoResp['resData']['type']);
+                }
+            }
+
+            if ($countContactIds[$contactIds[$type]] > 1
+                // ugly hack since contact.update does not support type
+                || ($currentType !== null && $currentType !== $desiredType)
+            ) {
                 // create contact
-                $pContact['type'] = 'PERSON';
+                $pContact['type'] = $desiredType;
                 $response = $domrobot->call('contact', 'create', array_filter($pContact, static fn ($v) => $v !== null));
                 $pDomain[$type] = $response['resData']['id'];
                 $values['error'] = inwx_GetApiResponseErrorMessage($response);
