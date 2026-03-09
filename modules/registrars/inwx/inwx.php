@@ -137,6 +137,10 @@ function inwx_getConfigArray(): array
             'Default' => '/tmp/inwx_whmcs_cookiefile',
             'Description' => 'Place where the cookie file for API requests should reside. This file can be lost at any time with no problems, it is only necessary for sessions between API calls and will be regenerated if it was deleted.',
         ],
+        'KeepNameServers' => [
+            'Type' => 'yesno',
+            'Description' => 'Whether to keep the existing nameservers on domain transfer.',
+        ],
     ];
 }
 
@@ -847,6 +851,11 @@ function inwx_TransferDomain(array $params): array
                 }
             }
         }
+    }
+
+    // Keep nameservers on transfer
+    if ($params['KeepNameServers'] === true || $params['KeepNameServers'] === 'on') {
+        $pDomain['nsTakeover'] = true;
     }
 
     $response = $domrobot->call('domain', 'transfer', $pDomain);
