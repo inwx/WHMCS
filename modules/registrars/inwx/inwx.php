@@ -134,7 +134,7 @@ function inwx_getConfigArray(): array
         ],
         'CookieFilePath' => [
             'Type' => 'text',
-            'Default' => '/tmp/inwx_whmcs_cookiefile',
+            'Default' => sys_get_temp_dir() . '/inwx_whmcs_cookiefile_' . substr(md5(__DIR__), 0, 8),
             'Description' => 'Place where the cookie file for API requests should reside. This file can be lost at any time with no problems, it is only necessary for sessions between API calls and will be regenerated if it was deleted.',
         ],
         'KeepNameServers' => [
@@ -268,7 +268,7 @@ function inwx_GetDNS(array $params): array
                     if ($hostname === $pInfo['domain']) {
                         $hostname = '@';
                     } else {
-                        $hostname = preg_replace('/.' . $pInfo['domain'] . '$/', '', $hostname);
+                        $hostname = preg_replace('/\.' . preg_quote($pInfo['domain'], '/') . '$/', '', $hostname);
                     }
                 }
                 $hostrecords[] = ['hostname' => $hostname, 'type' => $_record['type'], 'address' => $_record['content'], 'priority' => $_record['prio']];
@@ -703,7 +703,9 @@ function inwx_RegisterDomain(array $params): array
                         $_whmcsOptions = explode(',', $addField['Options']);
                         $_inwxOptions = explode(',', $addField['InwxOptions']);
                         $_key = array_search($params['additionalfields'][$addField['InwxName']], $_whmcsOptions, true);
-                        $pDomain['extData'][$addField['InwxName']] = $_inwxOptions[$_key];
+                        if ($_key !== false && isset($_inwxOptions[$_key])) {
+                            $pDomain['extData'][$addField['InwxName']] = $_inwxOptions[$_key];
+                        }
                         break;
                 }
             }
@@ -846,7 +848,9 @@ function inwx_TransferDomain(array $params): array
                         $_whmcsOptions = explode(',', $addField['Options']);
                         $_inwxOptions = explode(',', $addField['InwxOptions']);
                         $_key = array_search($params['additionalfields'][$addField['InwxName']], $_whmcsOptions, true);
-                        $pDomain['extData'][$addField['InwxName']] = $_inwxOptions[$_key];
+                        if ($_key !== false && isset($_inwxOptions[$_key])) {
+                            $pDomain['extData'][$addField['InwxName']] = $_inwxOptions[$_key];
+                        }
                         break;
                 }
             }
@@ -908,7 +912,7 @@ function inwx_GetTldPricing(array $params)
             ->setRegisterPrice($price['promo']['createPrice'] ?? $price['createPrice'])
             ->setRenewPrice($price['promo']['renewalPrice'] ?? $price['renewalPrice'])
             ->setTransferPrice($price['promo']['renewalPrice'] ?? $price['transferPrice'])
-            ->setEppRequired($tldRule['authCode'] == 'YES')
+            ->setEppRequired($tldRule['authCode'] === 'YES')
             ->setCurrency($price['currency']);
 
         $domains[] = $domain;
@@ -1082,7 +1086,8 @@ function inwx_SyncDomain($params)
 
             return ['error' => inwx_GetApiResponseErrorMessage($response)];
         } catch (Exception $e) {
-            return ['error' => "Couldn't update domain. {$e->getMessage()}"];
+            logActivity("INWX: Domain update failed for {$params['domainid']}: {$e->getMessage()}");
+            return ['error' => "Couldn't update domain. Please check the activity log for details."];
         }
     }
 
@@ -1090,7 +1095,7 @@ function inwx_SyncDomain($params)
         $exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']['timestamp']) : null);
         $crDate = (isset($response['resData']['crDate']) ? date('Y-m-d', $response['resData']['crDate']['timestamp']) : null);
         $reDate = (isset($response['resData']['reDate']) ? date('Y-m-d', $response['resData']['reDate']['timestamp']) : null);
-        $status = (isset($response['resData']['status']) ?: null);
+        $status = $response['resData']['status'] ?? null;
 
         $updateDetails = [];
 
@@ -1122,7 +1127,8 @@ function inwx_SyncDomain($params)
 
             return ['message' => "Updated {$updatedDomain} domain(s)."];
         } catch (Exception $e) {
-            return ['error' => "Couldn't update domain. {$e->getMessage()}"];
+            logActivity("INWX: Domain update failed for {$params['domainid']}: {$e->getMessage()}");
+            return ['error' => "Couldn't update domain. Please check the activity log for details."];
         }
     }
 
@@ -1219,7 +1225,8 @@ function inwx_GetDomainInformation(array $params): Domain
     }
 
     if (isset($response['resData']['exDate'])) {
-        $domain->setExpiryDate(Carbon::parse($response['resData']['exDate']['scalar']));
+        $exDateValue = $response['resData']['exDate']['scalar'] ?? $response['resData']['exDate']['timestamp'] ?? $response['resData']['exDate'];
+        $domain->setExpiryDate(Carbon::parse($exDateValue));
     }
 
     if (isset($response['resData']['registrantVerificationStatus']) && isset($response['resData']['verificationStatus'])) {
