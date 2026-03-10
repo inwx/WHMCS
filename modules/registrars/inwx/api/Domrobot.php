@@ -47,6 +47,9 @@ class Domrobot implements LoggerAwareInterface
             return $record;
         });
         $this->cookieFile = $cookieFile ?? tempnam(sys_get_temp_dir(), 'INWX');
+        if (file_exists($this->cookieFile)) {
+            chmod($this->cookieFile, 0600);
+        }
     }
 
     /**
@@ -167,6 +170,9 @@ class Domrobot implements LoggerAwareInterface
             throw new \RuntimeException("Cannot write cookiefile: '" . $file . "'. Please check file/folder permissions.", 2400);
         }
         $this->cookieFile = $file;
+        if (file_exists($file)) {
+            chmod($file, 0600);
+        }
 
         return $this;
     }
@@ -205,10 +211,10 @@ class Domrobot implements LoggerAwareInterface
         $params['pass'] = $password;
 
         $loginRes = $this->call('account', 'login', $params);
-        if (!empty($sharedSecret) && $loginRes['code'] == 1000 && !empty($loginRes['resData']['tfa'])) {
+        if (!empty($sharedSecret) && $loginRes['code'] === 1000 && !empty($loginRes['resData']['tfa'])) {
             $tan = $this->getSecretCode($sharedSecret);
             $unlockRes = $this->call('account', 'unlock', ['tan' => $tan]);
-            if ($unlockRes['code'] != 1000) {
+            if ($unlockRes['code'] !== 1000) {
                 return $unlockRes;
             }
         }
@@ -243,7 +249,7 @@ class Domrobot implements LoggerAwareInterface
         $header[] = 'Content-Type: ' . ($this->isJson() ? 'application/json' : 'text/xml');
         $header[] = 'Connection: keep-alive';
         $header[] = 'Keep-Alive: 300';
-        $forwardedFor = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '';
+        $forwardedFor = preg_replace('/[^\d.,: a-fA-F]/', '', $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '');
         $header[] = 'X-FORWARDED-FOR: ' . $forwardedFor;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->url . $this->api . '/');
@@ -257,6 +263,11 @@ class Domrobot implements LoggerAwareInterface
         curl_setopt($ch, CURLOPT_USERAGENT, 'DomRobot/' . self::VERSION . ' (PHP ' . PHP_VERSION . '; WHMCS ' . $this->whmcsVersion . '; +https://github.com/inwx/WHMCS)');
 
         $response = curl_exec($ch);
+        if ($response === false) {
+            $curlError = curl_error($ch);
+            curl_close($ch);
+            return ['code' => 0, 'msg' => 'cURL error: ' . $curlError];
+        }
         curl_close($ch);
         if ($this->debug) {
             $this->logger->debug("Request:\n" . $request . "\n");
@@ -265,12 +276,12 @@ class Domrobot implements LoggerAwareInterface
 
         $processedResponse = $this->isJson() ? json_decode($response, true) : xmlrpc_decode($response, 'UTF-8');
 
-        logModuleCall('inwx', $methodParam, $params, $response, $processedResponse, [
-            $params['user'],
-            $params['pass'],
-            $params['tan'],
-            $params['authCode'],
-        ]);
+        logModuleCall('inwx', $methodParam, $params, $response, $processedResponse, array_filter([
+            $params['user'] ?? null,
+            $params['pass'] ?? null,
+            $params['tan'] ?? null,
+            $params['authCode'] ?? null,
+        ]));
 
         return $processedResponse;
     }

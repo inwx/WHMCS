@@ -34,7 +34,7 @@
                 <td>
                   <select name="dnsrecordtype[]" class="form-control">
                   {foreach $records as $record}
-                    <option value={$record@key}{if $dnsrecord.type eq $record@key} selected="selected"{/if}>{$record}</option>
+                    <option value="{$record@key}"{if $dnsrecord.type eq $record@key} selected="selected"{/if}>{$record}</option>
                   {/foreach}
                   </select>
                 </td>
@@ -49,7 +49,7 @@
               <td>
                 <select name="dnsrecordtype[]" class="form-control">
                 {foreach $records as $record}
-                  <option value={$record@key}>{$record}</option>
+                  <option value="{$record@key}">{$record}</option>
                 {/foreach}
                 </select>
               </td>
