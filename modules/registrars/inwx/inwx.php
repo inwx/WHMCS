@@ -161,7 +161,7 @@ function inwx_getConfigArray(): array
             'Type' => 'textarea',
             'Rows' => '5',
             'Cols' => '50',
-            'Description' => 'IP addresses exempt from rate limiting (one per line). Supports optional custom limits with format: IP|max_requests|window_seconds (e.g. "192.168.1.100|100|60"). IPs without custom limits bypass rate limiting entirely.',
+            'Description' => 'IPs or WHMCS client IDs exempt from rate limiting (one per line). Prefix client IDs with "user:" (e.g. "user:42"). Supports optional custom limits: entry|max_requests|window_seconds (e.g. "192.168.1.100|100|60" or "user:42|100|60"). Entries without custom limits bypass rate limiting entirely.',
         ],
     ];
 }

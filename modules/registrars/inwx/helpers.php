@@ -195,12 +195,12 @@ function inwx_ParseWhitelist(string $raw): array
 
     foreach ($lines as $line) {
         $parts = explode('|', $line);
-        $ip = trim($parts[0]);
-        if (empty($ip)) {
+        $key = trim($parts[0]);
+        if (empty($key)) {
             continue;
         }
 
-        $entry = ['ip' => $ip, 'max_requests' => null, 'window_seconds' => null];
+        $entry = ['key' => $key, 'max_requests' => null, 'window_seconds' => null];
 
         if (count($parts) >= 3) {
             $max = (int)trim($parts[1]);
@@ -211,10 +211,19 @@ function inwx_ParseWhitelist(string $raw): array
             }
         }
 
-        $entries[$ip] = $entry;
+        $entries[$key] = $entry;
     }
 
     return $entries;
+}
+
+function inwx_GetLoggedInClientId(): ?int
+{
+    if (isset($_SESSION['uid']) && is_numeric($_SESSION['uid']) && (int)$_SESSION['uid'] > 0) {
+        return (int)$_SESSION['uid'];
+    }
+
+    return null;
 }
 
 function inwx_CheckRateLimit(array $params): bool
@@ -237,17 +246,25 @@ function inwx_CheckRateLimit(array $params): bool
     $maxRequests = max(1, (int)($params['RateLimitMaxRequests'] ?? 30));
     $windowSeconds = max(1, (int)($params['RateLimitWindowSeconds'] ?? 60));
 
-    // Check whitelist
+    // Check whitelist — match by IP or by user:ID
     $whitelist = inwx_ParseWhitelist($params['RateLimitWhitelist'] ?? '');
+    $clientId = inwx_GetLoggedInClientId();
+
+    $matchedEntry = null;
     if (isset($whitelist[$ip])) {
-        $entry = $whitelist[$ip];
+        $matchedEntry = $whitelist[$ip];
+    } elseif ($clientId !== null && isset($whitelist['user:' . $clientId])) {
+        $matchedEntry = $whitelist['user:' . $clientId];
+    }
+
+    if ($matchedEntry !== null) {
         // Whitelisted with no custom limits = bypass entirely
-        if ($entry['max_requests'] === null) {
+        if ($matchedEntry['max_requests'] === null) {
             return true;
         }
         // Whitelisted with custom limits = apply those instead
-        $maxRequests = $entry['max_requests'];
-        $windowSeconds = $entry['window_seconds'];
+        $maxRequests = $matchedEntry['max_requests'];
+        $windowSeconds = $matchedEntry['window_seconds'];
     }
 
     inwx_EnsureRateLimitTable();
