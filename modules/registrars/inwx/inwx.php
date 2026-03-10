@@ -141,6 +141,28 @@ function inwx_getConfigArray(): array
             'Type' => 'yesno',
             'Description' => 'Whether to keep the existing nameservers on domain transfer.',
         ],
+        'RateLimitEnabled' => [
+            'Type' => 'yesno',
+            'Description' => 'Enable rate limiting for domain availability checks to prevent automated abuse.',
+        ],
+        'RateLimitMaxRequests' => [
+            'Type' => 'text',
+            'Size' => '5',
+            'Default' => '30',
+            'Description' => 'Maximum number of availability check requests per IP within the time window.',
+        ],
+        'RateLimitWindowSeconds' => [
+            'Type' => 'text',
+            'Size' => '5',
+            'Default' => '60',
+            'Description' => 'Rate limit time window in seconds.',
+        ],
+        'RateLimitWhitelist' => [
+            'Type' => 'textarea',
+            'Rows' => '5',
+            'Cols' => '50',
+            'Description' => 'IP addresses exempt from rate limiting (one per line). Supports optional custom limits with format: IP|max_requests|window_seconds (e.g. "192.168.1.100|100|60"). IPs without custom limits bypass rate limiting entirely.',
+        ],
     ];
 }
 
@@ -952,6 +974,27 @@ function inwx_RenewDomain(array $params): array
 
 function inwx_CheckAvailability(array $params)
 {
+    // --- Input Validation ---
+    $sld = $params['sld'] ?? '';
+    $tldsToInclude = $params['tldsToInclude'] ?? [];
+
+    if (!inwx_ValidateSld($sld)) {
+        return new ResultsList();
+    }
+
+    if (!empty($tldsToInclude) && !inwx_ValidateTlds($tldsToInclude)) {
+        return new ResultsList();
+    }
+
+    // --- Rate Limiting ---
+    if (!inwx_CheckRateLimit($params)) {
+        logActivity('INWX: Rate limit exceeded for IP ' . inwx_GetClientIp());
+        return new ResultsList();
+    }
+
+    inwx_CleanupRateLimitTable();
+
+    // --- Domain Check ---
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
 

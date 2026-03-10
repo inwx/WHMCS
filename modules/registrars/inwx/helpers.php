@@ -147,3 +147,185 @@ function inwx_IncludeAdditionalDomainFields()
     global $additionaldomainfields;
     include implode(DIRECTORY_SEPARATOR, [ROOTDIR, 'resources', 'domains', 'additionalfields.php']);
 }
+
+// --- Rate Limiting Helpers ---
+
+function inwx_EnsureRateLimitTable(): void
+{
+    static $checked = false;
+    if ($checked) {
+        return;
+    }
+
+    $schema = DB::schema();
+    if (!$schema->hasTable('mod_inwx_ratelimit')) {
+        $schema->create('mod_inwx_ratelimit', function ($table) {
+            $table->increments('id');
+            $table->string('ip_address', 45)->unique();
+            $table->integer('request_count')->default(0);
+            $table->timestamp('window_start')->useCurrent();
+        });
+    }
+
+    $checked = true;
+}
+
+function inwx_GetClientIp(): string
+{
+    if (!empty($_SERVER['REMOTE_ADDR'])) {
+        return $_SERVER['REMOTE_ADDR'];
+    }
+
+    return 'unknown';
+}
+
+function inwx_IsAdminContext(): bool
+{
+    if (isset($_SESSION['adminid']) && is_numeric($_SESSION['adminid']) && (int)$_SESSION['adminid'] > 0) {
+        return true;
+    }
+
+    return false;
+}
+
+function inwx_ParseWhitelist(string $raw): array
+{
+    $entries = [];
+    $lines = array_filter(array_map('trim', explode("\n", $raw)));
+
+    foreach ($lines as $line) {
+        $parts = explode('|', $line);
+        $ip = trim($parts[0]);
+        if (empty($ip)) {
+            continue;
+        }
+
+        $entry = ['ip' => $ip, 'max_requests' => null, 'window_seconds' => null];
+
+        if (count($parts) >= 3) {
+            $max = (int)trim($parts[1]);
+            $window = (int)trim($parts[2]);
+            if ($max > 0 && $window > 0) {
+                $entry['max_requests'] = $max;
+                $entry['window_seconds'] = $window;
+            }
+        }
+
+        $entries[$ip] = $entry;
+    }
+
+    return $entries;
+}
+
+function inwx_CheckRateLimit(array $params): bool
+{
+    $rateLimitEnabled = ($params['RateLimitEnabled'] ?? '') === 'on';
+    if (!$rateLimitEnabled) {
+        return true;
+    }
+
+    // Admin users bypass rate limiting entirely
+    if (inwx_IsAdminContext()) {
+        return true;
+    }
+
+    $ip = inwx_GetClientIp();
+    if ($ip === 'unknown') {
+        return true;
+    }
+
+    $maxRequests = max(1, (int)($params['RateLimitMaxRequests'] ?? 30));
+    $windowSeconds = max(1, (int)($params['RateLimitWindowSeconds'] ?? 60));
+
+    // Check whitelist
+    $whitelist = inwx_ParseWhitelist($params['RateLimitWhitelist'] ?? '');
+    if (isset($whitelist[$ip])) {
+        $entry = $whitelist[$ip];
+        // Whitelisted with no custom limits = bypass entirely
+        if ($entry['max_requests'] === null) {
+            return true;
+        }
+        // Whitelisted with custom limits = apply those instead
+        $maxRequests = $entry['max_requests'];
+        $windowSeconds = $entry['window_seconds'];
+    }
+
+    inwx_EnsureRateLimitTable();
+
+    $now = time();
+    $table = DB::table('mod_inwx_ratelimit');
+    $row = $table->where('ip_address', $ip)->first();
+
+    if (!$row) {
+        DB::table('mod_inwx_ratelimit')->insert([
+            'ip_address' => $ip,
+            'request_count' => 1,
+            'window_start' => date('Y-m-d H:i:s', $now),
+        ]);
+        return true;
+    }
+
+    $windowStart = strtotime($row->window_start);
+
+    // Window expired — reset
+    if (($now - $windowStart) >= $windowSeconds) {
+        DB::table('mod_inwx_ratelimit')
+            ->where('ip_address', $ip)
+            ->update([
+                'request_count' => 1,
+                'window_start' => date('Y-m-d H:i:s', $now),
+            ]);
+        return true;
+    }
+
+    // Within window — check count
+    if ($row->request_count < $maxRequests) {
+        DB::table('mod_inwx_ratelimit')
+            ->where('ip_address', $ip)
+            ->increment('request_count');
+        return true;
+    }
+
+    // Rate limit exceeded
+    return false;
+}
+
+function inwx_ValidateSld(string $sld): bool
+{
+    if (empty($sld) || strlen($sld) > 63) {
+        return false;
+    }
+
+    return (bool)preg_match('/^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$/i', $sld);
+}
+
+function inwx_ValidateTlds(array $tlds): bool
+{
+    if (empty($tlds) || count($tlds) > 20) {
+        return false;
+    }
+
+    foreach ($tlds as $tld) {
+        if (!preg_match('/^\.[a-z0-9][a-z0-9.-]{0,62}$/i', $tld)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function inwx_CleanupRateLimitTable(): void
+{
+    // Run cleanup probabilistically (1 in 100 requests)
+    if (mt_rand(1, 100) !== 1) {
+        return;
+    }
+
+    try {
+        DB::table('mod_inwx_ratelimit')
+            ->where('window_start', '<', date('Y-m-d H:i:s', time() - 3600))
+            ->delete();
+    } catch (\Exception $e) {
+        // Silently ignore cleanup errors
+    }
+}
