@@ -91,7 +91,7 @@ class MarkupsView
     {
         $this->renderFlashMessages();
         $this->renderIntro();
-        $this->renderBulkForm($data['moduleLink'], $data['currencies']);
+        $this->renderBulkForm($data['moduleLink'], $data['currencies'], $data['defaults']);
         $this->renderRulesTable(
             $data['moduleLink'],
             $data['currencies'],
@@ -141,8 +141,30 @@ class MarkupsView
      * @param string $moduleLink Module link URL
      * @param mixed  $currencies Array/Collection of currency objects
      */
-    public function renderBulkForm(string $moduleLink, $currencies): void
+    public function renderBulkForm(string $moduleLink, $currencies, $defaults = []): void
     {
+        // Embed defaults as JSON for JS pre-fill when currency changes
+        $defaultsJson = [];
+        foreach ($defaults as $defaultRow) {
+            $defaultsJson[(int) $defaultRow->currency_id] = [
+                'mode' => $defaultRow->mode ?? 'none',
+                'fixed_register' => $defaultRow->fixed_register,
+                'fixed_renew' => $defaultRow->fixed_renew,
+                'fixed_transfer' => $defaultRow->fixed_transfer,
+                'fixed_restore' => $defaultRow->fixed_restore,
+                'markup_type_register' => $defaultRow->markup_type_register ?? '',
+                'markup_value_register' => $defaultRow->markup_value_register ?? '',
+                'markup_type_renew' => $defaultRow->markup_type_renew ?? '',
+                'markup_value_renew' => $defaultRow->markup_value_renew ?? '',
+                'markup_type_transfer' => $defaultRow->markup_type_transfer ?? '',
+                'markup_value_transfer' => $defaultRow->markup_value_transfer ?? '',
+                'markup_type_restore' => $defaultRow->markup_type_restore ?? '',
+                'markup_value_restore' => $defaultRow->markup_value_restore ?? '',
+                'rounding_ending' => $defaultRow->rounding_ending ?? '',
+            ];
+        }
+        echo '<script>var inwxBulkDefaults = ' . json_encode($defaultsJson) . ';</script>';
+
         echo '<h3>' . inwx_markups_lang('bulk.title', 'Bulk-Konfiguration für alle INWX-TLDs') . '</h3>';
         echo '<form method="post" action="' . inwx_markups_buildUrl($moduleLink, 'markups', ['action' => 'bulk']) . '">';
         echo '<table class="form" width="100%" border="0" cellspacing="2" cellpadding="3">';
@@ -358,6 +380,48 @@ class MarkupsView
             bulkSelect.addEventListener("change", toggleBulkRows);
             toggleBulkRows();
         }
+
+        // Pre-fill bulk form from saved defaults when currency changes
+        function prefillBulkDefaults() {
+            var currencySelect = document.querySelector("select[name=bulk_currency_id]");
+            if (!currencySelect || typeof inwxBulkDefaults === "undefined") return;
+            var d = inwxBulkDefaults[currencySelect.value];
+            var modeSelect = document.getElementById("inwx-bulk-mode-select");
+
+            if (!d) {
+                // No defaults for this currency: reset form
+                if (modeSelect) { modeSelect.value = "none"; toggleBulkRows(); }
+                var inputs = document.querySelectorAll("input[name^=bulk_fixed_], input[name^=bulk_markup_value_]");
+                for (var i = 0; i < inputs.length; i++) inputs[i].value = "";
+                var selects = document.querySelectorAll("select[name^=bulk_markup_type_]");
+                for (var i = 0; i < selects.length; i++) selects[i].value = "";
+                var roundingSelect = document.querySelector("select[name=bulk_rounding_ending]");
+                if (roundingSelect) roundingSelect.value = "";
+                return;
+            }
+
+            if (modeSelect) { modeSelect.value = d.mode || "none"; toggleBulkRows(); }
+
+            var fields = ["register", "renew", "transfer", "restore"];
+            for (var i = 0; i < fields.length; i++) {
+                var f = fields[i];
+                var fixedInput = document.querySelector("input[name=bulk_fixed_" + f + "]");
+                if (fixedInput) fixedInput.value = d["fixed_" + f] || "";
+                var typeSelect = document.querySelector("select[name=bulk_markup_type_" + f + "]");
+                if (typeSelect) typeSelect.value = d["markup_type_" + f] || "";
+                var valueInput = document.querySelector("input[name=bulk_markup_value_" + f + "]");
+                if (valueInput) valueInput.value = d["markup_value_" + f] || "";
+            }
+            var roundingSelect = document.querySelector("select[name=bulk_rounding_ending]");
+            if (roundingSelect) roundingSelect.value = d.rounding_ending || "";
+        }
+
+        var bulkCurrencySelect = document.querySelector("select[name=bulk_currency_id]");
+        if (bulkCurrencySelect) {
+            bulkCurrencySelect.addEventListener("change", prefillBulkDefaults);
+            // Auto-fill on load if single currency (already selected)
+            if (bulkCurrencySelect.value) prefillBulkDefaults();
+        }
     })();
     </script>';
     }
@@ -501,7 +565,7 @@ class MarkupsView
 
         echo '<tr class="inwx-bulk-markup-row"><td class="fieldlabel">' . inwx_markups_lang('field.renewMarkup', 'Renew Aufpreis') . '</td><td class="fieldarea">';
         echo '<select name="bulk_markup_type_renew">';
-        echo '<option value="">' . inwx_markups_lang('option.none', '-- keine --') . '</option>';
+        echo '<option value="">' . inwx_markups_lang('option.likeRegister', 'Wie Register (Standard)') . '</option>';
         echo '<option value="percent">' . inwx_markups_lang('option.percent', 'Prozent (%)') . '</option>';
         echo '<option value="fixed">' . inwx_markups_lang('option.fixedAmount', 'Fester Betrag') . '</option>';
         echo '</select> ';
@@ -510,7 +574,7 @@ class MarkupsView
 
         echo '<tr class="inwx-bulk-markup-row"><td class="fieldlabel">' . inwx_markups_lang('field.transferMarkup', 'Transfer Aufpreis') . '</td><td class="fieldarea">';
         echo '<select name="bulk_markup_type_transfer">';
-        echo '<option value="">' . inwx_markups_lang('option.none', '-- keine --') . '</option>';
+        echo '<option value="">' . inwx_markups_lang('option.likeRegister', 'Wie Register (Standard)') . '</option>';
         echo '<option value="percent">' . inwx_markups_lang('option.percent', 'Prozent (%)') . '</option>';
         echo '<option value="fixed">' . inwx_markups_lang('option.fixedAmount', 'Fester Betrag') . '</option>';
         echo '</select> ';
@@ -519,7 +583,7 @@ class MarkupsView
 
         echo '<tr class="inwx-bulk-markup-row"><td class="fieldlabel">' . inwx_markups_lang('field.restoreMarkup', 'Restore Aufpreis') . '</td><td class="fieldarea">';
         echo '<select name="bulk_markup_type_restore">';
-        echo '<option value="">' . inwx_markups_lang('option.none', '-- keine --') . '</option>';
+        echo '<option value="">' . inwx_markups_lang('option.likeRegister', 'Wie Register (Standard)') . '</option>';
         echo '<option value="percent">' . inwx_markups_lang('option.percent', 'Prozent (%)') . '</option>';
         echo '<option value="fixed">' . inwx_markups_lang('option.fixedAmount', 'Fester Betrag') . '</option>';
         echo '</select> ';

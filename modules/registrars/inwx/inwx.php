@@ -906,6 +906,10 @@ function inwx_GetTldPricing(array $params): ResultsList|array
 
     $domains = new ResultsList();
 
+    // Track promo yr1 register prices for post-import adjustment
+    // Keyed by [tld][currencyCode] => promoRegisterPrice
+    $GLOBALS['inwx_promo_yr1'] = [];
+
     foreach ($prices as $price) {
         $tld = $price['tld'];
         if ($tld === null) {
@@ -918,11 +922,16 @@ function inwx_GetTldPricing(array $params): ResultsList|array
         $maxYears = str_replace('Y', '', $maxYears);
 
         $registrarCurrencyCode = $price['currency'];
-        $baseRegister = (float) ($price['promo']['createPrice'] ?? $price['createPrice']);
-        $baseRenew = (float) ($price['promo']['renewalPrice'] ?? $price['renewalPrice']);
-        $baseTransfer = (float) ($price['promo']['renewalPrice'] ?? $price['transferPrice']);
+        // Use regular prices as base so multi-year pricing (yr2+) stays correct
+        $baseRegister = (float) $price['createPrice'];
+        $baseRenew = (float) $price['renewalPrice'];
+        $baseTransfer = (float) $price['transferPrice'];
         $eppRequired = $tldRule['authCode'] == 'YES';
         $minYears = $price['createPeriod'];
+
+        // Detect promo: only applies to yr1 registration
+        $promoRegister = isset($price['promo']['createPrice']) ? (float) $price['promo']['createPrice'] : null;
+        $hasPromo = $promoRegister !== null && abs($promoRegister - $baseRegister) > 0.001;
 
         if ($markupsActive && !$allCurrencies->isEmpty()) {
             // Determine the registrar currency's rate in WHMCS for cross-currency conversion
@@ -940,6 +949,14 @@ function inwx_GetTldPricing(array $params): ResultsList|array
                 $rule = $overrides[$tld][$currency->id] ?? $defaults[$currency->id] ?? null;
 
                 if ($rule === null || ($rule['mode'] ?? 'none') === 'none') {
+                    continue;
+                }
+
+                // Disable mode: skip this TLD+currency so WHMCS keeps existing prices
+                if (($rule['mode'] ?? 'none') === 'disable') {
+                    if ($currency->code === $registrarCurrencyCode) {
+                        $registrarCurrencyHandled = true;
+                    }
                     continue;
                 }
 
@@ -964,6 +981,23 @@ function inwx_GetTldPricing(array $params): ResultsList|array
                     ->setEppRequired($eppRequired)
                     ->setCurrency($currency->code);
 
+                // Track promo yr1 register price (with same markup applied)
+                if ($hasPromo && $rule['mode'] === 'markup') {
+                    $rounding = $rule['rounding_ending'] !== null ? (float) $rule['rounding_ending'] : null;
+                    $regType = $rule['markup_type_register'] ?? null;
+                    $regValue = $rule['markup_value_register'] !== null ? (float) $rule['markup_value_register'] : null;
+                    $promoRegPrice = inwx_applyMarkup($promoRegister * $convRate, $regType, $regValue, $rounding);
+                    if (abs($promoRegPrice - $regPrice) > 0.001) {
+                        $GLOBALS['inwx_promo_yr1'][$tld][$currency->code] = $promoRegPrice;
+                    }
+                } elseif ($hasPromo && $rule['mode'] !== 'fixed') {
+                    // mode='none' passthrough: promo price converted to target currency
+                    $promoRegPrice = round($promoRegister * $convRate, 2);
+                    if (abs($promoRegPrice - $regPrice) > 0.001) {
+                        $GLOBALS['inwx_promo_yr1'][$tld][$currency->code] = $promoRegPrice;
+                    }
+                }
+
                 if ($currency->code === $registrarCurrencyCode) {
                     $registrarCurrencyHandled = true;
                 }
@@ -980,6 +1014,11 @@ function inwx_GetTldPricing(array $params): ResultsList|array
                     ->setTransferPrice($baseTransfer)
                     ->setEppRequired($eppRequired)
                     ->setCurrency($registrarCurrencyCode);
+
+                // Track promo for fallback registrar currency (no markup rule)
+                if ($hasPromo) {
+                    $GLOBALS['inwx_promo_yr1'][$tld][$registrarCurrencyCode] = $promoRegister;
+                }
             }
         } else {
             // Addon not active or no currencies found: original behaviour
@@ -992,6 +1031,11 @@ function inwx_GetTldPricing(array $params): ResultsList|array
                 ->setTransferPrice($baseTransfer)
                 ->setEppRequired($eppRequired)
                 ->setCurrency($registrarCurrencyCode);
+
+            // Track promo yr1 even without addon
+            if ($hasPromo) {
+                $GLOBALS['inwx_promo_yr1'][$tld][$registrarCurrencyCode] = $promoRegister;
+            }
         }
     }
 

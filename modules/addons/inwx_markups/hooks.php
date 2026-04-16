@@ -151,6 +151,44 @@ add_hook('AfterRegistrarImportDomainPricing', 1, function (array $vars) {
 
     $subject = 'INWX WHMCS: TLD Wholesale Price Update';
     NotificationService::sendAdminEmail($subject, $body);
+
+    // Adjust yr1 registration prices for TLDs with active promos.
+    // GetTldPricing uses regular prices for the import (so yr2+ are correct),
+    // but yr1 should reflect the promotional price.
+    $promoYr1 = $GLOBALS['inwx_promo_yr1'] ?? [];
+    if (!empty($promoYr1)) {
+        try {
+            $whmcsCurrencies = Capsule::table('tblcurrencies')->get()->keyBy('code');
+
+            foreach ($promoYr1 as $promoTld => $currencyPrices) {
+                $tldRow = Capsule::table('tbldomainpricing')
+                    ->where('extension', $promoTld)
+                    ->first();
+
+                if (!$tldRow) {
+                    continue;
+                }
+
+                foreach ($currencyPrices as $promoCurrencyCode => $promoPrice) {
+                    $cur = $whmcsCurrencies->get($promoCurrencyCode);
+                    if (!$cur) {
+                        continue;
+                    }
+
+                    // msetupfee = yr1 price in tblpricing for domainregister
+                    Capsule::table('tblpricing')
+                        ->where('type', 'domainregister')
+                        ->where('relid', $tldRow->id)
+                        ->where('currency', $cur->id)
+                        ->update(['msetupfee' => round($promoPrice, 2)]);
+                }
+            }
+
+            logActivity('INWX Markups: Applied promo yr1 adjustments for ' . count($promoYr1) . ' TLD(s).');
+        } catch (Throwable $e) {
+            logActivity('INWX Markups: Failed to apply promo yr1 adjustments: ' . $e->getMessage());
+        }
+    }
 });
 
 /*
