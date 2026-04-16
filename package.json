@@ -22,34 +22,6 @@
     "lint-staged": "^16.2.7",
     "semantic-release": "^25.0.3"
   },
-  "release": {
-    "tagFormat": "${version}",
-    "branches": [
-      "master",
-      {
-        "name": "beta",
-        "prerelease": true
-      }
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/github",
-        {
-          "assets": [
-            {
-              "path": "release.zip"
-            },
-            {
-              "path": "checksum.txt"
-            }
-          ]
-        }
-      ],
-      "@hexonet/semantic-release-whmcs"
-    ]
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"

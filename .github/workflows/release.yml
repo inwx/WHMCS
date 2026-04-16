@@ -49,8 +49,9 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WHMCSMP_LOGIN: ${{ vars.WHMCSMP_LOGIN }}
+          WHMCSMP_PASSWORD: ${{ secrets.WHMCSMP_PASSWORD }}
+          WHMCSMP_PRODUCTID: ${{ vars.WHMCSMP_PRODUCTID }}
           # Only publish to WHMCS Marketplace on stable releases (master)
-          WHMCSMP_LOGIN: ${{ github.ref == 'refs/heads/master' && vars.WHMCSMP_LOGIN || '' }}
-          WHMCSMP_PASSWORD: ${{ github.ref == 'refs/heads/master' && secrets.WHMCSMP_PASSWORD || '' }}
-          WHMCSMP_PRODUCTID: ${{ github.ref == 'refs/heads/master' && vars.WHMCSMP_PRODUCTID || '' }}
+          WHMCSMP_PUBLISH: ${{ github.ref == 'refs/heads/master' }}
         run: pnpm semantic-release
