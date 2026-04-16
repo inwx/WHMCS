@@ -3,7 +3,8 @@ name: Release
 on:
   push:
     branches:
-      - master # or main
+      - master
+      - beta
 
 jobs:
   get-next-version:
@@ -47,8 +48,9 @@ jobs:
             release.zip
       - name: Release
         env:
-          WHMCSMP_LOGIN: ${{ vars.WHMCSMP_LOGIN }}
-          WHMCSMP_PASSWORD: ${{ secrets.WHMCSMP_PASSWORD }}
-          WHMCSMP_PRODUCTID: ${{ vars.WHMCSMP_PRODUCTID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Only publish to WHMCS Marketplace on stable releases (master)
+          WHMCSMP_LOGIN: ${{ github.ref == 'refs/heads/master' && vars.WHMCSMP_LOGIN || '' }}
+          WHMCSMP_PASSWORD: ${{ github.ref == 'refs/heads/master' && secrets.WHMCSMP_PASSWORD || '' }}
+          WHMCSMP_PRODUCTID: ${{ github.ref == 'refs/heads/master' && vars.WHMCSMP_PRODUCTID || '' }}
         run: pnpm semantic-release

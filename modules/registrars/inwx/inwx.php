@@ -24,7 +24,7 @@ class Obfuscated implements Stringable
     }
 }
 
-function inwx_RequestDelete(array $params)
+function inwx_RequestDelete(array $params): array|bool
 {
     $params = inwx_InjectOriginalDomain($params);
 
@@ -144,7 +144,7 @@ function inwx_getConfigArray(): array
     ];
 }
 
-function inwx_GetRegistrarLock(array $params)
+function inwx_GetRegistrarLock(array $params): string|array
 {
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
@@ -864,7 +864,7 @@ function inwx_TransferDomain(array $params): array
     return $values;
 }
 
-function inwx_GetTldPricing(array $params)
+function inwx_GetTldPricing(array $params): ResultsList|array
 {
     $domrobot = inwx_CreateDomrobot($params);
 
@@ -872,8 +872,7 @@ function inwx_GetTldPricing(array $params)
     if ($response['code'] === 1000 || $response['code'] === 1001) {
         $prices = $response['resData']['price'];
     } else {
-        $values['error'] = inwx_GetApiResponseErrorMessage($response);
-        return $values;
+        return ['error' => inwx_GetApiResponseErrorMessage($response)];
     }
 
     $tldRules = [];
@@ -888,7 +887,28 @@ function inwx_GetTldPricing(array $params)
         $tldRules[$tldRule['tld']] = $tldRule;
     }
 
+    // Load markup rules if the INWX Markups addon is active
+    $overrides = [];
+    $defaults = [];
+    $allCurrencies = [];
+    $markupsActive = function_exists('inwx_fetchTldOverrides') && function_exists('inwx_fetchTldDefaults');
+
+    if ($markupsActive) {
+        try {
+            $overrides = inwx_fetchTldOverrides();   // [tld][currency_id] => rule
+            $defaults = inwx_fetchTldDefaults();     // [currency_id] => rule
+            $allCurrencies = Capsule::table('tblcurrencies')->get();
+        } catch (Throwable $e) {
+            logActivity('INWX Markups: Failed to load markup rules during TLD pricing sync: ' . $e->getMessage());
+            $markupsActive = false;
+        }
+    }
+
     $domains = new ResultsList();
+
+    // Track promo yr1 register prices for post-import adjustment
+    // Keyed by [tld][currencyCode] => promoRegisterPrice
+    $GLOBALS['inwx_promo_yr1'] = [];
 
     foreach ($prices as $price) {
         $tld = $price['tld'];
@@ -901,20 +921,219 @@ function inwx_GetTldPricing(array $params)
         $maxYears = end($maxYears);
         $maxYears = str_replace('Y', '', $maxYears);
 
-        $domain = (new ImportItem())
-            ->setExtension($tld)
-            ->setMinYears($price['createPeriod'])
-            ->setMaxYears($maxYears)
-            ->setRegisterPrice($price['promo']['createPrice'] ?? $price['createPrice'])
-            ->setRenewPrice($price['promo']['renewalPrice'] ?? $price['renewalPrice'])
-            ->setTransferPrice($price['promo']['renewalPrice'] ?? $price['transferPrice'])
-            ->setEppRequired($tldRule['authCode'] == 'YES')
-            ->setCurrency($price['currency']);
+        $registrarCurrencyCode = $price['currency'];
+        // Use regular prices as base so multi-year pricing (yr2+) stays correct
+        $baseRegister = (float) $price['createPrice'];
+        $baseRenew = (float) $price['renewalPrice'];
+        $baseTransfer = (float) $price['transferPrice'];
+        $eppRequired = $tldRule['authCode'] == 'YES';
+        $minYears = $price['createPeriod'];
 
-        $domains[] = $domain;
+        // Detect promo: only applies to yr1 registration
+        $promoRegister = isset($price['promo']['createPrice']) ? (float) $price['promo']['createPrice'] : null;
+        $hasPromo = $promoRegister !== null && abs($promoRegister - $baseRegister) > 0.001;
+
+        if ($markupsActive && !$allCurrencies->isEmpty()) {
+            // Determine the registrar currency's rate in WHMCS for cross-currency conversion
+            $registrarCurrencyRate = 1.0;
+            foreach ($allCurrencies as $cur) {
+                if ($cur->code === $registrarCurrencyCode) {
+                    $registrarCurrencyRate = (float) $cur->rate ?: 1.0;
+                    break;
+                }
+            }
+
+            $registrarCurrencyHandled = false;
+
+            foreach ($allCurrencies as $currency) {
+                $rule = $overrides[$tld][$currency->id] ?? $defaults[$currency->id] ?? null;
+
+                if ($rule === null || ($rule['mode'] ?? 'none') === 'none') {
+                    continue;
+                }
+
+                // Disable mode: skip this TLD+currency so WHMCS keeps existing prices
+                if (($rule['mode'] ?? 'none') === 'disable') {
+                    if ($currency->code === $registrarCurrencyCode) {
+                        $registrarCurrencyHandled = true;
+                    }
+                    continue;
+                }
+
+                // Rate to convert registrar base price -> target currency
+                $convRate = (float) $currency->rate / $registrarCurrencyRate;
+
+                [$regPrice, $renewPrice, $transferPrice] = inwx_resolveMarkupPrices(
+                    $rule,
+                    $baseRegister,
+                    $baseRenew,
+                    $baseTransfer,
+                    $convRate
+                );
+
+                $domains[] = (new ImportItem())
+                    ->setExtension($tld)
+                    ->setMinYears($minYears)
+                    ->setMaxYears($maxYears)
+                    ->setRegisterPrice($regPrice)
+                    ->setRenewPrice($renewPrice)
+                    ->setTransferPrice($transferPrice)
+                    ->setEppRequired($eppRequired)
+                    ->setCurrency($currency->code);
+
+                // Track promo yr1 register price (with same markup applied)
+                if ($hasPromo && $rule['mode'] === 'markup') {
+                    $rounding = $rule['rounding_ending'] !== null ? (float) $rule['rounding_ending'] : null;
+                    $regType = $rule['markup_type_register'] ?? null;
+                    $regValue = $rule['markup_value_register'] !== null ? (float) $rule['markup_value_register'] : null;
+                    $promoRegPrice = inwx_applyMarkup($promoRegister * $convRate, $regType, $regValue, $rounding);
+                    if (abs($promoRegPrice - $regPrice) > 0.001) {
+                        $GLOBALS['inwx_promo_yr1'][$tld][$currency->code] = $promoRegPrice;
+                    }
+                } elseif ($hasPromo && $rule['mode'] !== 'fixed') {
+                    // mode='none' passthrough: promo price converted to target currency
+                    $promoRegPrice = round($promoRegister * $convRate, 2);
+                    if (abs($promoRegPrice - $regPrice) > 0.001) {
+                        $GLOBALS['inwx_promo_yr1'][$tld][$currency->code] = $promoRegPrice;
+                    }
+                }
+
+                if ($currency->code === $registrarCurrencyCode) {
+                    $registrarCurrencyHandled = true;
+                }
+            }
+
+            // Always include a base-price item for the registrar currency unless a specific rule replaced it
+            if (!$registrarCurrencyHandled) {
+                $domains[] = (new ImportItem())
+                    ->setExtension($tld)
+                    ->setMinYears($minYears)
+                    ->setMaxYears($maxYears)
+                    ->setRegisterPrice($baseRegister)
+                    ->setRenewPrice($baseRenew)
+                    ->setTransferPrice($baseTransfer)
+                    ->setEppRequired($eppRequired)
+                    ->setCurrency($registrarCurrencyCode);
+
+                // Track promo for fallback registrar currency (no markup rule)
+                if ($hasPromo) {
+                    $GLOBALS['inwx_promo_yr1'][$tld][$registrarCurrencyCode] = $promoRegister;
+                }
+            }
+        } else {
+            // Addon not active or no currencies found: original behaviour
+            $domains[] = (new ImportItem())
+                ->setExtension($tld)
+                ->setMinYears($minYears)
+                ->setMaxYears($maxYears)
+                ->setRegisterPrice($baseRegister)
+                ->setRenewPrice($baseRenew)
+                ->setTransferPrice($baseTransfer)
+                ->setEppRequired($eppRequired)
+                ->setCurrency($registrarCurrencyCode);
+
+            // Track promo yr1 even without addon
+            if ($hasPromo) {
+                $GLOBALS['inwx_promo_yr1'][$tld][$registrarCurrencyCode] = $promoRegister;
+            }
+        }
     }
 
     return $domains;
+}
+
+/**
+ * Apply a markup rule to base prices and return final prices in the target currency.
+ *
+ * Implements "like register" fallback: if renew or transfer markup type is null,
+ * the register markup type and value are used as a fallback.
+ *
+ * @param array $rule         Markup rule (mode, fixed_*, markup_type_*, markup_value_*, rounding_ending)
+ * @param float $baseRegister Base register price in registrar currency
+ * @param float $baseRenew    Base renew price in registrar currency
+ * @param float $baseTransfer Base transfer price in registrar currency
+ * @param float $convRate     Conversion multiplier: targetCurrencyRate / registrarCurrencyRate
+ *
+ * @return array [register, renew, transfer] prices in target currency
+ */
+function inwx_resolveMarkupPrices(
+    array $rule,
+    float $baseRegister,
+    float $baseRenew,
+    float $baseTransfer,
+    float $convRate,
+): array {
+    $mode = $rule['mode'] ?? 'none';
+    $rounding = $rule['rounding_ending'] !== null ? (float) $rule['rounding_ending'] : null;
+
+    if ($mode === 'fixed') {
+        $reg = $rule['fixed_register'] !== null
+            ? (float) $rule['fixed_register']
+            : round($baseRegister * $convRate, 2);
+        $renew = $rule['fixed_renew'] !== null
+            ? (float) $rule['fixed_renew']
+            : round($baseRenew * $convRate, 2);
+        $transfer = $rule['fixed_transfer'] !== null
+            ? (float) $rule['fixed_transfer']
+            : round($baseTransfer * $convRate, 2);
+
+        return [$reg, $renew, $transfer];
+    }
+
+    if ($mode === 'markup') {
+        // "Like register" fallback: when renew/transfer markup type is null, inherit from register
+        $regType = $rule['markup_type_register'] ?? null;
+        $regValue = $rule['markup_value_register'] !== null ? (float) $rule['markup_value_register'] : null;
+
+        $renewType = $rule['markup_type_renew'] ?? $regType;
+        $renewValue = $rule['markup_value_renew'] !== null ? (float) $rule['markup_value_renew'] : $regValue;
+
+        $transferType = $rule['markup_type_transfer'] ?? $regType;
+        $transferValue = $rule['markup_value_transfer'] !== null ? (float) $rule['markup_value_transfer'] : $regValue;
+
+        $reg = inwx_applyMarkup($baseRegister * $convRate, $regType, $regValue, $rounding);
+        $renew = inwx_applyMarkup($baseRenew * $convRate, $renewType, $renewValue, $rounding);
+        $transfer = inwx_applyMarkup($baseTransfer * $convRate, $transferType, $transferValue, $rounding);
+
+        return [$reg, $renew, $transfer];
+    }
+
+    // mode = 'none': pass through converted base prices
+    return [
+        round($baseRegister * $convRate, 2),
+        round($baseRenew * $convRate, 2),
+        round($baseTransfer * $convRate, 2),
+    ];
+}
+
+/**
+ * Apply a single markup to a base price with optional rounding-to-ending.
+ *
+ * @param float       $base     Base price (already in target currency)
+ * @param string|null $type     'percent' or 'fixed'
+ * @param float|null  $value    Markup value
+ * @param float|null  $rounding Decimal ending to round up to (e.g. 0.99), or null for no rounding
+ */
+function inwx_applyMarkup(float $base, ?string $type, ?float $value, ?float $rounding): float
+{
+    if ($type === 'percent' && $value !== null) {
+        $price = $base * (1 + ($value / 100));
+    } elseif ($type === 'fixed' && $value !== null) {
+        $price = $base + $value;
+    } else {
+        $price = $base;
+    }
+
+    if ($rounding !== null && $price > 0) {
+        $intPart = floor($price);
+        $target = $intPart + $rounding;
+        if ($target < $price) {
+            $target = ($intPart + 1) + $rounding;
+        }
+        $price = round($target, 2);
+    }
+
+    return round($price, 2);
 }
 
 function inwx_RenewDomain(array $params): array
@@ -946,17 +1165,22 @@ function inwx_RenewDomain(array $params): array
     return $values;
 }
 
-function inwx_CheckAvailability(array $params)
+function inwx_CheckAvailability(array $params): ResultsList|array
 {
-    $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
 
+    // Use searchTerm parameter (WHMCS 9.0 compatible)
+    $searchTerm = $params['searchTerm'] ?? $params['sld'] ?? '';
+
+    // Use tldsToInclude parameter directly (WHMCS 9.0 compatible)
+    $tldsToInclude = $params['tldsToInclude'] ?? [];
+
     $payload = [
-        'sld' => $params['original']['sld'],
+        'sld' => $searchTerm,
         'tld' => array_map(static function ($tld) {
-            // Remove dot at end of tld
-            return substr($tld, 1);
-        }, $params['original']['tldsToInclude']),
+            // Remove dot at beginning of tld if present (WHMCS format: .com, .net, etc.)
+            return ltrim($tld, '.');
+        }, $tldsToInclude),
     ];
     $response = $domrobot->call('domain', 'check', inwx_InjectCredentials($params, $payload));
 
@@ -1062,7 +1286,7 @@ function endsWith($haystack, $needle)
     return substr($haystack, -$length) === $needle;
 }
 
-function inwx_SyncDomain($params)
+function inwx_SyncDomain(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
@@ -1090,7 +1314,7 @@ function inwx_SyncDomain($params)
         $exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']['timestamp']) : null);
         $crDate = (isset($response['resData']['crDate']) ? date('Y-m-d', $response['resData']['crDate']['timestamp']) : null);
         $reDate = (isset($response['resData']['reDate']) ? date('Y-m-d', $response['resData']['reDate']['timestamp']) : null);
-        $status = (isset($response['resData']['status']) ?: null);
+        $status = $response['resData']['status'] ?? null;
 
         $updateDetails = [];
 
@@ -1154,7 +1378,7 @@ function inwx_SendContactVerification(array $params): array
     return ['error' => ''];
 }
 
-function inwx_AdminCustomButtonArray()
+function inwx_AdminCustomButtonArray(): array
 {
     $buttonarray = [
         'Send Contact Verification' => 'SendContactVerification',
