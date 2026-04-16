@@ -887,6 +887,23 @@ function inwx_GetTldPricing(array $params): ResultsList|array
         $tldRules[$tldRule['tld']] = $tldRule;
     }
 
+    // Load markup rules if the INWX Markups addon is active
+    $overrides = [];
+    $defaults = [];
+    $allCurrencies = [];
+    $markupsActive = function_exists('inwx_fetchTldOverrides') && function_exists('inwx_fetchTldDefaults');
+
+    if ($markupsActive) {
+        try {
+            $overrides = inwx_fetchTldOverrides();   // [tld][currency_id] => rule
+            $defaults = inwx_fetchTldDefaults();     // [currency_id] => rule
+            $allCurrencies = Capsule::table('tblcurrencies')->get();
+        } catch (Throwable $e) {
+            logActivity('INWX Markups: Failed to load markup rules during TLD pricing sync: ' . $e->getMessage());
+            $markupsActive = false;
+        }
+    }
+
     $domains = new ResultsList();
 
     foreach ($prices as $price) {
@@ -900,20 +917,179 @@ function inwx_GetTldPricing(array $params): ResultsList|array
         $maxYears = end($maxYears);
         $maxYears = str_replace('Y', '', $maxYears);
 
-        $domain = (new ImportItem())
-            ->setExtension($tld)
-            ->setMinYears($price['createPeriod'])
-            ->setMaxYears($maxYears)
-            ->setRegisterPrice($price['promo']['createPrice'] ?? $price['createPrice'])
-            ->setRenewPrice($price['promo']['renewalPrice'] ?? $price['renewalPrice'])
-            ->setTransferPrice($price['promo']['renewalPrice'] ?? $price['transferPrice'])
-            ->setEppRequired($tldRule['authCode'] == 'YES')
-            ->setCurrency($price['currency']);
+        $registrarCurrencyCode = $price['currency'];
+        $baseRegister = (float) ($price['promo']['createPrice'] ?? $price['createPrice']);
+        $baseRenew = (float) ($price['promo']['renewalPrice'] ?? $price['renewalPrice']);
+        $baseTransfer = (float) ($price['promo']['renewalPrice'] ?? $price['transferPrice']);
+        $eppRequired = $tldRule['authCode'] == 'YES';
+        $minYears = $price['createPeriod'];
 
-        $domains[] = $domain;
+        if ($markupsActive && !$allCurrencies->isEmpty()) {
+            // Determine the registrar currency's rate in WHMCS for cross-currency conversion
+            $registrarCurrencyRate = 1.0;
+            foreach ($allCurrencies as $cur) {
+                if ($cur->code === $registrarCurrencyCode) {
+                    $registrarCurrencyRate = (float) $cur->rate ?: 1.0;
+                    break;
+                }
+            }
+
+            $registrarCurrencyHandled = false;
+
+            foreach ($allCurrencies as $currency) {
+                $rule = $overrides[$tld][$currency->id] ?? $defaults[$currency->id] ?? null;
+
+                if ($rule === null || ($rule['mode'] ?? 'none') === 'none') {
+                    continue;
+                }
+
+                // Rate to convert registrar base price -> target currency
+                $convRate = (float) $currency->rate / $registrarCurrencyRate;
+
+                [$regPrice, $renewPrice, $transferPrice] = inwx_resolveMarkupPrices(
+                    $rule,
+                    $baseRegister,
+                    $baseRenew,
+                    $baseTransfer,
+                    $convRate
+                );
+
+                $domains[] = (new ImportItem())
+                    ->setExtension($tld)
+                    ->setMinYears($minYears)
+                    ->setMaxYears($maxYears)
+                    ->setRegisterPrice($regPrice)
+                    ->setRenewPrice($renewPrice)
+                    ->setTransferPrice($transferPrice)
+                    ->setEppRequired($eppRequired)
+                    ->setCurrency($currency->code);
+
+                if ($currency->code === $registrarCurrencyCode) {
+                    $registrarCurrencyHandled = true;
+                }
+            }
+
+            // Always include a base-price item for the registrar currency unless a specific rule replaced it
+            if (!$registrarCurrencyHandled) {
+                $domains[] = (new ImportItem())
+                    ->setExtension($tld)
+                    ->setMinYears($minYears)
+                    ->setMaxYears($maxYears)
+                    ->setRegisterPrice($baseRegister)
+                    ->setRenewPrice($baseRenew)
+                    ->setTransferPrice($baseTransfer)
+                    ->setEppRequired($eppRequired)
+                    ->setCurrency($registrarCurrencyCode);
+            }
+        } else {
+            // Addon not active or no currencies found: original behaviour
+            $domains[] = (new ImportItem())
+                ->setExtension($tld)
+                ->setMinYears($minYears)
+                ->setMaxYears($maxYears)
+                ->setRegisterPrice($baseRegister)
+                ->setRenewPrice($baseRenew)
+                ->setTransferPrice($baseTransfer)
+                ->setEppRequired($eppRequired)
+                ->setCurrency($registrarCurrencyCode);
+        }
     }
 
     return $domains;
+}
+
+/**
+ * Apply a markup rule to base prices and return final prices in the target currency.
+ *
+ * Implements "like register" fallback: if renew or transfer markup type is null,
+ * the register markup type and value are used as a fallback.
+ *
+ * @param array $rule         Markup rule (mode, fixed_*, markup_type_*, markup_value_*, rounding_ending)
+ * @param float $baseRegister Base register price in registrar currency
+ * @param float $baseRenew    Base renew price in registrar currency
+ * @param float $baseTransfer Base transfer price in registrar currency
+ * @param float $convRate     Conversion multiplier: targetCurrencyRate / registrarCurrencyRate
+ *
+ * @return array [register, renew, transfer] prices in target currency
+ */
+function inwx_resolveMarkupPrices(
+    array $rule,
+    float $baseRegister,
+    float $baseRenew,
+    float $baseTransfer,
+    float $convRate,
+): array {
+    $mode = $rule['mode'] ?? 'none';
+    $rounding = $rule['rounding_ending'] !== null ? (float) $rule['rounding_ending'] : null;
+
+    if ($mode === 'fixed') {
+        $reg = $rule['fixed_register'] !== null
+            ? (float) $rule['fixed_register']
+            : round($baseRegister * $convRate, 2);
+        $renew = $rule['fixed_renew'] !== null
+            ? (float) $rule['fixed_renew']
+            : round($baseRenew * $convRate, 2);
+        $transfer = $rule['fixed_transfer'] !== null
+            ? (float) $rule['fixed_transfer']
+            : round($baseTransfer * $convRate, 2);
+
+        return [$reg, $renew, $transfer];
+    }
+
+    if ($mode === 'markup') {
+        // "Like register" fallback: when renew/transfer markup type is null, inherit from register
+        $regType = $rule['markup_type_register'] ?? null;
+        $regValue = $rule['markup_value_register'] !== null ? (float) $rule['markup_value_register'] : null;
+
+        $renewType = $rule['markup_type_renew'] ?? $regType;
+        $renewValue = $rule['markup_value_renew'] !== null ? (float) $rule['markup_value_renew'] : $regValue;
+
+        $transferType = $rule['markup_type_transfer'] ?? $regType;
+        $transferValue = $rule['markup_value_transfer'] !== null ? (float) $rule['markup_value_transfer'] : $regValue;
+
+        $reg = inwx_applyMarkup($baseRegister * $convRate, $regType, $regValue, $rounding);
+        $renew = inwx_applyMarkup($baseRenew * $convRate, $renewType, $renewValue, $rounding);
+        $transfer = inwx_applyMarkup($baseTransfer * $convRate, $transferType, $transferValue, $rounding);
+
+        return [$reg, $renew, $transfer];
+    }
+
+    // mode = 'none': pass through converted base prices
+    return [
+        round($baseRegister * $convRate, 2),
+        round($baseRenew * $convRate, 2),
+        round($baseTransfer * $convRate, 2),
+    ];
+}
+
+/**
+ * Apply a single markup to a base price with optional rounding-to-ending.
+ *
+ * @param float       $base     Base price (already in target currency)
+ * @param string|null $type     'percent' or 'fixed'
+ * @param float|null  $value    Markup value
+ * @param float|null  $rounding Decimal ending to round up to (e.g. 0.99), or null for no rounding
+ */
+function inwx_applyMarkup(float $base, ?string $type, ?float $value, ?float $rounding): float
+{
+    if ($type === 'percent' && $value !== null) {
+        $price = $base * (1 + ($value / 100));
+    } elseif ($type === 'fixed' && $value !== null) {
+        $price = $base + $value;
+    } else {
+        $price = $base;
+    }
+
+    if ($rounding !== null && $price > 0) {
+        $intPart = floor($price);
+        $target = $intPart + $rounding;
+        if ($target < $price) {
+            $target = ($intPart + 1) + $rounding;
+        }
+        $price = round($target, 2);
+    }
+
+    return round($price, 2);
 }
 
 function inwx_RenewDomain(array $params): array

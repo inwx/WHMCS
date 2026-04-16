@@ -2,6 +2,7 @@
 
 use INWX\Markups\Helpers\LanguageHelper;
 use INWX\Markups\Helpers\UrlHelper;
+use INWX\Markups\Models\TldDefault;
 use INWX\Markups\Models\TldOverride;
 use INWX\Markups\Services\PricingService;
 
@@ -49,4 +50,14 @@ function inwx_roundToEnding(float $price, float $roundingEnding = 0.99): float
 function inwx_fetchTldOverrides(): array
 {
     return TldOverride::getAllAsArray();
+}
+
+/**
+ * Fetch TLD defaults from database.
+ *
+ * @return array Indexed by [currency_id]
+ */
+function inwx_fetchTldDefaults(): array
+{
+    return TldDefault::getAllAsArray();
 }
