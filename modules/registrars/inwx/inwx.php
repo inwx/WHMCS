@@ -24,7 +24,7 @@ class Obfuscated implements Stringable
     }
 }
 
-function inwx_RequestDelete(array $params)
+function inwx_RequestDelete(array $params): array|bool
 {
     $params = inwx_InjectOriginalDomain($params);
 
@@ -144,7 +144,7 @@ function inwx_getConfigArray(): array
     ];
 }
 
-function inwx_GetRegistrarLock(array $params)
+function inwx_GetRegistrarLock(array $params): string|array
 {
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
@@ -864,7 +864,7 @@ function inwx_TransferDomain(array $params): array
     return $values;
 }
 
-function inwx_GetTldPricing(array $params)
+function inwx_GetTldPricing(array $params): ResultsList|array
 {
     $domrobot = inwx_CreateDomrobot($params);
 
@@ -872,8 +872,7 @@ function inwx_GetTldPricing(array $params)
     if ($response['code'] === 1000 || $response['code'] === 1001) {
         $prices = $response['resData']['price'];
     } else {
-        $values['error'] = inwx_GetApiResponseErrorMessage($response);
-        return $values;
+        return ['error' => inwx_GetApiResponseErrorMessage($response)];
     }
 
     $tldRules = [];
@@ -946,17 +945,22 @@ function inwx_RenewDomain(array $params): array
     return $values;
 }
 
-function inwx_CheckAvailability(array $params)
+function inwx_CheckAvailability(array $params): ResultsList|array
 {
-    $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
 
+    // Use searchTerm parameter (WHMCS 9.0 compatible)
+    $searchTerm = $params['searchTerm'] ?? $params['sld'] ?? '';
+
+    // Use tldsToInclude parameter directly (WHMCS 9.0 compatible)
+    $tldsToInclude = $params['tldsToInclude'] ?? [];
+
     $payload = [
-        'sld' => $params['original']['sld'],
+        'sld' => $searchTerm,
         'tld' => array_map(static function ($tld) {
-            // Remove dot at end of tld
-            return substr($tld, 1);
-        }, $params['original']['tldsToInclude']),
+            // Remove dot at beginning of tld if present (WHMCS format: .com, .net, etc.)
+            return ltrim($tld, '.');
+        }, $tldsToInclude),
     ];
     $response = $domrobot->call('domain', 'check', inwx_InjectCredentials($params, $payload));
 
@@ -1062,7 +1066,7 @@ function endsWith($haystack, $needle)
     return substr($haystack, -$length) === $needle;
 }
 
-function inwx_SyncDomain($params)
+function inwx_SyncDomain(array $params): array
 {
     $params = inwx_InjectOriginalDomain($params);
     $domrobot = inwx_CreateDomrobot($params);
@@ -1090,7 +1094,7 @@ function inwx_SyncDomain($params)
         $exDate = (isset($response['resData']['exDate']) ? date('Y-m-d', $response['resData']['exDate']['timestamp']) : null);
         $crDate = (isset($response['resData']['crDate']) ? date('Y-m-d', $response['resData']['crDate']['timestamp']) : null);
         $reDate = (isset($response['resData']['reDate']) ? date('Y-m-d', $response['resData']['reDate']['timestamp']) : null);
-        $status = (isset($response['resData']['status']) ?: null);
+        $status = $response['resData']['status'] ?? null;
 
         $updateDetails = [];
 
@@ -1154,7 +1158,7 @@ function inwx_SendContactVerification(array $params): array
     return ['error' => ''];
 }
 
-function inwx_AdminCustomButtonArray()
+function inwx_AdminCustomButtonArray(): array
 {
     $buttonarray = [
         'Send Contact Verification' => 'SendContactVerification',

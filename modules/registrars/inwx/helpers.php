@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Database\Capsule\Manager as DB;
 use INWX\Domrobot;
+use WHMCS\Database\Capsule;
 
 include_once 'api/Domrobot.php';
 
 function inwx_getModuleConfig(): array
 {
-    $encryptedConfigValues = DB::table('tblregistrars')
+    $encryptedConfigValues = Capsule::table('tblregistrars')
         ->where('registrar', '=', 'inwx')
         ->get(['setting', 'value'])->toArray();
 
