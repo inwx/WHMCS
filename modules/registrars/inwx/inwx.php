@@ -1163,6 +1163,59 @@ function inwx_AdminCustomButtonArray()
     return $buttonarray;
 }
 
+function inwx_GetAccountBalance(array $params): array
+{
+    if (empty($params['Username']) || empty($params['Password'])) {
+        return ['error' => 'INWX credentials are not configured.'];
+    }
+
+    try {
+        $domrobot = inwx_CreateDomrobot($params);
+        $login = $domrobot->call('account', 'login', [
+            'user' => $params['Username'],
+            'pass' => $params['Password'],
+        ]);
+    } catch (Throwable $e) {
+        return ['error' => 'Connection to INWX API failed: ' . $e->getMessage()];
+    }
+
+    if (!is_array($login) || ($login['code'] ?? 0) !== 1000) {
+        return ['error' => 'INWX login failed: ' . inwx_GetApiResponseErrorMessage(is_array($login) ? $login : [])];
+    }
+
+    $response = null;
+    try {
+        $response = $domrobot->call('accounting', 'accountBalance');
+    } catch (Throwable $e) {
+        try {
+            $domrobot->call('account', 'logout');
+        } catch (Throwable $ignored) {
+        }
+        return ['error' => 'Balance request failed: ' . $e->getMessage()];
+    }
+
+    try {
+        $domrobot->call('account', 'logout');
+    } catch (Throwable $ignored) {
+    }
+
+    if (!is_array($response) || ($response['code'] ?? 0) !== 1000 || !isset($response['resData'])) {
+        return ['error' => 'INWX API error: ' . inwx_GetApiResponseErrorMessage(is_array($response) ? $response : [])];
+    }
+
+    $data = $response['resData'];
+
+    return [
+        'total' => (float) ($data['total'] ?? 0),
+        'available' => (float) ($data['available'] ?? 0),
+        'locked' => (float) ($data['locked'] ?? 0),
+        'creditLimit' => (float) ($data['creditLimit'] ?? 0),
+        'currency' => (string) ($data['currency'] ?? 'EUR'),
+        'endpoint' => !empty($params['TestMode']) ? 'OTE' : 'Live',
+        'fetchedAt' => date('c'),
+    ];
+}
+
 /**
  * @throws Exception
  */
