@@ -3147,7 +3147,7 @@ $additionaldomainfields['.es'][] = [
 $additionaldomainfields['.es'][] = [
     'Name' => 'Info',
     'Type' => 'display',
-    'Default' => isset($_LANG['inwx_es_contacts']) ? $_LANG['inwx_es_contacts'] : '<strong>IMPORTANT INFORMATION</strong>
+    'Default' => isset($_ADDONLANG['inwx_es_contacts']) ? $_ADDONLANG['inwx_es_contacts'] : '<strong>IMPORTANT INFORMATION</strong>
 <ul>
 <li><strong>REGISTRANT</strong>: The REGISTRANT contact can be either a private person or a company.</li>
 <li><strong>ADMIN CONTACT</strong>: The ADMIN contact MUST be a private person, it cannot be a company.</li>
