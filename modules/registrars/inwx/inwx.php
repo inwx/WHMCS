@@ -97,6 +97,11 @@ function inwx_TransferSync(array $params): array
 function inwx_getConfigArray(): array
 {
     return [
+        'HealthCheck' => [
+            'FriendlyName' => 'API Healthcheck',
+            'Type' => 'text',
+            'Description' => inwx_RenderHealthCheckButton(),
+        ],
         'Username' => [
             'Type' => 'text',
             'Size' => '20',
@@ -1161,6 +1166,56 @@ function inwx_AdminCustomButtonArray()
         'Sync Domain' => 'SyncDomain',
     ];
     return $buttonarray;
+}
+
+function inwx_HealthCheck(array $params): array
+{
+    if (empty($params['Username']) || empty($params['Password'])) {
+        return [
+            'success' => false,
+            'message' => 'INWX credentials are not configured. Set Username and Password first.',
+        ];
+    }
+
+    try {
+        $domrobot = inwx_CreateDomrobot($params);
+        $response = $domrobot->call('account', 'login', [
+            'user' => $params['Username'],
+            'pass' => $params['Password'],
+        ]);
+    } catch (Throwable $e) {
+        return [
+            'success' => false,
+            'message' => 'Connection to INWX API failed: ' . $e->getMessage(),
+        ];
+    }
+
+    $endpoint = !empty($params['TestMode']) ? 'OTE (Test Environment)' : 'Live';
+
+    if (!is_array($response) || !isset($response['code'])) {
+        return [
+            'success' => false,
+            'message' => 'Unexpected response from INWX API (' . $endpoint . ').',
+        ];
+    }
+
+    if ($response['code'] === 1000) {
+        try {
+            $domrobot->call('account', 'logout', []);
+        } catch (Throwable $e) {
+            // logout failure is not relevant for the health check
+        }
+
+        return [
+            'success' => true,
+            'message' => 'INWX API reachable and credentials accepted (' . $endpoint . ').',
+        ];
+    }
+
+    return [
+        'success' => false,
+        'message' => 'INWX API rejected the request (' . $endpoint . '): ' . inwx_GetApiResponseErrorMessage($response),
+    ];
 }
 
 /**

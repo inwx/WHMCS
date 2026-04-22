@@ -147,3 +147,99 @@ function inwx_IncludeAdditionalDomainFields()
     global $additionaldomainfields;
     include implode(DIRECTORY_SEPARATOR, [ROOTDIR, 'resources', 'domains', 'additionalfields.php']);
 }
+
+function inwx_RenderHealthCheckButton(): string
+{
+    $endpoint = '../modules/registrars/inwx/healthcheck.php';
+
+    return <<<HTML
+<button type="button" id="inwx-healthcheck-btn" class="btn btn-info">Test API Connection</button>
+<span id="inwx-healthcheck-result" style="margin-left:10px; font-weight:500;"></span>
+<script>
+(function(){
+    function findField(name) {
+        return document.querySelector(
+            'input[name="field[' + name + ']"], ' +
+            'input[name="' + name + '"], ' +
+            'select[name="field[' + name + ']"], ' +
+            'select[name="' + name + '"]'
+        );
+    }
+
+    function hideHealthCheckInput() {
+        var nodes = document.querySelectorAll(
+            'input[name="field[HealthCheck]"], input[name="HealthCheck"], ' +
+            'select[name="field[HealthCheck]"], select[name="HealthCheck"]'
+        );
+        nodes.forEach(function(el){
+            el.style.display = 'none';
+            if (el.tagName === 'INPUT') {
+                el.type = 'hidden';
+                el.value = '';
+            }
+        });
+    }
+
+    function boot(){
+        var btn = document.getElementById('inwx-healthcheck-btn');
+        if (!btn || btn.dataset.inwxBound) { return; }
+        btn.dataset.inwxBound = '1';
+
+        hideHealthCheckInput();
+        var retries = 0;
+        var iv = setInterval(function(){
+            hideHealthCheckInput();
+            if (++retries > 10) { clearInterval(iv); }
+        }, 200);
+
+        var result = document.getElementById('inwx-healthcheck-result');
+        btn.addEventListener('click', function(){
+            btn.disabled = true;
+            result.textContent = 'Checking...';
+            result.style.color = '';
+
+            var userEl = findField('Username');
+            var passEl = findField('Password');
+            var testEl = document.querySelector(
+                'input[name="field[TestMode]"][type="checkbox"], input[name="TestMode"][type="checkbox"], ' +
+                'input[name="field[TestMode]"][type="radio"]:checked, input[name="TestMode"][type="radio"]:checked, ' +
+                'input[name="field[TestMode]"]:not([type="radio"]):not([type="checkbox"]), input[name="TestMode"]:not([type="radio"]):not([type="checkbox"])'
+            );
+
+            var body = new URLSearchParams();
+            if (userEl && userEl.value !== '') { body.append('username', userEl.value); }
+            if (passEl && passEl.value !== '') { body.append('password', passEl.value); }
+            if (testEl) {
+                var testVal = testEl.type === 'checkbox' ? (testEl.checked ? 'on' : '') : testEl.value;
+                if (testVal !== '') { body.append('testmode', testVal); }
+            }
+
+            fetch('{$endpoint}', {
+                method: 'POST',
+                credentials: 'same-origin',
+                cache: 'no-store',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: body.toString()
+            })
+                .then(function(r){ return r.json().then(function(d){ return {ok:r.ok, data:d}; }); })
+                .then(function(res){
+                    var data = res.data || {};
+                    result.textContent = data.message || (res.ok ? 'OK' : 'Healthcheck failed.');
+                    result.style.color = (res.ok && data.success) ? '#3c763d' : '#a94442';
+                })
+                .catch(function(err){
+                    result.textContent = 'Request failed: ' + err.message;
+                    result.style.color = '#a94442';
+                })
+                .then(function(){ btn.disabled = false; });
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+    } else {
+        boot();
+    }
+})();
+</script>
+HTML;
+}
