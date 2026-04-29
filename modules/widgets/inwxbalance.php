@@ -73,16 +73,7 @@ class InwxBalanceWidget extends AbstractWidget
             '<div style="font-size:22px;font-weight:600;margin-bottom:6px;">' +
                 fmt(data.available) + ' ' + cur + tag +
             '</div>' +
-            '<div class="small text-muted">Available for transactions</div>' +
-            '<table class="table table-condensed" style="margin-top:10px;margin-bottom:0;">' +
-                row('Total', fmt(data.total) + ' ' + cur) +
-                row('Locked', fmt(data.locked) + ' ' + cur) +
-                row('Credit limit', fmt(data.creditLimit) + ' ' + cur) +
-            '</table>';
-    }
-
-    function row(label, value) {
-        return '<tr><td>' + escapeHtml(label) + '</td><td class="text-right">' + value + '</td></tr>';
+            '<div class="small text-muted">Available for transactions</div>';
     }
 
     function escapeHtml(s) {
@@ -139,11 +130,6 @@ HTML;
 
         return '<div style="font-size:22px;font-weight:600;margin-bottom:6px;">'
             . $fmt($data['available'] ?? 0) . ' ' . $currency . $endpointTag . '</div>'
-            . '<div class="small text-muted">Available for transactions</div>'
-            . '<table class="table table-condensed" style="margin-top:10px;margin-bottom:0;">'
-            . '<tr><td>Total</td><td class="text-right">' . $fmt($data['total'] ?? 0) . ' ' . $currency . '</td></tr>'
-            . '<tr><td>Locked</td><td class="text-right">' . $fmt($data['locked'] ?? 0) . ' ' . $currency . '</td></tr>'
-            . '<tr><td>Credit limit</td><td class="text-right">' . $fmt($data['creditLimit'] ?? 0) . ' ' . $currency . '</td></tr>'
-            . '</table>';
+            . '<div class="small text-muted">Available for transactions</div>';
     }
 }
