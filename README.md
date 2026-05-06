@@ -46,7 +46,7 @@ INWX WHMCS Registrar Module
 
 It is recommended to use our module's additionaldomainfields for required domain registration extra data.
 
-If you only have inwx as a registrar you can simply copy `modules/registrars/inwx/additionaldomainfields.php` to `resources/domains/additionalfields.php`.
+If you only have inwx as a registrar you can simply copy `modules/registrars/inwx/additionaldomainfields.php` and `modules/registrars/inwx/additionaldomainfields.json` to `resources/domains/additionalfields.php` and `resources/domains/additionalfields.json` respectively.
 
 If you have to or want to support multiple registrars you have to add the following statement to `resources/domains/additionalfields.php`:
 ```php
