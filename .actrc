@@ -1,0 +1,2 @@
+-P ubuntu-latest=act-dind
+--pull=false
