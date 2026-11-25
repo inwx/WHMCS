@@ -3,6 +3,7 @@
   "description": "INWX WHMCS Registrar Module",
   "version": "0.0.0-semantic-release",
   "private": true,
+  "packageManager": "pnpm@12.23.0",
   "scripts": {
     "semantic-release": "dotenv -- semantic-release",
     "prepare": "bash -c 'mkdir -p ./vendor/bin ; bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest ./vendor/bin/' ; husky"
@@ -12,15 +13,15 @@
   "license": "MIT",
   "type": "module",
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@hexonet/semantic-release-whmcs": "^5.0.58",
-    "@semantic-release/github": "^11.0.1",
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@hexonet/semantic-release-whmcs": "^5.2.14",
+    "@semantic-release/github": "^12.0.11",
     "cz-conventional-changelog": "^3.3.0",
-    "dotenv-cli": "^8.0.0",
+    "dotenv-cli": "^11.1.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.0",
-    "semantic-release": "^24.2.3"
+    "lint-staged": "^17.6.2",
+    "semantic-release": "^26.0.1"
   },
   "release": {
     "tagFormat": "${version}",
@@ -49,8 +50,7 @@
     }
   },
   "volta": {
-    "node": "20.13.1",
-    "pnpm": "9.1.2"
+    "node": "26.13.1"
   },
   "lint-staged": {
     ".github/workflows/**/*.yml": "./vendor/bin/actionlint",
