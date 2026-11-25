@@ -1,0 +1,50 @@
+# Local act check of release.yml `build` job; never published, nothing pushed.
+# docker build -t act-dind .github/act
+# act push --container-options=--privileged --container-daemon-socket=- -W .github/act/release-check.yml --secret-file /dev/null --env-file /dev/null --var-file /dev/null
+name: Release (local)
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          cache: 'pnpm'
+          node-version: "lts/*"
+      - uses: php-actions/composer@v6
+      - id: commit
+        uses: prompt/actions-commit-hash@v4
+      - run: pnpm install
+      - run: pnpm lint-staged
+      - run: git ls-files '*.php' | xargs sed -i 's/0.0.0-semantic-release/99.0.0-local+${{ steps.commit.outputs.short }}/g'
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r release.zip modules LICENSE README.md
+      - uses: jmgilman/actions-generate-checksum@v1
+        with:
+          patterns: |
+            release.zip
+      - name: Plugin prepare + Chrome launch (stands in for publish)
+        env:
+          DEBUG: semantic-release:whmcs
+        run: |
+          # runs from repo root like semantic-release; mirrors lib/puppet.js executable lookup
+          node --input-type=module -e '
+            import { createRequire } from "module"; import fs from "fs"; import os from "os"; import path from "path";
+            const plugin = path.resolve("node_modules/@hexonet/semantic-release-whmcs/index.js");
+            const p = await import(plugin);
+            await p.default.prepare({}, { cwd: process.cwd(), nextRelease: { version: "99.0.0" }, lastRelease: {} });
+            const puppeteer = (await import(createRequire(fs.realpathSync(plugin)).resolve("puppeteer"))).default;
+            let exe = process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath();
+            if (!fs.existsSync(exe)) {
+              const home = path.join(os.homedir(), ".cache/puppeteer/chrome");
+              const v = fs.existsSync(home) ? fs.readdirSync(home).sort().pop() : null;
+              if (v) exe = path.join(home, v, "chrome-linux64/chrome");
+            }
+            console.log("EXE", exe, fs.existsSync(exe));
+            const b = await puppeteer.launch({ executablePath: exe, headless: true, args: ["--disable-gpu", "--no-sandbox", "--disable-setuid-sandbox"] });
+            console.log("CHROME OK", await b.version());
+            await b.close();
+          '
